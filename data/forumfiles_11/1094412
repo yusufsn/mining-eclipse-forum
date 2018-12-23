@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; Plugin loading fails in 3.3/3.4</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=109441&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; Plugin loading fails in 3.3/3.4 | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; Plugin loading fails in 3.3/3.4 | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; Plugin loading fails in 3.3/3.4 | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>Plugin loading fails in 3.3/3.4</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/109441/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/109441/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/109441/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/109441/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/109441/334418/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_334418"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334418&amp;#msg_334418" class="MsgSubText">Plugin loading fails in 3.3/3.4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334418&amp;#msg_334418">message #334418</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 07 February 2009 15:45</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+&gt; This message is in MIME format. Since your mail reader does not understand<br />
+this format, some or all of this message may not be legible.<br />
+<br />
+--B_3316837550_4864002<br />
+Content-type: text/plain;<br />
+	charset=&quot;US-ASCII&quot;<br />
+Content-transfer-encoding: 7bit<br />
+<br />
+This is a post I put up in the newbie section, but got no response.  I<br />
+subsequently saw several posts about invalid activators on this list (though<br />
+none were entirely relevant to my case).  The odd thing about this is that<br />
+it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+still working on it, but if anyone can make any suggestions, I would be<br />
+appreciative.<br />
+<br />
+TIA, Ric<br />
+<br />
+--------------------------------------------------<br />
+I've gotten a little farther. I turned on the debugging in the launch tab<br />
+and I found:<br />
+<br />
+!ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+!MESSAGE The activator<br />
+com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+invalid<br />
+!STACK 0<br />
+org.osgi.framework.BundleException: The activator<br />
+com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is invalid<br />
+<br />
+at <br />
+ org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator(<br />
+AbstractBundle.java:146)<br />
+    at<br />
+ org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleConte<br />
+xtImpl.java:980)<br />
+    at<br />
+ org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost.j<br />
+ava:346)<br />
+<br />
+Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+Some spelunking suggests it might have something to do with the third party<br />
+jars<br />
+(e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+only plugins fail.  Any suggestions or tips welcome.<br />
+<br />
+TIA, Ric<br />
+<br />
+On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+<br />
+&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and runs<br />
+&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the message<br />
+&gt; <br />
+&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to load<br />
+&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt; <br />
+&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To be<br />
+&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt; that way). I don't really know how to start figuring this out.<br />
+&gt; <br />
+&gt; I posted a question here once before about this but didn't get any pointers.<br />
+&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt; where to start.  Any pointers would be appreciated.<br />
+&gt; <br />
+&gt; Thanks,<br />
+&gt; Ric<br />
+&gt; <br />
+&gt; <br />
+<br />
+<br />
+<br />
+--B_3316837550_4864002<br />
+Content-type: text/plain; name=&quot;stack_trace.txt&quot;;<br />
+ x-mac-creator=&quot;21526368&quot;;<br />
+ x-mac-type=&quot;54455854&quot;<br />
+Content-disposition: attachment;<br />
+	filename=&quot;stack_trace.txt&quot;<br />
+Content-transfer-encoding: base64<br />
+<br />
+<br />
+ amF2YS5sYW5nLkNsYXNzTm90Rm91bmRFeGNlcHRpb246IGNvbS5nZW9meC5v cGVuZ2wudmll<br />
+ dy5PcGVuR0xWaWV3CglhdCBvcmcuZWNsaXBzZS5vc2dpLmZyYW1ld29yay5p bnRlcm5hbC5j<br />
+ b3JlLkJ1bmRsZUxvYWRlci5maW5kQ2xhc3NJbnRlcm5hbChCdW5kbGVMb2Fk ZXIuamF2YTo0<br />
+ ODEpCglhdCBvcmcuZWNsaXBzZS5vc2dpLmZyYW1ld29yay5pbnRlcm5hbC5j b3JlLkJ1bmRs<br />
+ ZUxvYWRlci5maW5kQ2xhc3MoQnVuZGxlTG9hZGVyLmphdmE6Mzk3KQoJYXQg b3JnLmVjbGlw<br />
+ c2Uub3NnaS5mcmFtZXdvcmsuaW50ZXJuYWwuY29yZS5CdW5kbGVMb2FkZXIu ZmluZENsYXNz<br />
+ KEJ1bmRsZUxvYWRlci5qYXZhOjM4NSkKCWF0IG9yZy5lY2xpcHNlLm9zZ2ku aW50ZXJuYWwu<br />
+ YmFzZWFkYXB0b3IuRGVmYXVsdENsYXNzTG9hZGVyLmxvYWRDbGFzcyhEZWZh dWx0Q2xhc3NM<br />
+ b2FkZXIuamF2YTo4NykKCWF0IGphdmEubGFuZy5DbGFzc0xvYWRlci5sb2Fk Q2xhc3MoQ2xh<br />
+ c3NMb2FkZXIuamF2YToyNTEpCglhdCBvcmcuZWNsaXBzZS5vc2dpLmZyYW1l d29yay5pbnRl<br />
+ cm5hbC5jb3JlLkJ1bmRsZUxvYWRlci5sb2FkQ2xhc3MoQnVuZGxlTG9hZGVy LmphdmE6MzEz<br />
+ KQoJYXQgb3JnLmVjbGlwc2Uub3NnaS5mcmFtZXdvcmsuaW50ZXJuYWwuY29y ZS5CdW5kbGVI<br />
+ b3N0LmxvYWRDbGFzcyhCdW5kbGVIb3N0LmphdmE6MjI3KQoJYXQgb3JnLmVj bGlwc2Uub3Nn<br />
+ aS5mcmFtZXdvcmsuaW50ZXJuYWwuY29yZS5BYnN0cmFjdEJ1bmRsZS5sb2Fk Q2xhc3MoQWJz<br />
+ dHJhY3RCdW5kbGUuamF2YToxMjc0KQoJYXQgb3JnLmVjbGlwc2UuY29yZS5p bnRlcm5hbC5y<br />
+ ZWdpc3RyeS5vc2dpLlJlZ2lzdHJ5U3RyYXRlZ3lPU0dJLmNyZWF0ZUV4ZWN1 dGFibGVFeHRl<br />
+ bnNpb24oUmVnaXN0cnlTdHJhdGVneU9TR0kuamF2YToxNjApCglhdCBvcmcu ZWNsaXBzZS5j<br />
+ b3JlLmludGVybmFsLnJlZ2lzdHJ5LkV4dGVuc2lvblJlZ2lzdHJ5LmNyZWF0 ZUV4ZWN1dGFi<br />
+ bGVFeHRlbnNpb24oRXh0ZW5zaW9uUmVnaXN0cnkuamF2YTo4NjcpCglhdCBv cmcuZWNsaXBz<br />
+ ZS5jb3JlLmludGVybmFsLnJlZ2lzdHJ5LkNvbmZpZ3VyYXRpb25FbGVtZW50 LmNyZWF0ZUV4<br />
+ ZWN1dGFibGVFeHRlbnNpb24oQ29uZmlndXJhdGlvbkVsZW1lbnQuamF2YToy NDMpCglhdCBv<br />
+ cmcuZWNsaXBzZS5jb3JlLmludGVybmFsLnJlZ2lzdHJ5LkNvbmZpZ3VyYXRp b25FbGVtZW50<br />
+ SGFuZGxlLmNyZWF0ZUV4ZWN1dGFibGVFeHRlbnNpb24oQ29uZmlndXJhdGlv bkVsZW1lbnRI<br />
+ YW5kbGUuamF2YTo1MSkKCWF0IG9yZy5lY2xpcHNlLnVpLmludGVybmFsLldv cmtiZW5jaFBs<br />
+ dWdpbiQxLnJ1bihXb3JrYmVuY2hQbHVnaW4uamF2YToyNjcpCglhdCBvcmcu ZWNsaXBzZS5z<br />
+ d3QuY3VzdG9tLkJ1c3lJbmRpY2F0b3Iuc2hvd1doaWxlKEJ1c3lJbmRpY2F0 b3IuamF2YTo3<br />
+ MCkKCWF0IG9yZy5lY2xpcHNlLnVpLmludGVybmFsLldvcmtiZW5jaFBsdWdp bi5jcmVhdGVF<br />
+ eHRlbnNpb24oV29ya2JlbmNoUGx1Z2luLmphdmE6MjYzKQoJYXQgb3JnLmVj bGlwc2UudWku<br />
+ aW50ZXJuYWwucmVnaXN0cnkuVmlld0Rlc2NyaXB0b3IuY3JlYXRlVmlldyhW aWV3RGVzY3Jp<br />
+ cHRvci5qYXZhOjYzKQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuVmll d1JlZmVyZW5j<br />
+ ZS5jcmVhdGVQYXJ0SGVscGVyKFZpZXdSZWZlcmVuY2UuamF2YTozMjgpCglh dCBvcmcuZWNs<br />
+ aXBzZS51aS5pbnRlcm5hbC5WaWV3UmVmZXJlbmNlLmNyZWF0ZVBhcnQoVmll d1JlZmVyZW5j<br />
+ ZS5qYXZhOjIzMCkKCWF0IG9yZy5lY2xpcHNlLnVpLmludGVybmFsLldvcmti ZW5jaFBhcnRS<br />
+ ZWZlcmVuY2UuZ2V0UGFydChXb3JrYmVuY2hQYXJ0UmVmZXJlbmNlLmphdmE6 NTk0KQoJYXQg<br />
+ b3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuUGVyc3BlY3RpdmUuc2hvd1ZpZXco UGVyc3BlY3Rp<br />
+ dmUuamF2YToyMTI3KQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuV29y a2JlbmNoUGFn<br />
+ ZS5idXN5U2hvd1ZpZXcoV29ya2JlbmNoUGFnZS5qYXZhOjEwNjIpCglhdCBv cmcuZWNsaXBz<br />
+ ZS51aS5pbnRlcm5hbC5Xb3JrYmVuY2hQYWdlJDE5LnJ1bihXb3JrYmVuY2hQ YWdlLmphdmE6<br />
+ Mzc3MykKCWF0IG9yZy5lY2xpcHNlLnN3dC5jdXN0b20uQnVzeUluZGljYXRv ci5zaG93V2hp<br />
+ bGUoQnVzeUluZGljYXRvci5qYXZhOjcwKQoJYXQgb3JnLmVjbGlwc2UudWku aW50ZXJuYWwu<br />
+ V29ya2JlbmNoUGFnZS5zaG93VmlldyhXb3JrYmVuY2hQYWdlLmphdmE6Mzc3 MCkKCWF0IG9y<br />
+ Zy5lY2xpcHNlLnVpLmludGVybmFsLldvcmtiZW5jaFBhZ2Uuc2hvd1ZpZXco V29ya2JlbmNo<br />
+ UGFnZS5qYXZhOjM3NDYpCglhdCBvcmcuZWNsaXBzZS51aS5oYW5kbGVycy5T aG93Vmlld0hh<br />
+ bmRsZXIub3BlblZpZXcoU2hvd1ZpZXdIYW5kbGVyLmphdmE6MTY1KQoJYXQg b3JnLmVjbGlw<br />
+ c2UudWkuaGFuZGxlcnMuU2hvd1ZpZXdIYW5kbGVyLm9wZW5PdGhlcihTaG93 Vmlld0hhbmRs<br />
+ ZXIuamF2YToxMDkpCglhdCBvcmcuZWNsaXBzZS51aS5oYW5kbGVycy5TaG93 Vmlld0hhbmRs<br />
+ ZXIuZXhlY3V0ZShTaG93Vmlld0hhbmRsZXIuamF2YTo3NykKCWF0IG9yZy5l Y2xpcHNlLnVp<br />
+ LmludGVybmFsLmhhbmRsZXJzLkhhbmRsZXJQcm94eS5leGVjdXRlKEhhbmRs ZXJQcm94eS5q<br />
+ YXZhOjI4MSkKCWF0IG9yZy5lY2xpcHNlLmNvcmUuY29tbWFuZHMuQ29tbWFu ZC5leGVjdXRl<br />
+ V2l0aENoZWNrcyhDb21tYW5kLmphdmE6NDc2KQoJYXQgb3JnLmVjbGlwc2Uu Y29yZS5jb21t<br />
+ YW5kcy5QYXJhbWV0ZXJpemVkQ29tbWFuZC5leGVjdXRlV2l0aENoZWNrcyhQ YXJhbWV0ZXJp<br />
+ emVkQ29tbWFuZC5qYXZhOjUwOCkKCWF0IG9yZy5lY2xpcHNlLnVpLmludGVy bmFsLmhhbmRs<br />
+ ZXJzLkhhbmRsZXJTZXJ2aWNlLmV4ZWN1dGVDb21tYW5kKEhhbmRsZXJTZXJ2 aWNlLmphdmE6<br />
+ MTY5KQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuaGFuZGxlcnMuU2xh dmVIYW5kbGVy<br />
+ U2VydmljZS5leGVjdXRlQ29tbWFuZChTbGF2ZUhhbmRsZXJTZXJ2aWNlLmph dmE6MjQ3KQoJ<br />
+ YXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuU2hvd1ZpZXdNZW51JDMucnVu KFNob3dWaWV3<br />
+ TWVudS5qYXZhOjEzNCkKCWF0IG9yZy5lY2xpcHNlLmpmYWNlLmFjdGlvbi5B Y3Rpb24ucnVu<br />
+ V2l0aEV2ZW50KEFjdGlvbi5qYXZhOjQ5OCkKCWF0IG9yZy5lY2xpcHNlLmpm YWNlLmFjdGlv<br />
+ bi5BY3Rpb25Db250cmlidXRpb25JdGVtLmhhbmRsZVdpZGdldFNlbGVjdGlv bihBY3Rpb25D<br />
+ b250cmlidXRpb25JdGVtLmphdmE6NTgzKQoJYXQgb3JnLmVjbGlwc2UuamZh Y2UuYWN0aW9u<br />
+ LkFjdGlvbkNvbnRyaWJ1dGlvbkl0ZW0uYWNjZXNzJDIoQWN0aW9uQ29udHJp YnV0aW9uSXRl<br />
+ bS5qYXZhOjUwMCkKCWF0IG9yZy5lY2xpcHNlLmpmYWNlLmFjdGlvbi5BY3Rp b25Db250cmli<br />
+ dXRpb25JdGVtJDUuaGFuZGxlRXZlbnQoQWN0aW9uQ29udHJpYnV0aW9uSXRl bS5qYXZhOjQx<br />
+ MSkKCWF0IG9yZy5lY2xpcHNlLnN3dC53aWRnZXRzLkV2ZW50VGFibGUuc2Vu ZEV2ZW50KEV2<br />
+ ZW50VGFibGUuamF2YTo4NCkKCWF0IG9yZy5lY2xpcHNlLnN3dC53aWRnZXRz LldpZGdldC5z<br />
+ ZW5kRXZlbnQoV2lkZ2V0LmphdmE6MTU2MSkKCWF0IG9yZy5lY2xpcHNlLnN3 dC53aWRnZXRz<br />
+ LldpZGdldC5zZW5kRXZlbnQoV2lkZ2V0LmphdmE6MTU4NSkKCWF0IG9yZy5l Y2xpcHNlLnN3<br />
+ dC53aWRnZXRzLldpZGdldC5zZW5kRXZlbnQoV2lkZ2V0LmphdmE6MTU3MCkK CWF0IG9yZy5l<br />
+ Y2xpcHNlLnN3dC53aWRnZXRzLldpZGdldC5ub3RpZnlMaXN0ZW5lcnMoV2lk Z2V0LmphdmE6<br />
+ MTM2MCkKCWF0IG9yZy5lY2xpcHNlLnN3dC53aWRnZXRzLkRpc3BsYXkucnVu RGVmZXJyZWRF<br />
+ dmVudHMoRGlzcGxheS5qYXZhOjM0ODIpCglhdCBvcmcuZWNsaXBzZS5zd3Qu d2lkZ2V0cy5E<br />
+ aXNwbGF5LnJlYWRBbmREaXNwYXRjaChEaXNwbGF5LmphdmE6MzA2OCkKCWF0 IG9yZy5lY2xp<br />
+ cHNlLnVpLmludGVybmFsLldvcmtiZW5jaC5ydW5FdmVudExvb3AoV29ya2Jl bmNoLmphdmE6<br />
+ MjM4MikKCWF0IG9yZy5lY2xpcHNlLnVpLmludGVybmFsLldvcmtiZW5jaC5y dW5VSShXb3Jr<br />
+ YmVuY2guamF2YToyMzQ2KQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwu V29ya2JlbmNo<br />
+ LmFjY2VzcyQ0KFdvcmtiZW5jaC5qYXZhOjIxOTgpCglhdCBvcmcuZWNsaXBz ZS51aS5pbnRl<br />
+ cm5hbC5Xb3JrYmVuY2gkNS5ydW4oV29ya2JlbmNoLmphdmE6NDkzKQoJYXQg b3JnLmVjbGlw<br />
+ c2UuY29yZS5kYXRhYmluZGluZy5vYnNlcnZhYmxlLlJlYWxtLnJ1bldpdGhE ZWZhdWx0KFJl<br />
+ YWxtLmphdmE6Mjg4KQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuV29y a2JlbmNoLmNy<br />
+ ZWF0ZUFuZFJ1bldvcmtiZW5jaChXb3JrYmVuY2guamF2YTo0ODgpCglhdCBv cmcuZWNsaXBz<br />
+ ZS51aS5QbGF0Zm9ybVVJLmNyZWF0ZUFuZFJ1bldvcmtiZW5jaChQbGF0Zm9y bVVJLmphdmE6<br />
+ MTQ5KQoJYXQgb3JnLmVjbGlwc2UudWkuaW50ZXJuYWwuaWRlLmFwcGxpY2F0 aW9uLklERUFw<br />
+ cGxpY2F0aW9uLnN0YXJ0KElERUFwcGxpY2F0aW9uLmphdmE6MTEzKQoJYXQg b3JnLmVjbGlw<br />
+ c2UuZXF1aW5veC5pbnRlcm5hbC5hcHAuRWNsaXBzZUFwcEhhbmRsZS5ydW4o RWNsaXBzZUFw<br />
+ cEhhbmRsZS5qYXZhOjE5MykKCWF0IG9yZy5lY2xpcHNlLmNvcmUucnVudGlt ZS5pbnRlcm5h<br />
+ bC5hZGFwdG9yLkVjbGlwc2VBcHBMYXVuY2hlci5ydW5BcHBsaWNhdGlvbihF Y2xpcHNlQXBw<br />
+ TGF1bmNoZXIuamF2YToxMTApCglhdCBvcmcuZWNsaXBzZS5jb3JlLnJ1bnRp bWUuaW50ZXJu<br />
+ YWwuYWRhcHRvci5FY2xpcHNlQXBwTGF1bmNoZXIuc3RhcnQoRWNsaXBzZUFw cExhdW5jaGVy<br />
+ LmphdmE6NzkpCglhdCBvcmcuZWNsaXBzZS5jb3JlLnJ1bnRpbWUuYWRhcHRv ci5FY2xpcHNl<br />
+ U3RhcnRlci5ydW4oRWNsaXBzZVN0YXJ0ZXIuamF2YTozODYpCglhdCBvcmcu ZWNsaXBzZS5j<br />
+ b3JlLnJ1bnRpbWUuYWRhcHRvci5FY2xpcHNlU3RhcnRlci5ydW4oRWNsaXBz ZVN0YXJ0ZXIu<br />
+ amF2YToxNzkpCglhdCBzdW4ucmVmbGVjdC5OYXRpdmVNZXRob2RBY2Nlc3Nv ckltcGwuaW52<br />
+ b2tlMChOYXRpdmUgTWV0aG9kKQoJYXQgc3VuLnJlZmxlY3QuTmF0aXZlTWV0 aG9kQWNjZXNz<br />
+ b3JJbXBsLmludm9rZShOYXRpdmVNZXRob2RBY2Nlc3NvckltcGwuamF2YToz OSkKCWF0IHN1<br />
+ bi5yZWZsZWN0LkRlbGVnYXRpbmdNZXRob2RBY2Nlc3NvckltcGwuaW52b2tl KERlbGVnYXRp<br />
+ bmdNZXRob2RBY2Nlc3NvckltcGwuamF2YToyNSkKCWF0IGphdmEubGFuZy5y ZWZsZWN0Lk1l<br />
+ dGhvZC5pbnZva2UoTWV0aG9kLmphdmE6NTg1KQoJYXQgb3JnLmVjbGlwc2Uu ZXF1aW5veC5s<br />
+ YXVuY2hlci5NYWluLmludm9rZUZyYW1ld29yayhNYWluLmphdmE6NTQ5KQoJ YXQgb3JnLmVj<br />
+ bGlwc2UuZXF1aW5veC5sYXVuY2hlci5NYWluLmJhc2ljUnVuKE1haW4uamF2 YTo1MDQpCglh<br />
+ dCBvcmcuZWNsaXBzZS5lcXVpbm94LmxhdW5jaGVyLk1haW4ucnVuKE1haW4u amF2YToxMjM2<br />
+ KQoJYXQgb3JnLmVjbGlwc2UuZXF1aW5veC5sYXVuY2hlci5NYWluLm1haW4o TWFpbi5qYXZh<br />
+OjEyMTIpCg==<br />
+--B_3316837550_4864002<br />
+Content-type: application/octet-stream; name=&quot;plugin.xml&quot;<br />
+Content-disposition: attachment;<br />
+	filename=&quot;plugin.xml&quot;<br />
+Content-transfer-encoding: base64<br />
+<br />
+<br />
+ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjw/ZWNs aXBzZSB2ZXJz<br />
+ aW9uPSIzLjMiPz4NCjxwbHVnaW4+DQoNCiAgIDxleHRlbnNpb24NCiAgICAg ICAgIHBvaW50<br />
+ PSJvcmcuZWNsaXBzZS51aS52aWV3cyI+DQogICAgICA8Y2F0ZWdvcnkNCiAg ICAgICAgICAg<br />
+ IG5hbWU9Ik9wZW5HTCBDYXRlZ29yeSINCiAgICAgICAgICAgIGlkPSJjb20u Z2VvZngub3Bl<br />
+ bmdsLnZpZXciPg0KICAgICAgPC9jYXRlZ29yeT4NCiAgICAgIDx2aWV3DQog ICAgICAgICAg<br />
+ ICBuYW1lPSJPcGVuR0wgVmlldyINCiAgICAgICAgICAgIGljb249Imljb25z L3NhbXBsZS5n<br />
+ aWYiDQogICAgICAgICAgICBjYXRlZ29yeT0iY29tLmdlb2Z4Lm9wZW5nbC52 aWV3Ig0KICAg<br />
+ ICAgICAgICAgY2xhc3M9ImNvbS5nZW9meC5vcGVuZ2wudmlldy5PcGVuR0xW aWV3Ig0KICAg<br />
+ ICAgICAgICAgaWQ9ImNvbS5nZW9meC5vcGVuZ2wudmlldy5PcGVuR0xWaWV3 Ij4NCiAgICAg<br />
+ IDwvdmlldz4NCiAgIDwvZXh0ZW5zaW9uPg0KICAgPGV4dGVuc2lvbg0KICAg ICAgICAgcG9p<br />
+ bnQ9Im9yZy5lY2xpcHNlLnVpLnBlcnNwZWN0aXZlRXh0ZW5zaW9ucyI+DQog ICAgICA8cGVy<br />
+ c3BlY3RpdmVFeHRlbnNpb24NCiAgICAgICAgICAgIHRhcmdldElEPSJvcmcu ZWNsaXBzZS51<br />
+ aS5yZXNvdXJjZVBlcnNwZWN0aXZlIj4NCiAgICAgICAgIDx2aWV3DQogICAg ICAgICAgICAg<br />
+ ICByYXRpbz0iMC41Ig0KICAgICAgICAgICAgICAgcmVsYXRpdmU9Im9yZy5l Y2xpcHNlLnVp<br />
+ LnZpZXdzLlRhc2tMaXN0Ig0KICAgICAgICAgICAgICAgcmVsYXRpb25zaGlw PSJyaWdodCIN<br />
+ CiAgICAgICAgICAgICAgIGlkPSJjb20uZ2VvZngub3BlbmdsLnZpZXcuT3Bl bkdMVmlldyI+<br />
+ DQogICAgICAgICA8L3ZpZXc+DQogICAgICA8L3BlcnNwZWN0aXZlRXh0ZW5z aW9uPg0KICAg<br />
+ PC9leHRlbnNpb24+DQogICA8ZXh0ZW5zaW9uDQogICAgICAgICBwb2ludD0i b3JnLmVjbGlw<br />
+ c2UudWkuYWN0aW9uU2V0cyI+DQogICAgICA8YWN0aW9uU2V0DQogICAgICAg ICAgICBpZD0i<br />
+ Y29tLmdlb2Z4Lm9wZW5nbC52aWV3LmFjdGlvblNldCINCiAgICAgICAgICAg IGxhYmVsPSJT<br />
+ ZWxlY3QgU2NlbmUiDQogICAgICAgICAgICB2aXNpYmxlPSJ0cnVlIj4NCiAg ICAgICAgIDxt<br />
+ ZW51DQogICAgICAgICAgICAgICBpZD0ic2NlbmVTZWxlY3QiDQogICAgICAg ICAgICAgICBs<br />
+ YWJlbD0iJmFtcDtPcGVuR0wiPg0KICAgICAgICAgICAgPHNlcGFyYXRvciBu YW1lPSJzZWxl<br />
+ Y3RHcm91cCIvPg0KICAgICAgICAgPC9tZW51Pg0KICAgICAgICAgPGFjdGlv bg0KICAgICAg<br />
+ ICAgICAgICAgY2xhc3M9ImNvbS5nZW9meC5vcGVuZ2wuc2NlbmUuU2NlbmVT ZWxlY3QiDQog<br />
+ ICAgICAgICAgICAgICBpY29uPSJpY29ucy9vZ2xfc21fc3F1YXJlLmdpZiIN CiAgICAgICAg<br />
+ ICAgICAgIGlkPSJjb20uZ2VvZngub3BlbmdsLnZpZXcuYWN0aW9ucy5TZWxl Y3RTY2VuZSIN<br />
+ CiAgICAgICAgICAgICAgIGxhYmVsPSImYW1wO1NlbGVjdCBTY2VuZSINCiAg ICAgICAgICAg<br />
+ ICAgIG1lbnViYXJQYXRoPSJzY2VuZVNlbGVjdC9zZWxlY3RHcm91cCINCiAg ICAgICAgICAg<br />
+ ICAgIHRvb2xiYXJQYXRoPSJzZWxlY3RHcm91cCINCiAgICAgICAgICAgICAg IHRvb2x0aXA9<br />
+ IlNlbGVjdCBTY2VuZSIvPg0KICAgICAgPC9hY3Rpb25TZXQ+DQogICA8L2V4 dGVuc2lvbj4N<br />
+CjwvcGx1Z2luPg0K<br />
+--B_3316837550_4864002<br />
+Content-type: application/octet-stream; name=&quot;build.properties&quot;<br />
+Content-disposition: attachment;<br />
+	filename=&quot;build.properties&quot;<br />
+Content-transfer-encoding: base64<br />
+<br />
+<br />
+ b3V0cHV0Li4gPSBiaW4vDQpiaW4uaW5jbHVkZXMgPSBwbHVnaW4ueG1sLFwN CiAgICAgICAg<br />
+ ICAgICAgIE1FVEEtSU5GLyxcDQogICAgICAgICAgICAgICBpY29ucy8sXA0K ICAgICAgICAg<br />
+ ICAgICAgZ2x1ZWdlbi1ydC5qYXIsXA0KICAgICAgICAgICAgICAgam9nbC5q YXIsXA0KICAg<br />
+ ICAgICAgICAgICAgY29tLmdlb2Z4Lm9wZW5nbC51dGlsXzEuMC4wLmphcixc DQogICAgICAg<br />
+ICAgICAgICBiaW4vDQpzcmMuaW5jbHVkZXMgPSBzcmMvDQo=<br />
+--B_3316837550_4864002<br />
+Content-type: application/octet-stream; name=&quot;MANIFEST.MF&quot;<br />
+Content-disposition: attachment;<br />
+	filename=&quot;MANIFEST.MF&quot;<br />
+Content-transfer-encoding: base64<br />
+<br />
+<br />
+ TWFuaWZlc3QtVmVyc2lvbjogMS4wCkJ1bmRsZS1NYW5pZmVzdFZlcnNpb246 IDIKQnVuZGxl<br />
+ LU5hbWU6IE9wZW5HTCBWaWV3IFBsdWctaW4KQnVuZGxlLVN5bWJvbGljTmFt ZTogY29tLmdl<br />
+ b2Z4Lm9wZW5nbC52aWV3O3NpbmdsZXRvbjo9dHJ1ZQpCdW5kbGUtVmVyc2lv bjogMS4wLjAK<br />
+ QnVuZGxlLUFjdGl2YXRvcjogY29tLmdlb2Z4Lm9wZW5nbC52aWV3LkFjdGl2 YXRvcgpCdW5k<br />
+ bGUtTG9jYWxpemF0aW9uOiBwbHVnaW4KUmVxdWlyZS1CdW5kbGU6IG9yZy5l Y2xpcHNlLnVp<br />
+ LAogb3JnLmVjbGlwc2UuY29yZS5ydW50aW1lLAogamF2YTNkIApFY2xpcHNl LUxhenlTdGFy<br />
+ dDogdHJ1ZQpCdW5kbGUtQ2xhc3NQYXRoOiBnbHVlZ2VuLXJ0LmphciwKIGpv Z2wuamFyLAog<br />
+ Y29tLmdlb2Z4Lm9wZW5nbC51dGlsXzEuMC4wLmphcgpFeHBvcnQtUGFja2Fn ZTogY29tLmdl<br />
+ b2Z4Lm9wZW5nbC52aWV3OwogIHVzZXM6PSJvcmcuZWNsaXBzZS51aS5wYXJ0 LAogICBjb20u<br />
+ Z2VvZngub3BlbmdsLnNjZW5lLAogICBvcmcub3NnaS5mcmFtZXdvcmssCiAg IG9yZy5lY2xp<br />
+ cHNlLnVpLnBsdWdpbiwKICAgb3JnLmVjbGlwc2UuamZhY2UucmVzb3VyY2Us CiAgIG9yZy5l<br />
+ Y2xpcHNlLmNvcmUucnVudGltZSwKICAgb3JnLmVjbGlwc2Uuc3d0LndpZGdl dHMiCg==<br />
+--B_3316837550_4864002--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334418&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334418&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334418&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_334422"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334422&amp;#msg_334422" class="MsgSubText">Re: Plugin loading fails in 3.3/3.4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334422&amp;#msg_334422">message #334422</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334418&amp;#msg_334418">message #334418</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 07 February 2009 18:54</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> subs._nospam_consertum.com<br />
+<br />
+I think it more likely that your activator isn't a valid activator for <br />
+3.3. Have you tried opening the source in a 3.3 PDE and see what it <br />
+complains about?<br />
+<br />
+Have you looked at the 3.3 Migration Guide?<br />
+<a href="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.isv/porting/eclipse_3_3_porting_guide.html" target="_blank"> http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse. platform.doc.isv/porting/eclipse_3_3_porting_guide.html</a><br />
+<br />
+Ric Wright wrote:<br />
+&gt; This is a post I put up in the newbie section, but got no response.  I<br />
+&gt; subsequently saw several posts about invalid activators on this list (though<br />
+&gt; none were entirely relevant to my case).  The odd thing about this is that<br />
+&gt; it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+&gt; still working on it, but if anyone can make any suggestions, I would be<br />
+&gt; appreciative.<br />
+&gt; <br />
+&gt; TIA, Ric<br />
+&gt; <br />
+&gt; --------------------------------------------------<br />
+&gt; I've gotten a little farther. I turned on the debugging in the launch tab<br />
+&gt; and I found:<br />
+&gt; <br />
+&gt; !ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+&gt; !MESSAGE The activator<br />
+&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt; invalid<br />
+&gt; !STACK 0<br />
+&gt; org.osgi.framework.BundleException: The activator<br />
+&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is invalid<br />
+&gt; <br />
+&gt; at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator(<br />
+&gt; AbstractBundle.java:146)<br />
+&gt;     at<br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleConte<br />
+&gt; xtImpl.java:980)<br />
+&gt;     at<br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost.j<br />
+&gt; ava:346)<br />
+&gt; <br />
+&gt; Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+&gt; Some spelunking suggests it might have something to do with the third party<br />
+&gt; jars<br />
+&gt; (e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+&gt; only plugins fail.  Any suggestions or tips welcome.<br />
+&gt; <br />
+&gt; TIA, Ric<br />
+&gt; <br />
+&gt; On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt; <br />
+&gt;&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt;&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and runs<br />
+&gt;&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the message<br />
+&gt;&gt;<br />
+&gt;&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to load<br />
+&gt;&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt;&gt;<br />
+&gt;&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To be<br />
+&gt;&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt;&gt; that way). I don't really know how to start figuring this out.<br />
+&gt;&gt;<br />
+&gt;&gt; I posted a question here once before about this but didn't get any pointers.<br />
+&gt;&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt;&gt; where to start.  Any pointers would be appreciated.<br />
+&gt;&gt;<br />
+&gt;&gt; Thanks,<br />
+&gt;&gt; Ric<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt; <br />
+&gt; <br />
+<br />
+<br />
+-- <br />
+Derek</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334422&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334422&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334422&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_334425"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334425&amp;#msg_334425" class="MsgSubText">Re: Plugin loading fails in 3.3/3.4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334425&amp;#msg_334425">message #334425</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334422&amp;#msg_334422">message #334422</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 07 February 2009 20:32</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+&gt; This message is in MIME format. Since your mail reader does not understand<br />
+this format, some or all of this message may not be legible.<br />
+<br />
+--B_3316854740_5862917<br />
+Content-type: text/plain;<br />
+	charset=&quot;US-ASCII&quot;<br />
+Content-transfer-encoding: 7bit<br />
+<br />
+Thanks for responding, Derek.<br />
+<br />
+AFAIK, the activator is valid (attached).  When brought up in Eclipse, there<br />
+is only a warning about a raw iterator (that I will fix once I get past<br />
+this).<br />
+<br />
+I did read through the migration and the only thing that seemed relevant was<br />
+the boot delegation order.  I tried the org.osgi.framework.bootdelegation=*<br />
+in the config.ini, but it made no difference, so that doesn't seem to be it.<br />
+<br />
+The execution never gets to the Activator BTW, neither ctor nor start()<br />
+methods are ever called.  My suspicion is that one of the dependencies (e.g.<br />
+The JOGL or Java3D jars can't be resolved so the message is a little bogus.<br />
+But I don't know how to find out WHICH class it thinks it can't find.  It<br />
+says com.geofx.opengl.view.OpenGLView but I think that is misleading since<br />
+that file IS in the exported package, etc.  But I could be missing<br />
+something.<br />
+<br />
+I included the plugin.xml, manifest.xml etc. in the previous post on this<br />
+thread.<br />
+<br />
+Thanks, Ric<br />
+<br />
+<br />
+On 2/7/09 10:54 AM, in article gmkld3$9h$<a href="mailto:1&#64;build.eclipse.org" target="_blank">1&#64;build.eclipse.org</a>, &quot;Derek&quot;<br />
+&lt;<a href="mailto:subs&#64;_nospam_consertum.com" target="_blank">subs&#64;_nospam_consertum.com</a>&gt; wrote:<br />
+<br />
+&gt; I think it more likely that your activator isn't a valid activator for<br />
+&gt; 3.3. Have you tried opening the source in a 3.3 PDE and see what it<br />
+&gt; complains about?<br />
+&gt; <br />
+&gt; Have you looked at the 3.3 Migration Guide?<br />
+&gt; <a href="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.isv/p" target="_blank"> http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse. platform.doc.isv/p</a><br />
+&gt; orting/eclipse_3_3_porting_guide.html<br />
+&gt; <br />
+&gt; Ric Wright wrote:<br />
+&gt;&gt; This is a post I put up in the newbie section, but got no response.  I<br />
+&gt;&gt; subsequently saw several posts about invalid activators on this list (though<br />
+&gt;&gt; none were entirely relevant to my case).  The odd thing about this is that<br />
+&gt;&gt; it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+&gt;&gt; still working on it, but if anyone can make any suggestions, I would be<br />
+&gt;&gt; appreciative.<br />
+&gt;&gt; <br />
+&gt;&gt; TIA, Ric<br />
+&gt;&gt; <br />
+&gt;&gt; --------------------------------------------------<br />
+&gt;&gt; I've gotten a little farther. I turned on the debugging in the launch tab<br />
+&gt;&gt; and I found:<br />
+&gt;&gt; <br />
+&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+&gt;&gt; !MESSAGE The activator<br />
+&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt;&gt; invalid<br />
+&gt;&gt; !STACK 0<br />
+&gt;&gt; org.osgi.framework.BundleException: The activator<br />
+&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is invalid<br />
+&gt;&gt; <br />
+&gt;&gt; at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator(<br />
+&gt;&gt; AbstractBundle.java:146)<br />
+&gt;&gt;     at<br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleConte<br />
+&gt;&gt; xtImpl.java:980)<br />
+&gt;&gt;     at<br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost.j<br />
+&gt;&gt; ava:346)<br />
+&gt;&gt; <br />
+&gt;&gt; Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+&gt;&gt; Some spelunking suggests it might have something to do with the third party<br />
+&gt;&gt; jars<br />
+&gt;&gt; (e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+&gt;&gt; only plugins fail.  Any suggestions or tips welcome.<br />
+&gt;&gt; <br />
+&gt;&gt; TIA, Ric<br />
+&gt;&gt; <br />
+&gt;&gt; On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt;&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt;&gt;&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and runs<br />
+&gt;&gt;&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the message<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to load<br />
+&gt;&gt;&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To be<br />
+&gt;&gt;&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt;&gt;&gt; that way). I don't really know how to start figuring this out.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; I posted a question here once before about this but didn't get any pointers.<br />
+&gt;&gt;&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt;&gt;&gt; where to start.  Any pointers would be appreciated.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt; Ric<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;&gt; <br />
+&gt; <br />
+<br />
+<br />
+--B_3316854740_5862917<br />
+Content-type: application/octet-stream; name=&quot;Activator.java&quot;<br />
+Content-disposition: attachment;<br />
+	filename=&quot;Activator.java&quot;<br />
+Content-transfer-encoding: base64<br />
+<br />
+<br />
+ LyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq KioqKioqKioq<br />
+ KioqKioqKioqKioqKioqKioqKioqKioqKioNCiAqIENvcHlyaWdodCAoYykg MjAwOCBSaWMg<br />
+ V3JpZ2h0IA0KICogQWxsIHJpZ2h0cyByZXNlcnZlZC4gVGhpcyBwcm9ncmFt IGFuZCB0aGUg<br />
+ YWNjb21wYW55aW5nIG1hdGVyaWFscyANCiAqIGFyZSBtYWRlIGF2YWlsYWJs ZSB1bmRlciB0<br />
+ aGUgdGVybXMgb2YgdGhlIEVjbGlwc2UgUHVibGljIExpY2Vuc2UgdjEuMA0K ICogd2hpY2gg<br />
+ YWNjb21wYW5pZXMgdGhpcyBkaXN0cmlidXRpb24sIGFuZCBpcyBhdmFpbGFi bGUgYXQNCiAq<br />
+ IGh0dHA6Ly93d3cuZWNsaXBzZS5vcmcvb3JnL2RvY3VtZW50cy9lcGwtdjEw Lmh0bWwNCiAq<br />
+ IA0KICogQ29udHJpYnV0b3JzOg0KICogICAgIFJpYyBXcmlnaHQgLSBpbml0 aWFsIGltcGxl<br />
+ bWVudGF0aW9uDQogKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq KioqKioqKioq<br />
+ KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi8NCg0KcGFj a2FnZSBjb20u<br />
+ Z2VvZngub3BlbmdsLnZpZXc7DQoNCmltcG9ydCBqYXZhLmxhbmcucmVmbGVj dC5JbnZvY2F0<br />
+ aW9uVGFyZ2V0RXhjZXB0aW9uOw0KaW1wb3J0IGphdmEubmV0LlVSTDsNCmlt cG9ydCBqYXZh<br />
+ LnV0aWwuQXJyYXlMaXN0Ow0KaW1wb3J0IGphdmEudXRpbC5FbnVtZXJhdGlv bjsNCg0KaW1w<br />
+ b3J0IG9yZy5lY2xpcHNlLmNvcmUucnVudGltZS5QbGF0Zm9ybTsNCmltcG9y dCBvcmcuZWNs<br />
+ aXBzZS5qZmFjZS5yZXNvdXJjZS5JbWFnZURlc2NyaXB0b3I7DQppbXBvcnQg b3JnLmVjbGlw<br />
+ c2Uuc3d0LndpZGdldHMuQ29tcG9zaXRlOw0KaW1wb3J0IG9yZy5lY2xpcHNl LnVpLnBsdWdp<br />
+ bi5BYnN0cmFjdFVJUGx1Z2luOw0KaW1wb3J0IG9yZy5vc2dpLmZyYW1ld29y ay5CdW5kbGVD<br />
+ b250ZXh0Ow0KDQppbXBvcnQgY29tLmdlb2Z4Lm9wZW5nbC5zY2VuZS5HTFNj ZW5lOw0KDQov<br />
+ KioNCiAqIFRoZSBhY3RpdmF0b3IgY2xhc3MgY29udHJvbHMgdGhlIHBsdWct aW4gbGlmZSBj<br />
+ eWNsZQ0KICovDQpwdWJsaWMgY2xhc3MgQWN0aXZhdG9yIGV4dGVuZHMgQWJz dHJhY3RVSVBs<br />
+ dWdpbg0Kew0KDQoJLy8gVGhlIHBsdWctaW4gSUQNCglwdWJsaWMgc3RhdGlj IGZpbmFsIFN0<br />
+ cmluZyBQTFVHSU5fSUQgPSAiY29tLmdlb2Z4Lm9wZW5nbC52aWV3IjsNCg0K CS8vIFRoZSBz<br />
+ aGFyZWQgaW5zdGFuY2UNCglwcml2YXRlIHN0YXRpYyBBY3RpdmF0b3IgCXBs dWdpbjsNCglw<br />
+ cml2YXRlIHN0YXRpYyBTdHJpbmcJCXNjZW5lTmFtZTsNCglwcml2YXRlIHN0 YXRpYyBPcGVu<br />
+ R0xWaWV3CWdsVmlldzsNCgkNCglwcml2YXRlIHN0YXRpYyBBcnJheUxpc3Q8 Q2xhc3NJbmZv<br />
+ PgljbGFzc0luZm8gPSBuZXcgQXJyYXlMaXN0PENsYXNzSW5mbz4oKTsNCgkN CgkvKioNCgkg<br />
+ KiBUaGUgY29uc3RydWN0b3INCgkgKi8NCglwdWJsaWMgQWN0aXZhdG9yKCkN Cgl7DQoJCXBs<br />
+ dWdpbiA9IHRoaXM7DQoJfQ0KDQoJcHVibGljIHN0YXRpYyBBcnJheUxpc3Qg Z2V0Q2xhc3NJ<br />
+ bmZvKCkNCgl7DQoJCXJldHVybiBjbGFzc0luZm87DQoJfQ0KCQ0KCS8qDQoJ ICogKG5vbi1K<br />
+ YXZhZG9jKQ0KCSAqIA0KCSAqIEBzZWUgb3JnLmVjbGlwc2UudWkucGx1Z2lu LkFic3RyYWN0<br />
+ VUlQbHVnaW4jc3RhcnQob3JnLm9zZ2kuZnJhbWV3b3JrLkJ1bmRsZUNvbnRl eHQpDQoJICov<br />
+ DQoJcHVibGljIHZvaWQgc3RhcnQoQnVuZGxlQ29udGV4dCBjb250ZXh0KSB0 aHJvd3MgRXhj<br />
+ ZXB0aW9uDQoJew0KCQlTeXN0ZW0ub3V0LnByaW50bG4oIkFjdGl2YXRvcjpz dGFydCgpIik7<br />
+ DQoJCQ0KCQlzdXBlci5zdGFydChjb250ZXh0KTsNCgkJDQoJCWVudW1DbGFz c2VzKCk7DQoJ<br />
+ CQ0KCQkvLyBmZXRjaCB0aGUgc2NlbmUgdXNlZCB0aGUgbGFzdCB0aW1lLCBp ZiBhbnkNCgkJ<br />
+ c2NlbmVOYW1lID0gZ2V0RGVmYXVsdCgpLmdldFByZWZlcmVuY2VTdG9yZSgp LmdldFN0cmlu<br />
+ ZyhQbHVnaW5Db25zdGFudHMuU0NFTkVOQU1FKTsNCgkJaWYgKHNjZW5lTmFt ZSA9PSAiIikN<br />
+ CgkJew0KCQkJc2NlbmVOYW1lID0gUGx1Z2luQ29uc3RhbnRzLkRFRkFVTFRf U0NFTkVOQU1F<br />
+ Ow0KCQl9DQoJfQ0KDQoJLyoNCgkgKiAobm9uLUphdmFkb2MpDQoJICogQHNl ZSBvcmcuZWNs<br />
+ aXBzZS51aS5wbHVnaW4uQWJzdHJhY3RVSVBsdWdpbiNzdG9wKG9yZy5vc2dp LmZyYW1ld29y<br />
+ ay5CdW5kbGVDb250ZXh0KQ0KCSAqLw0KCXB1YmxpYyB2b2lkIHN0b3AoQnVu ZGxlQ29udGV4<br />
+ dCBjb250ZXh0KSB0aHJvd3MgRXhjZXB0aW9uDQoJew0KCQkvLyBzYXZlIHRo ZSBzY2VuZSB3<br />
+ ZSB1c2VkIHRoaXMgdGltZQ0KCQlnZXREZWZhdWx0KCkuZ2V0UHJlZmVyZW5j ZVN0b3JlKCku<br />
+ c2V0VmFsdWUoUGx1Z2luQ29uc3RhbnRzLlNDRU5FTkFNRSwgc2NlbmVOYW1l KTsNCgkJDQoJ<br />
+ CXBsdWdpbiA9IG51bGw7DQoJCXN1cGVyLnN0b3AoY29udGV4dCk7DQoJfQ0K DQoJLyoqDQoJ<br />
+ ICogUmV0dXJucyB0aGUgc2hhcmVkIGluc3RhbmNlDQoJICoNCgkgKiBAcmV0 dXJuIHRoZSBz<br />
+ aGFyZWQgaW5zdGFuY2UNCgkgKi8NCglwdWJsaWMgc3RhdGljIEFjdGl2YXRv ciBnZXREZWZh<br />
+ dWx0KCkNCgl7DQoJCXJldHVybiBwbHVnaW47DQoJfQ0KDQoJLyoqDQoJICog UmV0dXJucyBh<br />
+ biBpbWFnZSBkZXNjcmlwdG9yIGZvciB0aGUgaW1hZ2UgZmlsZSBhdCB0aGUg Z2l2ZW4NCgkg<br />
+ KiBwbHVnLWluIHJlbGF0aXZlIHBhdGgNCgkgKg0KCSAqIEBwYXJhbSBwYXRo IHRoZSBwYXRo<br />
+ DQoJICogQHJldHVybiB0aGUgaW1hZ2UgZGVzY3JpcHRvcg0KCSAqLw0KCXB1 YmxpYyBzdGF0<br />
+ aWMgSW1hZ2VEZXNjcmlwdG9yIGdldEltYWdlRGVzY3JpcHRvcihTdHJpbmcg cGF0aCkNCgl7<br />
+ DQoJCXJldHVybiBpbWFnZURlc2NyaXB0b3JGcm9tUGx1Z2luKFBMVUdJTl9J RCwgcGF0aCk7<br />
+ DQoJfQ0KDQoJLy8gZ2V0dGVycyBhbmQgc2V0dGVycyBmb3IgdGhlIHNjZW5l TmFtZSBhbmQg<br />
+ dGhlIGdsVmlldyBvYmplY3RzDQoJcHVibGljIHN0YXRpYyBTdHJpbmcgZ2V0 U2NlbmVOYW1l<br />
+ KCkNCgl7DQoJCXJldHVybiBzY2VuZU5hbWU7DQoJfQ0KDQoJcHVibGljIHN0 YXRpYyB2b2lk<br />
+ IHNldFNjZW5lTmFtZSggU3RyaW5nIG5hbWUgKQ0KCXsNCgkJc2NlbmVOYW1l ID0gbmFtZTsN<br />
+ Cgl9DQoNCglwdWJsaWMgc3RhdGljIHZvaWQgc2V0R0xWaWV3KCBPcGVuR0xW aWV3IGdsVmll<br />
+ dyApDQoJew0KCQlBY3RpdmF0b3IuZ2xWaWV3ID0gZ2xWaWV3Ow0KCX0NCg0K CXB1YmxpYyBz<br />
+ dGF0aWMgT3BlbkdMVmlldyBnZXRHTFZpZXcoKQ0KCXsNCgkJcmV0dXJuIGds VmlldzsNCgl9<br />
+ DQoJDQoJLyoqDQoJICogVXNpbmcgdGhlIGJ1bmRsZSwgZW51bWVyYXRlIGFs bCB0aGUgY2xh<br />
+ c3NlcyBpbiB0aGlzIHBsdWdpbiBhbmQgc2VlIHdoaWNoIA0KCSAqIG9uZXMg YXJlIGluIHRo<br />
+ ZSBleGFtcGxlcyBwYWNrYWdlLiBUaG9zZSBhcmUgdGhlIG9uZXMgd2Ugd2ls bCBhbGxvdyB0<br />
+ aGUgdXNlciB0byBjaG9vc2UuDQoJICogDQoJICogQHJldHVybiBsaXN0IG9m IGNsYXNzZXMg<br />
+ dG8gY2hvb3NlIGZyb20NCgkgKi8NCglwdWJsaWMgdm9pZCBlbnVtQ2xhc3Nl cygpDQoJew0K<br />
+ CQl0cnkNCgkJew0KCQkJRW51bWVyYXRpb24gZW50cmllcyA9IFBsYXRmb3Jt LmdldEJ1bmRs<br />
+ ZShQbHVnaW5Db25zdGFudHMuUExVR0lOX0lEKS5maW5kRW50cmllcygiLyIs ICIqIiArICIu<br />
+ Y2xhc3MiLCB0cnVlKTsNCgkJCXdoaWxlIChlbnRyaWVzLmhhc01vcmVFbGVt ZW50cygpKQ0K<br />
+ CQkJew0KCQkJCVVSTCBlbnRyeSA9IChVUkwpIGVudHJpZXMubmV4dEVsZW1l bnQoKTsNCgkJ<br />
+ CQkvLyBDaGFuZ2UgdGhlIFVSTHMgdG8gaGF2ZSBKYXZhIGNsYXNzIG5hbWVz DQoJCQkJU3Ry<br />
+ aW5nIHBhdGggPSBlbnRyeS5nZXRQYXRoKCkucmVwbGFjZSgnLycsICcuJyk7 DQoJCQkJLy8g<br />
+ c2VlIGlmIHRoZSBjbGFzcyBpcyBpbiB0aGUgcGFja2FnZSB3ZSBhcmUgaW50 ZXJlc3RlZCBp<br />
+ biBhbmQgaXNuJ3QgYSBzdWJjbGFzcw0KCQkJCWludCBzdGFydCA9IHBhdGgu aW5kZXhPZihQ<br />
+ bHVnaW5Db25zdGFudHMuRVhBTVBMRVNfUEFDS0FHRSk7DQoJCQkJaW50IHN1 YkNsYXNzID0g<br />
+ cGF0aC5pbmRleE9mKCIkIik7DQoJCQkJaWYgKHN0YXJ0ID49IDAgJiYgc3Vi Q2xhc3MgPT0g<br />
+ LTEgKQ0KCQkJCXsNCgkJCQkJLy8gc3RyaXAgb2ZmIHRoZSBjbGFzcyBzdWZm aXggYW5kIHdl<br />
+ IGFyZSBkb25lDQoJCQkJCVN0cmluZyBuYW1lID0gcGF0aC5zdWJzdHJpbmco c3RhcnQsIHBh<br />
+ dGgubGVuZ3RoKCkgLSAiLmNsYXNzIi5sZW5ndGgoKSk7DQoJCQkJDQoJCQkJ CUdMU2NlbmUJ<br />
+ c2NlbmUgPSBjb25zdHJ1Y3RTY2VuZSggbmFtZSwgbnVsbCwgbnVsbCApOwkJ CQkJDQoJCQkJ<br />
+ CWNsYXNzSW5mby5hZGQoIGdldENsYXNzSW5mbyhuYW1lLCBzY2VuZSkgKTsN CgkJCQl9DQoJ<br />
+ CQl9DQoJCX0NCgkJY2F0Y2ggKEV4Y2VwdGlvbiBlKQ0KCQl7DQoJCQllLnBy aW50U3RhY2tU<br />
+ cmFjZSgpOw0KCQl9DQoJfQ0KCQ0KCS8qKg0KCSAqIA0KCSAqIEBwYXJhbSBu YW1lDQoJICog<br />
+ QHBhcmFtIHNjZW5lDQoJICogQHJldHVybg0KCSAqLw0KCXByaXZhdGUgQ2xh c3NJbmZvIGdl<br />
+ dENsYXNzSW5mbyggU3RyaW5nIG5hbWUsIEdMU2NlbmUgc2NlbmUgKQ0KCXsN CgkJQ2xhc3NJ<br />
+ bmZvIAlpbmZvID0gbmV3IENsYXNzSW5mbyggbmFtZSwgc2NlbmUuZ2V0RGVz Y3JpcHRpb24o<br />
+ KSwgc2NlbmUuZ2V0TGFiZWwoKSApOw0KCQlTeXN0ZW0ub3V0LnByaW50bG4o ImluZm8gPSAi<br />
+ ICsgaW5mbyk7DQoJDQoJCXJldHVybiBpbmZvOw0KCX0NCgkNCgkvKioNCgkg KiANCgkgKiBA<br />
+ cGFyYW0gbmFtZQ0KCSAqIEBwYXJhbSBjb21wb3NpdGUNCgkgKiBAcGFyYW0g ZnJhbWUNCgkg<br />
+ KiBAcmV0dXJuDQoJICovDQoJcHVibGljIHN0YXRpYyBHTFNjZW5lIGNvbnN0 cnVjdFNjZW5l<br />
+ KCBTdHJpbmcgCQkJbmFtZSwNCgkJCQkJCQkJICAgICAgICAgIENvbXBvc2l0 ZSAJCWNvbXBv<br />
+ c2l0ZSwNCgkJCQkJCQkJICAgICAgICAgIGphdmEuYXd0LkZyYW1lIAlmcmFt ZSApDQoJew0K<br />
+ CQlHTFNjZW5lCW5ld1NjZW5lID0gbnVsbDsNCgkJT2JqZWN0W10gYXJncyA9 IHt9Ow0KCQlD<br />
+ bGFzc1tdIHR5cGVzID0ge307DQoJCUNsYXNzPD8+IGNsYXNzZTsNCgkJDQoJ CXRyeQ0KCQl7<br />
+ DQoJCQljbGFzc2UgPSBDbGFzcy5mb3JOYW1lKG5hbWUpOw0KCQkJDQoJCQlp ZiAoY29tcG9z<br />
+ aXRlICE9IG51bGwgJiYgZnJhbWUgIT0gbnVsbCkNCgkJCXsNCgkJCQlhcmdz ID0gbmV3IE9i<br />
+ amVjdFsyXTsNCgkJCQlhcmdzWzBdID0gY29tcG9zaXRlOw0KCQkJCWFyZ3Nb MV0gPSBmcmFt<br />
+ ZTsNCgkJCQl0eXBlcyA9IG5ldyBDbGFzc1syXTsNCgkJCQl0eXBlc1swXSA9 IENvbXBvc2l0<br />
+ ZS5jbGFzczsNCgkJCQl0eXBlc1sxXSA9IGphdmEuYXd0LkZyYW1lLmNsYXNz Ow0KCQkJCW5l<br />
+ d1NjZW5lID0gKEdMU2NlbmUpIGNsYXNzZS5nZXRDb25zdHJ1Y3Rvcih0eXBl cykubmV3SW5z<br />
+ dGFuY2UoYXJncyk7DQoJCQl9DQoJCQllbHNlDQoJCQkJbmV3U2NlbmUgPSAo R0xTY2VuZSkg<br />
+ Y2xhc3NlLmdldENvbnN0cnVjdG9yKHR5cGVzKS5uZXdJbnN0YW5jZSgpOw0K CQl9DQoJCWNh<br />
+ dGNoIChDbGFzc05vdEZvdW5kRXhjZXB0aW9uIGUpDQoJCXsNCgkJCWUucHJp bnRTdGFja1Ry<br />
+ YWNlKCk7DQoJCX0NCgkJY2F0Y2ggKElsbGVnYWxBcmd1bWVudEV4Y2VwdGlv biBlKQ0KCQl7<br />
+ DQoJCQllLnByaW50U3RhY2tUcmFjZSgpOw0KCQl9DQoJCWNhdGNoIChTZWN1 cml0eUV4Y2Vw<br />
+ dGlvbiBlKQ0KCQl7DQoJCQllLnByaW50U3RhY2tUcmFjZSgpOw0KCQl9DQoJ CWNhdGNoIChJ<br />
+ bnN0YW50aWF0aW9uRXhjZXB0aW9uIGUpDQoJCXsNCgkJCWUucHJpbnRTdGFj a1RyYWNlKCk7<br />
+ DQoJCX0NCgkJY2F0Y2ggKElsbGVnYWxBY2Nlc3NFeGNlcHRpb24gZSkNCgkJ ew0KCQkJZS5w<br />
+ cmludFN0YWNrVHJhY2UoKTsNCgkJfQ0KCQljYXRjaCAoSW52b2NhdGlvblRh cmdldEV4Y2Vw<br />
+ dGlvbiBlKQ0KCQl7DQoJCQllLnByaW50U3RhY2tUcmFjZSgpOw0KCQl9DQoJ CWNhdGNoIChO<br />
+ b1N1Y2hNZXRob2RFeGNlcHRpb24gZSkNCgkJew0KCQkJZS5wcmludFN0YWNr VHJhY2UoKTsN<br />
+ CgkJfQ0KCQkJDQoJCXJldHVybiBuZXdTY2VuZTsNCgl9DQoJDQoJLyoqDQoJ ICogSnVzdCBh<br />
+ IHNpbXBsZSBob2xkZXIgZm9yIG91ciBDbGFzc0luZm8NCgkgKg0KCSAqLw0K CXB1YmxpYyBj<br />
+ bGFzcyBDbGFzc0luZm8gDQoJew0KCQlwdWJsaWMgU3RyaW5nCW5hbWU7DQoJ CXB1YmxpYyBT<br />
+ dHJpbmcJZGVzY3JpcHRpb247DQoJCXB1YmxpYyBTdHJpbmcgCWxhYmVsOw0K CQkNCgkJcHVi<br />
+ bGljIENsYXNzSW5mbyAoIFN0cmluZyBuLCBTdHJpbmcgZCwgU3RyaW5nIGwg KQ0KCQl7DQoJ<br />
+ CQluYW1lID0gbjsNCgkJCWRlc2NyaXB0aW9uID0gZDsNCgkJCWxhYmVsID0g bDsNCgkJfQ0K<br />
+CX0NCn0=<br />
+--B_3316854740_5862917--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334425&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334425&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334425&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_334432"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334432&amp;#msg_334432" class="MsgSubText">Re: Plugin loading fails in 3.3/3.4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334432&amp;#msg_334432">message #334432</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334425&amp;#msg_334425">message #334425</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 09 February 2009 00:30</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+OK.  After a little digging I found a few more things.  First, I had a raw<br />
+Iterator, which Eclipse warned me about, but which worked fine in 3.2.  But<br />
+apparently not in 3.4.  It also caused another weird behaviour in that there<br />
+were no local variables shown.<br />
+<br />
+So I fixed the Iterator and suddenly I had local variables and got more info<br />
+back in the stack trace.  Turns out that Eclipse is apparently complaining<br />
+that it cannot instantiate one of my classes.  I call Class.forName() with<br />
+the name of one of my classes.  Since I am using JOGL, that class extends<br />
+GLEventListener, which at base is a native class accessed via JNI.  All the<br />
+proper JARs and JNILibs are in /Library/Java/Extensions and the<br />
+java.library.path points to it.  This all seems correct to me.  The build<br />
+path for the project shows the JOGL libs under the JRE System libs in the<br />
+build path dialog.  Again, this all seems correct.<br />
+<br />
+I'm still digging, but if this suggests anything to anybody, I'd appreciate<br />
+it.<br />
+<br />
+TIA, Ric<br />
+<br />
+<br />
+On 2/7/09 12:32 PM, in article C5B32FD4.18A37%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+<br />
+&gt; Thanks for responding, Derek.<br />
+&gt; <br />
+&gt; AFAIK, the activator is valid (attached).  When brought up in Eclipse, there<br />
+&gt; is only a warning about a raw iterator (that I will fix once I get past<br />
+&gt; this).<br />
+&gt; <br />
+&gt; I did read through the migration and the only thing that seemed relevant was<br />
+&gt; the boot delegation order.  I tried the org.osgi.framework.bootdelegation=*<br />
+&gt; in the config.ini, but it made no difference, so that doesn't seem to be it.<br />
+&gt; <br />
+&gt; The execution never gets to the Activator BTW, neither ctor nor start()<br />
+&gt; methods are ever called.  My suspicion is that one of the dependencies (e.g.<br />
+&gt; The JOGL or Java3D jars can't be resolved so the message is a little bogus.<br />
+&gt; But I don't know how to find out WHICH class it thinks it can't find.  It<br />
+&gt; says com.geofx.opengl.view.OpenGLView but I think that is misleading since<br />
+&gt; that file IS in the exported package, etc.  But I could be missing<br />
+&gt; something.<br />
+&gt; <br />
+&gt; I included the plugin.xml, manifest.xml etc. in the previous post on this<br />
+&gt; thread.<br />
+&gt; <br />
+&gt; Thanks, Ric<br />
+&gt; <br />
+&gt; <br />
+&gt; On 2/7/09 10:54 AM, in article gmkld3$9h$<a href="mailto:1&#64;build.eclipse.org" target="_blank">1&#64;build.eclipse.org</a>, &quot;Derek&quot;<br />
+&gt; &lt;<a href="mailto:subs&#64;_nospam_consertum.com" target="_blank">subs&#64;_nospam_consertum.com</a>&gt; wrote:<br />
+&gt; <br />
+&gt;&gt; I think it more likely that your activator isn't a valid activator for<br />
+&gt;&gt; 3.3. Have you tried opening the source in a 3.3 PDE and see what it<br />
+&gt;&gt; complains about?<br />
+&gt;&gt; <br />
+&gt;&gt; Have you looked at the 3.3 Migration Guide?<br />
+&gt;&gt; <br />
+<a href="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.isv/" target="_blank"> http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse. platform.doc.isv/</a>&gt;&gt;<br />
+p<br />
+&gt;&gt; orting/eclipse_3_3_porting_guide.html<br />
+&gt;&gt; <br />
+&gt;&gt; Ric Wright wrote:<br />
+&gt;&gt;&gt; This is a post I put up in the newbie section, but got no response.  I<br />
+&gt;&gt;&gt; subsequently saw several posts about invalid activators on this list (though<br />
+&gt;&gt;&gt; none were entirely relevant to my case).  The odd thing about this is that<br />
+&gt;&gt;&gt; it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+&gt;&gt;&gt; still working on it, but if anyone can make any suggestions, I would be<br />
+&gt;&gt;&gt; appreciative.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; --------------------------------------------------<br />
+&gt;&gt;&gt; I've gotten a little farther. I turned on the debugging in the launch tab<br />
+&gt;&gt;&gt; and I found:<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+&gt;&gt;&gt; !MESSAGE The activator<br />
+&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt;&gt;&gt; invalid<br />
+&gt;&gt;&gt; !STACK 0<br />
+&gt;&gt;&gt; org.osgi.framework.BundleException: The activator<br />
+&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is invalid<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; at <br />
+&gt;&gt;&gt;  org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator(<br />
+&gt;&gt;&gt; AbstractBundle.java:146)<br />
+&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleConte<br />
+&gt;&gt;&gt; xtImpl.java:980)<br />
+&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost.j<br />
+&gt;&gt;&gt; ava:346)<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+&gt;&gt;&gt; Some spelunking suggests it might have something to do with the third party<br />
+&gt;&gt;&gt; jars<br />
+&gt;&gt;&gt; (e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+&gt;&gt;&gt; only plugins fail.  Any suggestions or tips welcome.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt;&gt;&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt;&gt;&gt;&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and runs<br />
+&gt;&gt;&gt;&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the message<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to<br />
+&gt;&gt;&gt;&gt; load<br />
+&gt;&gt;&gt;&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To<br />
+&gt;&gt;&gt;&gt; be<br />
+&gt;&gt;&gt;&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt;&gt;&gt;&gt; that way). I don't really know how to start figuring this out.<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; I posted a question here once before about this but didn't get any<br />
+&gt;&gt;&gt;&gt; pointers.<br />
+&gt;&gt;&gt;&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt;&gt;&gt;&gt; where to start.  Any pointers would be appreciated.<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt;&gt; Ric<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334432&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334432&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334432&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_334449"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334449&amp;#msg_334449" class="MsgSubText">Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334449&amp;#msg_334449">message #334449</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334432&amp;#msg_334432">message #334432</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 09 February 2009 23:07</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+I poked at this a little more during lunch and I am still puzzled.<br />
+Previously, on Windows, I would point at the JOGL jar, and then set the<br />
+native library location field.  However, since Eclipse found the jars on its<br />
+own and placed them in JRE System Library section of the build path dialog,<br />
+I thought I would just set the native location there.  But no soap.  Eclipse<br />
+lets me set it, but immediately it clears it again - read-only perhaps?  I<br />
+suppose I could move the JOGL jars somewhere else and explicitly add them<br />
+and set their native library attributes, etc.  But since Eclipse and the Mac<br />
+have done 90% of the task seamlessly, that seems like a shame.<br />
+<br />
+Does anyone know the right way to do this?<br />
+<br />
+TIA, Ric<br />
+<br />
+<br />
+On 2/8/09 4:30 PM, in article C5B4B919.1B1AC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+<br />
+&gt; OK.  After a little digging I found a few more things.  First, I had a raw<br />
+&gt; Iterator, which Eclipse warned me about, but which worked fine in 3.2.  But<br />
+&gt; apparently not in 3.4.  It also caused another weird behaviour in that there<br />
+&gt; were no local variables shown.<br />
+&gt; <br />
+&gt; So I fixed the Iterator and suddenly I had local variables and got more info<br />
+&gt; back in the stack trace.  Turns out that Eclipse is apparently complaining<br />
+&gt; that it cannot instantiate one of my classes.  I call Class.forName() with<br />
+&gt; the name of one of my classes.  Since I am using JOGL, that class extends<br />
+&gt; GLEventListener, which at base is a native class accessed via JNI.  All the<br />
+&gt; proper JARs and JNILibs are in /Library/Java/Extensions and the<br />
+&gt; java.library.path points to it.  This all seems correct to me.  The build<br />
+&gt; path for the project shows the JOGL libs under the JRE System libs in the<br />
+&gt; build path dialog.  Again, this all seems correct.<br />
+&gt; <br />
+&gt; I'm still digging, but if this suggests anything to anybody, I'd appreciate<br />
+&gt; it.<br />
+&gt; <br />
+&gt; TIA, Ric<br />
+&gt; <br />
+&gt; <br />
+&gt; On 2/7/09 12:32 PM, in article C5B32FD4.18A37%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt; <br />
+&gt;&gt; Thanks for responding, Derek.<br />
+&gt;&gt; <br />
+&gt;&gt; AFAIK, the activator is valid (attached).  When brought up in Eclipse, there<br />
+&gt;&gt; is only a warning about a raw iterator (that I will fix once I get past<br />
+&gt;&gt; this).<br />
+&gt;&gt; <br />
+&gt;&gt; I did read through the migration and the only thing that seemed relevant was<br />
+&gt;&gt; the boot delegation order.  I tried the org.osgi.framework.bootdelegation=*<br />
+&gt;&gt; in the config.ini, but it made no difference, so that doesn't seem to be it.<br />
+&gt;&gt; <br />
+&gt;&gt; The execution never gets to the Activator BTW, neither ctor nor start()<br />
+&gt;&gt; methods are ever called.  My suspicion is that one of the dependencies (e.g.<br />
+&gt;&gt; The JOGL or Java3D jars can't be resolved so the message is a little bogus.<br />
+&gt;&gt; But I don't know how to find out WHICH class it thinks it can't find.  It<br />
+&gt;&gt; says com.geofx.opengl.view.OpenGLView but I think that is misleading since<br />
+&gt;&gt; that file IS in the exported package, etc.  But I could be missing<br />
+&gt;&gt; something.<br />
+&gt;&gt; <br />
+&gt;&gt; I included the plugin.xml, manifest.xml etc. in the previous post on this<br />
+&gt;&gt; thread.<br />
+&gt;&gt; <br />
+&gt;&gt; Thanks, Ric<br />
+&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;&gt; On 2/7/09 10:54 AM, in article gmkld3$9h$<a href="mailto:1&#64;build.eclipse.org" target="_blank">1&#64;build.eclipse.org</a>, &quot;Derek&quot;<br />
+&gt;&gt; &lt;<a href="mailto:subs&#64;_nospam_consertum.com" target="_blank">subs&#64;_nospam_consertum.com</a>&gt; wrote:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; I think it more likely that your activator isn't a valid activator for<br />
+&gt;&gt;&gt; 3.3. Have you tried opening the source in a 3.3 PDE and see what it<br />
+&gt;&gt;&gt; complains about?<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; Have you looked at the 3.3 Migration Guide?<br />
+&gt;&gt;&gt; <br />
+&gt; <br />
+<a href="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.isv/" target="_blank"> http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse. platform.doc.isv/</a>&gt;&gt;<br />
+&gt;<br />
+&gt; p<br />
+&gt;&gt;&gt; orting/eclipse_3_3_porting_guide.html<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; Ric Wright wrote:<br />
+&gt;&gt;&gt;&gt; This is a post I put up in the newbie section, but got no response.  I<br />
+&gt;&gt;&gt;&gt; subsequently saw several posts about invalid activators on this list<br />
+&gt;&gt;&gt;&gt; (though<br />
+&gt;&gt;&gt;&gt; none were entirely relevant to my case).  The odd thing about this is that<br />
+&gt;&gt;&gt;&gt; it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+&gt;&gt;&gt;&gt; still working on it, but if anyone can make any suggestions, I would be<br />
+&gt;&gt;&gt;&gt; appreciative.<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; --------------------------------------------------<br />
+&gt;&gt;&gt;&gt; I've gotten a little farther. I turned on the debugging in the launch tab<br />
+&gt;&gt;&gt;&gt; and I found:<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+&gt;&gt;&gt;&gt; !MESSAGE The activator<br />
+&gt;&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt;&gt;&gt;&gt; invalid<br />
+&gt;&gt;&gt;&gt; !STACK 0<br />
+&gt;&gt;&gt;&gt; org.osgi.framework.BundleException: The activator<br />
+&gt;&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is invalid<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; at <br />
+&gt;&gt;&gt;&gt; <br />
+ org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator &gt;&gt;&gt;&gt;<br />
+(<br />
+&gt;&gt;&gt;&gt; AbstractBundle.java:146)<br />
+&gt;&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;&gt; <br />
+ org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleCont &gt;&gt;&gt;&gt;<br />
+e<br />
+&gt;&gt;&gt;&gt; xtImpl.java:980)<br />
+&gt;&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;&gt; <br />
+ org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost. &gt;&gt;&gt;&gt;<br />
+j<br />
+&gt;&gt;&gt;&gt; ava:346)<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+&gt;&gt;&gt;&gt; Some spelunking suggests it might have something to do with the third party<br />
+&gt;&gt;&gt;&gt; jars<br />
+&gt;&gt;&gt;&gt; (e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+&gt;&gt;&gt;&gt; only plugins fail.  Any suggestions or tips welcome.<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt;&gt;&gt;&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt;&gt;&gt;&gt;&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and runs<br />
+&gt;&gt;&gt;&gt;&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the message<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to<br />
+&gt;&gt;&gt;&gt;&gt; load<br />
+&gt;&gt;&gt;&gt;&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To<br />
+&gt;&gt;&gt;&gt;&gt; be<br />
+&gt;&gt;&gt;&gt;&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt;&gt;&gt;&gt;&gt; that way). I don't really know how to start figuring this out.<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; I posted a question here once before about this but didn't get any<br />
+&gt;&gt;&gt;&gt;&gt; pointers.<br />
+&gt;&gt;&gt;&gt;&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt;&gt;&gt;&gt;&gt; where to start.  Any pointers would be appreciated.<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt;&gt;&gt; Ric<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334449&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334449&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334449&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_334496"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334496&amp;#msg_334496" class="MsgSubText">Re: Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334496&amp;#msg_334496">message #334496</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334449&amp;#msg_334449">message #334449</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 12 February 2009 17:07</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+I guess nobody knows the answer (or is willing to say ;-).  I have now<br />
+reproduced the same problem on Windows, so it is not a Mac issue.  And I set<br />
+up the jars like I always do, with the jar in an external folder and the<br />
+native library beside it and the build path points to both.  But I still get<br />
+an error that it cannot find a public class in the native library.  But it<br />
+compiles fine - it is just at runtime it fails.  This strongly suggests to<br />
+me that Eclipse is not loading the native library.  The exact same code and<br />
+procedures work fine in Eclipse 3.2.<br />
+<br />
+I found this:<br />
+<a href="http://help.eclipse.org/stable/index.jsp?topic=/org.eclipse.platform.doc.isv" target="_blank"> http://help.eclipse.org/stable/index.jsp?topic=/org.eclipse. platform.doc.isv</a><br />
+/porting/3.3/incompatibilities.html<br />
+And section 3 talks about boot delegation changes in class loading, but<br />
+frankly that is out of my ken.<br />
+<br />
+Can some classloading maven suggest what I might do next?  Could this be<br />
+some manifest/buddy-loading issue?  I'll look at that next, but any<br />
+suggestions would be appreciated.<br />
+<br />
+Thanks, Ric<br />
+<br />
+<br />
+On 2/9/09 3:07 PM, in article C5B5F73E.1B2F8%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+<br />
+&gt; I poked at this a little more during lunch and I am still puzzled.<br />
+&gt; Previously, on Windows, I would point at the JOGL jar, and then set the<br />
+&gt; native library location field.  However, since Eclipse found the jars on its<br />
+&gt; own and placed them in JRE System Library section of the build path dialog,<br />
+&gt; I thought I would just set the native location there.  But no soap.  Eclipse<br />
+&gt; lets me set it, but immediately it clears it again - read-only perhaps?  I<br />
+&gt; suppose I could move the JOGL jars somewhere else and explicitly add them<br />
+&gt; and set their native library attributes, etc.  But since Eclipse and the Mac<br />
+&gt; have done 90% of the task seamlessly, that seems like a shame.<br />
+&gt; <br />
+&gt; Does anyone know the right way to do this?<br />
+&gt; <br />
+&gt; TIA, Ric<br />
+&gt; <br />
+&gt; <br />
+&gt; On 2/8/09 4:30 PM, in article C5B4B919.1B1AC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt; <br />
+&gt;&gt; OK.  After a little digging I found a few more things.  First, I had a raw<br />
+&gt;&gt; Iterator, which Eclipse warned me about, but which worked fine in 3.2.  But<br />
+&gt;&gt; apparently not in 3.4.  It also caused another weird behaviour in that there<br />
+&gt;&gt; were no local variables shown.<br />
+&gt;&gt; <br />
+&gt;&gt; So I fixed the Iterator and suddenly I had local variables and got more info<br />
+&gt;&gt; back in the stack trace.  Turns out that Eclipse is apparently complaining<br />
+&gt;&gt; that it cannot instantiate one of my classes.  I call Class.forName() with<br />
+&gt;&gt; the name of one of my classes.  Since I am using JOGL, that class extends<br />
+&gt;&gt; GLEventListener, which at base is a native class accessed via JNI.  All the<br />
+&gt;&gt; proper JARs and JNILibs are in /Library/Java/Extensions and the<br />
+&gt;&gt; java.library.path points to it.  This all seems correct to me.  The build<br />
+&gt;&gt; path for the project shows the JOGL libs under the JRE System libs in the<br />
+&gt;&gt; build path dialog.  Again, this all seems correct.<br />
+&gt;&gt; <br />
+&gt;&gt; I'm still digging, but if this suggests anything to anybody, I'd appreciate<br />
+&gt;&gt; it.<br />
+&gt;&gt; <br />
+&gt;&gt; TIA, Ric<br />
+&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;&gt; On 2/7/09 12:32 PM, in article C5B32FD4.18A37%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt;&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Thanks for responding, Derek.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; AFAIK, the activator is valid (attached).  When brought up in Eclipse, there<br />
+&gt;&gt;&gt; is only a warning about a raw iterator (that I will fix once I get past<br />
+&gt;&gt;&gt; this).<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; I did read through the migration and the only thing that seemed relevant was<br />
+&gt;&gt;&gt; the boot delegation order.  I tried the org.osgi.framework.bootdelegation=*<br />
+&gt;&gt;&gt; in the config.ini, but it made no difference, so that doesn't seem to be it.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; The execution never gets to the Activator BTW, neither ctor nor start()<br />
+&gt;&gt;&gt; methods are ever called.  My suspicion is that one of the dependencies (e.g.<br />
+&gt;&gt;&gt; The JOGL or Java3D jars can't be resolved so the message is a little bogus.<br />
+&gt;&gt;&gt; But I don't know how to find out WHICH class it thinks it can't find.  It<br />
+&gt;&gt;&gt; says com.geofx.opengl.view.OpenGLView but I think that is misleading since<br />
+&gt;&gt;&gt; that file IS in the exported package, etc.  But I could be missing<br />
+&gt;&gt;&gt; something.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; I included the plugin.xml, manifest.xml etc. in the previous post on this<br />
+&gt;&gt;&gt; thread.<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; Thanks, Ric<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt; On 2/7/09 10:54 AM, in article gmkld3$9h$<a href="mailto:1&#64;build.eclipse.org" target="_blank">1&#64;build.eclipse.org</a>, &quot;Derek&quot;<br />
+&gt;&gt;&gt; &lt;<a href="mailto:subs&#64;_nospam_consertum.com" target="_blank">subs&#64;_nospam_consertum.com</a>&gt; wrote:<br />
+&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; I think it more likely that your activator isn't a valid activator for<br />
+&gt;&gt;&gt;&gt; 3.3. Have you tried opening the source in a 3.3 PDE and see what it<br />
+&gt;&gt;&gt;&gt; complains about?<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; Have you looked at the 3.3 Migration Guide?<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt; <br />
+&gt; <br />
+<a href="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.isv/" target="_blank"> http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse. platform.doc.isv/</a>&gt;&gt;<br />
+&gt;<br />
+&gt;&gt; <br />
+&gt;&gt; p<br />
+&gt;&gt;&gt;&gt; orting/eclipse_3_3_porting_guide.html<br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; Ric Wright wrote:<br />
+&gt;&gt;&gt;&gt;&gt; This is a post I put up in the newbie section, but got no response.  I<br />
+&gt;&gt;&gt;&gt;&gt; subsequently saw several posts about invalid activators on this list<br />
+&gt;&gt;&gt;&gt;&gt; (though<br />
+&gt;&gt;&gt;&gt;&gt; none were entirely relevant to my case).  The odd thing about this is that<br />
+&gt;&gt;&gt;&gt;&gt; it is absolutely due to some change in classloaders from 3.2 to 3.3.  I'm<br />
+&gt;&gt;&gt;&gt;&gt; still working on it, but if anyone can make any suggestions, I would be<br />
+&gt;&gt;&gt;&gt;&gt; appreciative.<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; --------------------------------------------------<br />
+&gt;&gt;&gt;&gt;&gt; I've gotten a little farther. I turned on the debugging in the launch tab<br />
+&gt;&gt;&gt;&gt;&gt; and I found:<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2009-02-06 16:28:48.779<br />
+&gt;&gt;&gt;&gt;&gt; !MESSAGE The activator<br />
+&gt;&gt;&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt;&gt;&gt;&gt;&gt; invalid<br />
+&gt;&gt;&gt;&gt;&gt; !STACK 0<br />
+&gt;&gt;&gt;&gt;&gt; org.osgi.framework.BundleException: The activator<br />
+&gt;&gt;&gt;&gt;&gt; com.geofx.opengl.view.Activator for bundle com.geofx.opengl.view is<br />
+&gt;&gt;&gt;&gt;&gt; invalid<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; at <br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt; <br />
+ org.eclipse.osgi.framework.internal.core.AbstractBundle.load BundleActivator &gt;&gt;&gt;&gt;<br />
+&gt;<br />
+&gt; (<br />
+&gt;&gt;&gt;&gt;&gt; AbstractBundle.java:146)<br />
+&gt;&gt;&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt; <br />
+ org.eclipse.osgi.framework.internal.core.BundleContextImpl.s tart(BundleCont &gt;&gt;&gt;&gt;<br />
+&gt;<br />
+&gt; e<br />
+&gt;&gt;&gt;&gt;&gt; xtImpl.java:980)<br />
+&gt;&gt;&gt;&gt;&gt;     at<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt; <br />
+ org.eclipse.osgi.framework.internal.core.BundleHost.startWor ker(BundleHost. &gt;&gt;&gt;&gt;<br />
+&gt;<br />
+&gt; j<br />
+&gt;&gt;&gt;&gt;&gt; ava:346)<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; Not clear what change between 3.2 and 3.3 would have produced this error.<br />
+&gt;&gt;&gt;&gt;&gt; Some spelunking suggests it might have something to do with the third<br />
+&gt;&gt;&gt;&gt;&gt; party<br />
+&gt;&gt;&gt;&gt;&gt; jars<br />
+&gt;&gt;&gt;&gt;&gt; (e.g. Jogl) that I use but no further clues.  But a JOGL view works fine<br />
+&gt;&gt;&gt;&gt;&gt; only plugins fail.  Any suggestions or tips welcome.<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; TIA, Ric<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; On 2/6/09 2:43 PM, in article C5B1FCFF.161BC%<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>, &quot;Ric<br />
+&gt;&gt;&gt;&gt;&gt; Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote:<br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; I have a plugin that I wrote a while ago.  It's a normal Eclipse plugin.<br />
+&gt;&gt;&gt;&gt;&gt;&gt; It's main class is com.geofx.opengl.OpenGLView.  The plugin loads and<br />
+&gt;&gt;&gt;&gt;&gt;&gt; runs<br />
+&gt;&gt;&gt;&gt;&gt;&gt; without problems in Eclipse 3.2 but fails in 3.3 and 3.4  with the<br />
+&gt;&gt;&gt;&gt;&gt;&gt; message<br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; &quot;Could not create the view: Plug-in com.geofx.opengl.view was unable to<br />
+&gt;&gt;&gt;&gt;&gt;&gt; load<br />
+&gt;&gt;&gt;&gt;&gt;&gt; class com.geofx.opengl.view.OpenGLView.&quot;<br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; At a guess, classloading changed in some way from 3.2 to 3.3 and 3.4.  To<br />
+&gt;&gt;&gt;&gt;&gt;&gt; be<br />
+&gt;&gt;&gt;&gt;&gt;&gt; honest, classloaders are a black art to me (and wouldn't mind keeping it<br />
+&gt;&gt;&gt;&gt;&gt;&gt; that way). I don't really know how to start figuring this out.<br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; I posted a question here once before about this but didn't get any<br />
+&gt;&gt;&gt;&gt;&gt;&gt; pointers.<br />
+&gt;&gt;&gt;&gt;&gt;&gt; I am happy (or at least resigned) to dig into this, but frankly not sure<br />
+&gt;&gt;&gt;&gt;&gt;&gt; where to start.  Any pointers would be appreciated.<br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt;&gt;&gt;&gt; Ric<br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt;&gt; <br />
+&gt;&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334496&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334496&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334496&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_334499"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334499&amp;#msg_334499" class="MsgSubText">Re: Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334499&amp;#msg_334499">message #334499</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334496&amp;#msg_334496">message #334496</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 12 February 2009 20:02</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Walter Harley is currently offline" title="Walter Harley is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15869&amp;">Walter Harley</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eclipse%40cafewalter.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 847<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15869&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15869&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">&quot;Ric Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote in message <br />
+news:C5B99748.1B892%<a href="mailto:riwright&#64;adobe.com..." target="_blank">riwright&#64;adobe.com...</a><br />
+&gt; Can some classloading maven suggest what I might do next?  Could this be<br />
+&gt; some manifest/buddy-loading issue?  I'll look at that next, but any<br />
+&gt; suggestions would be appreciated.<br />
+<br />
+I suspect it's got more to do with execution environment definitions, <br />
+because it sounds like you're talking about libraries that are optional JRE <br />
+components and that aren't getting picked up at runtime.<br />
+<br />
+I don't know the answer, but at least maybe that gives you another search <br />
+term to work with.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334499&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15869&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334499&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334499&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_334503"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334503&amp;#msg_334503" class="MsgSubText">Re: Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334503&amp;#msg_334503">message #334503</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334499&amp;#msg_334499">message #334499</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 12 February 2009 21:57</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><a href="index.php?t=usrinfo&amp;id=35771&amp;">Karl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=klkoster%40optonline.net" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 10<br /><b>Registered:</b> July 2009 <br /><b>Location: </b>USA</td>
+<td class="msgud"><div class="ctags">Junior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=35771&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=35771&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">I haven't been following this thread. This is the first post I have <br />
+seen. If you are talking about loading native code within a plug-in, you <br />
+could use the Bundle-NativeCode entry in manifest and provide a plug-in <br />
+relative path to the libraries.<br />
+<br />
+Karl<br />
+<br />
+Walter Harley wrote:<br />
+&gt; &quot;Ric Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote in message <br />
+&gt; news:C5B99748.1B892%<a href="mailto:riwright&#64;adobe.com..." target="_blank">riwright&#64;adobe.com...</a><br />
+&gt;&gt; Can some classloading maven suggest what I might do next?  Could this be<br />
+&gt;&gt; some manifest/buddy-loading issue?  I'll look at that next, but any<br />
+&gt;&gt; suggestions would be appreciated.<br />
+&gt; <br />
+&gt; I suspect it's got more to do with execution environment definitions, <br />
+&gt; because it sounds like you're talking about libraries that are optional JRE <br />
+&gt; components and that aren't getting picked up at runtime.<br />
+&gt; <br />
+&gt; I don't know the answer, but at least maybe that gives you another search <br />
+&gt; term to work with. <br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334503&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=35771&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334503&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334503&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_334519"></a><a href="index.php?t=msg&amp;th=109441&amp;goto=334519&amp;#msg_334519" class="MsgSubText">Re: Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109441&amp;goto=334519&amp;#msg_334519">message #334519</a> is a reply to <a href="index.php?t=msg&amp;th=109441&amp;goto=334499&amp;#msg_334499">message #334499</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 13 February 2009 19:39</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> riwright.adobe.com<br />
+<br />
+Walter and I conversed offline and converged on giving up on my other<br />
+approach and I simply created a new JOGL plugin by importing the jars.<br />
+Worked great on Windows. On the Mac I haven't been able to test due to<br />
+another problem.  I'll post about that in a minute.  When I get this working<br />
+on both platforms I'll try to write it up somewhere so others may profit<br />
+from my errors.  <br />
+<br />
+My thanks to Harley for his advice!<br />
+<br />
+<br />
+On 2/12/09 12:02 PM, in article gn1v87$lh9$<a href="mailto:1&#64;build.eclipse.org" target="_blank">1&#64;build.eclipse.org</a>, &quot;Walter<br />
+Harley&quot; &lt;<a href="mailto:eclipse&#64;cafewalter.com" target="_blank">eclipse&#64;cafewalter.com</a>&gt; wrote:<br />
+<br />
+&gt; &quot;Ric Wright&quot; &lt;<a href="mailto:riwright&#64;adobe.com" target="_blank">riwright&#64;adobe.com</a>&gt; wrote in message<br />
+&gt; news:C5B99748.1B892%<a href="mailto:riwright&#64;adobe.com..." target="_blank">riwright&#64;adobe.com...</a><br />
+&gt;&gt; Can some classloading maven suggest what I might do next?  Could this be<br />
+&gt;&gt; some manifest/buddy-loading issue?  I'll look at that next, but any<br />
+&gt;&gt; suggestions would be appreciated.<br />
+&gt; <br />
+&gt; I suspect it's got more to do with execution environment definitions,<br />
+&gt; because it sounds like you're talking about libraries that are optional JRE<br />
+&gt; components and that aren't getting picked up at runtime.<br />
+&gt; <br />
+&gt; I don't know the answer, but at least maybe that gives you another search<br />
+&gt; term to work with.<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=334519&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=334519&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=334519&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: Loading Native Libraries (was Re: Plugin loading fails in 3.3/3.4)" />
+	<input type="hidden" name="reply_to" value="334519" />
+	<input type="hidden" name="th_id" value="109441" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/109441/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/334517/#msg_334517">[FieldAssist] Pasting into a control with field assist not working?</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/334498/#msg_334498">enabledWhen for handlers and editors</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 109441, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=109441&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 12:02:16 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02075 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

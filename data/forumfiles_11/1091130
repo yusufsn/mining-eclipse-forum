@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=109113&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>[Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/109113/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/109113/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/109113/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/109113/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/109113/333420/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_333420"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333420&amp;#msg_333420" class="MsgSubText">[Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333420&amp;#msg_333420">message #333420</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 10 December 2008 15:08</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Kratz is currently offline" title="Thomas Kratz is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39125&amp;">Thomas Kratz</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eiswind%40googlemail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 165<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi, I once again don't know if this is the right channel. I hope to <br />
+start some discussion, and maybe this belongs into bugzilla.<br />
+<br />
+I'm currently doing some investigations on state of the art ui <br />
+development. In my own project I choose RCP for many reasons. This is <br />
+why I post here today..<br />
+<br />
+The general state of the universe seems to me like we are still <br />
+experimenting in many areas. I've been so happy with the arrival of <br />
+databinding, but it still needs a lot of coding.<br />
+<br />
+I stumbled across gooey<br />
+<a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+<br />
+<br />
+they have some interesting ideas. For e.g.<br />
+<br />
+automtic binding by convention (perhaps overidden by annotations)<br />
+<br />
+they suggest to have some mechanisms like<br />
+<br />
+@Event void ok() {<br />
+to implement a listener for a button thats named okButton.<br />
+<br />
+and some other nice ideas. Wether this plain java approach is a good <br />
+idea or if there are better ways - I will leave that to be discussed.<br />
+<br />
+I'm not solving the puzzle (at least not by now :) but I agree with many <br />
+voices that coding ui's by current api's is sometimes comlicated and ugly.<br />
+<br />
+I can see two approaches:<br />
+Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+<br />
+the problem I see with markup is that its great for building tools <br />
+around, but it's getting bad when you need bridges to code (With <br />
+Microsoft blend beeing nice, a so called UI Designer still has to know <br />
+method names and blend doesnt help him thereby afaics) XUL has been <br />
+araound a while but I don't know anyone who uses it.<br />
+<br />
+The web guys come up with EL there and once again you have some kind of <br />
+code in your view definition. I would prefer to see a button, and the <br />
+magic behind the button (its behaviour) should be defined in a <br />
+controller. Even if you disagree and allow some code in the view <br />
+definition, it still hard to validate and refactor. The problem with <br />
+markup is, that its hard to reference from code, and even if you do that <br />
+(by id conventions, by xpath or something else) it strikes you when you <br />
+want to refactor somehing.<br />
+<br />
+I tend to like the dsl approach more, as it can be compiled, maybe it <br />
+can be typesafe and have tight java integration. And it would be even <br />
+better if we had cross language refactoring tools. the glimmer approach <br />
+implies groovy, and maybe I didnt understand it right, but I think its <br />
+still some effort to cleanly use groovy objects from java.<br />
+<br />
+All in all i would like to see a clean separation of the visual <br />
+definition and actual behaviour that should be in code anyway.<br />
+<br />
+One nice idea I saw from the .NET guys is the concept of a visual state <br />
+manager.<br />
+<a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a><br />
+<br />
+I think I like the idea. Coding state changes and their dependencies is <br />
+sometimes not trivial and mostly always hard to understand when you look <br />
+at the code only. So the idea of having<br />
+<br />
+visual declarative elements (be it markup os dsl)<br />
+style information for the elements (oh no, not css)<br />
+different defined states of the declared elements<br />
+binding of elements to domain models<br />
+actual behaviour (aka the controller)<br />
+<br />
+as separate concepts has some appeal to me.<br />
+<br />
+If we could cleanly reference visual elements in a straightforward way <br />
+some things will get easier (think you declared a button in the visual <br />
+layer, how is it referenced in the controller?) a typical mess we have <br />
+today is when it comes to ui test automation. Look at the SWTBot <br />
+approach, coding names for the elements to make them testable. Thats <br />
+2008, I guess (sorry for beeing sarcastic, I have hard times with my UI <br />
+tests)<br />
+<br />
+I think we still have lots of room for improvement. I'm just trying to <br />
+get some pieces together. I would be glad if you let me know what you think.<br />
+<br />
+Regards<br />
+Thomas</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333420&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39125&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333420&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333420&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_333427"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333427&amp;#msg_333427" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333427&amp;#msg_333427">message #333427</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333420&amp;#msg_333420">message #333420</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 10 December 2008 18:59</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> omoises-nospam.nordnet.fr<br />
+<br />
+Hi Thomas,<br />
+<br />
+I am working on a open source (EPL) project allowing the developer to <br />
+design its UI using declarative EMF models.<br />
+Models are live models (when the user changes the view, changes are <br />
+reflected in the model, and vice versa..)<br />
+<br />
+The benefit of a such approach is that almost everything is a structural <br />
+feature (in EMF, structural feature means reference or attribute).<br />
+For instance, focus is an boolean attribute, then when a widget gains <br />
+the focus, the value is set from false to true ...<br />
+<br />
+For a small subset of cases, we need action trigers (especially for push <br />
+button or menu selection, because it requires two state changes).<br />
+Regarding the databinding, I am currently working on it. My wish is to <br />
+provide a declarative mechanism based on workflow/dataflow concepts.<br />
+<br />
+The databinding engine is still in progress and is not yet released.<br />
+If you want to test the existing work, you could have a look at <br />
+<a href="http://wiki2.wazaabi.org/index.php?title=InstallationANDTest" target="_blank"> http://wiki2.wazaabi.org/index.php?title=InstallationANDTest</a><br />
+<br />
+There is only few widget, I force myself to have a first binding engine <br />
+before to add other widgets.<br />
+<br />
+I will be happy to receive any hints/critisicm about this work.<br />
+<br />
+Olivier<br />
+<br />
+<br />
+Thomas a écrit :<br />
+&gt; Hi, I once again don't know if this is the right channel. I hope to <br />
+&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt; <br />
+&gt; I'm currently doing some investigations on state of the art ui <br />
+&gt; development. In my own project I choose RCP for many reasons. This is <br />
+&gt; why I post here today..<br />
+&gt; <br />
+&gt; The general state of the universe seems to me like we are still <br />
+&gt; experimenting in many areas. I've been so happy with the arrival of <br />
+&gt; databinding, but it still needs a lot of coding.<br />
+&gt; <br />
+&gt; I stumbled across gooey<br />
+&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt; <br />
+&gt; <br />
+&gt; they have some interesting ideas. For e.g.<br />
+&gt; <br />
+&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt; <br />
+&gt; they suggest to have some mechanisms like<br />
+&gt; <br />
+&gt; @Event void ok() {<br />
+&gt; to implement a listener for a button thats named okButton.<br />
+&gt; <br />
+&gt; and some other nice ideas. Wether this plain java approach is a good <br />
+&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt; <br />
+&gt; I'm not solving the puzzle (at least not by now :) but I agree with many <br />
+&gt; voices that coding ui's by current api's is sometimes comlicated and ugly.<br />
+&gt; <br />
+&gt; I can see two approaches:<br />
+&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt; <br />
+&gt; the problem I see with markup is that its great for building tools <br />
+&gt; around, but it's getting bad when you need bridges to code (With <br />
+&gt; Microsoft blend beeing nice, a so called UI Designer still has to know <br />
+&gt; method names and blend doesnt help him thereby afaics) XUL has been <br />
+&gt; araound a while but I don't know anyone who uses it.<br />
+&gt; <br />
+&gt; The web guys come up with EL there and once again you have some kind of <br />
+&gt; code in your view definition. I would prefer to see a button, and the <br />
+&gt; magic behind the button (its behaviour) should be defined in a <br />
+&gt; controller. Even if you disagree and allow some code in the view <br />
+&gt; definition, it still hard to validate and refactor. The problem with <br />
+&gt; markup is, that its hard to reference from code, and even if you do that <br />
+&gt; (by id conventions, by xpath or something else) it strikes you when you <br />
+&gt; want to refactor somehing.<br />
+&gt; <br />
+&gt; I tend to like the dsl approach more, as it can be compiled, maybe it <br />
+&gt; can be typesafe and have tight java integration. And it would be even <br />
+&gt; better if we had cross language refactoring tools. the glimmer approach <br />
+&gt; implies groovy, and maybe I didnt understand it right, but I think its <br />
+&gt; still some effort to cleanly use groovy objects from java.<br />
+&gt; <br />
+&gt; All in all i would like to see a clean separation of the visual <br />
+&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt; <br />
+&gt; One nice idea I saw from the .NET guys is the concept of a visual state <br />
+&gt; manager.<br />
+&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a> <br />
+&gt; <br />
+&gt; <br />
+&gt; I think I like the idea. Coding state changes and their dependencies is <br />
+&gt; sometimes not trivial and mostly always hard to understand when you look <br />
+&gt; at the code only. So the idea of having<br />
+&gt; <br />
+&gt; visual declarative elements (be it markup os dsl)<br />
+&gt; style information for the elements (oh no, not css)<br />
+&gt; different defined states of the declared elements<br />
+&gt; binding of elements to domain models<br />
+&gt; actual behaviour (aka the controller)<br />
+&gt; <br />
+&gt; as separate concepts has some appeal to me.<br />
+&gt; <br />
+&gt; If we could cleanly reference visual elements in a straightforward way <br />
+&gt; some things will get easier (think you declared a button in the visual <br />
+&gt; layer, how is it referenced in the controller?) a typical mess we have <br />
+&gt; today is when it comes to ui test automation. Look at the SWTBot <br />
+&gt; approach, coding names for the elements to make them testable. Thats <br />
+&gt; 2008, I guess (sorry for beeing sarcastic, I have hard times with my UI <br />
+&gt; tests)<br />
+&gt; <br />
+&gt; I think we still have lots of room for improvement. I'm just trying to <br />
+&gt; get some pieces together. I would be glad if you let me know what you <br />
+&gt; think.<br />
+&gt; <br />
+&gt; Regards<br />
+&gt; Thomas<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333427&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333427&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333427&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_333428"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333428&amp;#msg_333428" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333428&amp;#msg_333428">message #333428</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333420&amp;#msg_333420">message #333420</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 10 December 2008 20:23</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+I think many of us are currently think about the same things how can we<br />
+succeed in writing as few lines of code as possible without loosing the<br />
+power we have nowadays.<br />
+<br />
+There are multiple different Eclipse-Projects working on tasks you<br />
+mention in your post:<br />
+<br />
+- e4-modeling the workbench: works on a consitent application model no<br />
+  matter which Widget-Toolkit-Implementation you use<br />
+<br />
+- e4-declarative-ui: works on a declarative syntax to describe your ui<br />
+<br />
+- e4-styling: works on styling currently CSS but if you want something<br />
+  different this is open to you<br />
+<br />
+- riena: works on a high-level databinding-widget concept they named<br />
+         ridegts and themable widgets<br />
+<br />
+- UFaceKit[1]: my the project I work on provides high-level<br />
+  databinding concepts simply one layer above low-level widget toolkits<br />
+  and core-databinding. Like Olivier explained in his waazabi answer<br />
+  UFaceKit has a similar view onto events where in fact there are only 2<br />
+  widgets who can really trigger an execution or better said a command<br />
+  (Button, MenuItem) all other things are property changes.<br />
+<br />
+  Because UFaceKit's UI elements are a higher level widgets they come<br />
+  with many advanced features like support for rights-management,<br />
+  built-in styling support, ... . There's much more on UFaceKit than<br />
+  this but this is not the right forum.<br />
+<br />
+- I'm not 100% a friend of a DSL e.g. JavaFX IMHO makes the mistake that<br />
+  one can't really use this whole API in pure Java but they force me to<br />
+  use their DSL at the very moment we have a Ecore-Model defined for the<br />
+  UI we could easily create a DSL.<br />
+<br />
+- When it comes to EL one of the UFaceKit-members is working on such a<br />
+thing but I'm not 100% now how to attack this problem though I know this<br />
+is going to be a need for UFaceKit<br />
+<br />
+Tom<br />
+<br />
+[1]<a href="http://www.eclipse.org/proposals/ufacekit/" target="_blank">http://www.eclipse.org/proposals/ufacekit/</a><br />
+<br />
+Thomas schrieb:<br />
+&gt; Hi, I once again don't know if this is the right channel. I hope to<br />
+&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt; <br />
+&gt; I'm currently doing some investigations on state of the art ui<br />
+&gt; development. In my own project I choose RCP for many reasons. This is<br />
+&gt; why I post here today..<br />
+&gt; <br />
+&gt; The general state of the universe seems to me like we are still<br />
+&gt; experimenting in many areas. I've been so happy with the arrival of<br />
+&gt; databinding, but it still needs a lot of coding.<br />
+&gt; <br />
+&gt; I stumbled across gooey<br />
+&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt; <br />
+&gt; <br />
+&gt; they have some interesting ideas. For e.g.<br />
+&gt; <br />
+&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt; <br />
+&gt; they suggest to have some mechanisms like<br />
+&gt; <br />
+&gt; @Event void ok() {<br />
+&gt; to implement a listener for a button thats named okButton.<br />
+&gt; <br />
+&gt; and some other nice ideas. Wether this plain java approach is a good<br />
+&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt; <br />
+&gt; I'm not solving the puzzle (at least not by now :) but I agree with many<br />
+&gt; voices that coding ui's by current api's is sometimes comlicated and ugly.<br />
+&gt; <br />
+&gt; I can see two approaches:<br />
+&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt; <br />
+&gt; the problem I see with markup is that its great for building tools<br />
+&gt; around, but it's getting bad when you need bridges to code (With<br />
+&gt; Microsoft blend beeing nice, a so called UI Designer still has to know<br />
+&gt; method names and blend doesnt help him thereby afaics) XUL has been<br />
+&gt; araound a while but I don't know anyone who uses it.<br />
+&gt; <br />
+&gt; The web guys come up with EL there and once again you have some kind of<br />
+&gt; code in your view definition. I would prefer to see a button, and the<br />
+&gt; magic behind the button (its behaviour) should be defined in a<br />
+&gt; controller. Even if you disagree and allow some code in the view<br />
+&gt; definition, it still hard to validate and refactor. The problem with<br />
+&gt; markup is, that its hard to reference from code, and even if you do that<br />
+&gt; (by id conventions, by xpath or something else) it strikes you when you<br />
+&gt; want to refactor somehing.<br />
+&gt; <br />
+&gt; I tend to like the dsl approach more, as it can be compiled, maybe it<br />
+&gt; can be typesafe and have tight java integration. And it would be even<br />
+&gt; better if we had cross language refactoring tools. the glimmer approach<br />
+&gt; implies groovy, and maybe I didnt understand it right, but I think its<br />
+&gt; still some effort to cleanly use groovy objects from java.<br />
+&gt; <br />
+&gt; All in all i would like to see a clean separation of the visual<br />
+&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt; <br />
+&gt; One nice idea I saw from the .NET guys is the concept of a visual state<br />
+&gt; manager.<br />
+&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a><br />
+&gt; <br />
+&gt; <br />
+&gt; I think I like the idea. Coding state changes and their dependencies is<br />
+&gt; sometimes not trivial and mostly always hard to understand when you look<br />
+&gt; at the code only. So the idea of having<br />
+&gt; <br />
+&gt; visual declarative elements (be it markup os dsl)<br />
+&gt; style information for the elements (oh no, not css)<br />
+&gt; different defined states of the declared elements<br />
+&gt; binding of elements to domain models<br />
+&gt; actual behaviour (aka the controller)<br />
+&gt; <br />
+&gt; as separate concepts has some appeal to me.<br />
+&gt; <br />
+&gt; If we could cleanly reference visual elements in a straightforward way<br />
+&gt; some things will get easier (think you declared a button in the visual<br />
+&gt; layer, how is it referenced in the controller?) a typical mess we have<br />
+&gt; today is when it comes to ui test automation. Look at the SWTBot<br />
+&gt; approach, coding names for the elements to make them testable. Thats<br />
+&gt; 2008, I guess (sorry for beeing sarcastic, I have hard times with my UI<br />
+&gt; tests)<br />
+&gt; <br />
+&gt; I think we still have lots of room for improvement. I'm just trying to<br />
+&gt; get some pieces together. I would be glad if you let me know what you<br />
+&gt; think.<br />
+&gt; <br />
+&gt; Regards<br />
+&gt; Thomas<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333428&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333428&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333428&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_333439"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333439&amp;#msg_333439" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333439&amp;#msg_333439">message #333439</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333427&amp;#msg_333427">message #333427</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 14:04</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Kratz is currently offline" title="Thomas Kratz is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39125&amp;">Thomas Kratz</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eiswind%40googlemail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 165<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">HI Olivier,<br />
+<br />
+I had a look at what you are doing. What I didn't get in the short time <br />
+is how you do the bindings ?<br />
+<br />
+Can you give me a pointer where to look at ?<br />
+<br />
+Regards Thomas<br />
+Olivier Moïses schrieb:<br />
+&gt; Hi Thomas,<br />
+&gt; <br />
+&gt; I am working on a open source (EPL) project allowing the developer to <br />
+&gt; design its UI using declarative EMF models.<br />
+&gt; Models are live models (when the user changes the view, changes are <br />
+&gt; reflected in the model, and vice versa..)<br />
+&gt; <br />
+&gt; The benefit of a such approach is that almost everything is a structural <br />
+&gt; feature (in EMF, structural feature means reference or attribute).<br />
+&gt; For instance, focus is an boolean attribute, then when a widget gains <br />
+&gt; the focus, the value is set from false to true ...<br />
+&gt; <br />
+&gt; For a small subset of cases, we need action trigers (especially for push <br />
+&gt; button or menu selection, because it requires two state changes).<br />
+&gt; Regarding the databinding, I am currently working on it. My wish is to <br />
+&gt; provide a declarative mechanism based on workflow/dataflow concepts.<br />
+&gt; <br />
+&gt; The databinding engine is still in progress and is not yet released.<br />
+&gt; If you want to test the existing work, you could have a look at <br />
+&gt; <a href="http://wiki2.wazaabi.org/index.php?title=InstallationANDTest" target="_blank"> http://wiki2.wazaabi.org/index.php?title=InstallationANDTest</a><br />
+&gt; <br />
+&gt; There is only few widget, I force myself to have a first binding engine <br />
+&gt; before to add other widgets.<br />
+&gt; <br />
+&gt; I will be happy to receive any hints/critisicm about this work.<br />
+&gt; <br />
+&gt; Olivier<br />
+&gt; <br />
+&gt; <br />
+&gt; Thomas a écrit :<br />
+&gt;&gt; Hi, I once again don't know if this is the right channel. I hope to <br />
+&gt;&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt;&gt;<br />
+&gt;&gt; I'm currently doing some investigations on state of the art ui <br />
+&gt;&gt; development. In my own project I choose RCP for many reasons. This is <br />
+&gt;&gt; why I post here today..<br />
+&gt;&gt;<br />
+&gt;&gt; The general state of the universe seems to me like we are still <br />
+&gt;&gt; experimenting in many areas. I've been so happy with the arrival of <br />
+&gt;&gt; databinding, but it still needs a lot of coding.<br />
+&gt;&gt;<br />
+&gt;&gt; I stumbled across gooey<br />
+&gt;&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; they have some interesting ideas. For e.g.<br />
+&gt;&gt;<br />
+&gt;&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt;&gt;<br />
+&gt;&gt; they suggest to have some mechanisms like<br />
+&gt;&gt;<br />
+&gt;&gt; @Event void ok() {<br />
+&gt;&gt; to implement a listener for a button thats named okButton.<br />
+&gt;&gt;<br />
+&gt;&gt; and some other nice ideas. Wether this plain java approach is a good <br />
+&gt;&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt;&gt;<br />
+&gt;&gt; I'm not solving the puzzle (at least not by now :) but I agree with <br />
+&gt;&gt; many voices that coding ui's by current api's is sometimes comlicated <br />
+&gt;&gt; and ugly.<br />
+&gt;&gt;<br />
+&gt;&gt; I can see two approaches:<br />
+&gt;&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt;&gt;<br />
+&gt;&gt; the problem I see with markup is that its great for building tools <br />
+&gt;&gt; around, but it's getting bad when you need bridges to code (With <br />
+&gt;&gt; Microsoft blend beeing nice, a so called UI Designer still has to know <br />
+&gt;&gt; method names and blend doesnt help him thereby afaics) XUL has been <br />
+&gt;&gt; araound a while but I don't know anyone who uses it.<br />
+&gt;&gt;<br />
+&gt;&gt; The web guys come up with EL there and once again you have some kind <br />
+&gt;&gt; of code in your view definition. I would prefer to see a button, and <br />
+&gt;&gt; the magic behind the button (its behaviour) should be defined in a <br />
+&gt;&gt; controller. Even if you disagree and allow some code in the view <br />
+&gt;&gt; definition, it still hard to validate and refactor. The problem with <br />
+&gt;&gt; markup is, that its hard to reference from code, and even if you do <br />
+&gt;&gt; that (by id conventions, by xpath or something else) it strikes you <br />
+&gt;&gt; when you want to refactor somehing.<br />
+&gt;&gt;<br />
+&gt;&gt; I tend to like the dsl approach more, as it can be compiled, maybe it <br />
+&gt;&gt; can be typesafe and have tight java integration. And it would be even <br />
+&gt;&gt; better if we had cross language refactoring tools. the glimmer <br />
+&gt;&gt; approach implies groovy, and maybe I didnt understand it right, but I <br />
+&gt;&gt; think its still some effort to cleanly use groovy objects from java.<br />
+&gt;&gt;<br />
+&gt;&gt; All in all i would like to see a clean separation of the visual <br />
+&gt;&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt;&gt;<br />
+&gt;&gt; One nice idea I saw from the .NET guys is the concept of a visual <br />
+&gt;&gt; state manager.<br />
+&gt;&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a> <br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; I think I like the idea. Coding state changes and their dependencies <br />
+&gt;&gt; is sometimes not trivial and mostly always hard to understand when you <br />
+&gt;&gt; look at the code only. So the idea of having<br />
+&gt;&gt;<br />
+&gt;&gt; visual declarative elements (be it markup os dsl)<br />
+&gt;&gt; style information for the elements (oh no, not css)<br />
+&gt;&gt; different defined states of the declared elements<br />
+&gt;&gt; binding of elements to domain models<br />
+&gt;&gt; actual behaviour (aka the controller)<br />
+&gt;&gt;<br />
+&gt;&gt; as separate concepts has some appeal to me.<br />
+&gt;&gt;<br />
+&gt;&gt; If we could cleanly reference visual elements in a straightforward way <br />
+&gt;&gt; some things will get easier (think you declared a button in the visual <br />
+&gt;&gt; layer, how is it referenced in the controller?) a typical mess we have <br />
+&gt;&gt; today is when it comes to ui test automation. Look at the SWTBot <br />
+&gt;&gt; approach, coding names for the elements to make them testable. Thats <br />
+&gt;&gt; 2008, I guess (sorry for beeing sarcastic, I have hard times with my <br />
+&gt;&gt; UI tests)<br />
+&gt;&gt;<br />
+&gt;&gt; I think we still have lots of room for improvement. I'm just trying to <br />
+&gt;&gt; get some pieces together. I would be glad if you let me know what you <br />
+&gt;&gt; think.<br />
+&gt;&gt;<br />
+&gt;&gt; Regards<br />
+&gt;&gt; Thomas<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333439&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39125&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333439&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333439&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_333441"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333441&amp;#msg_333441" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333441&amp;#msg_333441">message #333441</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333428&amp;#msg_333428">message #333428</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 14:25</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Kratz is currently offline" title="Thomas Kratz is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39125&amp;">Thomas Kratz</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eiswind%40googlemail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 165<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">HI Tom,<br />
+<br />
+I had a look at what you're doing With UFaceKit quite a while ago.Don't <br />
+get me wrong  I think currently we are confronted with what I would call <br />
+divergent evolution. There are many approaches out there (and no I won't <br />
+start my own toolkit). I think my dive into Riena was not deep enough. <br />
+But if you compare it to something like &quot;if you want JSF, you should <br />
+have a look at Facelets and Seam&quot; then what we have in client wonderland <br />
+is a little distracting.<br />
+<br />
+I took some first looks at the e4 demo when I read (I think it was <br />
+Boris) something about the  workbench model approach. Modeling the ui is<br />
+surely promising.<br />
+<br />
+I signed up for the e4 mailing list so at least I can follow, and if I <br />
+think I can throw something in I surely will. But I don't see from the <br />
+wiki how far your brainstorming on declarative ui has led to a <br />
+satisfying result.<br />
+<br />
+I would love to get involved in your discussion!<br />
+<br />
+Thomas<br />
+<br />
+Tom Schindl schrieb:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; I think many of us are currently think about the same things how can we<br />
+&gt; succeed in writing as few lines of code as possible without loosing the<br />
+&gt; power we have nowadays.<br />
+&gt; <br />
+&gt; There are multiple different Eclipse-Projects working on tasks you<br />
+&gt; mention in your post:<br />
+&gt; <br />
+&gt; - e4-modeling the workbench: works on a consitent application model no<br />
+&gt;   matter which Widget-Toolkit-Implementation you use<br />
+&gt; <br />
+&gt; - e4-declarative-ui: works on a declarative syntax to describe your ui<br />
+&gt; <br />
+&gt; - e4-styling: works on styling currently CSS but if you want something<br />
+&gt;   different this is open to you<br />
+&gt; <br />
+&gt; - riena: works on a high-level databinding-widget concept they named<br />
+&gt;          ridegts and themable widgets<br />
+&gt; <br />
+&gt; - UFaceKit[1]: my the project I work on provides high-level<br />
+&gt;   databinding concepts simply one layer above low-level widget toolkits<br />
+&gt;   and core-databinding. Like Olivier explained in his waazabi answer<br />
+&gt;   UFaceKit has a similar view onto events where in fact there are only 2<br />
+&gt;   widgets who can really trigger an execution or better said a command<br />
+&gt;   (Button, MenuItem) all other things are property changes.<br />
+&gt; <br />
+&gt;   Because UFaceKit's UI elements are a higher level widgets they come<br />
+&gt;   with many advanced features like support for rights-management,<br />
+&gt;   built-in styling support, ... . There's much more on UFaceKit than<br />
+&gt;   this but this is not the right forum.<br />
+&gt; <br />
+&gt; - I'm not 100% a friend of a DSL e.g. JavaFX IMHO makes the mistake that<br />
+&gt;   one can't really use this whole API in pure Java but they force me to<br />
+&gt;   use their DSL at the very moment we have a Ecore-Model defined for the<br />
+&gt;   UI we could easily create a DSL.<br />
+&gt; <br />
+&gt; - When it comes to EL one of the UFaceKit-members is working on such a<br />
+&gt; thing but I'm not 100% now how to attack this problem though I know this<br />
+&gt; is going to be a need for UFaceKit<br />
+&gt; <br />
+&gt; Tom<br />
+&gt; <br />
+&gt; [1]<a href="http://www.eclipse.org/proposals/ufacekit/" target="_blank">http://www.eclipse.org/proposals/ufacekit/</a><br />
+&gt; <br />
+&gt; Thomas schrieb:<br />
+&gt;&gt; Hi, I once again don't know if this is the right channel. I hope to<br />
+&gt;&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt;&gt;<br />
+&gt;&gt; I'm currently doing some investigations on state of the art ui<br />
+&gt;&gt; development. In my own project I choose RCP for many reasons. This is<br />
+&gt;&gt; why I post here today..<br />
+&gt;&gt;<br />
+&gt;&gt; The general state of the universe seems to me like we are still<br />
+&gt;&gt; experimenting in many areas. I've been so happy with the arrival of<br />
+&gt;&gt; databinding, but it still needs a lot of coding.<br />
+&gt;&gt;<br />
+&gt;&gt; I stumbled across gooey<br />
+&gt;&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; they have some interesting ideas. For e.g.<br />
+&gt;&gt;<br />
+&gt;&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt;&gt;<br />
+&gt;&gt; they suggest to have some mechanisms like<br />
+&gt;&gt;<br />
+&gt;&gt; @Event void ok() {<br />
+&gt;&gt; to implement a listener for a button thats named okButton.<br />
+&gt;&gt;<br />
+&gt;&gt; and some other nice ideas. Wether this plain java approach is a good<br />
+&gt;&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt;&gt;<br />
+&gt;&gt; I'm not solving the puzzle (at least not by now :) but I agree with many<br />
+&gt;&gt; voices that coding ui's by current api's is sometimes comlicated and ugly.<br />
+&gt;&gt;<br />
+&gt;&gt; I can see two approaches:<br />
+&gt;&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt;&gt;<br />
+&gt;&gt; the problem I see with markup is that its great for building tools<br />
+&gt;&gt; around, but it's getting bad when you need bridges to code (With<br />
+&gt;&gt; Microsoft blend beeing nice, a so called UI Designer still has to know<br />
+&gt;&gt; method names and blend doesnt help him thereby afaics) XUL has been<br />
+&gt;&gt; araound a while but I don't know anyone who uses it.<br />
+&gt;&gt;<br />
+&gt;&gt; The web guys come up with EL there and once again you have some kind of<br />
+&gt;&gt; code in your view definition. I would prefer to see a button, and the<br />
+&gt;&gt; magic behind the button (its behaviour) should be defined in a<br />
+&gt;&gt; controller. Even if you disagree and allow some code in the view<br />
+&gt;&gt; definition, it still hard to validate and refactor. The problem with<br />
+&gt;&gt; markup is, that its hard to reference from code, and even if you do that<br />
+&gt;&gt; (by id conventions, by xpath or something else) it strikes you when you<br />
+&gt;&gt; want to refactor somehing.<br />
+&gt;&gt;<br />
+&gt;&gt; I tend to like the dsl approach more, as it can be compiled, maybe it<br />
+&gt;&gt; can be typesafe and have tight java integration. And it would be even<br />
+&gt;&gt; better if we had cross language refactoring tools. the glimmer approach<br />
+&gt;&gt; implies groovy, and maybe I didnt understand it right, but I think its<br />
+&gt;&gt; still some effort to cleanly use groovy objects from java.<br />
+&gt;&gt;<br />
+&gt;&gt; All in all i would like to see a clean separation of the visual<br />
+&gt;&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt;&gt;<br />
+&gt;&gt; One nice idea I saw from the .NET guys is the concept of a visual state<br />
+&gt;&gt; manager.<br />
+&gt;&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a><br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; I think I like the idea. Coding state changes and their dependencies is<br />
+&gt;&gt; sometimes not trivial and mostly always hard to understand when you look<br />
+&gt;&gt; at the code only. So the idea of having<br />
+&gt;&gt;<br />
+&gt;&gt; visual declarative elements (be it markup os dsl)<br />
+&gt;&gt; style information for the elements (oh no, not css)<br />
+&gt;&gt; different defined states of the declared elements<br />
+&gt;&gt; binding of elements to domain models<br />
+&gt;&gt; actual behaviour (aka the controller)<br />
+&gt;&gt;<br />
+&gt;&gt; as separate concepts has some appeal to me.<br />
+&gt;&gt;<br />
+&gt;&gt; If we could cleanly reference visual elements in a straightforward way<br />
+&gt;&gt; some things will get easier (think you declared a button in the visual<br />
+&gt;&gt; layer, how is it referenced in the controller?) a typical mess we have<br />
+&gt;&gt; today is when it comes to ui test automation. Look at the SWTBot<br />
+&gt;&gt; approach, coding names for the elements to make them testable. Thats<br />
+&gt;&gt; 2008, I guess (sorry for beeing sarcastic, I have hard times with my UI<br />
+&gt;&gt; tests)<br />
+&gt;&gt;<br />
+&gt;&gt; I think we still have lots of room for improvement. I'm just trying to<br />
+&gt;&gt; get some pieces together. I would be glad if you let me know what you<br />
+&gt;&gt; think.<br />
+&gt;&gt;<br />
+&gt;&gt; Regards<br />
+&gt;&gt; Thomas<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333441&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39125&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333441&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333441&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_333444"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333444&amp;#msg_333444" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333444&amp;#msg_333444">message #333444</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333441&amp;#msg_333441">message #333441</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 15:21</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Boris Bokowski is currently offline" title="Boris Bokowski is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=12828&amp;">Boris Bokowski</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=bokowski%40google.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 272<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=12828&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=12828&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">We had a good discussion on the topic of using modeling for UIs at the <br />
+Eclipse Summit Europe 08. What I took away from that discussion is that <br />
+there are three areas where modeling makes sense:<br />
+<br />
+1. At the widget level, where you would have a 1:1 mapping between the <br />
+widgets and objects in your model. XSWT and XWT are in this space, as is <br />
+Olivier's wazaabi 2. What I find important is that at runtime, you don't end <br />
+up with twice as many objects, so being able to directly create widgets from <br />
+a persistent representation is important. At the same time, having EMF <br />
+objects that are again 1:1 mapped to SWT widgets is interesting for tooling <br />
+purposes, so maybe what we should do is have a persistent format for SWT <br />
+widgets, which can also be read in to create EMF objects if you are in <br />
+&quot;design mode&quot;.<br />
+<br />
+2. At the application level, where you don't model the innards of your UI <br />
+components (views, editors, ...) but you model how those components are <br />
+glued together. An example of this is Application.ecore/Workbench.ecore in <br />
+e4 (see org.eclipse.e4.model.workbench).<br />
+<br />
+3. At an abstraction level higher than (1), but still concerned about <br />
+&quot;inner&quot; UIs, are things like the proposed PMF project <br />
+(<a href="http://www.eclipse.org/proposals/PMF" target="_blank">http://www.eclipse.org/proposals/PMF</a>). The idea here is that if you have a <br />
+form-based UI, and need to create many forms, it is worth creating an <br />
+abstraction that talks about the pieces making up that form-based UI in <br />
+terms of semantics, not actual widgets. Models at this level would consist <br />
+of information like &quot;put a bunch of text fields with associated labels here, <br />
+followed by a table with these columns and the standard Add/Remove buttons, <br />
+followed by a Combo, etc.&quot;<br />
+<br />
+Boris<br />
+<br />
+&quot;Thomas&quot; &lt;<a href="mailto:thomas.kratz&#64;eiswind.de" target="_blank">thomas.kratz&#64;eiswind.de</a>&gt; wrote in message <br />
+news:ghr7sk$ftg$<a href="mailto:1&#64;build.eclipse.org..." target="_blank">1&#64;build.eclipse.org...</a><br />
+&gt; HI Tom,<br />
+&gt;<br />
+&gt; I had a look at what you're doing With UFaceKit quite a while ago.Don't <br />
+&gt; get me wrong  I think currently we are confronted with what I would call <br />
+&gt; divergent evolution. There are many approaches out there (and no I won't <br />
+&gt; start my own toolkit). I think my dive into Riena was not deep enough. But <br />
+&gt; if you compare it to something like &quot;if you want JSF, you should have a <br />
+&gt; look at Facelets and Seam&quot; then what we have in client wonderland is a <br />
+&gt; little distracting.<br />
+&gt;<br />
+&gt; I took some first looks at the e4 demo when I read (I think it was Boris) <br />
+&gt; something about the  workbench model approach. Modeling the ui is<br />
+&gt; surely promising.<br />
+&gt;<br />
+&gt; I signed up for the e4 mailing list so at least I can follow, and if I <br />
+&gt; think I can throw something in I surely will. But I don't see from the <br />
+&gt; wiki how far your brainstorming on declarative ui has led to a satisfying <br />
+&gt; result.<br />
+&gt;<br />
+&gt; I would love to get involved in your discussion!<br />
+&gt;<br />
+&gt; Thomas<br />
+&gt;<br />
+&gt; Tom Schindl schrieb:<br />
+&gt;&gt; Hi,<br />
+&gt;&gt;<br />
+&gt;&gt; I think many of us are currently think about the same things how can we<br />
+&gt;&gt; succeed in writing as few lines of code as possible without loosing the<br />
+&gt;&gt; power we have nowadays.<br />
+&gt;&gt;<br />
+&gt;&gt; There are multiple different Eclipse-Projects working on tasks you<br />
+&gt;&gt; mention in your post:<br />
+&gt;&gt;<br />
+&gt;&gt; - e4-modeling the workbench: works on a consitent application model no<br />
+&gt;&gt;   matter which Widget-Toolkit-Implementation you use<br />
+&gt;&gt;<br />
+&gt;&gt; - e4-declarative-ui: works on a declarative syntax to describe your ui<br />
+&gt;&gt;<br />
+&gt;&gt; - e4-styling: works on styling currently CSS but if you want something<br />
+&gt;&gt;   different this is open to you<br />
+&gt;&gt;<br />
+&gt;&gt; - riena: works on a high-level databinding-widget concept they named<br />
+&gt;&gt;          ridegts and themable widgets<br />
+&gt;&gt;<br />
+&gt;&gt; - UFaceKit[1]: my the project I work on provides high-level<br />
+&gt;&gt;   databinding concepts simply one layer above low-level widget toolkits<br />
+&gt;&gt;   and core-databinding. Like Olivier explained in his waazabi answer<br />
+&gt;&gt;   UFaceKit has a similar view onto events where in fact there are only 2<br />
+&gt;&gt;   widgets who can really trigger an execution or better said a command<br />
+&gt;&gt;   (Button, MenuItem) all other things are property changes.<br />
+&gt;&gt;<br />
+&gt;&gt;   Because UFaceKit's UI elements are a higher level widgets they come<br />
+&gt;&gt;   with many advanced features like support for rights-management,<br />
+&gt;&gt;   built-in styling support, ... . There's much more on UFaceKit than<br />
+&gt;&gt;   this but this is not the right forum.<br />
+&gt;&gt;<br />
+&gt;&gt; - I'm not 100% a friend of a DSL e.g. JavaFX IMHO makes the mistake that<br />
+&gt;&gt;   one can't really use this whole API in pure Java but they force me to<br />
+&gt;&gt;   use their DSL at the very moment we have a Ecore-Model defined for the<br />
+&gt;&gt;   UI we could easily create a DSL.<br />
+&gt;&gt;<br />
+&gt;&gt; - When it comes to EL one of the UFaceKit-members is working on such a<br />
+&gt;&gt; thing but I'm not 100% now how to attack this problem though I know this<br />
+&gt;&gt; is going to be a need for UFaceKit<br />
+&gt;&gt;<br />
+&gt;&gt; Tom<br />
+&gt;&gt;<br />
+&gt;&gt; [1]<a href="http://www.eclipse.org/proposals/ufacekit/" target="_blank">http://www.eclipse.org/proposals/ufacekit/</a><br />
+&gt;&gt;<br />
+&gt;&gt; Thomas schrieb:<br />
+&gt;&gt;&gt; Hi, I once again don't know if this is the right channel. I hope to<br />
+&gt;&gt;&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I'm currently doing some investigations on state of the art ui<br />
+&gt;&gt;&gt; development. In my own project I choose RCP for many reasons. This is<br />
+&gt;&gt;&gt; why I post here today..<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; The general state of the universe seems to me like we are still<br />
+&gt;&gt;&gt; experimenting in many areas. I've been so happy with the arrival of<br />
+&gt;&gt;&gt; databinding, but it still needs a lot of coding.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I stumbled across gooey<br />
+&gt;&gt;&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; they have some interesting ideas. For e.g.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; they suggest to have some mechanisms like<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; @Event void ok() {<br />
+&gt;&gt;&gt; to implement a listener for a button thats named okButton.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; and some other nice ideas. Wether this plain java approach is a good<br />
+&gt;&gt;&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I'm not solving the puzzle (at least not by now :) but I agree with many<br />
+&gt;&gt;&gt; voices that coding ui's by current api's is sometimes comlicated and <br />
+&gt;&gt;&gt; ugly.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I can see two approaches:<br />
+&gt;&gt;&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; the problem I see with markup is that its great for building tools<br />
+&gt;&gt;&gt; around, but it's getting bad when you need bridges to code (With<br />
+&gt;&gt;&gt; Microsoft blend beeing nice, a so called UI Designer still has to know<br />
+&gt;&gt;&gt; method names and blend doesnt help him thereby afaics) XUL has been<br />
+&gt;&gt;&gt; araound a while but I don't know anyone who uses it.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; The web guys come up with EL there and once again you have some kind of<br />
+&gt;&gt;&gt; code in your view definition. I would prefer to see a button, and the<br />
+&gt;&gt;&gt; magic behind the button (its behaviour) should be defined in a<br />
+&gt;&gt;&gt; controller. Even if you disagree and allow some code in the view<br />
+&gt;&gt;&gt; definition, it still hard to validate and refactor. The problem with<br />
+&gt;&gt;&gt; markup is, that its hard to reference from code, and even if you do that<br />
+&gt;&gt;&gt; (by id conventions, by xpath or something else) it strikes you when you<br />
+&gt;&gt;&gt; want to refactor somehing.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I tend to like the dsl approach more, as it can be compiled, maybe it<br />
+&gt;&gt;&gt; can be typesafe and have tight java integration. And it would be even<br />
+&gt;&gt;&gt; better if we had cross language refactoring tools. the glimmer approach<br />
+&gt;&gt;&gt; implies groovy, and maybe I didnt understand it right, but I think its<br />
+&gt;&gt;&gt; still some effort to cleanly use groovy objects from java.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; All in all i would like to see a clean separation of the visual<br />
+&gt;&gt;&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; One nice idea I saw from the .NET guys is the concept of a visual state<br />
+&gt;&gt;&gt; manager.<br />
+&gt;&gt;&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a><br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I think I like the idea. Coding state changes and their dependencies is<br />
+&gt;&gt;&gt; sometimes not trivial and mostly always hard to understand when you look<br />
+&gt;&gt;&gt; at the code only. So the idea of having<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; visual declarative elements (be it markup os dsl)<br />
+&gt;&gt;&gt; style information for the elements (oh no, not css)<br />
+&gt;&gt;&gt; different defined states of the declared elements<br />
+&gt;&gt;&gt; binding of elements to domain models<br />
+&gt;&gt;&gt; actual behaviour (aka the controller)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; as separate concepts has some appeal to me.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; If we could cleanly reference visual elements in a straightforward way<br />
+&gt;&gt;&gt; some things will get easier (think you declared a button in the visual<br />
+&gt;&gt;&gt; layer, how is it referenced in the controller?) a typical mess we have<br />
+&gt;&gt;&gt; today is when it comes to ui test automation. Look at the SWTBot<br />
+&gt;&gt;&gt; approach, coding names for the elements to make them testable. Thats<br />
+&gt;&gt;&gt; 2008, I guess (sorry for beeing sarcastic, I have hard times with my UI<br />
+&gt;&gt;&gt; tests)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I think we still have lots of room for improvement. I'm just trying to<br />
+&gt;&gt;&gt; get some pieces together. I would be glad if you let me know what you<br />
+&gt;&gt;&gt; think.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Regards<br />
+&gt;&gt;&gt; Thomas<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333444&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=12828&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333444&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333444&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_333446"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333446&amp;#msg_333446" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333446&amp;#msg_333446">message #333446</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333444&amp;#msg_333444">message #333444</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 15:31</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Boris Bokowski schrieb:<br />
+&gt; We had a good discussion on the topic of using modeling for UIs at the <br />
+&gt; Eclipse Summit Europe 08. What I took away from that discussion is that <br />
+&gt; there are three areas where modeling makes sense:<br />
+&gt; <br />
+&gt; 1. At the widget level, where you would have a 1:1 mapping between the <br />
+&gt; widgets and objects in your model. XSWT and XWT are in this space, as is <br />
+&gt; Olivier's wazaabi 2. What I find important is that at runtime, you don't end <br />
+&gt; up with twice as many objects, so being able to directly create widgets from <br />
+&gt; a persistent representation is important. At the same time, having EMF <br />
+&gt; objects that are again 1:1 mapped to SWT widgets is interesting for tooling <br />
+&gt; purposes, so maybe what we should do is have a persistent format for SWT <br />
+&gt; widgets, which can also be read in to create EMF objects if you are in <br />
+&gt; &quot;design mode&quot;.<br />
+&gt; <br />
+&gt; 2. At the application level, where you don't model the innards of your UI <br />
+&gt; components (views, editors, ...) but you model how those components are <br />
+&gt; glued together. An example of this is Application.ecore/Workbench.ecore in <br />
+&gt; e4 (see org.eclipse.e4.model.workbench).<br />
+&gt; <br />
+&gt; 3. At an abstraction level higher than (1), but still concerned about <br />
+&gt; &quot;inner&quot; UIs, are things like the proposed PMF project <br />
+&gt; (<a href="http://www.eclipse.org/proposals/PMF" target="_blank">http://www.eclipse.org/proposals/PMF</a>). The idea here is that if you have a <br />
+<br />
+<a href="http://www.eclipse.org/proposals/pmf/" target="_blank">http://www.eclipse.org/proposals/pmf/</a><br />
+<br />
+Tom<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333446&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333446&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333446&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_333447"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333447&amp;#msg_333447" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333447&amp;#msg_333447">message #333447</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333444&amp;#msg_333444">message #333444</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 15:56</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Boris Bokowski schrieb:<br />
+&gt; We had a good discussion on the topic of using modeling for UIs at the <br />
+&gt; Eclipse Summit Europe 08. What I took away from that discussion is that <br />
+&gt; there are three areas where modeling makes sense:<br />
+&gt; <br />
+&gt; 1. At the widget level, where you would have a 1:1 mapping between the <br />
+&gt; widgets and objects in your model. XSWT and XWT are in this space, as is <br />
+&gt; Olivier's wazaabi 2. What I find important is that at runtime, you don't end <br />
+&gt; up with twice as many objects, so being able to directly create widgets from <br />
+&gt; a persistent representation is important. At the same time, having EMF <br />
+&gt; objects that are again 1:1 mapped to SWT widgets is interesting for tooling <br />
+&gt; purposes, so maybe what we should do is have a persistent format for SWT <br />
+&gt; widgets, which can also be read in to create EMF objects if you are in <br />
+&gt; &quot;design mode&quot;.<br />
+<br />
+Well this is where we both disagree. I take the point that it doesn't<br />
+really matter if those objects stay in memory. On the other hand say if<br />
+an Ecore-Model backing up the UI stays in memory you could generate some<br />
+benefits like you'd have to code your own:<br />
+<br />
+- XPath like querying out of box to find Widgets<br />
+  (UFaceKit by the way provides such a feature this we are going to use<br />
+   this for our binding story)<br />
+<br />
+  I think here along the following lines (I just made up this syntax so<br />
+  please don't blame me):<br />
+<br />
+  ui.xml:<br />
+  -------<br />
+  &lt;window&gt;<br />
+    &lt;label text=&quot;City&quot; /&gt;<br />
+    &lt;text /&gt;<br />
+  &lt;/window&gt;<br />
+<br />
+  bind.xml<br />
+  --------<br />
+  &lt;bindings&gt;<br />
+    &lt;bind-value<br />
+      widget=&quot;/window/text[0]/@text&quot;<br />
+      value=&quot;/city/@name&quot; /&gt;<br />
+  &lt;/bindings&gt;<br />
+<br />
+<br />
+- Easy-Client-Server split<br />
+<br />
+  Server-Model &lt;=&gt; Client-Model &lt;=&gt; Widget-Toolkit<br />
+             Network            JVM<br />
+- ...<br />
+<br />
+This allows to optimize the client-server traffic without the need to<br />
+hand-craft a protocol.<br />
+<br />
+I still believe that a medium sized RCP-Application is not built of so<br />
+many widgets that you'll notice it. If you think about CDO which has<br />
+quite smart logic to wipe unreferenced model-objects this gets an even<br />
+smaller problem. Where I agree with you is that this should be an opt-in<br />
+model so I should be able to decide myself whether I want a Live-Model<br />
+or not but I would not limit it on design mode.<br />
+<br />
+Tom<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333447&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333447&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333447&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_333448"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333448&amp;#msg_333448" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333448&amp;#msg_333448">message #333448</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333439&amp;#msg_333439">message #333439</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 11 December 2008 16:10</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> omoises-no-spam.no-spam-nordnet.fr<br />
+<br />
+Hi Thomas,<br />
+<br />
+My work on the databinding is actually in progress.<br />
+Nothing has been published yet and I need few days before to release any <br />
+new part of my work.<br />
+<br />
+The main concepts of the databinding are :<br />
+1°) models are declaratively bounds (EMF&lt;-&gt;EMF or EMF&lt;-&gt;POJO/beans)<br />
+2°) sources and targets (needed by the binding processes are mainly set <br />
+at runtime)<br />
+3°) databinding is a specific case of a workflow (usually a chain of <br />
+primitive tasks like copy, transformation ...<br />
+4°) binding operations are oriented (UI-&gt;domain is not the same as <br />
+domain-&gt;UI)<br />
+<br />
+<br />
+Let's focus on a very simple example :<br />
+<br />
+*given a class Person with 2 String properties (firstName, lastName) <br />
+*given a form (container) containing 2 text fields<br />
+<br />
+UI-&gt;domain means:<br />
+<br />
+when the focus of a text fields is lost, copy the value into the <br />
+appropriate property.<br />
+We need two times the same tasks and events : copy (task) and <br />
+focusChanged (event).<br />
+We could model this like  (for the first field and property, the second <br />
+is the same):<br />
+property changed event : path=&quot;children[@id='firstName']/@focus&quot;, <br />
+value=&quot;false&quot;<br />
+copy task : sourcePath=&quot;children[@id='firstName']/@text&quot;, <br />
+targetPath=&quot;firstName&quot;<br />
+<br />
+Of course, since we provide pathes, we need, before to run the binding <br />
+process, set the source and target contextes. Contextes are runtime <br />
+instances. In our case, the 'form' instance (EObject) as source and the <br />
+Person instance (EObject) as target.<br />
+<br />
+More complex bindings could act as dataflows, chaining primitive tasks <br />
+which transform a given dataobject (as source) into another one (target).<br />
+The model support also conditional branches (validations, errors, ...)<br />
+<br />
+At the end, since every UI part is a model, we could use the same <br />
+mechanism for UI to UI binding (for instance, a checkbox makes visible a <br />
+part of a form),<br />
+It will also be possible to change layout constraints when a given event <br />
+is triggered (for this last exmaple, I am not sure it could be usefull ;-) )<br />
+Regards,<br />
+<br />
+Olivier<br />
+<br />
+<br />
+Thomas a écrit :<br />
+&gt; HI Olivier,<br />
+&gt; <br />
+&gt; I had a look at what you are doing. What I didn't get in the short time <br />
+&gt; is how you do the bindings ?<br />
+&gt; <br />
+&gt; Can you give me a pointer where to look at ?<br />
+&gt; <br />
+&gt; Regards Thomas<br />
+&gt; Olivier Moïses schrieb:<br />
+&gt;&gt; Hi Thomas,<br />
+&gt;&gt;<br />
+&gt;&gt; I am working on a open source (EPL) project allowing the developer to <br />
+&gt;&gt; design its UI using declarative EMF models.<br />
+&gt;&gt; Models are live models (when the user changes the view, changes are <br />
+&gt;&gt; reflected in the model, and vice versa..)<br />
+&gt;&gt;<br />
+&gt;&gt; The benefit of a such approach is that almost everything is a <br />
+&gt;&gt; structural feature (in EMF, structural feature means reference or <br />
+&gt;&gt; attribute).<br />
+&gt;&gt; For instance, focus is an boolean attribute, then when a widget gains <br />
+&gt;&gt; the focus, the value is set from false to true ...<br />
+&gt;&gt;<br />
+&gt;&gt; For a small subset of cases, we need action trigers (especially for <br />
+&gt;&gt; push button or menu selection, because it requires two state changes).<br />
+&gt;&gt; Regarding the databinding, I am currently working on it. My wish is to <br />
+&gt;&gt; provide a declarative mechanism based on workflow/dataflow concepts.<br />
+&gt;&gt;<br />
+&gt;&gt; The databinding engine is still in progress and is not yet released.<br />
+&gt;&gt; If you want to test the existing work, you could have a look at <br />
+&gt;&gt; <a href="http://wiki2.wazaabi.org/index.php?title=InstallationANDTest" target="_blank"> http://wiki2.wazaabi.org/index.php?title=InstallationANDTest</a><br />
+&gt;&gt;<br />
+&gt;&gt; There is only few widget, I force myself to have a first binding <br />
+&gt;&gt; engine before to add other widgets.<br />
+&gt;&gt;<br />
+&gt;&gt; I will be happy to receive any hints/critisicm about this work.<br />
+&gt;&gt;<br />
+&gt;&gt; Olivier<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Thomas a écrit :<br />
+&gt;&gt;&gt; Hi, I once again don't know if this is the right channel. I hope to <br />
+&gt;&gt;&gt; start some discussion, and maybe this belongs into bugzilla.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I'm currently doing some investigations on state of the art ui <br />
+&gt;&gt;&gt; development. In my own project I choose RCP for many reasons. This is <br />
+&gt;&gt;&gt; why I post here today..<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; The general state of the universe seems to me like we are still <br />
+&gt;&gt;&gt; experimenting in many areas. I've been so happy with the arrival of <br />
+&gt;&gt;&gt; databinding, but it still needs a lot of coding.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I stumbled across gooey<br />
+&gt;&gt;&gt; <a href="https://aptframework.dev.java.net/gooey/gooeyController.html" target="_blank"> https://aptframework.dev.java.net/gooey/gooeyController.html</a><br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; they have some interesting ideas. For e.g.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; automtic binding by convention (perhaps overidden by annotations)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; they suggest to have some mechanisms like<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; @Event void ok() {<br />
+&gt;&gt;&gt; to implement a listener for a button thats named okButton.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; and some other nice ideas. Wether this plain java approach is a good <br />
+&gt;&gt;&gt; idea or if there are better ways - I will leave that to be discussed.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I'm not solving the puzzle (at least not by now :) but I agree with <br />
+&gt;&gt;&gt; many voices that coding ui's by current api's is sometimes comlicated <br />
+&gt;&gt;&gt; and ugly.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I can see two approaches:<br />
+&gt;&gt;&gt; Markup (Xaml?) and DSLs (JavaFX, glimmer etc)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; the problem I see with markup is that its great for building tools <br />
+&gt;&gt;&gt; around, but it's getting bad when you need bridges to code (With <br />
+&gt;&gt;&gt; Microsoft blend beeing nice, a so called UI Designer still has to <br />
+&gt;&gt;&gt; know method names and blend doesnt help him thereby afaics) XUL has <br />
+&gt;&gt;&gt; been araound a while but I don't know anyone who uses it.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; The web guys come up with EL there and once again you have some kind <br />
+&gt;&gt;&gt; of code in your view definition. I would prefer to see a button, and <br />
+&gt;&gt;&gt; the magic behind the button (its behaviour) should be defined in a <br />
+&gt;&gt;&gt; controller. Even if you disagree and allow some code in the view <br />
+&gt;&gt;&gt; definition, it still hard to validate and refactor. The problem with <br />
+&gt;&gt;&gt; markup is, that its hard to reference from code, and even if you do <br />
+&gt;&gt;&gt; that (by id conventions, by xpath or something else) it strikes you <br />
+&gt;&gt;&gt; when you want to refactor somehing.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I tend to like the dsl approach more, as it can be compiled, maybe it <br />
+&gt;&gt;&gt; can be typesafe and have tight java integration. And it would be even <br />
+&gt;&gt;&gt; better if we had cross language refactoring tools. the glimmer <br />
+&gt;&gt;&gt; approach implies groovy, and maybe I didnt understand it right, but I <br />
+&gt;&gt;&gt; think its still some effort to cleanly use groovy objects from java.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; All in all i would like to see a clean separation of the visual <br />
+&gt;&gt;&gt; definition and actual behaviour that should be in code anyway.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; One nice idea I saw from the .NET guys is the concept of a visual <br />
+&gt;&gt;&gt; state manager.<br />
+&gt;&gt;&gt; <a href="http://timheuer.com/blog/archive/2008/06/04/silverlight-introduces-visual-state-manager-vsm.aspx" target="_blank"> http://timheuer.com/blog/archive/2008/06/04/silverlight-intr oduces-visual-state-manager-vsm.aspx</a> <br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I think I like the idea. Coding state changes and their dependencies <br />
+&gt;&gt;&gt; is sometimes not trivial and mostly always hard to understand when <br />
+&gt;&gt;&gt; you look at the code only. So the idea of having<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; visual declarative elements (be it markup os dsl)<br />
+&gt;&gt;&gt; style information for the elements (oh no, not css)<br />
+&gt;&gt;&gt; different defined states of the declared elements<br />
+&gt;&gt;&gt; binding of elements to domain models<br />
+&gt;&gt;&gt; actual behaviour (aka the controller)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; as separate concepts has some appeal to me.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; If we could cleanly reference visual elements in a straightforward <br />
+&gt;&gt;&gt; way some things will get easier (think you declared a button in the <br />
+&gt;&gt;&gt; visual layer, how is it referenced in the controller?) a typical mess <br />
+&gt;&gt;&gt; we have today is when it comes to ui test automation. Look at the <br />
+&gt;&gt;&gt; SWTBot approach, coding names for the elements to make them testable. <br />
+&gt;&gt;&gt; Thats 2008, I guess (sorry for beeing sarcastic, I have hard times <br />
+&gt;&gt;&gt; with my UI tests)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I think we still have lots of room for improvement. I'm just trying <br />
+&gt;&gt;&gt; to get some pieces together. I would be glad if you let me know what <br />
+&gt;&gt;&gt; you think.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Regards<br />
+&gt;&gt;&gt; Thomas<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333448&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333448&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333448&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_333460"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333460&amp;#msg_333460" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333460&amp;#msg_333460">message #333460</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333447&amp;#msg_333447">message #333447</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 12 December 2008 08:32</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Kratz is currently offline" title="Thomas Kratz is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39125&amp;">Thomas Kratz</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eiswind%40googlemail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 165<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Modeling UIs is as i found out a topic thats not really new. I have my <br />
+concerns whenever people try to overabstract ui's in terms of (Form a <br />
+and form b are all the same) so I think the modeling widgets approach is <br />
+the way to go. I haven't thought this really through, but what I had in <br />
+mid  tonight was another thought of abstraction. I think that we have <br />
+different aspects in of widgets, they have a semantic, the have state, <br />
+the have appearance (which may depend on state). I think we need some <br />
+kind of expressions in the model (correct me if not) be it xpath or el <br />
+or any kind of scripting. for the binding approach i like the idea of <br />
+convention over configuration. for eg. i currently prototype a fully <br />
+editable table abstraction that binds to my model and knows mostly <br />
+everything about how to edit properties.<br />
+<br />
+what distracts me overall is that we have so many ui frameworks out <br />
+there that somehow all do the same. do you believe that I'm too far from <br />
+reality when I insist that a breakthrough would be if we had an <br />
+abstraction layer that describes ui on a semantic level in a common way ?<br />
+<br />
+<br />
+<br />
+Tom Schindl schrieb:<br />
+&gt; Boris Bokowski schrieb:<br />
+&gt;&gt; We had a good discussion on the topic of using modeling for UIs at the <br />
+&gt;&gt; Eclipse Summit Europe 08. What I took away from that discussion is that <br />
+&gt;&gt; there are three areas where modeling makes sense:<br />
+&gt;&gt;<br />
+&gt;&gt; 1. At the widget level, where you would have a 1:1 mapping between the <br />
+&gt;&gt; widgets and objects in your model. XSWT and XWT are in this space, as is <br />
+&gt;&gt; Olivier's wazaabi 2. What I find important is that at runtime, you don't end <br />
+&gt;&gt; up with twice as many objects, so being able to directly create widgets from <br />
+&gt;&gt; a persistent representation is important. At the same time, having EMF <br />
+&gt;&gt; objects that are again 1:1 mapped to SWT widgets is interesting for tooling <br />
+&gt;&gt; purposes, so maybe what we should do is have a persistent format for SWT <br />
+&gt;&gt; widgets, which can also be read in to create EMF objects if you are in <br />
+&gt;&gt; &quot;design mode&quot;.<br />
+&gt; <br />
+&gt; Well this is where we both disagree. I take the point that it doesn't<br />
+&gt; really matter if those objects stay in memory. On the other hand say if<br />
+&gt; an Ecore-Model backing up the UI stays in memory you could generate some<br />
+&gt; benefits like you'd have to code your own:<br />
+&gt; <br />
+&gt; - XPath like querying out of box to find Widgets<br />
+&gt;   (UFaceKit by the way provides such a feature this we are going to use<br />
+&gt;    this for our binding story)<br />
+&gt; <br />
+&gt;   I think here along the following lines (I just made up this syntax so<br />
+&gt;   please don't blame me):<br />
+&gt; <br />
+&gt;   ui.xml:<br />
+&gt;   -------<br />
+&gt;   &lt;window&gt;<br />
+&gt;     &lt;label text=&quot;City&quot; /&gt;<br />
+&gt;     &lt;text /&gt;<br />
+&gt;   &lt;/window&gt;<br />
+&gt; <br />
+&gt;   bind.xml<br />
+&gt;   --------<br />
+&gt;   &lt;bindings&gt;<br />
+&gt;     &lt;bind-value<br />
+&gt;       widget=&quot;/window/text[0]/@text&quot;<br />
+&gt;       value=&quot;/city/@name&quot; /&gt;<br />
+&gt;   &lt;/bindings&gt;<br />
+&gt; <br />
+&gt; <br />
+&gt; - Easy-Client-Server split<br />
+&gt; <br />
+&gt;   Server-Model &lt;=&gt; Client-Model &lt;=&gt; Widget-Toolkit<br />
+&gt;              Network            JVM<br />
+&gt; - ...<br />
+&gt; <br />
+&gt; This allows to optimize the client-server traffic without the need to<br />
+&gt; hand-craft a protocol.<br />
+&gt; <br />
+&gt; I still believe that a medium sized RCP-Application is not built of so<br />
+&gt; many widgets that you'll notice it. If you think about CDO which has<br />
+&gt; quite smart logic to wipe unreferenced model-objects this gets an even<br />
+&gt; smaller problem. Where I agree with you is that this should be an opt-in<br />
+&gt; model so I should be able to decide myself whether I want a Live-Model<br />
+&gt; or not but I would not limit it on design mode.<br />
+&gt; <br />
+&gt; Tom<br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333460&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39125&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333460&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333460&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_11"></a><a name="msg_333462"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333462&amp;#msg_333462" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333462&amp;#msg_333462">message #333462</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333460&amp;#msg_333460">message #333460</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 12 December 2008 08:42</span> <a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Kratz is currently offline" title="Thomas Kratz is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39125&amp;">Thomas Kratz</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eiswind%40googlemail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 165<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39125&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">I see thats what PMF seems to be all about :) Should have read this ..<br />
+I guess I have to dive into that.<br />
+<br />
+<br />
+<br />
+Thomas schrieb:<br />
+&gt; Modeling UIs is as i found out a topic thats not really new. I have my <br />
+&gt; concerns whenever people try to overabstract ui's in terms of (Form a <br />
+&gt; and form b are all the same) so I think the modeling widgets approach is <br />
+&gt; the way to go. I haven't thought this really through, but what I had in <br />
+&gt; mid  tonight was another thought of abstraction. I think that we have <br />
+&gt; different aspects in of widgets, they have a semantic, the have state, <br />
+&gt; the have appearance (which may depend on state). I think we need some <br />
+&gt; kind of expressions in the model (correct me if not) be it xpath or el <br />
+&gt; or any kind of scripting. for the binding approach i like the idea of <br />
+&gt; convention over configuration. for eg. i currently prototype a fully <br />
+&gt; editable table abstraction that binds to my model and knows mostly <br />
+&gt; everything about how to edit properties.<br />
+&gt; <br />
+&gt; what distracts me overall is that we have so many ui frameworks out <br />
+&gt; there that somehow all do the same. do you believe that I'm too far from <br />
+&gt; reality when I insist that a breakthrough would be if we had an <br />
+&gt; abstraction layer that describes ui on a semantic level in a common way ?<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; Tom Schindl schrieb:<br />
+&gt;&gt; Boris Bokowski schrieb:<br />
+&gt;&gt;&gt; We had a good discussion on the topic of using modeling for UIs at <br />
+&gt;&gt;&gt; the Eclipse Summit Europe 08. What I took away from that discussion <br />
+&gt;&gt;&gt; is that there are three areas where modeling makes sense:<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; 1. At the widget level, where you would have a 1:1 mapping between <br />
+&gt;&gt;&gt; the widgets and objects in your model. XSWT and XWT are in this <br />
+&gt;&gt;&gt; space, as is Olivier's wazaabi 2. What I find important is that at <br />
+&gt;&gt;&gt; runtime, you don't end up with twice as many objects, so being able <br />
+&gt;&gt;&gt; to directly create widgets from a persistent representation is <br />
+&gt;&gt;&gt; important. At the same time, having EMF objects that are again 1:1 <br />
+&gt;&gt;&gt; mapped to SWT widgets is interesting for tooling purposes, so maybe <br />
+&gt;&gt;&gt; what we should do is have a persistent format for SWT widgets, which <br />
+&gt;&gt;&gt; can also be read in to create EMF objects if you are in &quot;design mode&quot;.<br />
+&gt;&gt;<br />
+&gt;&gt; Well this is where we both disagree. I take the point that it doesn't<br />
+&gt;&gt; really matter if those objects stay in memory. On the other hand say if<br />
+&gt;&gt; an Ecore-Model backing up the UI stays in memory you could generate some<br />
+&gt;&gt; benefits like you'd have to code your own:<br />
+&gt;&gt;<br />
+&gt;&gt; - XPath like querying out of box to find Widgets<br />
+&gt;&gt;   (UFaceKit by the way provides such a feature this we are going to use<br />
+&gt;&gt;    this for our binding story)<br />
+&gt;&gt;<br />
+&gt;&gt;   I think here along the following lines (I just made up this syntax so<br />
+&gt;&gt;   please don't blame me):<br />
+&gt;&gt;<br />
+&gt;&gt;   ui.xml:<br />
+&gt;&gt;   -------<br />
+&gt;&gt;   &lt;window&gt;<br />
+&gt;&gt;     &lt;label text=&quot;City&quot; /&gt;<br />
+&gt;&gt;     &lt;text /&gt;<br />
+&gt;&gt;   &lt;/window&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;   bind.xml<br />
+&gt;&gt;   --------<br />
+&gt;&gt;   &lt;bindings&gt;<br />
+&gt;&gt;     &lt;bind-value<br />
+&gt;&gt;       widget=&quot;/window/text[0]/@text&quot;<br />
+&gt;&gt;       value=&quot;/city/@name&quot; /&gt;<br />
+&gt;&gt;   &lt;/bindings&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; - Easy-Client-Server split<br />
+&gt;&gt;<br />
+&gt;&gt;   Server-Model &lt;=&gt; Client-Model &lt;=&gt; Widget-Toolkit<br />
+&gt;&gt;              Network            JVM<br />
+&gt;&gt; - ...<br />
+&gt;&gt;<br />
+&gt;&gt; This allows to optimize the client-server traffic without the need to<br />
+&gt;&gt; hand-craft a protocol.<br />
+&gt;&gt;<br />
+&gt;&gt; I still believe that a medium sized RCP-Application is not built of so<br />
+&gt;&gt; many widgets that you'll notice it. If you think about CDO which has<br />
+&gt;&gt; quite smart logic to wipe unreferenced model-objects this gets an even<br />
+&gt;&gt; smaller problem. Where I agree with you is that this should be an opt-in<br />
+&gt;&gt; model so I should be able to decide myself whether I want a Live-Model<br />
+&gt;&gt; or not but I would not limit it on design mode.<br />
+&gt;&gt;<br />
+&gt;&gt; Tom<br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333462&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39125&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333462&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333462&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_12"></a><a name="msg_333464"></a><a href="index.php?t=msg&amp;th=109113&amp;goto=333464&amp;#msg_333464" class="MsgSubText">Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=109113&amp;goto=333464&amp;#msg_333464">message #333464</a> is a reply to <a href="index.php?t=msg&amp;th=109113&amp;goto=333460&amp;#msg_333460">message #333460</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 12 December 2008 08:52</span> <a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Thomas schrieb:<br />
+&gt; Modeling UIs is as i found out a topic thats not really new. I have my<br />
+&gt; concerns whenever people try to overabstract ui's in terms of (Form a<br />
+&gt; and form b are all the same) so I think the modeling widgets approach is<br />
+&gt; the way to go. I haven't thought this really through, but what I had in<br />
+&gt; mid  tonight was another thought of abstraction. I think that we have<br />
+<br />
+Yes I agree here with you. Though I still believe we should not<br />
+model/describe the direct implementation (SWT, ...) 1:1 which XSWT, XWT<br />
+do but stay at a level similar to what JFace is nowadays in Eclipse land<br />
+and one can easily transform JFace ideas like viewers, actions, ... .<br />
+<br />
+Whether some is afterwards adding one more layer of abstraction above it<br />
+and do an m2m-transformation is some thing people can do afterwards.<br />
+<br />
+An example might make this clear. I don't want to model a MenuItem but<br />
+the higherlevel of an Action which widget is used to represent this<br />
+action in the UI can be an MenuItem, RibonItem, ToolBarItem, ... .<br />
+<br />
+Porting JFace concepts to other technologies is easily possible at<br />
+Nebula we have Viewers for Grid and Gallery or for example in UFaceKit<br />
+we did this with JFace-Viewers where we ported the concept to Swing and QT.<br />
+<br />
+&gt; different aspects in of widgets, they have a semantic, the have state,<br />
+&gt; the have appearance (which may depend on state). I think we need some<br />
+&gt; kind of expressions in the model (correct me if not) be it xpath or el<br />
+&gt; or any kind of scripting. for the binding approach i like the idea of<br />
+<br />
+Not sure what you mean with expressions in model?<br />
+<br />
+&gt; convention over configuration. for eg. i currently prototype a fully<br />
+&gt; editable table abstraction that binds to my model and knows mostly<br />
+&gt; everything about how to edit properties.<br />
+<br />
+Yes I also did this for a customer (setting up a table with editing,<br />
+sorting, auto-filtering is done in 10 lines of code) but I'm not sure<br />
+this is a good idea for a framework. Whenever a framework forces people<br />
+into some programming style they get scared and don't use it and beside<br />
+this it may no allow me to fully exploit the possibilities of the<br />
+technologies.<br />
+<br />
+&gt; <br />
+&gt; what distracts me overall is that we have so many ui frameworks out<br />
+&gt; there that somehow all do the same. do you believe that I'm too far from<br />
+&gt; reality when I insist that a breakthrough would be if we had an<br />
+&gt; abstraction layer that describes ui on a semantic level in a common way ?<br />
+&gt; <br />
+<br />
+Sure but before we can do that we need to define what the UI is we want<br />
+to describe. Is it a SWT, JFace, ... what do we describe. Maybe a<br />
+mock-up example can clarify what you think about.<br />
+<br />
+Tom<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=333464&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=333464&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=333464&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: [Databinding, General UI] UI brainstorming, (nearly) all stolen ideas" />
+	<input type="hidden" name="reply_to" value="333464" />
+	<input type="hidden" name="th_id" value="109113" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/109113/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/333463/#msg_333463">MacOS X: Cannot run or debug Eclipse Application</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/333465/#msg_333465">Job scheduling</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 109113, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=109113&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 11:58:13 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02294 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

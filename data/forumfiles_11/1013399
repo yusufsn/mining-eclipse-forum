@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; warning when project is deleted</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=101339&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; warning when project is deleted | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; warning when project is deleted | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; warning when project is deleted | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>warning when project is deleted</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/101339/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/101339/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/101339/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/101339/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/101339/309662/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_309662"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309662&amp;#msg_309662" class="MsgSubText">warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309662&amp;#msg_309662">message #309662</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 16:52</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+I did like to show a warning message when a project of MyNature is being <br />
+DELETED.<br />
+<br />
+Here is what I did :<br />
+class MyProjectModelProvider extends ModelProvider<br />
+{<br />
+ public IStatus validateChange( IResourceDelta delta, IProgressMonitor <br />
+monitor )<br />
+ {<br />
+  if ( delta.getKind() == IResourceDelta.CHANGED )<br />
+  {<br />
+   return new ModelStatus( IStatus.WARNING, ResourcesPlugin.PI_RESOURCES, <br />
+&quot;MyID&quot;, &quot;Reason: Some file may be lost permanently&quot;);<br />
+  }<br />
+  return super.validateChange( delta, monitor );<br />
+ }<br />
+<br />
+}<br />
+<br />
+<br />
+In my plugin.xml I created an extension -<br />
+&lt;extension<br />
+id=&quot;modelProvider&quot;<br />
+name=&quot;Library Example&quot;<br />
+point=&quot;org.eclipse.core.resources.modelProviders&quot;&gt;<br />
+ &lt;modelProvider<br />
+ class=&quot;com.libraray.UIModelProvider&quot; /&gt;<br />
+ &lt;extends-model id=&quot;org.eclipse.core.resources.modelProvider&quot;/&gt;<br />
+ &lt;enablement&gt;<br />
+  &lt;test property=&quot;org.eclipse.core.resources.projectNature&quot;<br />
+  value=&quot;com.library.MyProjectNature&quot; /&gt;<br />
+  &lt;and/&gt;<br />
+  &lt;instanceof value=&quot;org.eclipse.core.resources.IProject&quot;/&gt;<br />
+  &lt;/enablement&gt;<br />
+&lt;/extension&gt;<br />
+<br />
+So everything works good and when a project of MyNature is DELETED it pops <br />
+up a warning message. BUT the same message pops up even when I CLOSE the <br />
+project. The delta.getKind() is of type IResource.CHANGED for both delete <br />
+and close events on the project. Is there any way to differentiate between <br />
+the two so that I can pop up my warning message ONLY when the project is <br />
+DELTED?<br />
+Thanks,<br />
+Rashmy</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309662&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309662&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309662&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_309673"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309673&amp;#msg_309673" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309673&amp;#msg_309673">message #309673</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309662&amp;#msg_309662">message #309662</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 19:25</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+You want to listen for IResourceChangeEventListener.PRE_DELETE event <br />
+type, not PRE_BUILD or POST_BUILD.<br />
+<br />
+I.e.<br />
+<br />
+ ResourcesPlugin.getWorkspace().addResourceChangeListener(lis tener, <br />
+IResourceChangeEvent.PRE_DELETE);<br />
+<br />
+That way you will only get the about to delete project notifications.<br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309673&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309673&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309673&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_309677"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309677&amp;#msg_309677" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309677&amp;#msg_309677">message #309677</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309673&amp;#msg_309673">message #309673</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 19:54</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Actually I would like to display the warning message prior to the delete <br />
+confirmation dialog that pops up when I delete the project. So if the user <br />
+is not sure, he select Cancel on the delete confirmation box.<br />
+<br />
+In the resourceChanged() method there is no status I can pass back to abort <br />
+the delete the operation.<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:eig52r$nqa$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; You want to listen for IResourceChangeEventListener.PRE_DELETE event type, <br />
+&gt; not PRE_BUILD or POST_BUILD.<br />
+&gt;<br />
+&gt; I.e.<br />
+&gt;<br />
+&gt;  ResourcesPlugin.getWorkspace().addResourceChangeListener(lis tener, <br />
+&gt; IResourceChangeEvent.PRE_DELETE);<br />
+&gt;<br />
+&gt; That way you will only get the about to delete project notifications.<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309677&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309677&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309677&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_309680"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309680&amp;#msg_309680" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309680&amp;#msg_309680">message #309680</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309677&amp;#msg_309677">message #309677</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 20:27</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+That is impossible. There is no way to cancel a delete. There is no <br />
+notification saying about to delete, can I continue? The delete will <br />
+occur at that point.<br />
+<br />
+However, if someone deleted the project by hand they would of already <br />
+received a dialog saying are you sure you want to delete it.<br />
+<br />
+The only way there would not be a dialog is if there was some plugin <br />
+which went and deleted the project itself without asking first.<br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309680&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309680&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309680&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_309681"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309681&amp;#msg_309681" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309681&amp;#msg_309681">message #309681</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309680&amp;#msg_309680">message #309680</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 20:49</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">I understand. Hence I created a ModelProvider and added validateChange() <br />
+method. But sadly in this method, using the IResourceDelta object, I cannot <br />
+figure out whether the Project is closed or deleted. Is there any way I can <br />
+change the default message in the delete confirmation dialog? I want to add <br />
+my own message above the radio buttons &quot;Also delete contents&quot; and &quot;Do not <br />
+delete contents&quot;.<br />
+<br />
+Probably NO :)<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:eig8oc$gao$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; That is impossible. There is no way to cancel a delete. There is no <br />
+&gt; notification saying about to delete, can I continue? The delete will occur <br />
+&gt; at that point.<br />
+&gt;<br />
+&gt; However, if someone deleted the project by hand they would of already <br />
+&gt; received a dialog saying are you sure you want to delete it.<br />
+&gt;<br />
+&gt; The only way there would not be a dialog is if there was some plugin which <br />
+&gt; went and deleted the project itself without asking first.<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309681&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309681&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309681&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_309687"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309687&amp;#msg_309687" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309687&amp;#msg_309687">message #309687</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309681&amp;#msg_309681">message #309681</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 23:16</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+Even then it is too late. The delete has or will occur, you can't stop it.<br />
+<br />
+Rashmy wrote:<br />
+&gt; I understand. Hence I created a ModelProvider and added validateChange() <br />
+&gt; method. But sadly in this method, using the IResourceDelta object, I cannot <br />
+&gt; figure out whether the Project is closed or deleted. Is there any way I can <br />
+&gt; change the default message in the delete confirmation dialog? I want to add <br />
+&gt; my own message above the radio buttons &quot;Also delete contents&quot; and &quot;Do not <br />
+&gt; delete contents&quot;.<br />
+&gt; <br />
+&gt; Probably NO :)<br />
+&gt; <br />
+&gt; Thanks,<br />
+&gt; Rashmy<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; &quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+&gt; news:eig8oc$gao$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt; That is impossible. There is no way to cancel a delete. There is no <br />
+&gt;&gt; notification saying about to delete, can I continue? The delete will occur <br />
+&gt;&gt; at that point.<br />
+&gt;&gt;<br />
+&gt;&gt; However, if someone deleted the project by hand they would of already <br />
+&gt;&gt; received a dialog saying are you sure you want to delete it.<br />
+&gt;&gt;<br />
+&gt;&gt; The only way there would not be a dialog is if there was some plugin which <br />
+&gt;&gt; went and deleted the project itself without asking first.<br />
+&gt;&gt;<br />
+&gt;&gt; -- <br />
+&gt;&gt; Thanks,<br />
+&gt;&gt; Rich Kulp <br />
+&gt; <br />
+&gt; <br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309687&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309687&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309687&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_309688"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309688&amp;#msg_309688" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309688&amp;#msg_309688">message #309688</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309687&amp;#msg_309687">message #309687</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 03 November 2006 23:32</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">This is a multi-part message in MIME format.<br />
+<br />
+------=_NextPart_000_007C_01C6FF76.76316410<br />
+Content-Type: multipart/alternative;<br />
+	boundary=&quot;----=_NextPart_001_007D_01C6FF76.76316410&quot;<br />
+<br />
+<br />
+------=_NextPart_001_007D_01C6FF76.76316410<br />
+Content-Type: text/plain;<br />
+	charset=&quot;iso-8859-1&quot;<br />
+Content-Transfer-Encoding: quoted-printable<br />
+<br />
+I have th code working to NOT delete the project.<br />
+<br />
+My current code does this -<br />
+<br />
+Select Project<br />
+<br />
+Select Delete<br />
+<br />
+First MyModelProvider.validateChange() is called<br />
+This pops up MY warning message that you can possibly lose data if you =<br />
+deleted project<br />
+<br />
+<br />
+<br />
+Next the Eclipse Confirm Project Delete dialog appears<br />
+<br />
+<br />
+Here I still have the option to NOT delete the project and get back to =<br />
+my workspace.<br />
+<br />
+My problem is that in MyModelProvider.validateChange(), I cannot figure =<br />
+out whether the Project is closed or deleted. I only have IResourceDelta =<br />
+and the IResourceDelta.getKind() method return 4 for project close and =<br />
+delete. Is there any way I can differentiate the event here?<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+<br />
+<br />
+All I want to do is make sure I have shown a warning before the user =<br />
+gets to the Delete=20<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message =<br />
+news:eigiju$pe9$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; Even then it is too late. The delete has or will occur, you can't stop =<br />
+it.<br />
+&gt;=20<br />
+&gt; Rashmy wrote:<br />
+&gt;&gt; I understand. Hence I created a ModelProvider and added =<br />
+validateChange()=20<br />
+&gt;&gt; method. But sadly in this method, using the IResourceDelta object, I =<br />
+cannot=20<br />
+&gt;&gt; figure out whether the Project is closed or deleted. Is there any way =<br />
+I can=20<br />
+&gt;&gt; change the default message in the delete confirmation dialog? I want =<br />
+to add=20<br />
+&gt;&gt; my own message above the radio buttons &quot;Also delete contents&quot; and &quot;Do =<br />
+not=20<br />
+&gt;&gt; delete contents&quot;.<br />
+&gt;&gt;=20<br />
+&gt;&gt; Probably NO :)<br />
+&gt;&gt;=20<br />
+&gt;&gt; Thanks,<br />
+&gt;&gt; Rashmy<br />
+&gt;&gt;=20<br />
+&gt;&gt;=20<br />
+&gt;&gt;=20<br />
+&gt;&gt; &quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message=20<br />
+&gt;&gt; news:eig8oc$gao$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt;&gt; That is impossible. There is no way to cancel a delete. There is no=20<br />
+&gt;&gt;&gt; notification saying about to delete, can I continue? The delete will =<br />
+occur=20<br />
+&gt;&gt;&gt; at that point.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; However, if someone deleted the project by hand they would of =<br />
+already=20<br />
+&gt;&gt;&gt; received a dialog saying are you sure you want to delete it.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; The only way there would not be a dialog is if there was some plugin =<br />
+which=20<br />
+&gt;&gt;&gt; went and deleted the project itself without asking first.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; --=20<br />
+&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt; Rich Kulp=20<br />
+&gt;&gt;=20<br />
+&gt;&gt;=20<br />
+&gt;=20<br />
+&gt; --=20<br />
+&gt; Thanks,<br />
+&gt; Rich Kulp<br />
+------=_NextPart_001_007D_01C6FF76.76316410<br />
+Content-Type: text/html;<br />
+	charset=&quot;iso-8859-1&quot;<br />
+Content-Transfer-Encoding: quoted-printable<br />
+<br />
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;<br />
+&lt;HTML&gt;&lt;HEAD&gt;<br />
+&lt;META http-equiv=3DContent-Type content=3D&quot;text/html; =<br />
+charset=3Diso-8859-1&quot;&gt;<br />
+&lt;META content=3D&quot;MSHTML 6.00.2900.2963&quot; name=3DGENERATOR&gt;<br />
+&lt;STYLE&gt;&lt;/STYLE&gt;<br />
+&lt;/HEAD&gt;<br />
+&lt;BODY&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;I have th code working to NOT delete =<br />
+the=20<br />
+project.&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;My current code does this =<br />
+-&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Select Project&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Select Delete&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;First MyModelProvider.validateChange() =<br />
+is=20<br />
+called&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;This pops up&amp;nbsp;MY warning message =<br />
+that you can=20<br />
+possibly lose data if you deleted project&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;IMG alt=3D&quot;&quot; hspace=3D0=20<br />
+src=3D&quot;cid:007601c6ffa0$5df07dd0$<a href="mailto:ee287a92&#64;net.plm.eds.com" target="_blank">ee287a92&#64;net.plm.eds.com</a>&quot; =<br />
+align=3Dbaseline=20<br />
+border=3D0&gt;&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Next the Eclipse Confirm Project Delete =<br />
+dialog=20<br />
+appears&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;IMG alt=3D&quot;&quot; hspace=3D0=20<br />
+src=3D&quot;cid:007701c6ffa0$5df538c0$<a href="mailto:ee287a92&#64;net.plm.eds.com" target="_blank">ee287a92&#64;net.plm.eds.com</a>&quot; =<br />
+align=3Dbaseline=20<br />
+border=3D0&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Here I still have the option to NOT =<br />
+delete the=20<br />
+project and get back to my workspace.&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;My problem is that in=20<br />
+MyModelProvider.validateChange(), I cannot figure out whether the =<br />
+Project is=20<br />
+closed or deleted. I only have IResourceDelta and the =<br />
+IResourceDelta.getKind()=20<br />
+method return 4 for project close and delete. Is there any way I can=20<br />
+differentiate the event here?&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Thanks,&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;Rashmy&lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&lt;FONT face=3DArial =<br />
+size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;All I want to do is make sure I have =<br />
+shown a=20<br />
+warning before the user gets to the Delete &lt;/FONT&gt;&lt;/DIV&gt;<br />
+&lt;DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&quot;Rich Kulp&quot; &amp;lt;&lt;/FONT&gt;&lt;A=20<br />
+href=3D&quot;mailto:<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&quot;&gt;&lt;FONT face=3DArial=20<br />
+size=3D2&gt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&lt;/FONT&gt;&lt;/A&gt;&lt;FONT face=3DArial =<br />
+size=3D2&gt;&amp;gt; wrote=20<br />
+in message &lt;/FONT&gt;&lt;A href=3D&quot;news:eigiju$pe9$<a href="mailto:1&#64;utils.eclipse.org" target="_blank">1&#64;utils.eclipse.org</a>&quot;&gt;&lt;FONT =<br />
+face=3DArial=20<br />
+size=3D2&gt;news:eigiju$pe9$<a href="mailto:1&#64;utils.eclipse.org" target="_blank">1&#64;utils.eclipse.org</a>&lt;/FONT&gt;&lt;/A&gt;&lt;FONT =<br />
+face=3DArial=20<br />
+size=3D2&gt;...&lt;/FONT&gt;&lt;/DIV&gt;&lt;FONT face=3DArial size=3D2&gt;&amp;gt; Even then it =<br />
+is too late.=20<br />
+The delete has or will occur, you can't stop it.&lt;BR&gt;&amp;gt; &lt;BR&gt;&amp;gt; Rashmy =<br />
+<br />
+wrote:&lt;BR&gt;&amp;gt;&amp;gt; I understand. Hence I created a ModelProvider and =<br />
+added=20<br />
+validateChange() &lt;BR&gt;&amp;gt;&amp;gt; method. But sadly in this method, using =<br />
+the=20<br />
+IResourceDelta object, I cannot &lt;BR&gt;&amp;gt;&amp;gt; figure out whether the =<br />
+Project is=20<br />
+closed or deleted. Is there any way I can &lt;BR&gt;&amp;gt;&amp;gt; change the =<br />
+default=20<br />
+message in the delete confirmation dialog? I want to add &lt;BR&gt;&amp;gt;&amp;gt; my =<br />
+own=20<br />
+message above the radio buttons &quot;Also delete contents&quot; and &quot;Do not =<br />
+&lt;BR&gt;&amp;gt;&amp;gt;=20<br />
+delete contents&quot;.&lt;BR&gt;&amp;gt;&amp;gt; &lt;BR&gt;&amp;gt;&amp;gt; Probably NO :)&lt;BR&gt;&amp;gt;&amp;gt;=20<br />
+&lt;BR&gt;&amp;gt;&amp;gt; Thanks,&lt;BR&gt;&amp;gt;&amp;gt; Rashmy&lt;BR&gt;&amp;gt;&amp;gt; &lt;BR&gt;&amp;gt;&amp;gt; =<br />
+&lt;BR&gt;&amp;gt;&amp;gt;=20<br />
+&lt;BR&gt;&amp;gt;&amp;gt; &quot;Rich Kulp&quot; &amp;lt;&lt;/FONT&gt;&lt;A=20<br />
+href=3D&quot;mailto:<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&quot;&gt;&lt;FONT face=3DArial=20<br />
+size=3D2&gt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&lt;/FONT&gt;&lt;/A&gt;&lt;FONT face=3DArial =<br />
+size=3D2&gt;&amp;gt; wrote=20<br />
+in message &lt;BR&gt;&amp;gt;&amp;gt; &lt;/FONT&gt;&lt;A=20<br />
+href=3D&quot;news:eig8oc$gao$<a href="mailto:1&#64;utils.eclipse.org" target="_blank">1&#64;utils.eclipse.org</a>&quot;&gt;&lt;FONT face=3DArial=20<br />
+size=3D2&gt;news:eig8oc$gao$<a href="mailto:1&#64;utils.eclipse.org" target="_blank">1&#64;utils.eclipse.org</a>&lt;/FONT&gt;&lt;/A&gt;&lt;FONT =<br />
+face=3DArial=20<br />
+size=3D2&gt;...&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; That is impossible. There is no way to =<br />
+cancel a=20<br />
+delete. There is no &lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; notification saying about to =<br />
+delete, can I=20<br />
+continue? The delete will occur &lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; at that=20<br />
+point.&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt;&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; However, if someone deleted the =<br />
+project=20<br />
+by hand they would of already &lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; received a dialog saying =<br />
+are you=20<br />
+sure you want to delete it.&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt;&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; The only way =<br />
+there=20<br />
+would not be a dialog is if there was some plugin which &lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; =<br />
+went=20<br />
+and deleted the project itself without asking=20<br />
+first.&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt;&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; -- &lt;BR&gt;&amp;gt;&amp;gt;&amp;gt;=20<br />
+Thanks,&lt;BR&gt;&amp;gt;&amp;gt;&amp;gt; Rich Kulp &lt;BR&gt;&amp;gt;&amp;gt; &lt;BR&gt;&amp;gt;&amp;gt; &lt;BR&gt;&amp;gt; =<br />
+&lt;BR&gt;&amp;gt; --=20<br />
+&lt;BR&gt;&amp;gt; Thanks,&lt;BR&gt;&amp;gt; Rich Kulp&lt;/FONT&gt;&lt;/BODY&gt;&lt;/HTML&gt;<br />
+<br />
+------=_NextPart_001_007D_01C6FF76.76316410--<br />
+<br />
+------=_NextPart_000_007C_01C6FF76.76316410<br />
+Content-Type: image/gif;<br />
+	name=&quot;warning.GIF&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-ID: &lt;007601c6ffa0$5df07dd0$<a href="mailto:ee287a92&#64;net.plm.eds.com" target="_blank">ee287a92&#64;net.plm.eds.com</a>&gt;<br />
+<br />
+ R0lGODlh/AByAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/ AP//AAAA//8A/wD/<br />
+ /////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAA<br />
+ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAz ZgAzmQAzzAAz/wBm<br />
+ AABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDM mQDMzADM/wD/AAD/<br />
+ MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMz zDMz/zNmADNmMzNm<br />
+ ZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM /zP/ADP/MzP/ZjP/<br />
+ mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2Zm AGZmM2ZmZmZmmWZm<br />
+ zGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/ M2b/Zmb/mWb/zGb/<br />
+ /5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lm ZplmmZlmzJlm/5mZ<br />
+ AJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/ mZn/zJn//8wAAMwA<br />
+ M8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxm zMxm/8yZAMyZM8yZ<br />
+ ZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz/ //8AAP8AM/8AZv8A<br />
+ mf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+Z AP+ZM/+ZZv+Zmf+Z<br />
+ zP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEA ABAALAAAAAD8AHIA<br />
+ AAj/AMcIHEiwoMGDCBMqXMiwocOHECNKnEixYsUcGDNq3Mixo8ePIEOKHEmy pMmTKFOqXMlSI46O<br />
+ LznG3DjTJcybMnHS1Gkzp8+dP3sCHSq0aMaaR3kmDbqUaFOjGJHmkDG1KtWr VrNi3aq1K9evXsOC<br />
+ HSu2LNmzZtOiXau2Ldu3aXO8nCu3Lt27dvPi3au3L9+/fgMDHiy4MOHDhhMj Xqy48WG4kN1Kjkx5<br />
+ suXKmC9rzgy26kuqn+uC9kx6tGnRqEOrLp2a9erTr1vDdk17tm3ZuGPrrp2b 9+7bv3vDloHja3Gt<br />
+ x7cmt7r8avOpz4kbn46cunLrzLE71w6du/Tq3cN//x+fvPx28ebRnye/Pv33 vqPpxm8tH759vPNX<br />
+ 18d/P29+0vv511+ABNJnoH4HApjgfwwOuOCAW/3DhVX//KNWNdVUFcs/1ORQ zTaYYbjZiJyRaGKJ<br />
+ KJpIWoUTUlWhCrLFkiFVGK6Qw4ZVVBHDNtRUEdxnMlZVo3BE/ujbkcAhWaSS Ribp5JJPqhZhhVdV<br />
+ uAJYL1alQgwyVMjlVDHYyFaWVG2Z4pknponmmmlm5OI/qoCYg5U5rFJhLG9W OKeeFfKpJw4y/lPN<br />
+ IRhVU2E1L/VpYZ8Y2fkPnhg9euhMM1EVlZtNWVoXRppWmumnl3IK6qZVhVoq qZ1iamqqoq46qqeu<br />
+ xv+KaqZTxkBNNV3+E4MhEv4B55tmeplrDDC+eMg/q6gACyDHrVCFoMBy6SWv XPiqypsxbAGtmtyy<br />
+ 6W23amr6YhfVbPiPCsJSiYOwexZ7bqT/VGGoClfFcKOiMayrK7Dp/kNcv/mq OqussA5scMEIC5xw<br />
+ qwcr7DDDC58aMasSP1xqrTJ00WcMWXb87rC5XtmulVhtuAXH75Lppcfutgzu tzC/LDNbXWg0bg7H<br />
+ /rNChVXs2TPP8NpIp8/b6GxzvLn+HG/QQDe9NNAY1cyR1BtRrZHVGWEddUda 59D111yH3dLYZIME<br />
+ o6Vecrrhrv/8cawqMM47FcDAvi1DLITaWUXOPcv/PSyvbsPpMpkCa2p44Ygz fLjiiZ+6uOONPy55<br />
+ 5JQzbjnklx9ub0ZZZlQNjKrcSS/OerZrus91UiMoF/aGfsiGf+CQM7ygi47t npuXrfvuvPfuO8Q5<br />
+ bOnS5jEQS1xUwgdvY/Cb47ACjFOtQGxGxXOpwlzJq7B88fTGNH0O3ztlKlSk ki9V+U+lP7766K/v<br />
+ fvvwny+/Uu//kNEYGdmPEf4Y6Z8D/znwHwAFmL/7FXB/B/xfAgdowP41MIAP JKADEThBBVaQgRSE<br />
+ YAYlqEELdhCDHuSgCCNIwg2WMIQnBOHvVsjCFrrwhTCMoQxnSMMa2hAklGpK Dk21Q1L18Ic6DCIP<br />
+ /4XoQyICcYhILGISj6jEJlLsia+yGBQJJsUbWvGKWMyiSmLGxZl5sYtg/GJW zFMcMrKnjNtBY3fU<br />
+ KB02otGMcEzjGecYxzXSUY51bOMd7ZjHN+rRj4D8oyADSchBGrKQ1PBHIhep yEYy8pGOjCQkJynJ<br />
+ SlLykpbMJCY3qclOcvKTngwlKEcpylJy8h/+4BAqVZlK1bVyla5kpSxjSUtY 2vKVuJzlLXWZy1r2<br />
+ cpe+5KUwg0lMYBrzl8gc5jGVmcxiNnOZ1CClNE1JzWlas5rYvKY2s8nNbVJS kf/AhyrxAU5xqo6c<br />
+ 5xxnOdWZznOu053tDOc75RlPdIaTnfeEZz7puf9Pe5qTn//0Jz4DOk+B6pOg 9SyoQhPK0H4u1KEN<br />
+ RShEw7nNaXTzot7EqEYzytGNehST0ASmP/Shj32E9JkoZaZKnbnSk7Y0pSyN qUtlCtOZQvOa0CCp<br />
+ PqChio769KNA/alQgwrUcRq1nqrkB0n3QdIpqCKgR+1nVKGK1KpK1apUvapW s8rVqXoVq1/dali7<br />
+ CtayitWs+LDmTvWh1J2qIJpEHapc40rXudo1lTX1Bz9yWlKd+sFXeX2pYGk6 WJsGlrCINWxhDzvT<br />
+ afKVqUzVhyneWtfK3vWyls0sJx9KUGnogx6R7as+qPCHgw70tKZNLUBRu1rV GrS1sH2tbDnL2tn/<br />
+ RrS2tHVtbmNbTmnSg6+S1ak+ovFWzBpXs8g97l1n2g++RgMF0A3tXxdL3cQy 9rrVVax1s4tdxJIy<br />
+ p/TQB3RTkII77CO8pqiCNVHwSPZq1r0ZRUEl5YtJ+vrDvtRwL343Cl9N9je/ oNxvIgV8X0+6d6yq<br />
+ tMdnmQpdJ5RXtFR4KoLbiQJzVnjCZ80wCjBM1gtTmKz33PA/N5xfEJuYw6ok cYYDyt5+tpjFYBXx<br />
+ KH+rUxSQNwV20Ck9TlFcatr3x9BVJHz7K1/oQneRRh5wI/Gr3yAP2Mn3hTKS iyzkIyc5yvstMpSN<br />
+ XOAjV/m/7HVymJ9M3yYDWctMJrMkg1xmL7c5/8xu3vKY8crM5i5VH31IARVS sAzRjhawgt2wigf9<br />
+ jw2n0tAcgm6hURnmVhbZlS0+9KJVJ+hVVprSrGyxlR19X0x7mtGflnSUQS3f RL/yyIsO8qIlXWlW<br />
+ p3jVr0Y0ovN76EeTutO3hvWlFQ1XTkKDHqBFbwqcQAXwnlcfoFAvNtMsZAA3 e8nPfnOZnY1kajd5<br />
+ yldWsraNTGUyE/nZ1S6wkrnNbAAPudpwTjKY2/tkSP4Yy2yGd7fJbe1E0lYa wA4tNFDwhyl8dqnh<br />
+ jfBtD/ri+4a40OBUMT40neiFn1PTBh9xxBeNzguL+J0VFrLDwxlmcV5cxA2f OKU13vAXqxPkgv9O<br />
+ eIoNrnCRIzydFy/xOF/c8XLW/OEjh7k8ZezJ3wL73/RoQh76EN7wfnbHPSZl uefs5W2Pu8rQZve5<br />
+ px7ubc973u2O+rrF3eWoQ93cVR8z1Zu97nNrvdtdf/e0yZ51aDY330XXxx1W YAqgR5YeVEjFYEsN<br />
+ aVXnt9WmXrWmGx34WBqay4lGNZZzyWZKN1rRo1YxriVfaFtPHvKxLvWskzxp zi++8qdOfKRTTHgj<br />
+ B970fxd93yftaxrHXR88VgZJjb6PnIZC2coNJYFzb9f/+pf3Gg3rPX57938r wwlxpz2wI3xitKI4<br />
+ ngp//oql33yxghyrJne+9qeP1k3WQxk/B3b/0emRgqMXnanAPgUVkst+4Lu/ /Zk85tuDDfTPLiP5<br />
+ Cy563rXL/+72n7sAuF0C+H/elUngF2ziJ371l4D0l2zv94DwB4HHpVD4lnzh t28p0ATh93Poh3c9<br />
+ xVsDB4ITJVEkiFshaFsjaIIpqFsnuFsoWIIsSFGW9H0MqIBGhmPmB3fAFgow EIE+KIE/SFci9WsI<br />
+ mHwpgAJUoAKiMHvmd17AVgV6N4D+N4UBSIBWSIVSOFiUhG8HWIP6IAUpoALV cAo5mIC/NgVbAIRq<br />
+ GIRreE1TRYM1qIB8IAqnEIcMyGPUUH16SH18uH176Id9yH2C+IdbRUnRoAzg pwzQkIiLSA9d/6iI<br />
+ jAiJjTgFKvAHbHiJbYiJpWRM0eCIi/iJkOiJkjiKjdgHVUAFzpCFqniFVYiF rLiKrthKmJQKVFCL<br />
+ U1CLVHCLtoiLupiLuBiGlZiJwqiJw8hID0UNqpAK1JAKybiMzciMygiNzhiN 0SSCMGiNKniNL5iN<br />
+ 3BiD2uiC4NiC4jiCxUiM5liOmPWK6hiLrdiOsOiO61hd6HiO9DiPPxWIhJiP +LiPgNiPg8iP/+iP<br />
+ JmaP9ViQBOmG7PiOA5iHFpWHi4QPDZlWigSRE/mQEWmR/jAN1KCRHAmRG/mR 0+CRHLmRIgmSFelI<br />
+ 8aiQKQlLB8lNf7AFMBCTMjmTNFmTNnmTOP+ZkzoJAzewBQbJfuG4gtjojd0Y Tvjwkh+SlNuglEy5<br />
+ lE7ZlFD5lFIZlVQ5lU+5BZb4jeOolUK5jUR5UC05TdOwBbBQDVJQDVNglmip lml5lm25lm7JlnIZ<br />
+ l3QJl3b5lng5l2sJC2n4k8e1kgk5U/4AA9VwB4pymIiZmIq5mIzZmIl5B9sA A/AYmJTJIWFJTdMQ<br />
+ A2VZIapTIanEmX3ymarkmX3SmasEmqSJmqc5mqtpmqJ5K7FgK36ZWQCpjwI5 VfhAmIbpmLzZm77p<br />
+ mHdQDZJpmwFZnMTJVZdJStMAA2WpOs6pSs8ZndA5ndJZndR5ndZZndUACzCQ nEJYmSoJU4P/iZa/<br />
+ 6ZimVyEbhp7l2ZhpKZnhOZnw2WuzqZwwoAqx8ErPiZ+6lJ+J5pya15+2xJ/S qZ+0FAvc6Z1zFZRc<br />
+ uaBFKVu5SZ6iGaGhOaGpyWipWWQIR6GrKaEVKqFTEAvD2aAKKqJbmY0IGkrL aZ/ZiZ0sqmKYhmor<br />
+ GqPYGQuq0J3zWVmAGZ/QNJix0AcaqiiiCaSIWWp9ImjpeZhB+qNKWiHB6Z45 +p4KeaKclJkqyqIy<br />
+ +pwummqTZqVcWp00KptS6lG1OaYCmZs9ypqvqaGuWZq6lmjqqZppWqFrCpp9 AKLGSaZ3KpBhikkp<br />
+ GgtX2qWkR2if9qcxGguGYKN7Gnzg+aQi/wUDsbCbG6qhHBqpHSqpllqpFXoH dgqljIqFiUpJy2kI<br />
+ q0CogEqqpkqdq3Con6pRI/qVQ/mqDuqohllL//RKtRpVtqpLtxpPuUqrqqSp IeqqXgmrrUqsnbmq<br />
+ kBSqj7oKmupUmnoHzBoLzrqszaoKzxqt0wqt1Xqt20qt0mqt3pqt0aqqN2pX pMmpi9pL/vCSXLAK<br />
+ h3AIgOCuhxAI8hqv70qv72qv81qv8oqv8Nqv/HqvAbuv+Qqw+boFhaCj6QqA HFKu1PSSNBkDNimx<br />
+ NUmxETuxGFuxGSuTNwBYDitXoHmceKqPSbqeJnuyjSmyt7myxdmwyPqxMMt7 59qpCluz6O5qszSb<br />
+ hS4bszz7speFSiUqrMU6rEQ7tEYbtMbalUertA21sz7bs1ArVDO7sDdbtTl7 tVTrUk4btVz7tN4U<br />
+ siMbtiyrsnlatmR7toG4tV7btWwrTVOLs1kbt3A7t1abS2rbtni7tpsEtEzb twwqtEhbtIG7tH+b<br />
+ tIUruBN1t3qbt4z7SG9bt3SLtZErtzeruI17uXoLtmMrtmbLuWi7uaDbuVZl uYtbum37uJILuaqb<br />
+ uqzLjqSLubCLrHx7uIRLon5ru7Q7uLp7u4DLu/z0uqYbvD2LupTbupN7vKvr fyi7vMzbvM77vNAb<br />
+vdL7vAEBADs=<br />
+<br />
+------=_NextPart_000_007C_01C6FF76.76316410<br />
+Content-Type: image/gif;<br />
+	name=&quot;delete.GIF&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-ID: &lt;007701c6ffa0$5df538c0$<a href="mailto:ee287a92&#64;net.plm.eds.com" target="_blank">ee287a92&#64;net.plm.eds.com</a>&gt;<br />
+<br />
+ R0lGODlhygG0APcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/ AP//AAAA//8A/wD/<br />
+ /////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAA<br />
+ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAz ZgAzmQAzzAAz/wBm<br />
+ AABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDM mQDMzADM/wD/AAD/<br />
+ MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMz zDMz/zNmADNmMzNm<br />
+ ZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM /zP/ADP/MzP/ZjP/<br />
+ mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2Zm AGZmM2ZmZmZmmWZm<br />
+ zGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/ M2b/Zmb/mWb/zGb/<br />
+ /5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lm ZplmmZlmzJlm/5mZ<br />
+ AJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/ mZn/zJn//8wAAMwA<br />
+ M8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxm zMxm/8yZAMyZM8yZ<br />
+ ZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz/ //8AAP8AM/8AZv8A<br />
+ mf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+Z AP+ZM/+ZZv+Zmf+Z<br />
+ zP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEA ABAALAAAAADKAbQA<br />
+ AAj/AP8JFCgDh4wcBw/iyLGwIcOHOSBKXBiR4sSIFytitMhxo0eNIDOK7BiS 5MiPJ0tiXGmR5UqU<br />
+ Ll9KjPmyJcybIWnqxDmTp8mfKIGqHJqyqFCjQZMSPWpSIcIcM54mhIpwoFWB BleOyTGmS9cxYMOK<br />
+ Het17FezZcmaPasW7dq0YuGGlQuWLtu4b/O63bu2r9+/gAMLHky4sOG7c/W2 XYyXb2PGiR1HhlxX<br />
+ 8ePLk9Nq/uqVa0QZMq7+e4hjq+nDqFOrXs26tevXsGPLnk27tu2/XDuH5QrW s2nfEaNaBZ3VoUOZ<br />
+ NmUqX868ufPn0KNLn069uvXr2LNrr6k8ec+cPruL/0c+njv58+bT7wSvcuFU p/ClGgxNEIdxrTl+<br />
+ 5Me4Vf/KLsoBKJOALxH4X4AIDphggQseqOCDDELoYIQUTmghRgZi2KCGEnJY oYcXRpShiBuS2KGJ<br />
+ H6IYYg4jsliiiyfCmKKMK7ZoY3ukPeWeVAjJsIJAMSBk0JA73mekjjzGN9WO Syb50HtP8sgkklBO<br />
+ qSSVUjppZZRNVqnll16GmaWYXY5pZploYpnmlWxyqeabbW4pJ5hnwulmnHSu eeeec0I5lSGiBWoV<br />
+ IKDJEIOP/xDX5H0aHXmfUw5BGuWjORaZo6SWRlopkppS6umlm2LK6aSgftpp qaieqiqpq2bK6quu<br />
+ xv86qqyi1hrqrabCOuuutuZKK66p6hofoMbAY4w6xSCbTrLFpPOLs876Y0ih McTwzwqKZtWrk35q<br />
+ K1+34CbpbULjChnue+UWdO634q5LrrvmxquuvNrW+y69986rr7349rtvvvz+ 62/ABANs8MAHC6xw<br />
+ wQg3vHDCDD+M7z/GxNNMPMUWyyyyyvryyybX+hiDConOe9xEAjoqLLCt8sry yr66HPO2LdMMc7C/<br />
+ zvxyzjjL3HN8lgKNZdCkCm100UgTrfTQTB+9tNNI/gNPPPfEEw88xsKjTtbH JvvLLyUbai22+ubA<br />
+ hTNoj6LKH4BwYaef3MYN99xy10333Xbnjffeevf/zffffgcO+OByp2s4vGXn yy66iB/e7uOMQ764<br />
+ 3f8UEw8zGBvL8cbP/lKMJiWvMHLJPBqSDzXVqLL22oBs0YXKUMeedNOzy/50 7bjfrjvtu9vO++++<br />
+ B5878MML33vxyB+vPPFEw/2POpjDg4/UXSv7Dz7Neh52tSHPywU1qKv+x/h/ VFE+t7FQ8081XRAe<br />
+ yz+w5FBNNYRPZRUs7fs9v+BJDlRNLHerBjX4Vz8CGrCACDygAhPIwAU6EIHa Ak3lsjYQZT1rIOnw<br />
+ xedKxoLRgUZHaDtd6lg3vipsIQYpY8g/tsGFGKTuZgt5XxWqEINtUKMKPOuU QGhYjX8cQmfzCxLP<br />
+ /w7xD0sJZAVVUN+njjirWFRjZz6rGRRtlkMYWrGKWIziFbWYRSpy8YttOsjz tlasCjYLg50DW4+4<br />
+ R7asoE0V1FAFKUr4BypUwY5Mep8hVGCQavkNSAmJwQoMKBAVqJAa6Yqb6P4G SKkAcgz/UMXcGgkl<br />
+ Jjbwkg/MJCY3qclOcvKTjiwGPJJ1LAxi0BcZ3CBoOkiyDyoEH6iDRTVkSctY qMKWEulhFT7onvf9<br />
+ YxUPWZ9AYjEGHFglBwOpyj+ciMxV9LAaY3gf++DTSCYKZBVFzAE2l6mQgSxk mwBkiDPXdwj6CCRK<br />
+ hTykFXDgy1g8JZ3tXMhwchBP5tnTePdMXj6Xh//PfurTn/z8J/Lst6ysifIq GYSWx/4xA9Cw0ZU5<br />
+ QBv5ylfHKsCACiqgwnsoiRBsAqIK/zCEMrkAUlgYBEiGTOcOuUCyfwDCWv9o 4T8Qab9/GNKYqjiU<br />
+ QP5wQkBx4Q+RTAiQAAUIoEqSiKpQASz+IMFrGVKoIUOmTfUIUlUocwWqcOkW 4CdGm8Ygq60LqifH<br />
+ CsqykvWsZk2r3v7xi81x7JQJ9RjoVimDVk4lB9SQZSxnmbrU2dJA6dRIIbkA JKmm9B9BCuwOpbpL<br />
+ Y17LsYMsLEYWu41/0FCqKzipZelzEMPukLM9xFYOrNDVQa6EiYytbGYLe8TP rtAKjGUsfWD7ndr/<br />
+ eue25VmPbXMbHvToFre+7a16hPtb3rJnt8E9LnBfEpXPTLagGVMHQpuFyq+N RgYz4B4LGvoUUjhj<br />
+ FBS1IxUwitHOHmQGHHWsThGrXvrEoL2Gja9758tRq6iiCk+tpk3lCyTRtPRQ jkTsRgXchfW11Crr<br />
+ halVDnvYBdupT3XCE5kenCcKT1jCEUarhtWaVra61ZT/8EdcVTkDFiDqgxg5 hETLd0eLYhSHL3nf<br />
+ H15SWQbHV6X7lWpiERsRHNt4sohVwWV7nOPFrq8KRG4pfkcG0hwD2ZCn3S8R y1fIJTMYpUvWsY6F<br />
+ rIIgbefLYA6zmMdM5jKb2TliXNZbBWI9gcRV/43Y1S5EcXAI8bk4o112ikZ6 eJBYAPB9gBDDPwqR<br />
+ YPoK+MZF5rE1efxOJ3dWsoDaAlLzi1hA/eEQ1HAnEUUaC5Fq+SlanqnoNr1p Isdgyof430F6aEhU<br />
+ qxojnQW1rGNNa1jb2rm4nvWtdZ3rWvd6177mtbCDTWxgG/vXyB72sZWd7GI3 e9nOVnZU/PQPDSYL<br />
+ g806o0DQ4QtfzLWhdWWoniNSZ2eszY4xcFtEthIR/YwhqyvkAmx9ed8d21ix lo0tZveNWiIj+SX9<br />
+ hncsRBtfQO3wm8/kwkGIOJooC+QQQ95mNbZwEEjO2OCWdRvDI4LxKqj7zCAP uchHTvKSP+cfy/9a<br />
+ 1vQ2l/LrobLbo5lBQ621XUldp1p5/kyXvZyDLkfE5z3n+cgiMvSfexnoQMdI 0V+S9BzgPNaSxTmA<br />
+ GdJl0yJk6UbP+UaqDmsAG6rLFMEB0L/+XpOb/exoT7vaZdLcqlQ35c+iblzF 0W1KJKpHP0KxTNjt<br />
+ GXdjxD/7WTuYGwE/KAv+8IhPvOIXL2a2vj3uCp07zKVC8zkXhfFgXl8sVBBr xi+3uMlF7nCVa1zR<br />
+ g370pieu6kkf+s+vPvWsTw9Fqt3tX3hMg7e3fbd9gQtvJwrcJOMuhfrT9+IT H/B8R/7f+bP8dTff<br />
+ M+1mfvSdP33oB976NKz485Mv/etzn/re377/+Kv/fesrn/zjDz/616/+9p/f /d1/v/zjT3/wz9/+<br />
+ 9Td//svP//TfX//4F4AAuBxE9DWa8AsHmIAIiIDe5gub4A+HABUz9w81lyUm cXoY+HquF3sZyIEa<br />
+ WHqYF4IiOIIkV2sYJyiiAQhSEW4QZXO1RYIwGIMyOIM0qHZtd4MYgYPTRhXY ZSgU6EqFUihDAjFE<br />
+ 6DARc4RFKDFKiIRGmIRMuIROGIVNOIVQSIURlBBAiIVa2CNbWChc+IVeGIZZ CIZjKIZdWIZoeIZq<br />
+ SIZraIZB+IZwGIeFYlfc9S/tUzBDaIVSWIV8+IR+uId4+C95qC6DOIT2UoiE +C6IuIiC2IiH/+iI<br />
+ igiJ5sKIj1iJkWiJkyiJiYiJm3iJnpiJnGiIn9iJoDiKoliKCDGBMtA+/kAN rfiKrhiLsDiLsliL<br />
+ tHiLtpiLuLiLutiLvPiLvhiMwDiMwliMxHiMxpiMyLiMytiMzPiMzhiN0DiN 0uiLX8dQONAF06M+<br />
+ +NCK1zNT1+ON2xiO3AiO3ViO3CiO5qiO6YiO5PiN7QiP7ziO5yiP9UiP7DiP 6+iO97iP9piP/RiP<br />
+ +MiPAFmQBHmQ/4iQA5mQDLmQDumPDymQEDmRElmR+miRAXmRGpmRHGmQDUmR G+mREXmRTmctCUGN<br />
+ KFmNKbmSKtmSLPmSLhmTMDmTMlmTNHmTzv94jQDSBerjD+Dokz35k0IZlEQZ YkNplEUJlEi5lErZ<br />
+ lEfplEn5lFIZlVTJlFNplVUJlVi5lVrZlVfplVn5lWIZlmTJlWNplmUJlmi5 lmrZlmfplmn5lj85<br />
+ A6KTKKxok3iJk3qZl3y5l37Zl4D5l4IZmDJ5jTOQjfRojorJj4tpj42ZmIwZ mY4pmZA5mZZZmZj5<br />
+ mJpJmZt5mZ2ZmZwZmp4pmqA5mqZZmqj5mapJmqt5mq2ZmqwZm66JjjlQlydJ mIOZm7i5m7rZm7z5<br />
+ m74ZnCp5jVcQEXF5nGwpl8gJl8m5nMrZnNDJnNL5nNPpnNYZndSZnddZndi5 nW9ZmyZ5l8L/OZ7A<br />
+ WZ7keZ7mmZ7ouZ6yaJiICZIdqZDwKZLzKZ8YSZ/3aZ8hqZ/x+ZH56Z/7CaD9 OZIDWp8Cip8BSqAI<br />
+ WqD/qaD8uaAQap/gSYEIwZ4Wqp4YeqEamqEcuqG7SJws4p0i2p0kyp0mqp0l iqInOqIrmqIsqqIw<br />
+ +qIy6qIhNqGrKAMe2qE6mqM8uqM+2qMv6Z7a+JpEKpuwOZtIeqRKWqRJyqRL aqROGqVQOqVNSqVP<br />
+ WqVYeqVaOlM2WqE/+qVACqZiGqZkOqYgilc02qJqGqNpyqZrOqNv2qZw6qZ0 Oqd2KqdMaaPimYwz<br />
+ ZUPgqD6oM6aCWqaEOqiGWqiveI0FMaT//wmoKCgQ1GBD4hihB/qgllqpmOqg mWqgmtqpnPqpDQqq<br />
+ CSqqDDqqoXqqppqqpbqq7DihLOClwAg+4PiogLoNsAA+iHqo0ogCt8irY+qr NIkCu4kCwCqowvqL<br />
+ xaqhIMqTa9lDjyoalQU+x0msdYqncQqXvCqUKNCc2UqU3YqU36qmwmqW29qU 43qt/7Ct28qi5zpT<br />
+ 4Vqta1quU8mrxPqud9qWeoqjwShAs2oV1WAIAHurV6E+t6qMxKqrvZms1HCs xqiw/uCwDkuYDPuK<br />
+ EZuSE9uXFfulF9ursLixGSqkpak+lWUV22AIMMAFJyRkJyhMBWua64oC06Ou 7nqw8Aiz7v8as9S6<br />
+ sNtos9xYr/gwrj+rs+Nar/K4ruk6s0MLjkYbtEers+mas/W6rT9LrONItFPL s98YtepjtUNLrVeL<br />
+ s0v7tDQrs1/7tGCrtNRqtYpJtEK7tT67tjkrtkerrm+7sGPrteYItMKKtWXL tjC7twcbt2rbs1R7<br />
+ tDF7PW9LtIWrtU1br4TLt4YrpVm6mF2qr7goq+ojED1Usl2mPlQAAyoAA4Ug TJC6DamAq8F4rL5K<br />
+ rK3IsBMLrPRKsQ8ru7H4urJ7sLPrisXqugtbu73burK4uro7i7E7vArLu8BL u7MLu8t7u8q7u77L<br />
+ ur/7u8XbvL7Lscaruso7vMbbsb3Lu7b/y73Pm7vjm73cq70Ri7zVG73nO717 677TS7zKOjrFiaZa<br />
+ qT7OehUwEAMwkFVJNTJbUFkjO1PVkAqwRK4hlrRuy7ZGKbMLC5T02pPtyrru CsEPK8GMa8EKPLcN<br />
+ DK4XHMFiC8If7JTyWsIeXMFRu7cPq7XdmsJKabQy65Mm/MFRe8EdDJUtbMM6 3K52W686zMEmTLMr<br />
+ 7Lgn/MA8nMMoLMFbi8LyGpQpfMNI68DZ6sBAHLVPS8LWqqL5yov8qrkrNFMw sL9VFcbVsg3VYMbr<br />
+ sw2qAAupgKwpDL+4+L7kW73HS8dzvIvFC77X272xy7x+TIvIG79/HLzkK77p y77JS72F/1zIHnvH<br />
+ zCu+kMzI37vHrFuxg1y+1pu72qu7F+uxgSzHwqvHngy989tK7ymQXfzFAhxS XMAFWQULXQYDW7C5<br />
+ wjQ/qnC6FAmz3ki2D5u186i3PauzrTuQfxvMPKvLTpuOUmu4vQzD6ii1vcy0 QXvM0qy0u2zNwYy4<br />
+ yVzM1AzM2uzL3UjFvtq40ry39bi04gjM1DzMhqvO5zy312zMOxvO3zzNh1vO 8nyz0Qy0+7y18VzM<br />
+ TZuu/SzQy6yu0czMyayqlOqpA1SXr2q5tghH+FvLaSxLPbQF+xsDAXzGHG2r bIy62Au8ryu98lu7<br />
+ uNvDu3vSNZzSnhy8JK213pvIK027JP/NyZxcx9LruJqs0qt70q3rw4L80j/t urjr0ya9yUMtvEN9<br />
+ 1JNcwz3M1DLtw0rN0oacvPQq1Dct0zcNyiIN1Kqb00bdyB9LvyGKlbK6ymj9 xROXboCwDZVFy2cM<br />
+ C2ycxU2cxVRpr3ad19xptG3Jw9bq125Z1+h6r8/J1/B62Em5xbrYss+Exh2d OirABYYwP2Zc2XFN<br />
+ DalwusGqnhmbq8go1oAMmDodjaCNsM1Y2ogKso+ZV24tTG+dxrpUBVn12JY9 S6rgB5K7pVaa27y9<br />
+ 2749ub+t28A93MJd3L1N3FJaubt4upFK2x0NCxpt2ZXtRPMj136g2abt2dm9 3drd3cL/eKZUmVfz<br />
+ s0Jo7NZnbMYxEAvmLd1xnTp+gAp6jdjxTdj0Pd/2Pdj3Ld/4raaKfYtyrQqU 7dxmTNnqfcbUbau2<br />
+ lAp+0Azc3eDe/eAO7uCKesrzGEesLeD/YwgAzt7b4ETWnQrTQKoLLeKXytAK XeIkvqmoyqoovuIj<br />
+ 7uItfuIqLuMmzqCuCqu5eMuwAOAGTuCGkAIwkAJboN5O5OG2tFTvDdIRDuFM vuRObqHLWpVxBOCw<br />
+ wOEYXS0wEOAdPkuwYAh+4Aeyut/6Peb1LeZlTub5feZqrtf9rYupoOMATuTz Awg7twWypN6wcOSF<br />
+ 8AdTMA1P/udNHuiArp6qHZn+8Oap/yDX/zPdrdxpW57na2wIhTAFuGzcwX3c lo7cl77pmt7pmf7p<br />
+ mB7qnP6kyh2M+JAKhVAIqlAIOx4LeX7ns9RpqqDhf+AHlD4Ngp7rg67rvG6T 4I2Wh47qO97lrV7l<br />
+ fhbphqAFX+7nad7sZu7saP7s0h7t1L7mJtrmv9gMCr7nkr7qa9xphjA+U/Dl St7r5r7r6H7ux1jo<br />
+ AQo+me0HtT7rrg4LX37duA7jM87i+f7iNJ7iNc7v+v7vMR7w/l7w+C7w+97i Nw7RxAhLmJ3Z8u7l<br />
+ qFDu6V7x6m7xGD+MUU6irmgIfkbv1DCO027t1Q7tJH/yJp/yI8/mtrmn0EgN rO7l9/9+8TSf8TZP<br />
+ 8+x+peDj8WA+6qLu6T8P6j4/9EBP9EJf9Eh/9KBZ6imZCrXexjcf9TU/9en+ 6y3q7v4g8iW/8ly/<br />
+ 9V6P8l0P9l9fotgu9WZP9Wh/9ro44Yza7wdv8G4f9wT/9nQv9wB/9wOP9wm/ 9wjf93AfkAuf9oKv<br />
+ 9oOP9hsf9io/9oi/+Irf+GL/+NZa9oVP+JQ/+bme80Gf+Uav+UnP+Urv+aC/ +aLf+ZvO9JV/+paP<br />
+ +oBu9Y6f+JDP+K/f+rDv+rTflZKv+qmf+7h/qGzv93U/93af98LP93+v974f /MT/+8Zf/MPv+4G/<br />
+ +7of/dA/qIcv+9Yf+9hf+9ev/dn/f623L/3gP/3h35uYT5kwj9FbUAghH/qk 3/6fP/rv7/7sH//0<br />
+ P/9FavrAqAqie7qo3r/i//8A4Y+aQIIDDRZEeFBhQoYLHTaE+FBiRIoTLVbE eFFjRo4bZcRQ8e9K<br />
+ jhzU/vn7ZxKlypQnVW2hZtJkyj+wVp5suRLFTZ45fVLb+TMoS6I4i/Y8+tPo UqRMlTbliSJpURRP<br />
+ c0p1OjXrVqhKq2rtChZr2K1fuVoFm3Lo2bRiq5KFi5Yt27VNzcZVmWNFjH8y usjISA0GLJktY8KI<br />
+ WRDFzoGMO/pzfDAywckbJ1aGiNkyQs0JpS5ezNAx6NAWpTY8DdRgatSbN08m DTQ2/+nPrh/v7Gxb<br />
+ tWLdj3svzC2Q9eaPIWfg6IKvJT6B/5SbZP7HUOGb/wwVct58MXSsz7NDX94c X3fx5LlDFx8ePPr1<br />
+ 31F4Z94+/nv1zuvDTw80vn329qsy/ses+eDr7r6WAMSvKuUUhIy/7/x7ED/5 8otQrf0EbNA7BAOs<br />
+ sD8JHdyPwAlHBJHCEDk80UMDVWSxQxdDNK9EBVfsUC++WMgBMI22SKW5wkx6 STLhGhNuO8hKUwy0<br />
+ Ik9jDLTGSnOSMyiNjO3IJqmMUknZWBvNytRIW5LIyrgcskwiVzNySzU9W61N K4esDbIwwXxytCm/<br />
+ PJM3PYWsE846h3uzT9y8RJNJJP/dVG24LKFMdDsktUySScrCfBNLKilds7fi RMqhi7b+0aKlf0Yl<br />
+ dVQbrjLpK9xYeotDnV4d6zPIVJJVrVcPRPWkWoGaVVdaebU11qOEHWpVX4s9 0qlWgW11WWSDZZUr<br />
+ WWttNkCs/vMVp2pvwvZWZrPlVklrQcvWrP+C2hbXVF2FFtmx2F2Ww3XjNRfX 0Fy9ll2insV2315V<br />
+ 7XVWYwXGiysb+/orIx4NI9UkWGCadDfc8DRTTjHBnFhJOyHdLc9BxaQM40nt BG5kky/WuLWI97TY<br />
+ y4kRFU3Oj/H8kmQzDXVUMjolVVPRkjuOE2iFaOtY5pZfXjLNm4sW2s8ym5RN NDr/W95yZpBBpu3I<br />
+ 3wja9LjklgMbvEIMqa7U6/yjbTzu+pXXue4+E5G+89yWD0ULLXxbv7vnVltu t2fUW7+85X6vwMAd<br />
+ FNDwttWmG8TFFg+7cMHXnRfCxNnGdsHFFVdVQ7sp54++GTFXF0LPz5O88fHY hs9u1l23XF3R0RbR<br />
+ cb7hRhH3yf1+7vG6f+fvYBlyDAyxH0cVLLGiP3Z6+ZON7rLLPJ2/2miPj6a6 4uifZ575oRGl+Prp<br />
+ g1a56UTdjCxo9am3OHzymW6/TffPpFnI7nmjGGqn9Rc6f+2fjlicticx7N0P ZrbZ1EhKMhd/qOIP<br />
+ 1SjVP6pRE26hKmM62c5SwDQu/1txMFXXelxU7kUuYDELXb7j1wV9MptbxYaD AVuhk7RllGd98C3i<br />
+ ko1V0qWmtplLXC70kloySC5vkWZcj4sXSm44QhoSMVb36pnAnAhFGQbMiDcE 3ZvgVS4P9jCEwjri<br />
+ v4JFwhOqKoMF44nwEmaZVMDAELD4BywMAYNUbM2OvsHjHfWYx+zt0Y+Ask1w TGMZQGJEkHz0IyJj<br />
+ lsiJdA05H4IkNQqxBRhs4Q/USBBtNtSiFL3IRJ8kESRp1ElSgrJEoRxleThp Sk2icpXt2aQn5aO4<br />
+ UsLSlKt7zy3vEyNRvvKUv+ylLIG5oly6Upi9PBiOdKRIRjLTmc2E5jOlGU1q Tv/TmtXE5jUxksBO<br />
+ fQqNcvmmN8E5TnGWk4HkPKc5w5lOdq7Tneh8pzrhOU951rOd8FTjMrO5T23y 05/9BOg/BRpQgg60<br />
+ kSD5h9daB7yFgihsDmXoQxs6UYlWNKIXhWhGKYrRjWrUoh7l6Ec7OlKRljSk JwVpSkmK0pWq1KQu<br />
+ ZWnYhEc8gxbUpjXF6U11mlOe7pSg3FxgPO9pT6EWlZ5DRapRiXpUpSaVqU9d alSdKlV35tOnPcXq<br />
+ VbWaVa5u1av8dOTXfBnMvpUVbmfdnVnTilbJtVWtbmXrW+UaV7qmVZdjTaUx azlMvPb1mHnl61/9<br />
+ uley3lWwhyUsYAvrymTSlCP/rygEFShZCJt01bIRKeRlNftVzm62ptz01Dkn WYiYSHIL2PHWVFXb<br />
+ VNZCdbWubS1VYTtb2db2tbat6l4Qpk+KFKIQqmCYKnyrVcwcEquZ7WxyPatc 5uY0rCvdAhxZgpKH<br />
+ rU2GLW0d4Gy33dph16K8+653YzpemJZXvOZ96XnVm172kne97m0vTGfKW4kU 4g8p0cYrFPGKlvyB<br />
+ tEtDJHKLu0hpGrePFVtugpu7YAXfEaifgolJXgGJMpSBvxLcghBzRcQD4VCG HLZhGTtIxiGG8Coj<br />
+ ROEURVw1XaH4LrS9bYxjK2MYz9jGNcaxN626I5ko4gtl0MEXTLINiDlPekur /x9nuGc9Jh+Zffc7<br />
+ MpRXBr8GM9jKVcYyRJ6bSi0M5B+vKMMXvnDhaoRqdaFjXJozxCEAZU6VdEvb Z0iTZqKZTji9o7N+<br />
+ kpa6shZJsX8erGETG2i9CtrQhUZ0YAeN2EMrutGLdfR6Gkvfhti3Ja/4AiFI 5V+YGRDJ8vsZk6sn<br />
+ PjatTMrTK6CUqHxlVmfZ1a3mGkJHElqyUCO6EUQeTDRMuRr2cIsvLuHApvWr Gq7lLsSC1a+OlWwN<br />
+ 5pjGuHX2jaE97WdXu6g7xohvpUsqWAy3UOlTWtMgFe6dXSpTdwIOurEXtTVJ LzRaQu6r5Q3ref9z<br />
+ yxgdLQSrMdo3vxe98AX4v/8F7m+Cx7fgAT/4wA2+cIQzXOGS1u3wKD2RVER2 spWNVJXq3c9409vj<br />
+ Gwe5TR9821WVnGDDNjnKT84rlbec5S9POcxXHnOar9za0cY5taV9c53nnOcn wXbIhf5xog/d6Na8<br />
+ N6MTDWmmA1rpkYZ60wkddacv2uqPrjrWpy71p3P96ksH9KSLPvajl53sZ88m aHu+9p/v3O0+fzvb<br />
+ 4952uNf9KEFHe97Nvne99/0iSU944B0u+IYX/uGHJzziB794wyfe8YwPXsQd y3fK+93ylVfwyOe+<br />
+ ebvTXe6d5/znRe950kMF75i/fOpRv3qvAl7rXc862Lcee6rP3vawv/3Xa4// e97r3uuv9z3tnyN2<br />
+ 1hdf9cc3ftpl3c3Sg975ow9986H/fOlX/9oRXyPytZ/87Xd/oICH/OMbH37y j9/8ij+/hARCjWng<br />
+ IybTWH/73x9/97Of/vN/P/v1P43995////c//3M/9/MR/rg/+3u/+oO/BMQ/ 9lNA+gPACAxACaRA<br />
+ ByytgoCo+fK+DeS+ZuK/P6AkGBDBESTBEjTBE0TBFFTBFRTBS0qImCgEFpTB GaRBGrSBLaAIzaO+<br />
+ 6OPBHfTB6Ssnf5gkfduGaijCIpSgIzRCIlxCJGzCJUzCJ4xCJZxCKHxCJzzC KiCtpTCtbcC1LwTD<br />
+ MBTDMSTDCJKk+zI97Js4/w5kww58jGmIrmqIhWqABTmkQzuswznMwzvUQzz0 wz4ERD4UxD0kxD8U<br />
+ RBh4QcQow0VkxEYkw+rSMoRSKOGjxNwDvkuUvd7DxN0LPkvUK8FAQkcUxVEs Qzm8gZtgjmm4AVJk<br />
+ xVYMQxhYEeJrw1l0Q9uYhsGohpkQlV3UxV5smF9EHmDkRWH0xWA0xjiqBlhU CMEYxmMsxmaExmeU<br />
+ RmKkxuSJxJCYNSC0vh/cRm3swanwBxiQQ1ckR1YswlPkwlUsx3UkRVhMQ77w izWsRVqkx4WYhhio<br />
+ w29EqjpUxoJgRn2MJ8S4xoR6pPJDv4MUP4Q0yIRkyPDDB3GMhXKsilGZSP92 DENTRMWUUEd2fByK<br />
+ tMgvRAllzEDJk8d6NMl5vEVYiIXjYUmGYUmsUA2XlMmWpEmZVIVY6EeDYMaa 5EmZzKCY7MmgnMmU<br />
+ EMiH0EFv5EaATMqlFL1wpMN1xBaK7EgOWkc5jAGUuAlq4AuLjMqJJJePDEmD UcOTJMt5tEcYuEmh<br />
+ 7Ml+gcnaGEq1DC6cTAl/dMe3tMvjYUughMm75EuZKEqGcL1M7ERNFMxN/L3C RExONMxKfJGHjAU4<br />
+ QolRiUyckExSmczLhJcrmkjMrMzOpMzPjMxYUAV0ZA915EzQtMzU7Ex0YbMZ Os3XVM3PNAmRTBFZ<br />
+ NMuyJMtbTMu+vMu2fEn/s4DLlrzJnFw/kQzOoVSV81GL4+RJgfjLhVC7bpRO pUTK6vS8cBTN2CyV<br />
+ ydzOL6zI7yyVzQTJ8cQ1f4iFWEDHrNzIz+zO8gTJ74xKDvHM9owg7kzNsHzH 3cLN20TJGDCEleRN<br />
+ ntxLEttL5oxL4jyMAOVLH7IhBVXL50QI8Eu/haTQCbVQhbxQhnRM4JquX8RK D5VNnJjMDg3GDy3R<br />
+ EDXRnBBN0uQPdSRRnxhREQXRGE3RF7VRGT3R2bQoDeTP/TTJW/xPA/0RTXLQ IjWEVUDQnSzSltQk<br />
+ 4FzSt3TOg8JGkrBO6pxOprzSacNOQ8jSdBLNq+TCGKjSoxqIury7sezR/zSd RTg80v9s01h40zhd<br />
+ BTedUzitUzml0zy1Uz3F0z310zdNUuMRCAK8QEzSSYMgVOVJVEQ91EFtVENd P0aNVEelhlQ4xYGc<br />
+ RE9UzMQ8zE311E4FVcYczFH9pC3YAi44BEA4hEBI1VVtVVZVVVh11Vh91Vql 1Vud1VyV1V21VVel<br />
+ AuxQj0kijPoz1Jgg1mMtLWQ11mRl1mV11mKFVmUt1oq7LxaxTR9VU9YDwRrk 1m7t1i1UCPeLQW8l<br />
+ 13JNwWodyGzsUitlVyxt16X6yHgtww9lCXm11zHMz3jE1n3NVn5dMAnF0IBt yAytUIEt2IE1WIJV<br />
+ 2IQdSXicPH/t14iFWP+dOsp1ddeLHdOMtViNfdd2Or2JldiQBVmkk8SC1NRQ PVlRXcyUZVnC/FSV<br />
+ 5VSYfdmWJVXG0i1lGlmR1dmclabo7NifxdiNFVqg5dig9YeP3dmk5VmllVKC FCuGRdioPdipXVip<br />
+ rVqqhVqsXSkeXdquZVqvzcHlCyqjJduiNduhLVu09UakBduvdVueDcyZdVmU nVuZpdualVu8vduV<br />
+ rVua5Vu9TYlrfdvBbduR9dm0JVq1VdzEZVzErbFkkoF4zJHJlTjKtVwZmIHK lbjMvVzO1VzPpVzQ<br />
+ 3VzNzRHRLV3SxVzUNd3U7VzVdd3Whd3PfV3Zjd3QnV3brd3Rzd3T3V3/1qXd 38Vd4NVd4eVd4vXd<br />
+ 4EXe4U3e4l3e41Xe52Ve6HXe6KXe6XXeGdiLkJCBFfiIGODeveDeGPDe7R1f 8f3e8h1f8O3e8w3f<br />
+ 9EVf9l1f8oVf9aVf94Vf85Xf/K3f+7Vf/X3f/MVf9Q3g/t1fAO7fAW5f/p1f AmZgBfbfBXZgAT7g<br />
+ CY7g/5XgCk5gA8bg+L1gDfbgDgbhBuZgCybhDA5hEy7hEf6HFVgBFQCJFn5h F1YBGJ5hGabhG7bh<br />
+ HI7hHa5hHsZhH9bhHhbiHx7iICbiIzbiJAbiJS5iJkZiJ1biJpbiJ57iKKbi K7biLIbiLa5iLsZi<br />
+L9biLhbjLx7jIP6HAoAAADs=<br />
+<br />
+------=_NextPart_000_007C_01C6FF76.76316410--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309688&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309688&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309688&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_309713"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309713&amp;#msg_309713" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309713&amp;#msg_309713">message #309713</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309688&amp;#msg_309688">message #309688</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 16:05</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+My confusion is about you having a resource delta. How can you have a <br />
+resource delta for a close or delete if you haven't gotten far enough to <br />
+actually do the close or delete.<br />
+<br />
+And once you have the resource delta it is too late, it has already been <br />
+committed.<br />
+<br />
+Rashmy wrote:<br />
+&gt; My problem is that in MyModelProvider.validateChange(), I cannot figure <br />
+&gt; out whether the Project is closed or deleted. I only have IResourceDelta <br />
+&gt; and the IResourceDelta.getKind() method return 4 for project close and <br />
+&gt; delete. Is there any way I can differentiate the event here?<br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309713&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309713&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309713&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_309717"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309717&amp;#msg_309717" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309717&amp;#msg_309717">message #309717</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309713&amp;#msg_309713">message #309713</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 16:35</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+The IResourceDelta comes in as a parameter in <br />
+ModelProvider.validateChange(IResourceDelta, IProgressMonitor) method. I am <br />
+fine with the resource being closed or deleted. But I would like to give a <br />
+stronger message when the project is *deleted*. Hence using the <br />
+IResourceDelta I want to figure out if the project is closed or deleted.<br />
+Thanks for your patience.<br />
+Rashmy<br />
+<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:einmfc$iph$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; My confusion is about you having a resource delta. How can you have a <br />
+&gt; resource delta for a close or delete if you haven't gotten far enough to <br />
+&gt; actually do the close or delete.<br />
+&gt;<br />
+&gt; And once you have the resource delta it is too late, it has already been <br />
+&gt; committed.<br />
+&gt;<br />
+&gt; Rashmy wrote:<br />
+&gt;&gt; My problem is that in MyModelProvider.validateChange(), I cannot figure <br />
+&gt;&gt; out whether the Project is closed or deleted. I only have IResourceDelta <br />
+&gt;&gt; and the IResourceDelta.getKind() method return 4 for project close and <br />
+&gt;&gt; delete. Is there any way I can differentiate the event here?<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309717&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309717&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309717&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_309723"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309723&amp;#msg_309723" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309723&amp;#msg_309723">message #309723</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309717&amp;#msg_309717">message #309717</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 17:20</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+I'm sorry, I'm still confused. By the time you receive the resource <br />
+delta it is too late. The delete has already occurred. You can't stop it.<br />
+<br />
+Are you talking about a post delete message saying the project is now gone?<br />
+<br />
+Rashmy wrote:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; The IResourceDelta comes in as a parameter in <br />
+&gt; ModelProvider.validateChange(IResourceDelta, IProgressMonitor) method. I am <br />
+&gt; fine with the resource being closed or deleted. But I would like to give a <br />
+&gt; stronger message when the project is *deleted*. Hence using the <br />
+&gt; IResourceDelta I want to figure out if the project is closed or deleted.<br />
+&gt; Thanks for your patience.<br />
+&gt; Rashmy<br />
+&gt; <br />
+&gt; <br />
+&gt; &quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+&gt; news:einmfc$iph$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt; My confusion is about you having a resource delta. How can you have a <br />
+&gt;&gt; resource delta for a close or delete if you haven't gotten far enough to <br />
+&gt;&gt; actually do the close or delete.<br />
+&gt;&gt;<br />
+&gt;&gt; And once you have the resource delta it is too late, it has already been <br />
+&gt;&gt; committed.<br />
+&gt;&gt;<br />
+&gt;&gt; Rashmy wrote:<br />
+&gt;&gt;&gt; My problem is that in MyModelProvider.validateChange(), I cannot figure <br />
+&gt;&gt;&gt; out whether the Project is closed or deleted. I only have IResourceDelta <br />
+&gt;&gt;&gt; and the IResourceDelta.getKind() method return 4 for project close and <br />
+&gt;&gt;&gt; delete. Is there any way I can differentiate the event here?<br />
+&gt;&gt; -- <br />
+&gt;&gt; Thanks,<br />
+&gt;&gt; Rich Kulp <br />
+&gt; <br />
+&gt; <br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309723&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309723&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309723&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_11"></a><a name="msg_309724"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309724&amp;#msg_309724" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309724&amp;#msg_309724">message #309724</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309723&amp;#msg_309723">message #309723</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 17:55</span> <a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">No, I would like to show a warning before the confirm dialog that has &quot;Also <br />
+delete project contents&quot; and &quot;Do Not delete project contents&quot; options is <br />
+displayed to the user. The only way to show the warning was to write this <br />
+ModelProvider :(<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:einqsm$n1k$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; I'm sorry, I'm still confused. By the time you receive the resource delta <br />
+&gt; it is too late. The delete has already occurred. You can't stop it.<br />
+&gt;<br />
+&gt; Are you talking about a post delete message saying the project is now <br />
+&gt; gone?<br />
+&gt;<br />
+&gt; Rashmy wrote:<br />
+&gt;&gt; Hi,<br />
+&gt;&gt;<br />
+&gt;&gt; The IResourceDelta comes in as a parameter in <br />
+&gt;&gt; ModelProvider.validateChange(IResourceDelta, IProgressMonitor) method. I <br />
+&gt;&gt; am fine with the resource being closed or deleted. But I would like to <br />
+&gt;&gt; give a stronger message when the project is *deleted*. Hence using the <br />
+&gt;&gt; IResourceDelta I want to figure out if the project is closed or deleted.<br />
+&gt;&gt; Thanks for your patience.<br />
+&gt;&gt; Rashmy<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; &quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+&gt;&gt; news:einmfc$iph$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt;&gt; My confusion is about you having a resource delta. How can you have a <br />
+&gt;&gt;&gt; resource delta for a close or delete if you haven't gotten far enough to <br />
+&gt;&gt;&gt; actually do the close or delete.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; And once you have the resource delta it is too late, it has already been <br />
+&gt;&gt;&gt; committed.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Rashmy wrote:<br />
+&gt;&gt;&gt;&gt; My problem is that in MyModelProvider.validateChange(), I cannot figure <br />
+&gt;&gt;&gt;&gt; out whether the Project is closed or deleted. I only have <br />
+&gt;&gt;&gt;&gt; IResourceDelta and the IResourceDelta.getKind() method return 4 for <br />
+&gt;&gt;&gt;&gt; project close and delete. Is there any way I can differentiate the <br />
+&gt;&gt;&gt;&gt; event here?<br />
+&gt;&gt;&gt; -- <br />
+&gt;&gt;&gt; Thanks,<br />
+&gt;&gt;&gt; Rich Kulp<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309724&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309724&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309724&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_12"></a><a name="msg_309725"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309725&amp;#msg_309725" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309725&amp;#msg_309725">message #309725</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309724&amp;#msg_309724">message #309724</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 18:42</span> <a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+Ok, but where does the resource delta come into play here! By the time <br />
+you receive that it is too late.<br />
+<br />
+Rashmy wrote:<br />
+&gt; No, I would like to show a warning before the confirm dialog that has &quot;Also <br />
+&gt; delete project contents&quot; and &quot;Do Not delete project contents&quot; options is <br />
+&gt; displayed to the user. The only way to show the warning was to write this <br />
+&gt; ModelProvider :(<br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309725&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309725&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309725&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_13"></a><a name="msg_309727"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309727&amp;#msg_309727" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309727&amp;#msg_309727">message #309727</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309725&amp;#msg_309725">message #309725</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 19:06</span> <a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+Ok, I wasn't familiar with ModelValidators. I now see what you are <br />
+talking about. These aren't actual resource deltas passed to the model <br />
+validators, instead it is proposed deltas for what will be done!<br />
+<br />
+So yes you can stop the delete through your validator.<br />
+<br />
+It looks like for a delete the delta.getKind() should have the <br />
+IResourceDelta.REMOVED on the Project's IResource.<br />
+<br />
+Rich Kulp wrote:<br />
+&gt; Ok, but where does the resource delta come into play here! By the time <br />
+&gt; you receive that it is too late.<br />
+&gt; <br />
+&gt; Rashmy wrote:<br />
+&gt;&gt; No, I would like to show a warning before the confirm dialog that has <br />
+&gt;&gt; &quot;Also delete project contents&quot; and &quot;Do Not delete project contents&quot; <br />
+&gt;&gt; options is displayed to the user. The only way to show the warning was <br />
+&gt;&gt; to write this ModelProvider :(<br />
+&gt; <br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309727&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309727&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309727&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_14"></a><a name="msg_309730"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309730&amp;#msg_309730" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309730&amp;#msg_309730">message #309730</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309727&amp;#msg_309727">message #309727</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 20:38</span> <a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Are you refering to the ModelProvider class are ModelValidator?<br />
+If so, in its validateChange(), delta.getKind() returns <br />
+IResourceDelta.CHANGED for both project close and delete. It is not <br />
+returning IResourceDelta.REMOVED.<br />
+So I cannot differentiate whether the project is deleted or closed. Is this <br />
+a bug or am I supposed to use some other class for validation?<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:eio13b$p90$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; Ok, I wasn't familiar with ModelValidators. I now see what you are talking <br />
+&gt; about. These aren't actual resource deltas passed to the model validators, <br />
+&gt; instead it is proposed deltas for what will be done!<br />
+&gt;<br />
+&gt; So yes you can stop the delete through your validator.<br />
+&gt;<br />
+&gt; It looks like for a delete the delta.getKind() should have the <br />
+&gt; IResourceDelta.REMOVED on the Project's IResource.<br />
+&gt;<br />
+&gt; Rich Kulp wrote:<br />
+&gt;&gt; Ok, but where does the resource delta come into play here! By the time <br />
+&gt;&gt; you receive that it is too late.<br />
+&gt;&gt;<br />
+&gt;&gt; Rashmy wrote:<br />
+&gt;&gt;&gt; No, I would like to show a warning before the confirm dialog that has <br />
+&gt;&gt;&gt; &quot;Also delete project contents&quot; and &quot;Do Not delete project contents&quot; <br />
+&gt;&gt;&gt; options is displayed to the user. The only way to show the warning was <br />
+&gt;&gt;&gt; to write this ModelProvider :(<br />
+&gt;&gt;<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309730&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309730&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309730&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_15"></a><a name="msg_309731"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309731&amp;#msg_309731" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309731&amp;#msg_309731">message #309731</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309730&amp;#msg_309730">message #309730</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 21:38</span> <a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_16');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+I'm talking about ModelProvider, but the validateChange method on it.<br />
+This is called just before the confirm delete dialog comes up. It allows <br />
+a model provider to prevent the delete from occurring.<br />
+<br />
+The problem is that in the resource delta you are not going deep enough. <br />
+The top-level delta in the resource change tree is for the ROOT <br />
+WORKSPACE, not the project. Since you are &quot;changing&quot; the workspace root <br />
+by deleting a project, the delta.getKind() for the root would be CHANGED.<br />
+<br />
+You need to go down one level from the top delta to find the project(s) <br />
+being deleted. That one will have the IResourceDelta.REMOVED on it.<br />
+<br />
+You may actually see IResourceDelta.CHANGED for the project(s) deltas <br />
+because the validator is also called on deletion of files under a <br />
+project. So you will need to be careful to check for this.<br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309731&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309731&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309731&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_16"></a><a name="msg_309732"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309732&amp;#msg_309732" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309732&amp;#msg_309732">message #309732</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309731&amp;#msg_309731">message #309731</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 22:03</span> <a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_17');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Great!! That work for me! Still I have an unanswered question - I want to <br />
+display my warning message ONLY when the Project is being deleted not when <br />
+the project is being closed. For both closing of project or deletion, the <br />
+childDelta.getKind() returns IResourceDelta.REMOVED. But I see that <br />
+childDelta.getFlag() returns 0 for project deletion and some integer value <br />
+for close. So if I want to display message ONLY on a project delete is it <br />
+correct to use the combination of childDelta.getKind() and <br />
+childDelta.getFlags() ?<br />
+<br />
+Thanks,<br />
+Rashmy<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:eioa0j$o5d$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; I'm talking about ModelProvider, but the validateChange method on it.<br />
+&gt; This is called just before the confirm delete dialog comes up. It allows a <br />
+&gt; model provider to prevent the delete from occurring.<br />
+&gt;<br />
+&gt; The problem is that in the resource delta you are not going deep enough. <br />
+&gt; The top-level delta in the resource change tree is for the ROOT WORKSPACE, <br />
+&gt; not the project. Since you are &quot;changing&quot; the workspace root by deleting a <br />
+&gt; project, the delta.getKind() for the root would be CHANGED.<br />
+&gt;<br />
+&gt; You need to go down one level from the top delta to find the project(s) <br />
+&gt; being deleted. That one will have the IResourceDelta.REMOVED on it.<br />
+&gt;<br />
+&gt; You may actually see IResourceDelta.CHANGED for the project(s) deltas <br />
+&gt; because the validator is also called on deletion of files under a project. <br />
+&gt; So you will need to be careful to check for this.<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309732&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309732&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309732&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_17"></a><a name="msg_309733"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309733&amp;#msg_309733" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309733&amp;#msg_309733">message #309733</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309732&amp;#msg_309732">message #309732</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 22:21</span> <a href="javascript://" onclick="chng_focus('#msg_num_16');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_18');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> richkulp.us.NO_SPAM.ibm.com<br />
+<br />
+On a project close, the flag has OR'd into it the value IResourceDelta.OPEN<br />
+<br />
+So you would do in addition to the check of REMOVED for getKind():<br />
+<br />
+if ((getFlags() &amp; IResourceDelta.OPEN) != 0)<br />
+    ... It is close and not a delete.<br />
+<br />
+Rashmy wrote:<br />
+&gt; Great!! That work for me! Still I have an unanswered question - I want to <br />
+&gt; display my warning message ONLY when the Project is being deleted not when <br />
+&gt; the project is being closed. For both closing of project or deletion, the <br />
+&gt; childDelta.getKind() returns IResourceDelta.REMOVED. But I see that <br />
+&gt; childDelta.getFlag() returns 0 for project deletion and some integer value <br />
+&gt; for close. So if I want to display message ONLY on a project delete is it <br />
+&gt; correct to use the combination of childDelta.getKind() and <br />
+&gt; childDelta.getFlags() ?<br />
+<br />
+&gt; <br />
+&gt; <br />
+<br />
+-- <br />
+Thanks,<br />
+Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309733&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309733&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309733&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_18"></a><a name="msg_309734"></a><a href="index.php?t=msg&amp;th=101339&amp;goto=309734&amp;#msg_309734" class="MsgSubText">Re: warning when project is deleted</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101339&amp;goto=309734&amp;#msg_309734">message #309734</a> is a reply to <a href="index.php?t=msg&amp;th=101339&amp;goto=309733&amp;#msg_309733">message #309733</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 22:28</span> <a href="javascript://" onclick="chng_focus('#msg_num_17');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Rashmy A is currently offline" title="Rashmy A is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=41690&amp;">Rashmy A</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=appanera%40ugs.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 149<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=41690&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Thanks for working with me on solving my issue!!<br />
+<br />
+&quot;Rich Kulp&quot; &lt;<a href="mailto:richkulp&#64;us.NO_SPAM.ibm.com" target="_blank">richkulp&#64;us.NO_SPAM.ibm.com</a>&gt; wrote in message <br />
+news:eiocgv$iev$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; On a project close, the flag has OR'd into it the value <br />
+&gt; IResourceDelta.OPEN<br />
+&gt;<br />
+&gt; So you would do in addition to the check of REMOVED for getKind():<br />
+&gt;<br />
+&gt; if ((getFlags() &amp; IResourceDelta.OPEN) != 0)<br />
+&gt;    ... It is close and not a delete.<br />
+&gt;<br />
+&gt; Rashmy wrote:<br />
+&gt;&gt; Great!! That work for me! Still I have an unanswered question - I want to <br />
+&gt;&gt; display my warning message ONLY when the Project is being deleted not <br />
+&gt;&gt; when the project is being closed. For both closing of project or <br />
+&gt;&gt; deletion, the childDelta.getKind() returns IResourceDelta.REMOVED. But I <br />
+&gt;&gt; see that childDelta.getFlag() returns 0 for project deletion and some <br />
+&gt;&gt; integer value for close. So if I want to display message ONLY on a <br />
+&gt;&gt; project delete is it correct to use the combination of <br />
+&gt;&gt; childDelta.getKind() and childDelta.getFlags() ?<br />
+&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;<br />
+&gt; -- <br />
+&gt; Thanks,<br />
+&gt; Rich Kulp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309734&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=41690&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309734&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309734&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: warning when project is deleted" />
+	<input type="hidden" name="reply_to" value="309734" />
+	<input type="hidden" name="th_id" value="101339" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/101339/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/309691/#msg_309691">com.ibm.icu ?</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/309735/#msg_309735">Viewer sorter</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 101339, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=101339&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 10:23:06 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02244 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

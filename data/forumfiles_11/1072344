@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; 100% cpu usage when opening a class file</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=107234&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; 100% cpu usage when opening a class file | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; 100% cpu usage when opening a class file | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; 100% cpu usage when opening a class file | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>100% cpu usage when opening a class file</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/107234/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/107234/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/107234/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/107234/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/107234/327893/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_327893"></a><a href="index.php?t=msg&amp;th=107234&amp;goto=327893&amp;#msg_327893" class="MsgSubText">100% cpu usage when opening a class file</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107234&amp;goto=327893&amp;#msg_327893">message #327893</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 07 May 2008 17:05</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> rosec.messagingdirect.com<br />
+<br />
+This is a multi-part message in MIME format.<br />
+--------------080901090808040005040007<br />
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed<br />
+Content-Transfer-Encoding: 7bit<br />
+<br />
+I don't know if this has been asked before (and you'd be amazed at how <br />
+hard it is to find specific information when your search query is <br />
+&quot;eclipse 100% cpu usage opening class files in a jar&quot;!) but, well, <br />
+that's what I'm getting:<br />
+<br />
+When I open a class file in the editor that is contained in a jar file <br />
+anywhere on a Java project's classpath, one of my processor pegs at 100% <br />
+usage for anywhere from 15-120 seconds and eclipse becomes <br />
+non-responsive for that period of time, not even redrawing the UI.<br />
+<br />
+This occurs for jars as large as the jboss client jar and the weblogic <br />
+80Mb uber-jar and for jars as small as a 241kb library jar.<br />
+<br />
+Is there anything I can do to track down WHY this is happening?  I end <br />
+up having to trace into third party code a lot while debugging container <br />
+behaviour and this plays merry havoc with the timeouts for remote calls, <br />
+so I'm quite motivated to suss out why it's happening.<br />
+<br />
+Eclipse details are attached.<br />
+<br />
+-- <br />
+Chris Rose<br />
+Developer    Planet Consulting Group<br />
+(780) 577-8433<br />
+<a href="mailto:crose&#64;planetci.com" target="_blank">crose&#64;planetci.com</a><br />
+<br />
+--------------080901090808040005040007<br />
+Content-Type: text/plain;<br />
+ name=&quot;eclipse-config.txt&quot;<br />
+Content-Transfer-Encoding: quoted-printable<br />
+Content-Disposition: inline;<br />
+ filename=&quot;eclipse-config.txt&quot;<br />
+<br />
+*** Date: Wednesday, May 7, 2008 11:04:56 AM MT<br />
+<br />
+*** Platform Details:<br />
+<br />
+*** System properties:<br />
+eclipse.buildId=3DM20080221-1800<br />
+eclipse.commands=3D-os<br />
+linux<br />
+-ws<br />
+gtk<br />
+-arch<br />
+x86<br />
+-showsplash<br />
+-launcher<br />
+/home/rosec/app/eclipse-3.3-winter/eclipse<br />
+-name<br />
+Eclipse<br />
+--launcher.library<br />
+ /home/rosec/app/eclipse-3.3-winter/plugins/org.eclipse.equin ox.launcher.g=<br />
+tk.linux.x86_1.0.3.R33x_v20080118/eclipse_1023.so<br />
+-startup<br />
+ /home/rosec/app/eclipse-3.3-winter/plugins/org.eclipse.equin ox.launcher_1=<br />
+=2E0.1.R33x_v20080118.jar<br />
+-exitdata<br />
+ae50020<br />
+-vm<br />
+/usr/java/jrockit-R27.5.0-jdk1.5.0_14/bin/java<br />
+eclipse.ee.install.verify=3Dfalse<br />
+eclipse.product=3Dorg.eclipse.sdk.ide<br />
+eclipse.startTime=3D1210179047270<br />
+eclipse.vm=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/bin/java<br />
+eclipse.vmargs=3D-XX:MaxPermSize=3D384m<br />
+-Xmx1024M<br />
+-jar<br />
+ /home/rosec/app/eclipse-3.3-winter/plugins/org.eclipse.equin ox.launcher_1=<br />
+=2E0.1.R33x_v20080118.jar<br />
+eof=3Deof<br />
+file.encoding=3DANSI_X3.4-1968<br />
+file.encoding.pkg=3Dsun.io<br />
+file.separator=3D/<br />
+java.awt.graphicsenv=3Dsun.awt.X11GraphicsEnvironment<br />
+java.awt.printerjob=3Dsun.print.PSPrinterJob<br />
+ java.class.path=3D/home/rosec/app/eclipse-3.3-winter/plugins /org.eclipse.=<br />
+equinox.launcher_1.0.1.R33x_v20080118.jar<br />
+java.class.version=3D49.0<br />
+ java.endorsed.dirs=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/j re/lib/endors=<br />
+ed<br />
+ java.ext.dirs=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre/li b/ext<br />
+java.home=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre<br />
+java.io.tmpdir=3D/tmp<br />
+ java.library.path=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jr e/lib/i386/jr=<br />
+ ockit:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre/lib/i386:/us r/java/jrocki=<br />
+ t-R27.5.0-jdk1.5.0_14/jre/../lib/i386:/home/rosec/h/docgen/a t/fc:/tcl/8.4=<br />
+ =2E4-md3/lib:/opt/odbc32v53/lib:/unixODBC/2.2.11-md4/lib:/us r/lib/oracle/=<br />
+ 10.2.0.3/client/lib:/opt/sqlanywhere10/jre150/lib/i386/clien t:/opt/sqlany=<br />
+ where10/jre150/lib/i386:/opt/sqlanywhere10/jre150/lib/i386/n ative_threads=<br />
+:/opt/sqlanywhere10/lib32:/tomboy:/usr/lib/firefox-2.0.0.13<br />
+java.runtime.name=3DJava(TM) 2 Runtime Environment, Standard Edition<br />
+java.runtime.version=3D1.5.0_14-b03<br />
+java.specification.name=3DJava Platform API Specification<br />
+java.specification.vendor=3DSun Microsystems Inc.<br />
+java.specification.version=3D1.5<br />
+java.vendor=3DBEA Systems, Inc.<br />
+java.vendor.url=<a href="3Dhttp://www.bea.com/" target="_blank">3Dhttp://www.bea.com/</a><br />
+java.vendor.url.bug=<a href="3Dhttp://edocs.bea.com/jrockit/go2troubleshooting.htm=" target="_blank">3Dhttp://edocs.bea.com/jrockit/go2troubleshooting.htm=</a><br />
+l<br />
+java.version=3D1.5.0_14<br />
+java.vm.info=3Dcompiled mode<br />
+java.vm.name=3DBEA JRockit(R)<br />
+java.vm.specification.name=3DJava Virtual Machine Specification<br />
+java.vm.specification.vendor=3DSun Microsystems Inc.<br />
+java.vm.specification.version=3D1.0<br />
+java.vm.vendor=3DBEA Systems, Inc.<br />
+java.vm.vendor.url=<a href="3Dhttp://www.bea.com/" target="_blank">3Dhttp://www.bea.com/</a><br />
+java.vm.vendor.url.bug=<a href="3Dhttp://edocs.bea.com/jrockit/go2troubleshooting.=" target="_blank">3Dhttp://edocs.bea.com/jrockit/go2troubleshooting.=</a><br />
+html<br />
+ java.vm.version=3DR27.5.0-110-94909-1.5.0_14-20080204-1558-l inux-ia32<br />
+line.separator=3D<br />
+<br />
+ org.apache.commons.logging.Log=3Dorg.apache.commons.logging. impl.SimpleLo=<br />
+g<br />
+org.apache.commons.logging.simplelog.defaultlog=3Doff<br />
+ org.apache.commons.logging.simplelog.log.httpclient.wire.hea der=3Doff<br />
+ org.apache.commons.logging.simplelog.log.org.apache.commons. httpclient=3D=<br />
+off<br />
+ org.eclipse.equinox.launcher.splash.location=3D/home/rosec/a pp/eclipse-3.=<br />
+ 3-winter/plugins/org.eclipse.platform_3.3.3.r33x_r20080129/s plash.bmp<br />
+org.eclipse.swt.browser.XULRunnerInitialized=3Dtrue<br />
+ org.eclipse.swt.browser.XULRunnerPath=3D/usr/lib/firefox-2.0 .0.13<br />
+ org.osgi.framework.executionenvironment=3DOSGi/Minimum-1.0,O SGi/Minimum-1=<br />
+=2E1,JRE-1.1,J2SE-1.2,J2SE-1.3,J2SE-1.4,J2SE-1.5<br />
+org.osgi.framework.language=3Den<br />
+org.osgi.framework.os.name=3DLinux<br />
+org.osgi.framework.os.version=3D2.6.23.8-63.fc8<br />
+org.osgi.framework.processor=3Di386<br />
+ org.osgi.framework.system.packages=3Djavax.accessibility,jav ax.activity,j=<br />
+ avax.crypto,javax.crypto.interfaces,javax.crypto.spec,javax. imageio,javax=<br />
+ =2Eimageio.event,javax.imageio.metadata,javax.imageio.plugin s.bmp,javax.i=<br />
+ mageio.plugins.jpeg,javax.imageio.spi,javax.imageio.stream,j avax.manageme=<br />
+ nt,javax.management.loading,javax.management.modelmbean,java x.management.=<br />
+ monitor,javax.management.openmbean,javax.management.relation ,javax.manage=<br />
+ ment.remote,javax.management.remote.rmi,javax.management.tim er,javax.nami=<br />
+ ng,javax.naming.directory,javax.naming.event,javax.naming.ld ap,javax.nami=<br />
+ ng.spi,javax.net,javax.net.ssl,javax.print,javax.print.attri bute,javax.pr=<br />
+ int.attribute.standard,javax.print.event,javax.rmi,javax.rmi .CORBA,javax.=<br />
+ rmi.ssl,javax.security.auth,javax.security.auth.callback,jav ax.security.a=<br />
+ uth.kerberos,javax.security.auth.login,javax.security.auth.s pi,javax.secu=<br />
+ rity.auth.x500,javax.security.cert,javax.security.sasl,javax .sound.midi,j=<br />
+ avax.sound.midi.spi,javax.sound.sampled,javax.sound.sampled. spi,javax.sql=<br />
+ ,javax.sql.rowset,javax.sql.rowset.serial,javax.sql.rowset.s pi,javax.swin=<br />
+ g,javax.swing.border,javax.swing.colorchooser,javax.swing.ev ent,javax.swi=<br />
+ ng.filechooser,javax.swing.plaf,javax.swing.plaf.basic,javax .swing.plaf.m=<br />
+ etal,javax.swing.plaf.multi,javax.swing.plaf.synth,javax.swi ng.table,java=<br />
+ x.swing.text,javax.swing.text.html,javax.swing.text.html.par ser,javax.swi=<br />
+ ng.text.rtf,javax.swing.tree,javax.swing.undo,javax.transact ion,javax.tra=<br />
+ nsaction.xa,javax.xml,javax.xml.datatype,javax.xml.namespace ,javax.xml.pa=<br />
+ rsers,javax.xml.transform,javax.xml.transform.dom,javax.xml. transform.sax=<br />
+ ,javax.xml.transform.stream,javax.xml.validation,javax.xml.x path,org.ietf=<br />
+ =2Ejgss,org.omg.CORBA,org.omg.CORBA_2_3,org.omg.CORBA_2_3.po rtable,org.om=<br />
+ g.CORBA.DynAnyPackage,org.omg.CORBA.ORBPackage,org.omg.CORBA .portable,org=<br />
+ =2Eomg.CORBA.TypeCodePackage,org.omg.CosNaming,org.omg.CosNa ming.NamingCo=<br />
+ ntextExtPackage,org.omg.CosNaming.NamingContextPackage,org.o mg.Dynamic,or=<br />
+ g.omg.DynamicAny,org.omg.DynamicAny.DynAnyFactoryPackage,org .omg.DynamicA=<br />
+ ny.DynAnyPackage,org.omg.IOP,org.omg.IOP.CodecFactoryPackage ,org.omg.IOP.=<br />
+ CodecPackage,org.omg.Messaging,org.omg.PortableInterceptor,o rg.omg.Portab=<br />
+ leInterceptor.ORBInitInfoPackage,org.omg.PortableServer,org. omg.PortableS=<br />
+ erver.CurrentPackage,org.omg.PortableServer.POAManagerPackag e,org.omg.Por=<br />
+ tableServer.POAPackage,org.omg.PortableServer.portable,org.o mg.PortableSe=<br />
+ rver.ServantLocatorPackage,org.omg.SendingContext,org.omg.st ub.java.rmi,o=<br />
+ rg.w3c.dom,org.w3c.dom.bootstrap,org.w3c.dom.css,org.w3c.dom .events,org.w=<br />
+ 3c.dom.html,org.w3c.dom.ls,org.w3c.dom.ranges,org.w3c.dom.st ylesheets,org=<br />
+=2Ew3c.dom.traversal,org.w3c.dom.views ,org.xml.sax,org.xml.sax.ext,org.x=<br />
+ml.sax.helpers<br />
+org.osgi.framework.vendor=3DEclipse<br />
+org.osgi.framework.version=3D1.4.0<br />
+org.osgi.supports.framework.extension=3Dtrue<br />
+org.osgi.supports.framework.fragment=3Dtrue<br />
+org.osgi.supports.framework.requirebundle=3Dtrue<br />
+os.arch=3Di386<br />
+os.name=3DLinux<br />
+os.version=3D2.6.23.8-63.fc8<br />
+osgi.arch=3Dx86<br />
+osgi.bundles=<a href="mailto:3Dorg.eclipse.equinox.common&#64;2" target="_blank">3Dorg.eclipse.equinox.common&#64;2</a>:start, org.eclipse.update.con=<br />
+<a href="mailto:figurator&#64;3" target="_blank">figurator&#64;3</a>:start, <a href="mailto:org.eclipse.core.runtime&#64;start" target="_blank">org.eclipse.core.runtime&#64;start</a><br />
+ osgi.bundlestore=3D/home/rosec/app/eclipse-3.3-winter/config uration/org.e=<br />
+clipse.osgi/bundles<br />
+osgi.compatibility.bootdelegation=3Dtrue<br />
+ osgi.configuration.area=3Dfile:/home/rosec/app/eclipse-3.3-w inter/configu=<br />
+ration/<br />
+ osgi.framework=3Dfile:/home/rosec/app/eclipse-3.3-winter/plu gins/org.ecli=<br />
+pse.osgi_3.3.2.R33x_v20080105.jar<br />
+osgi.framework.beginningstartlevel=3D1<br />
+osgi.framework.shape=3Djar<br />
+osgi.framework.version=3D3.3.2.R33x_v20080105<br />
+ osgi.install.area=3Dfile:/home/rosec/app/eclipse-3.3-winter/<br />
+ osgi.instance.area=3Dfile:/home/rosec/eclipse/workspace-3.3- old/<br />
+osgi.instance.area.default=3Dfile:/home/rosec/workspace/<br />
+ osgi.logfile=3D/home/rosec/eclipse/workspace-3.3-old/.metada ta/.log<br />
+ osgi.manifest.cache=3D/home/rosec/app/eclipse-3.3-winter/con figuration/or=<br />
+g.eclipse.osgi/manifests<br />
+osgi.nl=3Den_US<br />
+osgi.os=3Dlinux<br />
+ osgi.splashLocation=3D/home/rosec/app/eclipse-3.3-winter/plu gins/org.ecli=<br />
+pse.platform_3.3.3.r33x_r20080129/splash.bmp<br />
+ osgi.splashPath=3Dplatform:/base/plugins/org.eclipse.platfor m<br />
+osgi.syspath=3D/home/rosec/app/eclipse-3.3-winter/plugins<br />
+osgi.ws=3Dgtk<br />
+path.separator=3D:<br />
+sun.arch.data.model=3D32<br />
+ sun.boot.class.path=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_14/ jre/lib/i386/=<br />
+ jrockit/jrockit1.5.0.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_ 14/jre/lib/i3=<br />
+ 86/jrockit/jmapi.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/j re/lib/i386/j=<br />
+ rockit/jmxmapi.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre /lib/i386/jro=<br />
+ ckit/rmp.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre/lib/i 386/jrockit/l=<br />
+ atency.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre/lib/rt. jar:/usr/java=<br />
+ /jrockit-R27.5.0-jdk1.5.0_14/jre/lib/i18n.jar:/usr/java/jroc kit-R27.5.0-j=<br />
+ dk1.5.0_14/jre/lib/sunrsasign.jar:/usr/java/jrockit-R27.5.0- jdk1.5.0_14/j=<br />
+ re/lib/jsse.jar:/usr/java/jrockit-R27.5.0-jdk1.5.0_14/jre/li b/jce.jar:/us=<br />
+ r/java/jrockit-R27.5.0-jdk1.5.0_14/jre/lib/charsets.jar:/usr /java/jrockit=<br />
+-R27.5.0-jdk1.5.0_14/jre/classes<br />
+ sun.boot.library.path=3D/usr/java/jrockit-R27.5.0-jdk1.5.0_1 4/jre/lib/i38=<br />
+6<br />
+sun.cpu.endian=3Dlittle<br />
+sun.cpu.isalist=3D<br />
+sun.desktop=3Dgnome<br />
+sun.io.unicode.encoding=3DUnicodeLittle<br />
+sun.java.launcher=3DSUN_STANDARD<br />
+sun.jnu.encoding=3DANSI_X3.4-1968<br />
+sun.management.compiler=3DBEA JRockit(R) Optimizing Compiler<br />
+sun.os.patch.level=3Dunknown<br />
+user.country=3DUS<br />
+user.dir=3D/home/rosec<br />
+user.home=3D/home/rosec<br />
+user.language=3Den<br />
+user.name=3Drosec<br />
+user.timezone=3DMST7MDT<br />
+<br />
+*** Features:<br />
+org.eclipse.ajdt (1.5.0.200706070619) &quot;AspectJ Development Tools&quot;<br />
+org.eclipse.ajdt.source (1.5.0.200706070619) &quot;Eclipse AspectJ Development=<br />
+ Tools Source Code&quot;<br />
+org.eclipse.cvs (1.0.2.r33x_r20080129-7C79_B_GLJwq3I9ZCD8L_) &quot;Eclipse CVS=<br />
+ Client&quot;<br />
+org.eclipse.cvs.source (1.0.2.r33x_r20080129-7C79_B_GLJwq3I9ZCD8L_) &quot;Ecli=<br />
+pse CVS Client SDK&quot;<br />
+org.eclipse.datatools.connectivity.feature (1.5.2.200802201) &quot;Data Tools =<br />
+Platform Connectivity Plug-in&quot;<br />
+org.eclipse.datatools.connectivity.oda.designer.feature (1.5.2.200802201)=<br />
+ &quot;DTP ODA Designer UI Framework Plug-in&quot;<br />
+org.eclipse.datatools.connectivity.oda.feature (1.5.2.200802201) &quot;DTP Ope=<br />
+n Data Access&quot;<br />
+org.eclipse.datatools.doc.user (1.5.2.200802201) &quot;Data Tools Platform Use=<br />
+r Guide&quot;<br />
+org.eclipse.datatools.enablement.apache.derby.feature (1.5.2.200802201) &quot;=<br />
+High-level Sybase Enablement Plug-in&quot;<br />
+org.eclipse.datatools.enablement.feature (1.5.2.200802201) &quot;Eclipse Data =<br />
+Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.hsqldb.feature (1.5.2.200802201) &quot;Eclips=<br />
+e Data Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.ibm.feature (1.5.2.200802201) &quot;Eclipse D=<br />
+ata Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.jdbc.feature (1.5.2.200802201) &quot;High-lev=<br />
+el Sybase Enablement Plug-in&quot;<br />
+org.eclipse.datatools.enablement.msft.feature (1.5.2.200802201) &quot;Eclipse =<br />
+Data Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.mysql.feature (1.5.2.200802201) &quot;Eclipse=<br />
+ Data Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.oda.designer.feature (1.5.2.200802201) &quot;=<br />
+Eclipse Data Tools Platform XML ODA Designer&quot;<br />
+org.eclipse.datatools.enablement.oda.feature (1.5.2.200802201) &quot;Eclipse D=<br />
+ata Tools Platform XML ODA Runtime Driver&quot;<br />
+org.eclipse.datatools.enablement.oracle.feature (1.5.2.200802201) &quot;Eclips=<br />
+e Data Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.postgresql.feature (1.5.2.200802201) &quot;Ec=<br />
+lipse Data Tools Platform Enablement&quot;<br />
+org.eclipse.datatools.enablement.sybase.feature (1.5.2.200802201) &quot;High-l=<br />
+evel Sybase Enablement Plug-in&quot;<br />
+org.eclipse.datatools.modelbase.feature (1.5.2.200802201) &quot;Eclipse Data T=<br />
+ools Platform SQLModel Plug-in&quot;<br />
+org.eclipse.datatools.sqldevtools.feature (1.5.2.200802201) &quot;Eclipse Data=<br />
+ Tools Platform SQL Tools Common UI Plug-in&quot;<br />
+org.eclipse.dltk.core (0.9.2.v20080226-1047-08O78E8IaRUDKuX65LAUY) &quot;Eclip=<br />
+se Dynamic Languages Toolkit (Incubation)&quot;<br />
+org.eclipse.dltk.tcl (0.9.2.v20080226-1047-07z3CQMUYYGcJx4N998) &quot;Tcl Deve=<br />
+lopment Tools (Incubation)&quot;<br />
+org.eclipse.emf (2.3.2.v200802051830) &quot;Eclipse Modeling Framework (EMF)&quot;<br />
+org.eclipse.emf.codegen (2.3.1.v200802051830) &quot;EMF Template Code Generato=<br />
+r&quot;<br />
+org.eclipse.emf.codegen.ecore (2.3.2.v200802051830) &quot;EMF Ecore Code Gener=<br />
+ation&quot;<br />
+org.eclipse.emf.codegen.ecore.ui (2.3.1.v200802051830) &quot;EMF Ecore Code Ge=<br />
+neration UI&quot;<br />
+org.eclipse.emf.codegen.ui (2.3.1.v200802051830) &quot;EMF Template Code Gener=<br />
+ator UI&quot;<br />
+org.eclipse.emf.common (2.3.1.v200802051830) &quot;EMF Common&quot;<br />
+org.eclipse.emf.common (2.3.1.v200802051830) &quot;EMF Common&quot;<br />
+org.eclipse.emf.common.ui (2.3.1.v200802051830) &quot;EMF Common UI&quot;<br />
+org.eclipse.emf.common.ui (2.3.1.v200802051830) &quot;EMF Common UI&quot;<br />
+org.eclipse.emf.converter (2.3.1.v200802051830) &quot;EMF Model Convert Suppor=<br />
+t&quot;<br />
+org.eclipse.emf.ecore (2.3.2.v200802051830) &quot;EMF Ecore&quot;<br />
+org.eclipse.emf.ecore (2.3.2.v200802051830) &quot;EMF Ecore&quot;<br />
+org.eclipse.emf.ecore.edit (2.3.1.v200802051830) &quot;EMF Ecore Edit Support&quot;=<br />
+<br />
+org.eclipse.emf.ecore.edit (2.3.1.v200802051830) &quot;EMF Ecore Edit Support&quot;=<br />
+<br />
+org.eclipse.emf.ecore.editor (2.3.1.v200802051830) &quot;Sample Ecore Editor&quot;<br />
+org.eclipse.emf.ecore.sdo (2.3.1.v200802051830) &quot;EMF Service Data Objects=<br />
+ (SDO)&quot;<br />
+org.eclipse.emf.edit (2.3.2.v200802051830) &quot;EMF Edit&quot;<br />
+org.eclipse.emf.edit (2.3.2.v200802051830) &quot;EMF Edit&quot;<br />
+org.eclipse.emf.edit.ui (2.3.1.v200802051830) &quot;EMF Edit UI&quot;<br />
+org.eclipse.emf.edit.ui (2.3.1.v200802051830) &quot;EMF Edit UI&quot;<br />
+org.eclipse.emf.mapping (2.3.1.v200802051830) &quot;EMF Mapping &quot;<br />
+org.eclipse.emf.mapping.ecore (2.3.1.v200802051830) &quot;Eclipse Modeling Fra=<br />
+mework (EMF) - org.eclipse.emf.mapping.ecore&quot;<br />
+org.eclipse.emf.mapping.ecore.editor (2.3.1.v200802051830) &quot;Eclipse Model=<br />
+ing Framework (EMF) - org.eclipse.emf.mapping.ecore.editor&quot;<br />
+org.eclipse.emf.mapping.ui (2.3.1.v200802051830) &quot;EMF Mapping UI&quot;<br />
+org.eclipse.gef (3.3.2.v20080129) &quot;Graphical Editing Framework&quot;<br />
+org.eclipse.jdt (3.3.2.r33x_r20080129-7o7jE7_EDhYDiyVEnjb1pFd7ZGD7) &quot;Ecli=<br />
+pse Java Development Tools&quot;<br />
+org.eclipse.jdt.source (3.3.2.r33x_r20080129-7o7jE7_EDhYDiyVEnjb1pFd7ZGD7=<br />
+) &quot;Eclipse Java Development Tools SDK&quot;<br />
+org.eclipse.jst (2.0.2.v200802150100-7B-7_8dDTOvmuz0di_U5vgUfz0em) &quot;J2EE =<br />
+Standard Tools (JST)&quot;<br />
+org.eclipse.mylyn_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.mylyn.bugzilla_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.mylyn.context_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.mylyn.ide_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.mylyn.java_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.mylyn.pde_feature (2.3.0.v20080225-2200) &quot;Mylyn&quot;<br />
+org.eclipse.pde (3.3.3.r33x_r20080129-7N7M5DQVIA_6oJsEFkEL) &quot;Eclipse Plug=<br />
+-in Development Environment&quot;<br />
+org.eclipse.pde.source (3.3.3.r33x_r20080129-7N7M5DQVIA_6oJsEFkEL) &quot;Eclip=<br />
+se Plug-in Development Environment Developer Resources&quot;<br />
+org.eclipse.platform (3.3.3.r33x_r20080129-_19UEl7Ezk_gXF1kouft) &quot;Eclipse=<br />
+ Platform&quot;<br />
+org.eclipse.platform.source (3.3.3.r33x_r20080129-_19UEl7Ezk_gXF1kouft) &quot;=<br />
+Eclipse Platform Plug-in Developer Resources&quot;<br />
+org.eclipse.rcp (3.3.3.r33x_r20080129-8y8eE9UEUWI6qujeED0xT7bc) &quot;Eclipse =<br />
+RCP&quot;<br />
+org.eclipse.rcp.source (3.3.3.r33x_r20080129-8y8eE9UEUWI6qujeED0xT7bc) &quot;E=<br />
+clipse RCP Plug-in Developer Resources&quot;<br />
+org.eclipse.sdk (3.3.3.r33x_r20080129-7M7J7LB-u3aphGW6o3_VmiVfGXWO) &quot;Ecli=<br />
+pse Project SDK&quot;<br />
+org.eclipse.tptp.monitoring (4.4.2.v200802070100-7c7KEK28DcIJUKhJAIiNP) &quot;=<br />
+TPTP Monitoring&quot;<br />
+org.eclipse.tptp.monitoring.doc.user (4.3.102.v200802070100-774Aj0r733I37=<br />
+3F3533) &quot;TPTP Monitoring Project Documentation&quot;<br />
+org.eclipse.tptp.monitoring.examples (4.3.102.v200802070100-328a-w3119131=<br />
+91211) &quot;User examples for the TPTP Monitoring Tools Plugins&quot;<br />
+org.eclipse.tptp.monitoring.instrumentation (4.3.2.v200802070100-7A7951mA=<br />
+55S5A5S5855) &quot;TPTP Instrumentation Monitoring &quot;<br />
+org.eclipse.tptp.monitoring.la.core (4.4.2.v200802070100-7A78_A1mA55R5E5K=<br />
+5855) &quot;Monitoring Log Analyzer Core&quot;<br />
+org.eclipse.tptp.monitoring.managedagent (4.4.2.v200802070100-7E7D8f2hE77=<br />
+c7E7Z7A77) &quot;Managed Agent Plugin&quot;<br />
+org.eclipse.tptp.monitoring.managedagent.agents (4.4.100.v200802050100-33=<br />
+8Y-w311912371211) &quot;JMX Managed Agent&quot;<br />
+org.eclipse.tptp.monitoring.mx4j.jmx (4.4.1.v200802221314-2-2-w3119131612=<br />
+11) &quot;MX4J&quot;<br />
+org.eclipse.tptp.monitoring.profile.server (4.2.102.v200802070100-318a-w3=<br />
+11913191211) &quot;TPTP Profile On Server Logging Utility&quot;<br />
+org.eclipse.tptp.platform.analysis (4.4.2.v200802070100-7E7_Du2hE77b7L7X7=<br />
+A77) &quot;TPTP Analysis&quot;<br />
+org.eclipse.tptp.platform.analysis.codereview.java (4.4.101.v200802070100=<br />
+-777730r733I373I3533) &quot;Java Code Review Plug-in&quot;<br />
+org.eclipse.tptp.platform.analysis.engine (4.3.200.v200709030100-773Dp0r7=<br />
+33H3D3A3533) &quot;TPTP Analysis Engine&quot;<br />
+org.eclipse.tptp.platform.core (4.4.100.v200709030100-8Q82EeRJEPilTjotXnO=<br />
+r2) &quot;TPTP Platform&quot;<br />
+org.eclipse.tptp.platform.core.doc.user (4.3.200.v200709030100-7A6E9w1mA5=<br />
+5Q5N6J5855) &quot;TPTP Platform Project Documentation&quot;<br />
+org.eclipse.tptp.platform.doc.user (4.3.200.v200709030100-7A77E8O08IKQLvA=<br />
+sOHBfAU_O9B66) &quot;TPTP Platform Project Documentation&quot;<br />
+org.eclipse.tptp.platform.examples (4.3.200.v200709030100-32_7-w31181_141=<br />
+211) &quot;TPTP Platform Examples&quot;<br />
+org.eclipse.tptp.platform.instrumentation.ui (4.2.100.v200709050100-321-w=<br />
+311913191211) &quot;Instrument Core UI&quot;<br />
+org.eclipse.tptp.platform.integration.pde (4.4.1.v200802050100-330-w31191=<br />
+3161211) &quot;TPTP Platform Integration PDE&quot;<br />
+org.eclipse.tptp.platform.jvmti (4.3.100.v200709030100-7777_70r733I377759=<br />
+5A) &quot;TPTP JVMTI Profiler Client&quot;<br />
+org.eclipse.tptp.platform.la.core (4.3.200.v200709030100-328a-w3119131912=<br />
+11) &quot;Log Analysis Core&quot;<br />
+org.eclipse.tptp.platform.lta (4.3.200.v200709030100-773CG0r733H3D584747)=<br />
+ &quot;TPTP Log and Trace Analyzer&quot;<br />
+org.eclipse.tptp.platform.probekit (4.3.200.v200709030100-7E5EFB2hE77Z7Z7=<br />
+K7A77) &quot;TPTP ProbeKit&quot;<br />
+org.eclipse.tptp.platform.probekit.doc.user (4.3.200.v200709030100-31_7-w=<br />
+31181_141211) &quot;Probekit User Documentation&quot;<br />
+org.eclipse.tptp.platform.profile.server (4.3.100.v200709030100-7E79_C2hE=<br />
+77b7L9R8C8A) &quot;TPTP Profile on Server&quot;<br />
+org.eclipse.tptp.platform.report (4.2.200.v200709030100-7A5Dq1mA55R5H5H58=<br />
+55) &quot;TPTP Charting Service&quot;<br />
+org.eclipse.tptp.platform.samples (4.3.200.v200709030100-7A4E9x1mA55Q5O5F=<br />
+5855) &quot;TPTP Platform Samples&quot;<br />
+org.eclipse.tptp.platform.statistical.ui (4.1.400.v200709030100-772Dq0r73=<br />
+3H3D584A43) &quot;TPTP Statistical UI&quot;<br />
+org.eclipse.tptp.platform.trace (4.3.200.v200709030100-7E7ADs2hE77a7S9M8G=<br />
+87) &quot;TPTP Platform Trace&quot;<br />
+org.eclipse.wst (2.0.2.v200802150100-7C-7C8k0JWR293WFMOOObjNnnqho) &quot;Web S=<br />
+tandard Tools (WST)&quot;<br />
+org.eclipse.xsd (2.3.2.v200802051830) &quot;XML Schema Infoset Model (XSD)&quot;<br />
+org.eclipse.xsd.edit (2.3.0.v200802051830) &quot;XML Schema Edit Framework&quot;<br />
+org.hibernate.eclipse.feature (3.2.0.GA) &quot;Hibernate Core Plugin&quot;<br />
+org.maven.ide.eclipse.feature (0.9.1.200803311600) &quot;Maven Integration for=<br />
+ Eclipse&quot;<br />
+org.maven.ide.eclipse.mylyn.feature (0.9.1.200803311600) &quot;Maven Integrati=<br />
+on for Eclipse&quot;<br />
+org.maven.ide.eclipse.subclipse.feature (0.9.1.200803311600) &quot;Maven Integ=<br />
+ration for Eclipse&quot;<br />
+org.tigris.subversion.subclipse (1.2.4) &quot;SVN Team Provider Core&quot;<br />
+org.tigris.subversion.subclipse.mylyn (2.0.0) &quot;Subclipse Integration for =<br />
+Mylar&quot;<br />
+<br />
+*** Plug-in Registry:<br />
+com.ibm.icu (3.6.1.v20070906) &quot;International Components for Unicode for J=<br />
+ava (ICU4J)&quot; [Active]<br />
+com.ibm.icu.source (3.6.1.v20070906) &quot;International Components for Unicod=<br />
+e for Java (ICU4J) source plug-in&quot; [Resolved]<br />
+com.jcraft.jsch (0.1.31) &quot;JSch&quot; [Resolved]<br />
+com.planet.core360.ebi (1.2.0) &quot;EBI Plugin&quot; [Active]<br />
+de.babe.eclipse.plugins.QuickREx (3.5.0) &quot;QuickREx Plug-in&quot; [Starting]<br />
+javax.servlet (2.4.0.v200706111738) &quot;Servlet API Bundle&quot; [Resolved]<br />
+javax.servlet.jsp (2.0.0.v200706191603) &quot;Java Server Pages API Bundle&quot; [R=<br />
+esolved]<br />
+javax.servlet.jsp.source (2.0.0.v200706191603) &quot;Java Server Pages API Sou=<br />
+rce Bundle&quot; [Resolved]<br />
+javax.servlet.source (2.4.0.v200706111738) &quot;Servlet API Source Bundle&quot; [R=<br />
+esolved]<br />
+javax.wsdl (1.4.0.v200706111329) &quot;WSDL4J&quot; [Resolved]<br />
+javax.wsdl15 (1.5.1.v200705290614) &quot;WSDL4J&quot; [Resolved]<br />
+javax.xml.rpc (1.1.0.v200706111329) &quot;JAX-RPC&quot; [Resolved]<br />
+javax.xml.soap (1.2.0.v200706111329) &quot;SAAJ&quot; [Resolved]<br />
+net.sf.jadclipse (3.3.0) &quot;JadClipse&quot; [Active]<br />
+net.sourceforge.lpg.lpgjavaruntime (1.1.0.v200711021030) &quot;SourceForge LPG=<br />
+&quot; [Resolved]<br />
+org.adarsh.jutils (3.1.0) &quot;JUtils Plug-in&quot; [Starting]<br />
+org.apache.ant (1.7.0.v200706080842) &quot;Apache Ant&quot; [Resolved]<br />
+org.apache.ant.source (1.7.0.v200706080842) &quot;Apache Ant Source&quot; [Resolved=<br />
+]<br />
+org.apache.axis (1.4.0.v200706191647) &quot;Apache Web Services&quot; [Resolved]<br />
+org.apache.batik.bridge (1.6.0.v200706111724) &quot;Apache Batik Bridge/GVT/Sc=<br />
+ripting&quot; [Resolved]<br />
+org.apache.batik.css (1.6.0.v200706111724) &quot;Apache Batik CSS&quot; [Resolved]<br />
+org.apache.batik.dom (1.6.0.v200706111724) &quot;Apache Batik DOM&quot; [Resolved]<br />
+org.apache.batik.dom.svg (1.6.0.v200706111724) &quot;Apache Batik SVG DOM&quot; [Re=<br />
+solved]<br />
+org.apache.batik.ext.awt (1.6.0.v200706111724) &quot;Apache Batik AWT Utilitie=<br />
+s&quot; [Resolved]<br />
+org.apache.batik.extension (1.6.0.v200706111724) &quot;Apache Batik Extension&quot;=<br />
+ [Resolved]<br />
+org.apache.batik.parser (1.6.0.v200706111724) &quot;Apache Batik Parser&quot; [Reso=<br />
+lved]<br />
+org.apache.batik.pdf (1.6.0.v200706111329) &quot;Bundle-Name&quot; [Resolved]<br />
+org.apache.batik.svggen (1.6.0.v200706111724) &quot;Apache Batik SVG Generatio=<br />
+n&quot; [Resolved]<br />
+org.apache.batik.swing (1.6.0.v200706111724) &quot;Apache Batik Swing&quot; [Resolv=<br />
+ed]<br />
+org.apache.batik.transcoder (1.6.0.v200706111724) &quot;Apache Batik Transcode=<br />
+r&quot; [Resolved]<br />
+org.apache.batik.util (1.6.0.v200706111724) &quot;Apache Batik Utilities&quot; [Res=<br />
+olved]<br />
+org.apache.batik.util.gui (1.6.0.v200706111724) &quot;Apache Batik GUI Utiliti=<br />
+es&quot; [Resolved]<br />
+org.apache.batik.xml (1.6.0.v200706111724) &quot;Apache Batik XML&quot; [Resolved]<br />
+org.apache.cactus (1.7.2.v200606181221) &quot;Cactus Resource Plug-in&quot; [Starti=<br />
+ng]<br />
+org.apache.commons.discovery (0.2.0.v200706111329) &quot;Jakarta-Commons Disco=<br />
+very&quot; [Resolved]<br />
+org.apache.commons.el (1.0.0.v200706111724) &quot;Apache Commons JSP 2.0 Expre=<br />
+ssion Language Interpreter&quot; [Resolved]<br />
+org.apache.commons.el.source (1.0.0.v200706111724) &quot;Apache Commons JSP 2.=<br />
+0 Expression Language Interpreter Source&quot; [Resolved]<br />
+org.apache.commons.logging (1.0.4.v200706111724) &quot;Apache Commons Logging =<br />
+Plug-in&quot; [Resolved]<br />
+org.apache.commons.logging.source (1.0.4.v200706111724) &quot;Apache Commons L=<br />
+ogging Plug-in Source&quot; [Resolved]<br />
+org.apache.jasper (5.5.17.v200706111724) &quot;Apache Jasper 2 Plug-in&quot; [Resol=<br />
+ved]<br />
+org.apache.jasper.source (5.5.17.v200706111724) &quot;Apache Jasper 2 Source P=<br />
+lug-in&quot; [Resolved]<br />
+org.apache.log4j (1.2.13.v200706111418) &quot;Apache Jakarta log4j Plug-in&quot; [R=<br />
+esolved]<br />
+org.apache.lucene (1.9.1.v200706111724) &quot;Apache Lucene&quot; [Resolved]<br />
+org.apache.lucene.analysis (1.9.1.v200706181610) &quot;Apache Lucene Analysis&quot;=<br />
+ [Resolved]<br />
+org.apache.lucene.analysis.source (1.9.1.v200706181610) &quot;Apache Lucene An=<br />
+alysis Source&quot; [Resolved]<br />
+org.apache.lucene.source (1.9.1.v200706111724) &quot;Apache Lucene Source&quot; [Re=<br />
+solved]<br />
+org.apache.wsil4j (1.0.0.v200706111329) &quot;WSIL4J&quot; [Resolved]<br />
+org.apache.xerces (2.8.0.v200705301630) &quot;Apache Xerces-J&quot; [Resolved]<br />
+org.apache.xml.resolver (1.1.0.v200705310020) &quot;Apache XmlResolver&quot; [Resol=<br />
+ved]<br />
+org.aspectj.ajde (1.5.4.200705211336) &quot;AspectJ&quot; [Active]<br />
+org.aspectj.runtime (1.5.4.200705211336) &quot;AspectJ Runtime&quot; [Resolved]<br />
+org.aspectj.weaver (1.5.4.200705211336) &quot;AspectJ Weaver&quot; [Resolved]<br />
+org.eclipse.ajdt.core (1.5.0.200706070619) &quot;AspectJ Development Tools Cor=<br />
+e&quot; [Active]<br />
+org.eclipse.ajdt.doc.user (1.5.0.200706070619) &quot;AspectJ Development Tools=<br />
+ User Documentation&quot; [Resolved]<br />
+org.eclipse.ajdt.examples (1.5.0.200706070619) &quot;AspectJ Examples&quot; [Starti=<br />
+ng]<br />
+org.eclipse.ajdt.pde.build (1.5.0.200706070619) &quot;AspectJ Plug-in Developm=<br />
+ent Environment Build Support&quot; [Starting]<br />
+org.eclipse.ajdt.source (1.5.0.200706070619) &quot;Eclipse AspectJ Development=<br />
+ Tools Source Code&quot; [Resolved]<br />
+org.eclipse.ajdt.ui (1.5.0.200706070619) &quot;AspectJ Development Tools UI&quot; [=<br />
+Active]<br />
+org.eclipse.ant.core (3.1.200.v20070522) &quot;Ant Build Tool Core&quot; [Starting]=<br />
+<br />
+org.eclipse.ant.ui (3.2.200.v20070825_r331) &quot;Ant UI&quot; [Starting]<br />
+org.eclipse.aspectj (1.5.0.200706070619) &quot;AspectJ Development Tools&quot; [Sta=<br />
+rting]<br />
+org.eclipse.compare (3.3.2.r33x_20080128) &quot;Compare Support&quot; [Active]<br />
+org.eclipse.contribution.visualiser (2.2.0.200706070619) &quot;Visualiser Plug=<br />
+-in&quot; [Active]<br />
+org.eclipse.contribution.xref.core (1.5.0.200706070619) &quot;Cross Reference =<br />
+Core Plugin&quot; [Active]<br />
+org.eclipse.contribution.xref.ui (1.5.0.200706070619) &quot;Cross Reference UI=<br />
+ Plugin&quot; [Active]<br />
+org.eclipse.core.boot (3.1.100.v20060603) &quot;Core Boot&quot; [Starting]<br />
+org.eclipse.core.commands (3.3.0.I20070605-0010) &quot;Commands&quot; [Resolved]<br />
+org.eclipse.core.contenttype (3.2.100.v20070319) &quot;Eclipse Content Mechani=<br />
+sm&quot; [Active]<br />
+org.eclipse.core.databinding (1.0.1.M20070822-0800) &quot;JFace Data Binding&quot; =<br />
+[Resolved]<br />
+org.eclipse.core.databinding.beans (1.0.1.M20070910-0800b) &quot;JFace Data Bi=<br />
+nding for JavaBeans&quot; [Resolved]<br />
+org.eclipse.core.expressions (3.3.0.v20070606-0010) &quot;Expression Language&quot;=<br />
+ [Active]<br />
+org.eclipse.core.filebuffers (3.3.1.r331_v20070829) &quot;File Buffers&quot; [Activ=<br />
+e]<br />
+org.eclipse.core.filesystem (1.1.0.v20070606) &quot;Core File Systems&quot; [Active=<br />
+]<br />
+org.eclipse.core.filesystem.linux.x86 (1.1.0.v20070416) &quot;Core File System=<br />
+ for Linux&quot; [Resolved]<br />
+org.eclipse.core.jobs (3.3.1.R33x_v20070709) &quot;Eclipse Jobs Mechanism&quot; [Ac=<br />
+tive]<br />
+org.eclipse.core.net (1.0.1.r33x_20070709) &quot;Internet Connection Managemen=<br />
+t&quot; [Active]<br />
+org.eclipse.core.resources (3.3.1.R33x_v20080205) &quot;Core Resource Manageme=<br />
+nt&quot; [Active]<br />
+org.eclipse.core.resources.compatibility (3.2.100.v20070502) &quot;Core Resour=<br />
+ce Management Compatibility Fragment&quot; [Resolved]<br />
+org.eclipse.core.runtime (3.3.100.v20070530) &quot;Core Runtime&quot; [Active]<br />
+org.eclipse.core.runtime.compatibility (3.1.200.v20070502) &quot;Core Runtime =<br />
+Plug-in Compatibility&quot; [Active]<br />
+org.eclipse.core.runtime.compatibility.auth (3.2.100.v20070502) &quot;Authoriz=<br />
+ation Compatibility Plug-in&quot; [Active]<br />
+org.eclipse.core.runtime.compatibility.registry (3.2.100.v20070316) &quot;Ecli=<br />
+pse Registry Compatibility Fragment&quot; [Resolved]<br />
+org.eclipse.core.variables (3.2.0.v20070426) &quot;Core Variables&quot; [Active]<br />
+org.eclipse.cvs (1.0.2.r33x_r20080129) &quot;Eclipse CVS Client&quot; [Starting]<br />
+org.eclipse.cvs.source (1.0.2.r33x_r20080129-7C79_B_GLJwq3I9ZCD8L_) &quot;Ecli=<br />
+pse CVS Client SDK&quot; [Resolved]<br />
+org.eclipse.datatools.connectivity (1.0.1.200802191) &quot;Data Tools Platform=<br />
+ Connectivity Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.db.derby (1.0.0.200706071) &quot;Eclipse Da=<br />
+ta Tools Platform Apache Derby Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.db.generic (1.0.0.200706071) &quot;Eclipse =<br />
+Data Tools Platform Generic DB Connectivity Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.db.generic.ui (1.0.1.200708201) &quot;Eclip=<br />
+se Data Tools Platform Generic DB UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.dbdefinition.derby (1.0.0.200706071) &quot;=<br />
+Eclipse Data Tools Platform Apache Derby Database Definition&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.dbdefinition.genericJDBC (1.0.0.200706=<br />
+071) &quot;Eclipse Data Tools Platform DBDefinition Generic JDBC Plug-in&quot; [Sta=<br />
+rting]<br />
+org.eclipse.datatools.connectivity.derby (1.0.0.200706071) &quot;Eclipse Data =<br />
+Tools Platform Derby Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.derby.ui (1.0.0.200706071) &quot;Eclipse Da=<br />
+ta Tools Platform Apache Derby UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda (3.1.1.200711081) &quot;DTP Open Data A=<br />
+ccess&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.consumer (3.1.2.200710011) &quot;DTP OD=<br />
+A Consumer Helper Component Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.design (3.0.5.200709071) &quot;DTP ODA =<br />
+Design Session Model&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.design.ui (3.0.6.200710051) &quot;DTP O=<br />
+DA Designer UI Framework Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.flatfile (3.0.5.200711091) &quot;Eclips=<br />
+e Data Tools Platform Flat File ODA Runtime Driver&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.flatfile.ui (3.0.5.200711121) &quot;Ecl=<br />
+ipse Data Tools Platform Flat File ODA Designer&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.profile (3.0.6.200710181) &quot;DTP ODA=<br />
+ Connection Profile Framework Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.oda.template.ui (3.0.6.200710261) &quot;DTP=<br />
+ ODA New Plug-in Template Wizard&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.sqm.core (1.0.1.200801111) &quot;Eclipse Da=<br />
+ta Tools Platform SQM Core Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.sqm.core.ui (1.0.1.200708201) &quot;Eclipse=<br />
+ Data Tools Platform SQM UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.sqm.fe.ui (1.0.0.200706071) &quot;Eclipse D=<br />
+ata Tools Platform FE UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.sqm.fe.ui.actions (1.0.0.200706071) &quot;E=<br />
+clipse Data Tools Platform FE Ui Actions Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.sqm.server.ui (1.0.0.200709141) &quot;Eclip=<br />
+se Data Tools Platform Server UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.ui (1.0.1.200708231) &quot;Data Tools Platf=<br />
+orm Connectivity UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.connectivity.ui.dse (1.0.1.200709171) &quot;Eclipse Data=<br />
+ Tools Platform Data Source Explorer Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.doc.user (1.0.0.200706071) &quot;Data Tools Platform Use=<br />
+r Guide&quot; [Starting]<br />
+org.eclipse.datatools.enablement.finfo (1.5.1.200708161) &quot;Eclipse Data To=<br />
+ols Platform Enablement&quot; [Starting]<br />
+org.eclipse.datatools.enablement.hsqldb (1.0.0.200706071) &quot;Eclipse Data T=<br />
+ools Platform Hypersonic DB Enablement Plug-in&quot; [Starting]<br />
+ org.eclipse.datatools.enablement.ibm.db2.iseries.dbdefinitio n (1.0.0.2007=<br />
+06071) &quot;DB2 UDB iSeries Database Definition Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.ibm.db2.iseries.profile (1.0.0.200706071=<br />
+) &quot;Eclipse Data Tools Platform IBM DB2 UDB iSeries Plug-in&quot; [Resolved]<br />
+org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition (1.0.0.20070607=<br />
+1) &quot;Eclipse Data Tools Platform DB2 UDB Database Definition Plug-in&quot; [Sta=<br />
+rting]<br />
+org.eclipse.datatools.enablement.ibm.db2.luw.profile (1.0.0.200706071) &quot;E=<br />
+clipse Data Tools Platform IBM DB2 UDB LUW Plug-in&quot; [Starting]<br />
+ org.eclipse.datatools.enablement.ibm.db2.zseries.dbdefinitio n (1.0.0.2007=<br />
+06071) &quot;DB2 UDB Database Definition Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.ibm.db2.zseries.profile (1.0.0.200706071=<br />
+) &quot;Eclipse Data Tools Platform IBM DB2 UDB zSeries Plug-in&quot; [Resolved]<br />
+org.eclipse.datatools.enablement.ibm.informix.dbdefinition (1.0.0.2007060=<br />
+71) &quot;Eclipse Data Tools Platform Informix Database Definition Plug-in&quot; [S=<br />
+tarting]<br />
+org.eclipse.datatools.enablement.ibm.informix.profile (1.0.0.200706071) &quot;=<br />
+Eclipse Data Tools Platform Informix Plug-in&quot; [Resolved]<br />
+ org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition (1.0.0.20070=<br />
+6071) &quot;Eclipse Data Tools Platform SQL Server Database Definition Plug-in=<br />
+&quot; [Starting]<br />
+org.eclipse.datatools.enablement.msft.sqlserver.profile (1.0.1.200709041)=<br />
+ &quot;Eclipse Data Tools Platform Microsoft SQL Server Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.mysql (1.0.0.200706071) &quot;Eclipse Data To=<br />
+ols Platform MySQL enablement plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.mysql.dbdefinition (1.0.1.200709181) &quot;Ec=<br />
+lipse Data Tools Platform MySQL Database Definition Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.mysql.profile (1.0.0.200706071) &quot;Eclipse=<br />
+ Data Tools Platform MySQL Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.oda.ws (1.0.1.20071218) &quot;Eclipse Data To=<br />
+ols Platform Web Services ODA Runtime Driver&quot; [Starting]<br />
+org.eclipse.datatools.enablement.oda.ws.ui (1.0.2.200711191) &quot;Eclipse Dat=<br />
+a Tools Platform Web Services ODA Designer&quot; [Starting]<br />
+org.eclipse.datatools.enablement.oda.xml (1.0.3.200802141) &quot;Eclipse Data =<br />
+Tools Platform XML ODA Runtime Driver&quot; [Starting]<br />
+org.eclipse.datatools.enablement.oda.xml.ui (1.0.3.200711191) &quot;Eclipse Da=<br />
+ta Tools Platform XML ODA Designer&quot; [Starting]<br />
+org.eclipse.datatools.enablement.oracle.dbdefinition (1.0.0.200706071) &quot;E=<br />
+clipse Data Tools Platform Oracle Database Definition Plug-in&quot; [Starting]=<br />
+<br />
+org.eclipse.datatools.enablement.oracle.profile (1.0.0.200706151) &quot;Eclips=<br />
+e Data Tools Platform Oracle Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.postgresql.dbdefinition (1.0.0.200706071=<br />
+) &quot;PostgreSQL DB Definition&quot; [Resolved]<br />
+org.eclipse.datatools.enablement.postgresql.profile (1.0.1.200711121) &quot;Po=<br />
+stgreSQL Connection Profile and Driver Template Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.sybase (1.0.1.200707131) &quot;High-level Syb=<br />
+ase Enablement Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.sybase.asa (1.0.0.200706071) &quot;Sybase ASA=<br />
+ Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.enablement.sybase.asa.models (1.0.0.200706071) &quot;Syb=<br />
+ase ASA SQL Model&quot; [Starting]<br />
+org.eclipse.datatools.enablement.sybase.ase.dbdefinition (1.0.0.200706071=<br />
+) &quot;Eclipse Data Tools Platform Sybase Database Definition Plug-in&quot; [Start=<br />
+ing]<br />
+org.eclipse.datatools.enablement.sybase.ase.profile (1.0.0.200706071) &quot;Ec=<br />
+lipse Data Tools Platform Sybase ASE Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.help (1.5.0.200706181) &quot;Data Tools Platform Help Ut=<br />
+ilities&quot; [Resolved]<br />
+org.eclipse.datatools.modelbase.dbdefinition (1.0.0.200706071) &quot;Eclipse D=<br />
+ata Tools Platform DBDefinition Model&quot; [Starting]<br />
+org.eclipse.datatools.modelbase.derby (1.0.0.200706071) &quot;Derby Plug-in&quot; [=<br />
+Starting]<br />
+org.eclipse.datatools.modelbase.sql (1.0.0.200708161) &quot;Eclipse Data Tools=<br />
+ Platform SQLModel Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.modelbase.sql.edit (1.0.0.200706071) &quot;Eclipse Data =<br />
+Tools Platform SQLModel Edit Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.modelbase.sql.query (1.0.0.200706151) &quot;Eclipse Data=<br />
+ Tools Platform SQL Query Model Plugin&quot; [Starting]<br />
+org.eclipse.datatools.modelbase.sql.xml.query (1.0.0.200706151) &quot;Eclipse =<br />
+Data Tools Platform SQL XML Query Model Plugin&quot; [Starting]<br />
+org.eclipse.datatools.oda.cshelp (1.0.0.200708161) &quot;DTP ODA Context-sensi=<br />
+tive Help&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.common.ui (1.0.0.200708161) &quot;Eclipse Data =<br />
+Tools Platform SQL Tools Common UI Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.data.core (1.0.0.200712191) &quot;Data Core Plu=<br />
+gin&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.data.ui (1.0.1.200711091) &quot;Data UI Plugin&quot;=<br />
+ [Starting]<br />
+org.eclipse.datatools.sqltools.db.derby (1.0.0.200706071) &quot;Eclipse Data T=<br />
+ools Platform Derby SQL Tools Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.db.generic (1.0.0.200706131) &quot;Eclipse Data=<br />
+ Tools Platform SQL Tools Generic Database Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.debugger.core (1.0.0.200709251) &quot;Eclipse D=<br />
+ata Tools Platform SQL Debugger Framework&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.editor.core (1.0.0.200709261) &quot;Eclipse Dat=<br />
+a Tools Platform SQL Editor Core Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.parsers.sql (1.0.0.200801071) &quot;Eclipse Dat=<br />
+a Tools Platform SQL Parser Plugin&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.parsers.sql.lexer (1.0.0.200801071) &quot;Eclip=<br />
+se Data Tools Platform Lexer Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.parsers.sql.query (1.0.0.200711281) &quot;Eclip=<br />
+se Data Tools Platform SQL Query Parser Plugin&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.parsers.sql.xml.query (1.0.0.200706151) &quot;E=<br />
+clipse Data Tools Platform SQL XML Query Parser Plugin&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.plan (1.0.0.200709061) &quot;Eclipse Data Tools=<br />
+ Platform SQL Execution Plan View Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.result (1.0.0.200711021) &quot;Eclipse Data Too=<br />
+ls Platform SQL Results View Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.routineeditor (1.0.0.200708161) &quot;Eclipse D=<br />
+ata Tools Platform SQL Tools Routine Editor Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.sql (1.0.0.200706111) &quot;Eclipse Data Tools =<br />
+Platform SQL Core Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.sqleditor (1.0.0.200709061) &quot;Eclipse Data =<br />
+Tools Platform SQL Editor&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.sqlscrapbook (1.0.0.200709141) &quot;Eclipse Da=<br />
+ta Tools Platform Sqlscrapbook Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.tabledataeditor (1.0.0.200706071) &quot;Eclipse=<br />
+ Data Tools Platform Table Data Editor Plug-in&quot; [Starting]<br />
+org.eclipse.datatools.sqltools.tablewizard (1.0.0.200710041) &quot;Eclipse Dat=<br />
+a Tools Platform Database Table Creation Plug-in&quot; [Starting]<br />
+org.eclipse.debug.core (3.3.2.v20080117_r332) &quot;Debug Core&quot; [Active]<br />
+org.eclipse.debug.ui (3.3.2.v20080117_r332) &quot;Debug UI&quot; [Active]<br />
+org.eclipse.dltk (0.9.0.v20070601) &quot;Eclipse Dynamic Languages Toolkit (In=<br />
+cubation)&quot; [Resolved]<br />
+org.eclipse.dltk.console (0.9.0.v20070619) &quot;Dynamic Languages Toolkit Con=<br />
+sole Core (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.console.ui (0.9.0.v20070619) &quot;Dynamic Languages Toolkit =<br />
+Console UI (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.core (0.9.2.v20080226-1047) &quot;Dynamic Languages Toolkit C=<br />
+ore (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.debug (0.9.0.v20070621) &quot;Dynamic Languages Toolkit Debug=<br />
+ Core (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.debug.ui (0.9.0.v20070621) &quot;Dynamic Languages Toolkit De=<br />
+bug UI (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.launching (0.9.1.r09_v20070926) &quot;Dynamic Languages Toolk=<br />
+it Launching Core (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.tcl (0.9.1.r09_v20070920) &quot;Tcl Development Tools (Incuba=<br />
+tion)&quot; [Resolved]<br />
+org.eclipse.dltk.tcl.core (0.9.1.r09_v20070920) &quot;Dynamic Languages Toolki=<br />
+t Tcl Core (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.tcl.debug (0.9.0.v20070620) &quot;Dynamic Languages Toolkit T=<br />
+cl Debug Core (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.tcl.debug.ui (0.9.0.v20070619) &quot;Dynamic Languages Toolki=<br />
+t Tcl Debug UI (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.tcl.launching (0.9.0.v20070619) &quot;Dynamic Languages Toolk=<br />
+it Tcl Launching Core (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.tcl.tclchecker (0.9.0.v20070619) &quot;Dynamic Languages Tool=<br />
+kit TclChecker Support (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.tcl.ui (0.9.2.v20080226-1047) &quot;Dynamic Languages Toolkit=<br />
+ Tcl UI (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.ui (0.9.2.v20080226-1047) &quot;Dynamic Languages Toolkit Cor=<br />
+e UI (Incubation)&quot; [Active]<br />
+org.eclipse.dltk.validators.core (0.9.2.v20080226-1047) &quot;Dynamic Language=<br />
+s Toolkit Validators Core (Incubation)&quot; [Starting]<br />
+org.eclipse.dltk.validators.ui (0.9.2.v20080226-1047) &quot;Dynamic Languages =<br />
+Toolkit Validators UI (Incubation)&quot; [Starting]<br />
+org.eclipse.draw2d (3.2.100.v20070529) &quot;Graphical Editing Framework Draw2=<br />
+d&quot; [Starting]<br />
+org.eclipse.emf (2.3.0.v200802051830) &quot;Eclipse Modeling Framework (EMF)&quot; =<br />
+[Starting]<br />
+org.eclipse.emf.ant (2.3.1.v200802051830) &quot;EMF Ant Tasks&quot; [Starting]<br />
+org.eclipse.emf.codegen (2.3.1.v200802051830) &quot;EMF Template Code Generato=<br />
+r&quot; [Starting]<br />
+org.eclipse.emf.codegen.ecore (2.3.2.v200802051830) &quot;EMF Ecore Code Gener=<br />
+ation&quot; [Starting]<br />
+org.eclipse.emf.codegen.ecore.ui (2.3.0.v200802051830) &quot;EMF Ecore Code Ge=<br />
+neration UI&quot; [Starting]<br />
+org.eclipse.emf.codegen.ui (2.3.0.v200802051830) &quot;EMF Template Code Gener=<br />
+ator UI&quot; [Starting]<br />
+org.eclipse.emf.common (2.3.2.v200802051830) &quot;EMF Common&quot; [Active]<br />
+org.eclipse.emf.common.ui (2.3.1.v200802051830) &quot;EMF Common UI&quot; [Starting=<br />
+]<br />
+org.eclipse.emf.commonj.sdo (2.3.0.v200802051830) &quot;CommonJ SDO&quot; [Starting=<br />
+]<br />
+org.eclipse.emf.converter (2.3.0.v200802051830) &quot;EMF Model Convert Suppor=<br />
+t&quot; [Starting]<br />
+org.eclipse.emf.ecore (2.3.2.v200802051830) &quot;EMF Ecore&quot; [Active]<br />
+org.eclipse.emf.ecore.change (2.3.0.v200802051830) &quot;EMF Ecore Change Mode=<br />
+l&quot; [Starting]<br />
+org.eclipse.emf.ecore.change.edit (2.3.0.v200802051830) &quot;EMF Ecore Change=<br />
+ Edit Support&quot; [Starting]<br />
+org.eclipse.emf.ecore.edit (2.3.1.v200802051830) &quot;EMF Ecore Edit Support&quot;=<br />
+ [Starting]<br />
+org.eclipse.emf.ecore.editor (2.3.1.v200802051830) &quot;Sample Ecore Editor&quot; =<br />
+[Starting]<br />
+org.eclipse.emf.ecore.sdo (2.3.0.v200802051830) &quot;EMF Service Data Objects=<br />
+ (SDO)&quot; [Starting]<br />
+org.eclipse.emf.ecore.xmi (2.3.2.v200802051830) &quot;EMF XMI&quot; [Active]<br />
+org.eclipse.emf.edit (2.3.2.v200802051830) &quot;EMF Edit&quot; [Starting]<br />
+org.eclipse.emf.edit.ui (2.3.1.v200802051830) &quot;EMF Edit UI&quot; [Starting]<br />
+org.eclipse.emf.exporter (2.3.0.v200802051830) &quot;EMF Model Export Support&quot;=<br />
+ [Starting]<br />
+org.eclipse.emf.importer (2.3.1.v200802051830) &quot;EMF Model Import Support&quot;=<br />
+ [Starting]<br />
+org.eclipse.emf.importer.ecore (2.3.1.v200802051830) &quot;EMF Ecore Importer&quot;=<br />
+ [Starting]<br />
+org.eclipse.emf.importer.java (2.3.1.v200802051830) &quot;EMF Annotated Java I=<br />
+mporter&quot; [Starting]<br />
+org.eclipse.emf.importer.rose (2.3.1.v200802051830) &quot;EMF Rose Importer&quot; [=<br />
+Starting]<br />
+org.eclipse.emf.mapping (2.3.0.v200802051830) &quot;EMF Mapping&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore (2.3.0.v200802051830) &quot;Eclipse Modeling Fra=<br />
+mework (EMF) - org.eclipse.emf.mapping.ecore&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore.editor (2.3.0.v200802051830) &quot;Eclipse Model=<br />
+ing Framework (EMF) - org.eclipse.emf.mapping.ecore.editor&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore2ecore (2.3.0.v200802051830) &quot;Ecore to Ecore=<br />
+ Mapping&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore2ecore.editor (2.3.0.v200802051830) &quot;Ecore t=<br />
+o Ecore Mapping Editor&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore2xml (2.3.0.v200802051830) &quot;Ecore to XML Map=<br />
+ping&quot; [Starting]<br />
+org.eclipse.emf.mapping.ecore2xml.ui (2.3.0.v200802051830) &quot;Ecore to XML =<br />
+Mapping UI&quot; [Starting]<br />
+org.eclipse.emf.mapping.ui (2.3.0.v200802051830) &quot;EMF Mapping UI&quot; [Starti=<br />
+ng]<br />
+org.eclipse.equinox.app (1.0.1.R33x_v20070828) &quot;Equinox Application Conta=<br />
+iner&quot; [Active]<br />
+org.eclipse.equinox.common (3.3.0.v20070426) &quot;Common Eclipse Runtime&quot; [Ac=<br />
+tive]<br />
+org.eclipse.equinox.http.jetty (1.0.1.R33x_v20070816) &quot;Jetty Http Service=<br />
+&quot; [Starting]<br />
+org.eclipse.equinox.http.registry (1.0.1.R33x_v20071231) &quot;Http Service Re=<br />
+gistry Extensions&quot; [Resolved]<br />
+org.eclipse.equinox.http.servlet (1.0.1.R33x_v20070816) &quot;Http Services Se=<br />
+rvlet&quot; [Starting]<br />
+org.eclipse.equinox.jsp.jasper (1.0.1.R33x_v20070816) &quot;Jasper Jsp Support=<br />
+ Bundle&quot; [Starting]<br />
+org.eclipse.equinox.jsp.jasper.registry (1.0.0.v20070607) &quot;Jasper Jsp Reg=<br />
+istry Support Plug-in&quot; [Starting]<br />
+org.eclipse.equinox.launcher (1.0.1.R33x_v20080118) &quot;Equinox Launcher&quot; [R=<br />
+esolved]<br />
+org.eclipse.equinox.launcher.gtk.linux.x86 (1.0.3.R33x_v20080118) &quot;Equino=<br />
+x Launcher Linux X86 Fragment&quot; [Resolved]<br />
+org.eclipse.equinox.preferences (3.2.101.R33x_v20080117) &quot;Eclipse Prefere=<br />
+nces Mechanism&quot; [Active]<br />
+org.eclipse.equinox.registry (3.3.1.R33x_v20070802) &quot;Extension Registry S=<br />
+upport&quot; [Active]<br />
+org.eclipse.gef (3.2.102.v20080116) &quot;Graphical Editing Framework&quot; [Starti=<br />
+ng]<br />
+org.eclipse.help (3.3.2.v20071126_33x) &quot;Help System Core&quot; [Active]<br />
+org.eclipse.help.appserver (3.1.200.v20070510) &quot;Help Application Server&quot; =<br />
+[Starting]<br />
+org.eclipse.help.base (3.3.1.v20070813_33x) &quot;Help System Base&quot; [Starting]=<br />
+<br />
+org.eclipse.help.ui (3.3.2.v20071126_33x) &quot;Help System UI&quot; [Starting]<br />
+org.eclipse.help.webapp (3.3.2.v20071102_33x) &quot;Help System Webapp&quot; [Start=<br />
+ing]<br />
+org.eclipse.hyades.analysis.engine (4.3.201.v200802050100) &quot;Symptom Model=<br />
+&quot; [Resolved]<br />
+org.eclipse.hyades.execution (4.4.100.v200802221314) &quot;TPTP Platform Execu=<br />
+tion Plug-In&quot; [Starting]<br />
+org.eclipse.hyades.execution.correlation (4.1.301.v200802050100) &quot;Hyades =<br />
+Runtime Correlation Engine&quot; [Resolved]<br />
+org.eclipse.hyades.execution.trace (4.1.201.v200802050100) &quot;Hyades Execut=<br />
+ion Trace&quot; [Resolved]<br />
+org.eclipse.hyades.logging.adapter (4.3.0.v200706010100) &quot;TPTP Monitoring=<br />
+ Project Generic Log Adapter&quot; [Starting]<br />
+org.eclipse.hyades.logging.adapter.ui (4.3.101.v200802050100) &quot;Generic Ad=<br />
+apter UI&quot; [Starting]<br />
+org.eclipse.hyades.logging.core (4.3.200.v200709030100) &quot;Hyades Logging A=<br />
+gent, Common Base Events and Logging Facility Support&quot; [Starting]<br />
+org.eclipse.hyades.logging.core.sample (4.1.201.v200802050100) &quot;Sample fo=<br />
+r Hyades Logging Agent, Common Base Events and Logging Facility Support&quot; =<br />
+[Starting]<br />
+org.eclipse.hyades.logging.parsers (4.3.102.v200802070100) &quot;TPTP Monitori=<br />
+ng Project Log File Parsers&quot; [Starting]<br />
+org.eclipse.hyades.perfmon (4.2.101.v200802050100) &quot;Perfmon StatCon Modul=<br />
+e&quot; [Starting]<br />
+org.eclipse.hyades.perfmon.agents (4.0.100.v200709070956) &quot;Perfmon StatCo=<br />
+n Agents Module&quot; [Resolved]<br />
+org.eclipse.hyades.probekit (4.2.300.v200709030100) &quot;Hyades Probekit&quot; [St=<br />
+arting]<br />
+org.eclipse.hyades.probekit.doc.user (4.2.200.v200709030100) &quot;Probekit Us=<br />
+er Documentation&quot; [Starting]<br />
+org.eclipse.hyades.probekit.ui (4.1.301.v200802050100) &quot;Probe Editor&quot; [St=<br />
+arting]<br />
+org.eclipse.hyades.resources.database (4.2.200.v200709030100) &quot;Hyades Cor=<br />
+e Resource Extensions&quot; [Resolved]<br />
+org.eclipse.hyades.sdb (4.3.101.v200711030100) &quot;Symptom Catalog tool&quot; [St=<br />
+arting]<br />
+org.eclipse.hyades.statistical.ui (4.2.202.v200802221710) &quot;Statistical UI=<br />
+&quot; [Starting]<br />
+org.eclipse.hyades.trace.sample (4.1.301.v200802050901) &quot;Samples for the =<br />
+TPTP Monitoring Tools Plugins&quot; [Starting]<br />
+org.eclipse.hyades.trace.ui (4.4.2.v200802221710) &quot;Hyades Trace Core UI&quot; =<br />
+[Starting]<br />
+org.eclipse.hyades.ui (4.2.102.v200802080100) &quot;Hyades UI&quot; [Starting]<br />
+org.eclipse.jdt (3.3.1.r332_v20080131) &quot;Eclipse Java Development Tools&quot; [=<br />
+Resolved]<br />
+org.eclipse.jdt.apt.core (3.3.1.R33x_v20071112-2330) &quot;Java Annotation Pro=<br />
+cessing Core&quot; [Active]<br />
+org.eclipse.jdt.apt.pluggable.core (1.0.1.R33x_v20071002-2100) &quot;Java Comp=<br />
+iler Apt IDE&quot; [Installed]<br />
+org.eclipse.jdt.apt.ui (3.3.1.R33x_v20071002-2100) &quot;Java Annotation Proce=<br />
+ssing UI&quot; [Starting]<br />
+org.eclipse.jdt.compiler.apt (1.0.1.R33x_v20071002-2100) &quot;Java Compiler A=<br />
+pt&quot; [Installed]<br />
+org.eclipse.jdt.compiler.tool (1.0.1.v_793_R33x) &quot;Java Compiler Tool Supp=<br />
+ort&quot; [Installed]<br />
+org.eclipse.jdt.core (3.3.3.v_793_R33x) &quot;Java Development Tools Core&quot; [Ac=<br />
+tive]<br />
+org.eclipse.jdt.core.manipulation (1.1.0.v20070606-0010) &quot;Java Code Manip=<br />
+ulation Functionality&quot; [Active]<br />
+org.eclipse.jdt.debug (3.3.1.v20070719_r331) &quot;JDI Debug Model&quot; [Active]<br />
+org.eclipse.jdt.debug.ui (3.2.102.v20071002_r332) &quot;JDI Debug UI&quot; [Active]=<br />
+<br />
+org.eclipse.jdt.doc.isv (3.3.1.r331_v20070913) &quot;Eclipse JDT Plug-in Devel=<br />
+oper Guide&quot; [Starting]<br />
+org.eclipse.jdt.doc.user (3.3.2.r332_20080116-0900) &quot;Eclipse Java Develop=<br />
+ment User Guide&quot; [Starting]<br />
+org.eclipse.jdt.junit (3.3.2.r332_20080109-0800) &quot;Java Development Tools =<br />
+JUnit support&quot; [Active]<br />
+org.eclipse.jdt.junit.runtime (3.3.0.v20070606-0010) &quot;Java Development To=<br />
+ols JUnit runtime support&quot; [Resolved]<br />
+org.eclipse.jdt.junit4.runtime (1.0.100.v20070606-0010) &quot;Java Development=<br />
+ Tools JUnit4 runtime support&quot; [Resolved]<br />
+org.eclipse.jdt.launching (3.3.2.v20080115_r332) &quot;Java Development Tools =<br />
+Launching Support&quot; [Active]<br />
+org.eclipse.jdt.source (3.3.2.r33x_r20080129-7o7jE7_EDhYDiyVEnjb1pFd7ZGD7=<br />
+) &quot;Eclipse Java Development Tools SDK&quot; [Resolved]<br />
+org.eclipse.jdt.ui (3.3.2.r332_20080128) &quot;Java Development Tools UI&quot; [Act=<br />
+ive]<br />
+org.eclipse.jem (2.0.100.v200709051030) &quot;Java EMF Model&quot; [Active]<br />
+org.eclipse.jem.beaninfo (2.0.0.v200705302225) &quot;Java EMF Model BeanInfo (=<br />
+Introspection) Support&quot; [Starting]<br />
+org.eclipse.jem.proxy (2.0.0.v200705302225) &quot;Java EMF Model Proxy Support=<br />
+&quot; [Starting]<br />
+org.eclipse.jem.ui (2.0.0.v200705302225) &quot;Java EMF Model UI&quot; [Starting]<br />
+org.eclipse.jem.util (2.0.2.v200802192030) &quot;Java EMF Model Utilities&quot; [Ac=<br />
+tive]<br />
+org.eclipse.jem.workbench (2.0.1.v200710051600) &quot;Java EMF Model Workbench=<br />
+ Support&quot; [Active]<br />
+org.eclipse.jface (3.3.2.M20080207-0800) &quot;JFace&quot; [Active]<br />
+org.eclipse.jface.databinding (1.1.1.M20080207-0800) &quot;JFace Data Binding =<br />
+for SWT and JFace&quot; [Resolved]<br />
+org.eclipse.jface.text (3.3.2.r332_20071017-0800) &quot;JFace Text&quot; [Resolved]=<br />
+<br />
+org.eclipse.jpt.core (1.0.2.v200802140100) &quot;Java Persistence API Tools - =<br />
+Core&quot; [Starting]<br />
+org.eclipse.jpt.db (1.0.2.v200802140100) &quot;Java Persistence API Tools - DB=<br />
+&quot; [Starting]<br />
+org.eclipse.jpt.db.ui (1.0.0.v200705300001) &quot;Java Persistence API Tools -=<br />
+ DB UI&quot; [Resolved]<br />
+org.eclipse.jpt.doc.user (1.0.1.v200709120000) &quot;Java Persistence Document=<br />
+ation - Doc&quot; [Starting]<br />
+org.eclipse.jpt.gen (1.0.2.v200802140100) &quot;Java Persistence API Tools - E=<br />
+ntity Gen&quot; [Resolved]<br />
+org.eclipse.jpt.ui (1.0.2.v200802140100) &quot;Java Persistence API Tools - UI=<br />
+&quot; [Starting]<br />
+org.eclipse.jpt.utility (1.0.2.v200802140100) &quot;Java Persistence API Tools=<br />
+ - Utility&quot; [Resolved]<br />
+org.eclipse.jsch.core (1.0.0.I20070426) &quot;JSch Core&quot; [Active]<br />
+org.eclipse.jsch.ui (1.0.1.r33x_20070709) &quot;JSch UI&quot; [Starting]<br />
+org.eclipse.jst (1.0.2.v200706120315) &quot;J2EE Standard Tools (JST)&quot; [Resolv=<br />
+ed]<br />
+org.eclipse.jst.common.annotations.controller (1.1.2.v200708301745) &quot;Anno=<br />
+tation Controller Plug-in&quot; [Resolved]<br />
+org.eclipse.jst.common.annotations.core (1.1.2.v200706120315) &quot;Annotation=<br />
+ Core Plug-in&quot; [Resolved]<br />
+org.eclipse.jst.common.annotations.ui (1.1.2.v200706120315) &quot;Annotations =<br />
+UI Plug-in&quot; [Starting]<br />
+org.eclipse.jst.common.frameworks (1.1.102.v200709122200) &quot;Integration Pl=<br />
+ug-in&quot; [Active]<br />
+org.eclipse.jst.common.project.facet.core (1.1.1.v200706120315) &quot;Project =<br />
+Facet Core (Java Support)&quot; [Starting]<br />
+org.eclipse.jst.ejb.doc.user (1.0.300.v200705302225) &quot;EJB docs&quot; [Starting=<br />
+]<br />
+org.eclipse.jst.ejb.ui (1.1.102.v200709122200) &quot;WTP EJB UI Plug-in&quot; [Star=<br />
+ting]<br />
+org.eclipse.jst.j2ee (1.1.106.v200802192030) &quot;J2EE Component&quot; [Active]<br />
+org.eclipse.jst.j2ee.core (1.1.104.v200802192030) &quot;J2EE Core Component&quot; [=<br />
+Active]<br />
+org.eclipse.jst.j2ee.doc.user (1.0.300.v200705302225) &quot;J2EE tools documen=<br />
+tation&quot; [Resolved]<br />
+org.eclipse.jst.j2ee.ejb (1.1.105.v200802192030) &quot;EJB component Plug-in&quot; =<br />
+[Starting]<br />
+org.eclipse.jst.j2ee.ejb.annotation.model (1.1.2.v200706120315) &quot;EJB Anno=<br />
+tation Model Plug-in&quot; [Starting]<br />
+org.eclipse.jst.j2ee.ejb.annotations.emitter (1.1.2.v200708301745) &quot;EJB E=<br />
+mitter Plug-in&quot; [Starting]<br />
+org.eclipse.jst.j2ee.ejb.annotations.ui (1.1.2.v200706191638) &quot;EJB Annota=<br />
+tions Ui Plug-in&quot; [Starting]<br />
+org.eclipse.jst.j2ee.ejb.annotations.xdoclet (1.1.3.v200802201934) &quot;Xdocl=<br />
+et Annotations Plug-in&quot; [Starting]<br />
+org.eclipse.jst.j2ee.infopop (1.0.203.v200706110217) &quot;J2EE tools infopops=<br />
+&quot; [Resolved]<br />
+org.eclipse.jst.j2ee.jca (1.1.105.v200802192030) &quot;JCA Plug-in&quot; [Starting]=<br />
+<br />
+org.eclipse.jst.j2ee.jca.ui (1.1.100.v200706071630) &quot;WTP JCA UI Plug-in&quot; =<br />
+[Starting]<br />
+org.eclipse.jst.j2ee.navigator.ui (1.1.102.v200709122200) &quot;J2EE Extension=<br />
+s to Common Navigator&quot; [Active]<br />
+org.eclipse.jst.j2ee.ui (1.1.103.v200802192030) &quot;WTP J2EE UI Plug-in&quot; [St=<br />
+arting]<br />
+org.eclipse.jst.j2ee.web (1.1.105.v200802192030) &quot;Web Plug-in&quot; [Active]<br />
+org.eclipse.jst.j2ee.webservice (1.1.102.v200802192030) &quot;Web Service Plug=<br />
+-in&quot; [Active]<br />
+org.eclipse.jst.j2ee.webservice.ui (1.1.103.v200802192030) &quot;WTP Webservic=<br />
+e UI Plug-in&quot; [Active]<br />
+org.eclipse.jst.j2ee.xdoclet.runtime (1.1.2.v200706120315) &quot;XDocletRuntim=<br />
+e Plug-in&quot; [Starting]<br />
+org.eclipse.jst.jee (1.0.2.v200802192030) &quot;JEE common Plug-in&quot; [Active]<br />
+org.eclipse.jst.jee.ejb (1.0.2.v200802192030) &quot;JEE Ejb Plug-in&quot; [Starting=<br />
+]<br />
+org.eclipse.jst.jee.ui (1.0.2.v200802192030) &quot;Ui Plug-in&quot; [Starting]<br />
+org.eclipse.jst.jee.web (1.0.2.v200802192030) &quot;JEE Web Plug-in&quot; [Starting=<br />
+]<br />
+org.eclipse.jst.jsf.common (1.0.2.v200802201120) &quot;JavaServer Faces Tools =<br />
+- Common&quot; [Starting]<br />
+org.eclipse.jst.jsf.common.ui (1.0.1.v20070912) &quot;JavaServer Faces Tools -=<br />
+ Common UI&quot; [Starting]<br />
+org.eclipse.jst.jsf.core (1.0.2.v200802201120) &quot;JavaServer Faces Tools - =<br />
+Core&quot; [Active]<br />
+org.eclipse.jst.jsf.doc.user (1.0.1.v20070912) &quot;JavaServer Faces Tools - =<br />
+User Guide&quot; [Starting]<br />
+org.eclipse.jst.jsf.facesconfig (1.0.1.v20070912) &quot;JavaServer Faces Tools=<br />
+ - FacesConfig Model&quot; [Starting]<br />
+org.eclipse.jst.jsf.facesconfig.ui (1.0.1.v20070912) &quot;JavaServer Faces To=<br />
+ols - FacesConfig Editor&quot; [Starting]<br />
+org.eclipse.jst.jsf.standard.tagsupport (1.0.1.v20070912) &quot;JavaServer Fac=<br />
+es Tools - Taglibrary Metadata&quot; [Starting]<br />
+org.eclipse.jst.jsf.ui (1.0.1.v20070912) &quot;JavaServer Faces Tools - UI&quot; [S=<br />
+tarting]<br />
+org.eclipse.jst.jsp.core (1.2.1.v200709181730) &quot;Structured Source JSP Mod=<br />
+el&quot; [Starting]<br />
+org.eclipse.jst.jsp.ui (1.1.201.v200709061102) &quot;SSE JSP Source Editor&quot; [S=<br />
+tarting]<br />
+org.eclipse.jst.jsp.ui.infopop (1.0.3.v200706110217) &quot;JSP tools infopops&quot;=<br />
+ [Resolved]<br />
+org.eclipse.jst.pagedesigner (1.0.1.v20070912) &quot;JavaServer Faces Tools - =<br />
+Web Page Editor&quot; [Starting]<br />
+org.eclipse.jst.pagedesigner.jsf.ui (1.0.1.v20070912) &quot;JavaServer Faces T=<br />
+ools - Pagedesigner UI&quot; [Starting]<br />
+org.eclipse.jst.pagedesigner.jsp.core (1.0.1.v20070912) &quot;JavaServer Faces=<br />
+ Tools - JSP Core Pagedesigner&quot; [Starting]<br />
+org.eclipse.jst.server.core (1.0.205.v20070829b) &quot;Java Server Support&quot; [A=<br />
+ctive]<br />
+org.eclipse.jst.server.generic.core</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=327893&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=327893&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=327893&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_327909"></a><a href="index.php?t=msg&amp;th=107234&amp;goto=327909&amp;#msg_327909" class="MsgSubText">Re: 100% cpu usage when opening a class file</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107234&amp;goto=327909&amp;#msg_327909">message #327909</a> is a reply to <a href="index.php?t=msg&amp;th=107234&amp;goto=327893&amp;#msg_327893">message #327893</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 08 May 2008 09:24</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Dani Megert is currently offline" title="Dani Megert is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=39&amp;">Dani Megert</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=daniel_megert%40ch.ibm.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 3801<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=39&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=39&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Chris Rose wrote:<br />
+&gt; I don't know if this has been asked before (and you'd be amazed at how <br />
+&gt; hard it is to find specific information when your search query is <br />
+&gt; &quot;eclipse 100% cpu usage opening class files in a jar&quot;!) but, well, <br />
+&gt; that's what I'm getting:<br />
+&gt;<br />
+&gt; When I open a class file in the editor that is contained in a jar file <br />
+&gt; anywhere on a Java project's classpath, one of my processor pegs at <br />
+&gt; 100% usage for anywhere from 15-120 seconds and eclipse becomes <br />
+&gt; non-responsive for that period of time, not even redrawing the UI.<br />
+&gt;<br />
+&gt; This occurs for jars as large as the jboss client jar and the weblogic <br />
+&gt; 80Mb uber-jar and for jars as small as a 241kb library jar.<br />
+&gt;<br />
+&gt; Is there anything I can do to track down WHY this is happening?  I end <br />
+&gt; up having to trace into third party code a lot while debugging <br />
+&gt; container behaviour and this plays merry havoc with the timeouts for <br />
+&gt; remote calls, so I'm quite motivated to suss out why it's happening.<br />
+&gt;<br />
+&gt; Eclipse details are attached.<br />
+There was a bug regarding big JARs on the build path. Can you try <br />
+whether this still happens using 3.4 M7. If so, please file a bug report <br />
+with steps to reproduce. Also, please create some stack dumps while <br />
+waiting and attach them to the bug report.<br />
+<br />
+Dani</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=327909&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=39&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=327909&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=327909&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_327930"></a><a href="index.php?t=msg&amp;th=107234&amp;goto=327930&amp;#msg_327930" class="MsgSubText">Re: 100% cpu usage when opening a class file</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107234&amp;goto=327930&amp;#msg_327930">message #327930</a> is a reply to <a href="index.php?t=msg&amp;th=107234&amp;goto=327909&amp;#msg_327909">message #327909</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 08 May 2008 16:13</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> rosec.messagingdirect.com<br />
+<br />
+I'll look into it; I'm a bit under the gun here and can't easily upend <br />
+my development environment at this time, but hopefully I can look into <br />
+it early next week.  Thanks for the pointer.<br />
+<br />
+Daniel Megert wrote:<br />
+&gt; Chris Rose wrote:<br />
+&gt;&gt; I don't know if this has been asked before (and you'd be amazed at how <br />
+&gt;&gt; hard it is to find specific information when your search query is <br />
+&gt;&gt; &quot;eclipse 100% cpu usage opening class files in a jar&quot;!) but, well, <br />
+&gt;&gt; that's what I'm getting:<br />
+&gt;&gt;<br />
+&gt;&gt; When I open a class file in the editor that is contained in a jar file <br />
+&gt;&gt; anywhere on a Java project's classpath, one of my processor pegs at <br />
+&gt;&gt; 100% usage for anywhere from 15-120 seconds and eclipse becomes <br />
+&gt;&gt; non-responsive for that period of time, not even redrawing the UI.<br />
+&gt;&gt;<br />
+&gt;&gt; This occurs for jars as large as the jboss client jar and the weblogic <br />
+&gt;&gt; 80Mb uber-jar and for jars as small as a 241kb library jar.<br />
+&gt;&gt;<br />
+&gt;&gt; Is there anything I can do to track down WHY this is happening?  I end <br />
+&gt;&gt; up having to trace into third party code a lot while debugging <br />
+&gt;&gt; container behaviour and this plays merry havoc with the timeouts for <br />
+&gt;&gt; remote calls, so I'm quite motivated to suss out why it's happening.<br />
+&gt;&gt;<br />
+&gt;&gt; Eclipse details are attached.<br />
+&gt; There was a bug regarding big JARs on the build path. Can you try <br />
+&gt; whether this still happens using 3.4 M7. If so, please file a bug report <br />
+&gt; with steps to reproduce. Also, please create some stack dumps while <br />
+&gt; waiting and attach them to the bug report.<br />
+&gt; <br />
+&gt; Dani<br />
+<br />
+-- <br />
+Chris Rose<br />
+Developer    Planet Consulting Group<br />
+(780) 577-8433<br />
+<a href="mailto:crose&#64;planetci.com" target="_blank">crose&#64;planetci.com</a></span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=327930&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=327930&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=327930&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_328151"></a><a href="index.php?t=msg&amp;th=107234&amp;goto=328151&amp;#msg_328151" class="MsgSubText">Re: 100% cpu usage when opening a class file</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107234&amp;goto=328151&amp;#msg_328151">message #328151</a> is a reply to <a href="index.php?t=msg&amp;th=107234&amp;goto=327930&amp;#msg_327930">message #327930</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 15 May 2008 15:59</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Walter Harley is currently offline" title="Walter Harley is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15869&amp;">Walter Harley</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=eclipse%40cafewalter.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 847<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15869&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15869&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">&quot;Chris Rose&quot; &lt;<a href="mailto:rosec&#64;messagingdirect.com" target="_blank">rosec&#64;messagingdirect.com</a>&gt; wrote in message <br />
+news:<a href="mailto:48232699.60901&#64;messagingdirect.com..." target="_blank">48232699.60901&#64;messagingdirect.com...</a><br />
+&gt; I'll look into it; I'm a bit under the gun here and can't easily upend my <br />
+&gt; development environment at this time, but hopefully I can look into it <br />
+&gt; early next week.  Thanks for the pointer.<br />
+<br />
+Without upending your schedule, here's what you can do:<br />
+<br />
+ - run Eclipse with eclipsec.exe rather than eclipse.exe; this will create a <br />
+console window.  All other options can remain the same.  You might want to <br />
+set that console window to have more than the default 300 lines of buffer <br />
+space.<br />
+<br />
+ - when you get the slowdown, hit Ctrl+Break in the console window to get a <br />
+thread dump.  Copy it to the clipboard and paste it into a text doc <br />
+somewhere.  Do this a few times, during the same slowdown.<br />
+<br />
+ - include that information in a bugzilla bug report.  (Unless just looking <br />
+at it lets you diagnose the problem, which does sometimes happen.)</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328151&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15869&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328151&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328151&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: 100% cpu usage when opening a class file" />
+	<input type="hidden" name="reply_to" value="328151" />
+	<input type="hidden" name="th_id" value="107234" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/107234/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/328138/#msg_328138">Vertical Alignment Of Sections</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/328137/#msg_328137">get the current directory of the current project</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 107234, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=107234&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 11:35:14 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02368 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

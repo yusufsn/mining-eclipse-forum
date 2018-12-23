@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; eclipse crashes under vista</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=101524&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse crashes under vista | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse crashes under vista | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse crashes under vista | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>eclipse crashes under vista</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/101524/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/101524/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/101524/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/101524/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/101524/310158/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_310158"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=310158&amp;#msg_310158" class="MsgSubText">eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=310158&amp;#msg_310158">message #310158</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 23 November 2006 14:11</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> micho2.gmx.de<br />
+<br />
+This is a multi-part message in MIME format.<br />
+<br />
+------=_NextPart_000_0010_01C70F11.A7926B80<br />
+Content-Type: text/plain;<br />
+	format=flowed;<br />
+	charset=&quot;iso-8859-1&quot;;<br />
+	reply-type=original<br />
+Content-Transfer-Encoding: 7bit<br />
+<br />
+using vista RC1 eclipse crashes very often.<br />
+I use java 1.5R9 and updated Eclipse.<br />
+Any Ideas?<br />
+------=_NextPart_000_0010_01C70F11.A7926B80<br />
+Content-Type: image/jpeg;<br />
+	name=&quot;eclipse_vista.JPG&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-Disposition: attachment;<br />
+	filename=&quot;eclipse_vista.JPG&quot;<br />
+<br />
+ /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJ ChQODwwQFxQYGBcU<br />
+ FhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMK ChMoGhYaKCgoKCgo<br />
+ KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/ wAARCAGLATwDASIA<br />
+ AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAA AgEDAwIEAwUFBAQA<br />
+ AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcY GRolJicoKSo0NTY3<br />
+ ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKT lJWWl5iZmqKjpKWm<br />
+ p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP0 9fb3+Pn6/8QAHwEA<br />
+ AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQA AQJ3AAECAxEEBSEx<br />
+ BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2 Nzg5OkNERUZHSElK<br />
+ U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOk paanqKmqsrO0tba3<br />
+ uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMB AAIRAxEAPwCHwh4V<br />
+ s7jQVv8AUYftL3RYxLuZRGinbngjJLBuvGAOKuS+FdLB4s8f9tH/AMa774X6 at38PdFdhn5JR/5H<br />
+ krO1CyVPEV8JIL144XXEqT4ijGwHBTeM/wDfJ61xYbC03TjKUVsuh9Jm+c46 njq9OnWmkpySSk/5<br />
+ n5nJR+FdLP3rPP8A20f/ABps3hXTB920x/20f/Gt2WaeW0im8lIIZJYTGVlJ dlZx94YAHB6AmnRX<br />
+ Ds0cNnaCR3MzfvbggDY+Dk4J5zwMcdOldP1Wj/IvuR5f9t5j/wBBE/8AwKX+ ZzqeFtOz81qf+/jf<br />
+ 41L/AMItpIHNn/5Ef/GugivFd7UmCOKOZSSZZdpyM5VQAdxGPUe2ai0y+OoS EGylhiZPMR2SQAj0<br />
+ JZAM89i3fmmsNRf2F9yF/bWY/wDQRP8A8Dl/mYn/AAjWjjrZ/wDkV/8AGqtx oGkqfltMf9tH/wAa<br />
+ 6a7jweKqi08w80nh6C3gvuRE8+x8N8RP/wADl/mc0dC049Lb/wAfb/GnLoGn nrbf+Pt/jXWpZIi8<br />
+ 00wrnAFS6VD+RfcjnlxHmC2rz/8AA5f5nIyaDp69Lf8A8fb/ABqP+xLD/n3/ APH2/wAa7J7AumQK<br />
+ yrm3KNjFVGhRf2F9yLp8Q5jN2+sT/wDA5f5mAdGsB/yw/wDH2/xpBpGn55t/ /H2/xrX8rJxRJakD<br />
+ NafVaH8i+5G/9tZj/wBBE/8AwOX+Znpo2lkc23/kRv8AGmyaLp38Ntj/AIG3 +NXUBU4NOY8Uvq1H<br />
+ +Rfcg/trMf8AoIn/AOBy/wAzM/sawz/qP/H2/wAaP7FsP+eH/j7f41pxrvNW 47dVXLVLo4dfYX3I<br />
+ wnxFj4u31if/AIHL/MwP7Esf+eB/76b/ABqGbSrFBxB/4+3+NdFI6dF/nUa2 hnPArP2VF7U19yMf<br />
+ 9Z8xX/L+f/gcv8zkpLCAthIsf8CNWrTRoXI3xZH+8f8AGtyax8hssKfFIijj Faxw1F7wX3I6KfEG<br />
+ Y1FdYif/AIFL/MrR+HtOKfNb8/77f41DJoNgrcQ/+Pt/jWss2RTC+TVfVKP8 i+5Gv9t5j/0ET/8A<br />
+ Apf5mU+jaeg5tv8Ax9v8aqyaZY/w2+P+Bt/jW3ccrxTLOzM8gGOtT9To/wAi +5D/ALczH/oIn/4F<br />
+ L/Mxo9ItXP8Aqf8Ax4/41aj0C1PWD/x5v8a7aw8NyOoIU/lWknhyQD7p/Kq+ q0f5F9yF/beY/wDQ<br />
+ RP8A8Dl/mee/8I7ZY/1H/j7f40R+H7Atgwf+Pt/jXf3GhyRoTtP5VgTwNDKQ Rin9VofyL7kH9t5j<br />
+ /wBBE/8AwOX+ZlDw1pmzP2fn/ro3+NVz4f04Nj7Nx/vt/jXQqcjFL5QxnFL6 rR/kX3IFnWY/9BE/<br />
+ /A5f5mTD4b0hoWLWmWDwj/WP0aaNT39GI/Goj4d0vdxacf8AXR/8a3Y1PlSY 6B4CfYC4iJpqrtYh<br />
+ xgjqDS+rUf5F9yH/AGzmP/QRP/wOX+ZkSeG9JjtzIbQYBGS0kmFBOCx25OAO TgE4HANaV18Ofs6X<br />
+ E89rp8NhBAtwdQa9ka2kRsbfLYKWdjyNoXsP7y7p7mV0tyIPvnAyACQM8kAk AkDJwSM+tWbjU7Wf<br />
+ Ro9GTTbuLTrbElpKHR50nySXdSwQhi7cA+uMZG1vDUf5F9yBZ1mP/QRP/wAD l/mcmmgacY0ZrMoz<br />
+ KCVMjZHt1pJ/D2nrZ3UiW2GSCV1O9uCEJB6+orfAZ4UaVQshUFgpyAe9Eylt Pvgqk/6NKOncoQP1<br />
+ NDwtH+Rfcg/trMf+gif/AIHL/M5j4jeHbXTNHu7/AEqL7ObCdRJHuZhLG0gT qxOCGZfwJriYnEka<br />
+ OOjAHivW/ioB/wAIZ4n7DMXP/b3DXkNoipboqDC44ry80o06dJOEUte3kz7L gjMMXisdOFerKS5G<br />
+ 7OTavzR7s+nPhLcCL4b6MO+2b/0fJVLxFbwHUJLxfPWZiC2y4kVGIGBlA208 D0q18JYPM+Hmh5Jw<br />
+ RKP/ACPJWzZ+HdQ13R7K/wDtumQrdwJOI2sZXKBlDbdwnGcZ64H0Feth1FYe m32X5Hxec3eZYn/H<br />
+ P/0pnmccdvASqLIE3BghlcqpByNqk4HPpTZIopbmJvmSJFk+5KyNuZgSQQQe x716FL8NL92J/tbS<br />
+ R/3DJv8A5Kpi/DLUB/zF9J/8Fk//AMlVV0cFmcVi3V4mCuBEAEQSN5Yx0+TO 3PvjNMtTDalvs/mq<br />
+ pGNhldlX2VScD8AK7o/DTUD/AMxfSf8AwWTf/JVA+Gd+P+YtpP8A4LJv/kqj mQWOEmlLc1GsxWvQ<br />
+ D8Nb8j/kLaT/AOCyb/5KpB8M7/8A6C2k/wDgsm/+SqiVmY1aTmcJHMzvjmta 2tQyhjXVQ/De+jOf<br />
+ 7U0o/wDcNm/+SauL4H1NRhdV0sD/ALB03/yTQrdTGVCeyRzUaIE2msjVLAHL AV3i+CNTBz/aul/+<br />
+ C6b/AOSKdL4I1KRdp1TS/wDwXS//ACRWzqRtaxKo1Iu6R5E0eyTGKfOR5dek yfDS9dsnVdK/8Fs3<br />
+ /wAk1G/wwvWGDqulf+C2b/5JqOZHZFO2p5UMFjmmyBR3r1BvhRdt/wAxbSh/ 3DZ//kqm/wDCpbs9<br />
+ dX0v/wAFs/8A8lUcyHys8uEgQ8U2e7bbhc16l/wqO5zk6tpf/gtn/wDkqnL8 JJwcnVNLP/cOn/8A<br />
+ kms2le5yTwzcrpHm2lwNMQWJrobaFISM120Hw0uoRhNT0wf9w+b/AOSakPw6 vicnVdN/8F83/wAk<br />
+ 1pTlGLuzKWFqN7HBajaLcRkrXM3Fq0LkGvaF8AXyrj+09M/8F8v/AMkVUuPh ldTnLanpn/gum/8A<br />
+ kmtJVYvZF0qNWD2PIEGBUka5Nepj4U3P/QU0v/wXTf8AyTT1+Fl0vTVNL/8A BdN/8k0vaROvkZ5b<br />
+ JFWhoiD7WoPtXoTfC67b/mK6X/4LZv8A5JqW0+Gl7byB11TSyR/1Dpv/AJJp c8Q5Wa2iwwi1BYDp<br />
+ VmSW3XgBaki8PatFD5a6lpuP+wfJ/wDH6rt4V1ZmydV03/wXy/8AyRUufYmU Z9CvcvDICoArkdf0<br />
+ vrIortR4U1UNn+1NM/8ABfL/APJFOuPCuqTxbH1LTP8AwXy//JFCmhQjP7R5 AF2PtNWQuVrvJPhv<br />
+ fPJu/tXSh/3DZv8A5Jpy/DrUAMf2rpX/AILZv/kmqU0acrPPyu3PAYEEMrDI YHqCO49qqTSqrfLF<br />
+ IB2C3lwAPoBJXpTfDnUD/wAxXSv/AAWzf/JNQt8Mb5mydW0n/wAFk3/yVSck xpM4C3XziMRzf+Bt<br />
+ z/8AHK0YtOyP9XP/AOBtz/8AHK7u1+H99bgY1LSj/wBw6b/5Jq4vg7UR01LS /wDwXS//ACRTUodR<br />
+ NSOAXTFPVLj/AMDbn/45T/7Pjiw3lMzKdymSeaUKR0IDuRn3xXff8Ihqf/QS 0v8A8F0v/wAkVl+I<br />
+ /Duo6VoWo6nJfaZOllbSXLRCxlQuEUttDeecZxjODj0NPmgFpHlvxKGfh/r6 nnKW+c/9fUNeUxf6<br />
+ tcHPFer/ABQQL4N8SQoThfJQHvxdwivJbRFjt0SMAKuRx9a8nOP4S9f0Z9xw B/yMJ/4H/wClRPpf<br />
+ 4UThPh/4fTPXzf8A0okr0LwOc+CvD59dPtz/AOQ1ryX4dTsnhDw2g6Hf/wCl Eler/D858B+Gye+m<br />
+ 23/opa66Caowv2X5Hz2dKP8AaGItvzz/APSmb1FFFaHmBRRRQAUUUUAFFFFA BRRRQAUUUUAFFFFA<br />
+ BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVz/wAQ /wDkQPE3/YMuv/RT<br />
+ V0Fc/wDEPjwB4m/7Bl1/6KahAeB/FrI8G+KyOv7rH/gXDXk1jA9vaRRyvvcL ktjHJ5/rXrvxTcJ4<br />
+ S8Tucna0R4/6/Ia8jtLoXluk4QoGHQnPTj+lcGb/AMJev6M+14A/5GE/8D/9 Kie8/DuRR4Y8No3X<br />
+ D/8ApRJXrvgH/kRPDmOn9m23/opa8Q8EMy6L4ZxnGG/9KZK9t+HZz8P/AAyT /wBAu1/9FLXbRleh<br />
+ TXkvyPms4VsyxL/vy/8ASmdBRXPfES4mtPAHiW4tZpILiHTbmSOWNirIwiYh gRyCD3rkn1DUIrm7<br />
+ 8PNe3H2rU720ltZfNbzI7aRN0wVs5GPIuMY6bl6VS1dv61PPeiv6/h/w56dR XknhjxTf6OfE41Ke<br />
+ a+NxfXsmlJNIWLSJdNB9mUnOBkwYHT524wKk0XUdf0f4L+JLpdQfUdc02TUl W7u5OSYpZBu5Vh8o<br />
+ XKpjHAXgcgvpfyuVyvm5fOx6vRXm9/8AELUtNv8ATtMl8PyXuoG1hur77F9p uFiWR2VfLaO3IZsI<br />
+ xxJ5S9AGPJE7ePNUYobbw9BKLjWZtGtc6htLvH5+6R/3fyJ+5HQs2GbAO0Bm 1rb+t7ErVX/ra/5I<br />
+ 9BorgNI8dahe3mmpf6FFaWd5ez6U0qX/AJjx3UQlLAL5YzGfJYB9wbplBWTb fEW8g0CGfTPD32i1<br />
+ tdCh1m4NzqrGRIW8wFAzIzSSAREgsQG5yVOMpf1/XyHZ/wBetvz0PVaK4PVP Hs1v4st9F0/ToLyO<br />
+ 5/dJcCadRFMYWlVJSIDGmQo48wuAwbYRXPaZ8Sdbs/BvhaTUNIXU9d1S0a6x bGeRWiQJl2EFs7K5<br />
+ Mi/KE2Dn5+gJ/X5/5Alc9dory/xf4u1a90+X+ytOms7G3v8AToJ7t7ow3CSS TQOyeUF+7skCtlwc<br />
+ kjaRzXX/ABFuJrT4f+Jbi1lkhuItMuZI5YmKujCJiCpHIIPeh6Rcv62T/UIL naS6nQ0V5tZa9/wi<br />
+ Hhe31C50TXobW4mWGUanqv2ufzWUCIpmaUbHchPvrtJBK4ywq6p4o1+HxLaW Wk2FtHO2tRWd+s+p<br />
+ yPHIWsPO2x5ibYg9VC5KA4+dsVy+9y/10/zJTur+V/kj1Oiuf8Ra7d2WqWGk 6NYQX2qXcctwqXNy<br />
+ beFIoygZmcI5zmRAAFOcnkYrJvvGl9balfiPRoZdL025gs765+2bZUlkWM/u 4vLw6KJUyS6H72FO<br />
+ BmVqM7aivNNU8Uapfa/4deGzNnoja5NaC4S8JkuBFDcK4kiCgBC6Er8zZ2gk KcVZ8I/ES98R29xc<br />
+ 2/hXVGtzCtxaCJHRp0ZgMFrhIYg2CGwkkgI3YY4GRarQbVt/61a/Q9Corg/G 9/qeofDfxHdLb634<br />
+ aubSznmQtLb+bJtiYjDRPJtXOOQVbjgiu009i9hbMxLMYlJJOSTgUdxPS3nf 8Lf5liiiigAooooA<br />
+ KKKKACiiigAooooAKKKKACiiigArnviL/wAk+8T/APYLuv8A0U1dDXPfEX/k n3if/sF3X/opqEB8<br />
+ /fFWVT4S8VrJ9wGPPOOPtkNeVaeqpZxqihV5wA2e/rXpnxZP/FK+LsHHEfPp /pkNeV+H3aTSLd2J<br />
+ JO7/ANCNefm/8Jev6M+14A/5GE/8D/8ASont/gpwNH8MA+h/9KZK9v8Ah1z8 PvDH/YLtf/RS14J4<br />
+ ULjTfC23pg/+lMle8/DXJ+HPhXPX+yrT/wBErXZQ/gw9F+R81nH/ACMcR/jn /wClM09c0ay1yzW0<br />
+ 1NJZbYOJGiSd41kx/C4UjehzyjZU9waSfRdOn1y01ia1RtStIZIIJ8nKI5BY Y6c7R245x1NZHxKu<br />
+ 5bLwjcTR3EtrD50C3VxExRobdpkEzhgQVxGWO4cr1HSo00rRvDUMMnha10DS 5buaBZWYCFbiMyKC<br />
+ flxvkIYhSc5Zh6mtFq/6/r+mee9jTTwxoyG2P2CNjbXsmowlyWKXEhcvIMnq TI/HQZ4AwKmj0HTE<br />
+ 0q+00Wqmxvmne4iZmIkMxZpMknIyWbgdM8YritRj/szwnqViinf4Yuor22AB B+yqwkUD2EfmRe+w<br />
+ 1za3Zu9RkgMyvF43uY5rcbsh4YZishHJGGtVi6fWhe97vf8A4G/4/cNtq8u3 /B1/ruejyeCNEd7K<br />
+ TbqKT2kXkR3EWqXUczR7twSSRZA0ig5IDlgMnHWr0XhvSYvs+y0x9nvZNRi/ eP8ALcSb979ec+Y/<br />
+ B454HArhbDxFrdxqFvpPh6DQtOa5utXLySWjsg+z3KoG2JIu5n3kscjk7u20 5HinxjqviL4e6o9u<br />
+ dKsYG8LjUbyO4Du8pnSRdkRDAIFKH5iHyWAwOtF3bm+f5v8AQahry/L9P1PU Y/Dekxi3CWmPs97J<br />
+ qMf7x/luJN+9+vOfNfg8DPA4FVoPBugwWE1lFYbbabT10uRPOkObZd+I87s/ 8tH+brz14Fcq/izW<br />
+ YZ7yS0Olrpmk3VnYS2k0Tm5uTMkJ3pIHCp/rgFUo24oeRnhk/wARryzmIurO B47L7TDqBjDApODL<br />
+ 5CqCeA4hPByf3seDzyPTT+tv8nb52JjJtc39d/z1/E6xfBuhrraastpKLxJB Mv8ApUvlCQR+Xv8A<br />
+ K3bN+z5d23JHU1X/AOEB8Piws7SO3vYo7N3e1eHUbmOWAMAGRJFkDrGQB8gI XgccCsO8n13WNQuN<br />
+ B19rPT/tECyWAjspH82eNI5PNWcSlV2Sgny2QMQoIJGTVnU/FWqCy0LUbZIb LSZ1/wCJhczWT3Rt<br />
+ 5d6p5JRJEZPm3gyYdVK/MAOaPL+v60/Jb6CT0v8A1/Wv59DVvPAnh69vhd3V pcSTZhds3s+2R4Sp<br />
+ jkdd+15BtUb2BYgYJIrS/wCEe0v+xtQ0r7N/oF+Z2uYvMb94Zixk5zkZLN0I xnjFcqvivXbsXGna<br />
+ ZaWVxr9hHdG8tyCqlkO2ALlwF8zKuNzfdDDIPIydP1vxBqPjbw3jWbV4Ftr9 b21XSp7Yl4nh3KY2<br />
+ nOHAcBW+YD5iNwcYV09Hs7v5f0vyK1W3T8/62Ovh8D6EkCwTRX15CocLHfaj c3SrvjMbYEsjAfIz<br />
+ L7Bjjqakl8F6HLGVe3uQ5uI7rzlvZ1l82OIRK/mB9+dg2nnkZznJzwOl/EHx heeFX159Fs47S7Nq<br />
+ bBpgixjzbiOMxs0dxI7/ACufnKR4K8oc7RpS+K/FVjcah9tfRJoNJ1S10+68 m1lRrlLgw4dMykRF<br />
+ BMODv3bTytWk2/P/AIK/Vr8xW0sdxr/h7TteFudQS4EtuxaGa1upbaWPIwQJ ImVgCOozg4GRwKrT<br />
+ +D9En1hNTltZmug0bsPtUoilePGx5It2yR1wMO6lhtXngY4yTTdH0Xx9evqe laXpFhc6ZdyTNZHK<br />
+ XsQkiLyXfyphxuwBh875Pn7FdF0VPDtkniO20/8AsmzXUGmTTljCi1spVjjc bF4TJRJ2UdCCOuam<br />
+ PR/1e9v+D9/YH1X9bXOuj8E6BHrS6qlnILxLlrxP9KmMSTMrKzrFu2KWDNuw o3E5OTzTLTwJ4ctr<br />
+ a4tRp5n0+cYawuriW4tFG7dhLeRmiQA8jaox2rnNW8TXlhqPiO10a0so9VOq RW1usViJXuz9kjlc<br />
+ ybp4VLBd3zM6gKgGCcAppPjvVb3S9O8y3so9T1iytbjTUCsyM7/LMGw3zCP7 5wR8rAZJBNCV0reX<br />
+ 4octNX6nSz+BfDUmiXOj2+kwafpty26eDTC1iJuNpDmEoWBBwQeD3ra0rT4N L0+GytDOYIRtQz3E<br />
+ k74z3eRmY/iT6V5tcePtdXXtThsbW2u9MW1vLizla28oyNbSIsiDE7O/Jddx jjGQCNwNaem+OrrU<br />
+ tcWztbe3a2vLtP7PnGSJbUeYJpDzyQYXwRxiSPr3Fr8/+G/ryTE9N+n9f15n oNFec+IPGmuS+LLb<br />
+ TPB2nwaparZw38ssZikE8ckjKNjNcR7QAh+dVl5YfKMDdQ1D4h6xZ2GvsttY T3GkzRWWY1IW4llu<br />
+ PKSVA0igRqMqwLjMiyJvUJuJ/X6fmNq34fj/AMA9VorC8GXet3mjb/E1j9i1 BZWXaERN6fwtsSWU<br />
+ L1xjzG6Z4zgbtNqwkFFFFIAooooAKKKKACiiigAooooAK534j8fDzxR/2C7r /wBEtXRVz3xF/wCS<br />
+ feJ/+wXdf+imoQHzf8ViT4V8YemE/wDSyGvMtAIOkW+DkAEA4x0J7V7B8ToV /wCEV8UE92iH/k5D<br />
+ XlFkIRbKLcgxgkcEnnJz19815+br90vX9GfacAf8jCf+B/8ApUT2fwTsOieG t2N2D/6UyV7b8Ov+<br />
+ SfeGMdP7Ltf/AEUteFeDVY6X4ZI6bT/6UyV7p8OP+SeeF/8AsF2v/ola7KH8 CHovyPm84/5GOI/x<br />
+ z/8ASmdEQGBDAEHgg1zthoXhLSPtkGn6XoNj5Xl3dzHBbwxbNpLRyOABjBVi GPTBx0rX1WS+isZH<br />
+ 0m2trm8GNkVzcNBG3POXVHI4z/Cfw615x8QJpbu+tm+y7pNPtUl8QxWk+9fs jMCYMlAzn5WcfKpK<br />
+ I448wVfU4LaHoq2dhdXH9oLHFM89uITKDuWWIncAezDkkfU46mnR6bYx/Y/L srZPsSlLXbEo8hSu<br />
+ 3CcfKMccY44rzDW9f16S71/UNJ8QCPT7HU9PtbS3S2hkikiuEtwzMxG5v9cW XaRg9dwwBBr3iTVt<br />
+ Es9Ztr/xX5UOl6qsRvJpLO2vLiFrRJfKi8yPyGkDv0KrlR1B5L6f15f/ACX5 gk3rv/X/AAPyPTkg<br />
+ 0a11SCFItOh1FlmmiQKiylWZTM6jrgsVLEdTjPasuz07wX4mtYHsrPw7q9tp +61iMUUNwltwA0a4<br />
+ BCcEZUY4xXlviB9f1DxhNIdE1WK/vtF1SCxnke3H7oRwiI4WTcDuyxBQENKA AQpIvy60VTVNV8D3<br />
+ sEVn9k0XTkuY0EsSzG6ZHQqeCyxyKrLwRkDg4w0tv66tf15sOl11/wCB/nf0 R6xLoGjzatb6pLpO<br />
+ nvqdunlw3bWyGaJeflV8bgOTwD3NSyaTp0vn+Zp9o/nypPLuhU+ZIm3a7ccs Nq4J5G0egrzK61Px<br />
+ Jplxq7v4kurqLRtZsrIRy2tuPtUVwbcuJSsY5XziFKbOgyGr1qhbc39dH+ot jOt9C0i21ifVrfS7<br />
+ CLVbhdk17Hbos0i8cM4G4j5V6nsPSq0vhXQJruK6uNG0+4uYZ2uYZZ4FkaGV iGZ4ywJQlgD8uOee<br />
+ tbVFLYNzn9L8Nxomrvrn2PU7nVWAu/8ARQkLxqu1I/LZnyoXOck5LMeAQBag 8M6DBBYQQaJpkcNh<br />
+ IZbONLSMLbOTktGAPkJPORitaigDGg8KeHYLu5uoNB0mO5uXEk8yWcYeVg4c FmAyxDgNk9wD1q9L<br />
+ pdhL5/m2Nq/nyJNNuhU+Y6bdjtxyy7FwTyNox0FW6KAMK38H+Gbe1vba38O6 NFbX2PtUSWMSpcYO<br />
+ R5gC4bBJPOetTaf4Z0PTNNu7DStH02xs7oETQ21qkSSZG07lUDPHFa9FJq6s O+tzktG8E2UenXcH<br />
+ iOLT9blu7lbqXzbMeSGSNIo9qSNIRtRF5LMSSTnnFdDHpWnxNZtHYWiNZKVt isKgwAjBCcfKCODj<br />
+ FXKKpu4rGZa+H9Gs9RuL+00nT4L+4JM1zFbIskpPXcwGTnvmp7bStOtTam2s LSE2sRgtzHCq+TGc<br />
+ ZRMD5VO1eBxwPSrlFIDGvvCnh2/hsob7QdJuYrIbbVJrON1txxwgI+XoOmOg qf8AsDR/I8j+ydP8<br />
+ nyGtvL+zJt8ljlo8YxsJ5K9DWlRQBR0bR9M0Sz+yaLp1np1ruL+TaQLCm49T tUAZ4HNXqKKACiii<br />
+ gAooooAKKKKACiiigAooooAK534jnHw88UH/AKhV1/6JauirnviN/wAk98Uf 9gu6/wDRTUAfPfxT<br />
+ YyeD/Fqk4BMYz6f6ZDXlGiRiHS4EDBgAeQMdzXrPxOZB4U8V7gCoaMke32yG vMLeZJ4EkjGEI4H0<br />
+ 4rz83/hL1/Rn2nAH/Iwn/gf/AKVE9h8Fj/iTeGT7H/0pkr3D4c/8k98Mf9gu 1/8ARS14r4HUHQfD<br />
+ R9m/9KZK9r+HfHw/8Mj/AKhdr/6KWu2j/Ap+i/I+bzj/AJGWI/xz/wDSmdBW bea5p1lLfR3dyIXs<br />
+ rYXc+9GAWI7vmBxhvunpkjjPUZn1WO+lsZE0m5tra8ONktzbtPGvPOUV0J4z /EPx6VwXjex1bUry<br />
+ xeKxW8m0KJLu7dIJIV1A7lJtolLEMCEL7SzAOsQJPzVRwf1/X9ebPRYZFmhS VNwV1DDcpU4PqDyD<br />
+ 7Gn15Lrljrl/eeINUs7rxLCy6np66fDG80SLbyJbrORDjDDDSZ3A7CpI2sGN Rapa+I9MfVrHQH8Q<br />
+ yyW+ok2DzSzTqbVrSNpgZJSQ5DF/K3EkS7R90OKf4f0v8/wYJXPRZfFGkxa6 ukSzzR3r7gm+1lWK<br />
+ RlXcUWUr5bOFBJUMWwDxwap2XjnQbzRJtYinvU02NUYTT6dcwiUPwnlB4wZS xIACBiSQB1Fczb6x<br />
+ a6p4ltIbyx8QxaXpCH7Gtxo1873MpiIMzymM8KjOoBO5mZiedueXn0V/Mg/s a18Up4G0+7tHNvKL<br />
+ wXKERzpIbdJP9ICLvt+FAwVYoMgmj/gfn1/r1Fur/wBeiPa9MvotSsYru3S4 SKTJVbi3kgkGDjlJ<br />
+ FVl6dwKs15Npela1qs/h60v7rxNb6Q0WpMT9omgnMXnRfZRPICHD7MkbiHwC G/jBt+AbTXbXUPC1<br />
+ 3qM2tyy6hpEzaqt7JK0aXCmDZ+7b5YWwZBhQucHIJGaaV/69f8g6Hp1FFFIA ooooAKKKKACiiigA<br />
+ ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArnfiR/yTvxT/ ANgq6/8ARLV0Vc98<br />
+ Rhn4e+Jx/wBQu6/9FNQB87/EpynhfxY2M7WjOPX/AEyGvM7KTzbWN8YyOleq fEuPHhXxUemWi/8A<br />
+ SyGvMsBcAYwAOgrgzdWor1/Rn2nAH/Iwn/gf/pUT13wXcGPRvDKADBB/9KZK 9x+Hn/IgeGf+wZbf<br />
+ +ilrwvwXC0mleGCOgB/9KZK92+H42+A/Da+mm2w/8hLXVh5N0YX7L8j5XNJu WaYpPpUn/wClM3qh<br />
+ WaQ3kkJtpljVFYXBKbHJJyoG7dkYBOVA5GCecRarazXtjJBbX9zp8rYxc2yx tImDngSI689OVPWv<br />
+ M/FOm6hdeIPEFjYxHWJv7F023uBPHbvJKhuZ/MISQLCZNm5gGATOMjHFanNb Rv8ArdHq9YmueIo9<br />
+ NvIrG1sL7VdSkTzhaWQj3rHnG9mkdEUZ4GWBPOAcHHn/AIL8C3dveeF/7X0r Nlph1KREujAxgMlx<br />
+ E9v8kWIwQFJARdqkcYwK6zVodU0fxdNrenaTNrFrfWkVrPBbSxRzwtE0jI48 1kVlPmMD84IIGAcn<br />
+ A1sLo/66/wCWptza1Hb22mzXNpdwC9mS3Kuq5gdgcCTBwBuATKlgSy4yDmsf xL43ttB1W4s5tK1S<br />
+ 6jtbRL67urZYjHbQszrvYNIrnHlsSEVjgU2bSJNabWjdaQdNuL6ygVbtrhZW 8xTIyKUBIVomKtkc<br />
+ EtwTtzWE/hjUfFniGW/1eTUtL0270e2tLy1hMSi4dZZjLC+5WkCYYDchXIbh j2fX+u3+f6ArWv8A<br />
+ 1uv0f4HpSMrorIQysMgjuKWvLdd8E3VzN4xvLfS4Zbi8vLQwDeivdWcaW/nW 4bPyh/KdCrbQ3G7j<br />
+ mqsnhO5GmFovCRXQm1VLlvC4ktxmEQFCdm/yP9biTy9+07d2d3FL/gfp/n+H bUdtP67f1/Wh65RX<br />
+ i3w98Of2rJoWpf2Vbvptlc6zJEssiypDK14hhxz82PLbDAHG0EHoao6X4D16 Ww1pZ9Gmsm1I6a9x<br />
+ AjWdtG0sd35k7RC3IwoQ5VnJlIGCcgU0r2XcHp9/62Pd65/xH4m/sfU9P063 0fUtVvb2OWWOKyMC<br />
+ 7UjKBixlkQf8tF6E964W6+HS21xq8+kaHawSwazZXOkNEUT7PADbm48rn92C RNuUY3c8HIrqPFnh<br />
+ h9e8ZaBczC9XT7S1vElltL+W0dXdoNg3ROrkEI/HI457Ukr2/rpf89A6mxc+ IEs7rT4L3T723e+u<br />
+ 1s4C3lMGYwtLuO1zhQEZT33DgEc1tV5tceF9WPi57uG2b7L/AG/DeLK0qsfJ XTTCXOWycScYPJ69<br />
+ Oa5HQPh/e2egajbavo3iG51CaOIXbRf2U0F/IkwbfyUaYEgk/aPm2swzuNH9 fggatb+urPabTU4r<br />
+ nUNQshHLHNZFN+8AB1ddyuvPK53LzjlG+pzPBvidvFFhHfRaLqdhYzRLNbz3 jW+JlbptEcrsOOfm<br />
+ A61k6Lp9/pkXhm8k0u2s52t/sF9aWEASOFW+aMhVZgoRhjAZgPMbkgZrkvDX hnWbb4bvoq6Jrtpq<br />
+ McFt9pS91VJoLxY3BlghAuHEQdA6/djXDAHjod/67/pZ/oxLVfd/X9fgem6r rsVhqlrpy2l1dXlz<br />
+ bT3MMcOwbxFsBXLsoDHzFxk465IrWUkqCVKkjOD1FeUeIPC11qGlonh7wt/Y tv8A2Lq1mLD/AEaH<br />
+ ZNMIvLGInKfOVY5B474rJ/sCfUvGfiCO30Jp9Rh1PTzFqxljC6eEt7ZpMAuH BZQR+7U7+AxAFNK9<br />
+ l/W9v8htaX9f0PbqpDUov7bbS2jlWcW4uVcgbJF3FWCnOcqdueP416548m1L wdrE9l4utdI0V7RL<br />
+ yVJjc3CWaXt//pHmSxCVGdXjKblUTqMbgrbgTt3fDugS6B4e065sdN1WCXT7 5pDaXcVoJfIlwsqo<br />
+ lp+6VeRIFUZLJyMmlHXVilpt/XX/AIB32q6laaTZ/atQl8qDzI4d20t80jqi DABPLMo/HmrdeJ6x<br />
+ 4EuL6DxFCnhCG5ge9gvkkv4LM3d44ut8irKshDp5e8L5uxgG2kkE40X8Matc fEzS9Yj0FrC2tJkW<br />
+ OWBLKNFtPsrL5bsuZ2cO23YD5W0LjOM0k9L9f6/r+tR6X8j1CbUrSHVLXTpZ dt7dRyTQx7SdyxlQ<br />
+ 5zjAxvXqe/HerdeO+Fvh3Hot34DvpvClnJe2tlJBqM0aW7Sw3B8rZK7swL7d jgFSzDPAway9V0XX<br />
+ bPwWLe/0ae0ttD8LanYS3ck8LJO7RxhWjVHZtpEbH5gpHcU3p+P4X/4H3/Iu MeaSie7VDaTSTxs0<br />
+ ttNbMHZQkpQkgEgMNrEYI5HOcHkA8V5x4K0u/wBIuLzUtJ8LNp8E1vaW7Wj3 UQa7k8w+bdFlZgcI<br />
+ +dzYkfaQQDiuS17w3qvibwvcW2n6V9utm1HWZIpoFtDLFOblxEd9wDsjPz5a IeZkLgju2rO39f1/<br />
+ w2+0R95X9Pyue9UVxvhDw49j4p8R6xqFjGLu7lhWC6Yq8jRC2hVwDklRvQ5H GdoPPBrsqGrCTuFF<br />
+ FFIYUUUUAFFFFABXP/ET/kn/AIm/7Bd1/wCimroK5/4if8k/8Tf9gy6/9FNQ gPnv4mXGfC3ioHgB<br />
+ oz/5OQ15jbuJIUcZwR3r0b4jnHh3xWQNxBj49f8ATIa88WQzKrldpKj5fTiu HOf4S9V+TPtOAP8A<br />
+ kYT/AMD/APSontXgIqvh/wANE4zhv/SmSvaPAfPgbw6f+odbf+ilrwPwhc+X p3hePPUH/wBKZK97<br />
+ +H5z4D8Nn/qG23/opa66L/cU15L8j5PM3/wq4tf9PJ/+lM3qwZLrwx4VuBDL Pouiz6nO0gRnitmu<br />
+ 5iQC2OC7kkZPJ5Faeq6fDqdjJaXL3KRPjLW1zJbyDBzw8bKw6djXFeI/CGpy X9//AGMun3NnqWkx<br />
+ 6ROdTuJWkt0QyYkBKuZsiU5VmUkqMtzxRgknv/X9K52C63pT6y+kLqdi2rIn mNZC4QzqvHzGPO7H<br />
+ I5x3qb+0rHci/bbbdJMbZB5q5aUAkxjnlgFY7evB9K5jRdA1bTPF0s9sYbbQ 3TM6i8aZ7yUIiK7R<br />
+ NEBCwC8lJCGwMqScjO17wTqN5rupX9lc2qx7kv7CORmGy+Hlgs5AOEKwquRk /vJOOmXtb+v6/wCG<br />
+ 26Ja/wBf11/U6tteso7u4E9/pcdnFGh803q7wzSNHhlIwo3LtB3HLblwCOal 34he90Ual4NbRdcg<br />
+ DN5krap5UKhRziRI5AW9iAOuSO/J3/w5upYGtopbOW3ay0y2fzy2ZGt7tp5m YbSPmDHHqSc4HNXd<br />
+ W8K6g134gaPRPD2s2up36XiQ6lcvEsJW3ijD4EEmX3IxyMcY5yeBrR231/Nf 18hq1/67f5l2bxjf<br />
+ jTND1iLRAdG1EWnmPJdbbmFrhlVQsQQhwpdcnepxnAOOem1nR9M1yz+ya1p1 nqNruD+TdwLMm4dD<br />
+ tYEZ5PNcXBoHim11bRFuRp2t6dpVvFHFPealLDM0+3bJcOnkuHfBIUF+Mkk5 OR6FTlZ3t3f3dCVf<br />
+ 8CK0toLK1htbOCK3toUEcUUSBERQMBVA4AA7CpaKKQwooooAKKKKACiiigAq KG1t4Jp5YYIo5bhg<br />
+ 8zogDSMFCgsR1OABk9gBUtFABRRRQAUUUUAFR3VvDd20tvdQxz28yGOSKRQy upGCpB4II7VJRQBD<br />
+ c2ltdWUlndW8M1pIhjeCRAyOhGCpU8EY4xRZWtvY2kNrZQRW1rCoSKGFAiIo 6BVHAA9BU1FABRRR<br />
+ QAUUUUAFFFFABRRRQAVz/wARP+Sf+Jv+wXdf+imroK5/4if8k/8AE/8A2C7r /wBFNQgPm34it/xT<br />
+ 3izJIAKdP+vyGvOtPQx2iKST1bJ68kn+tehfEBs6F4s+qf8ApZDXBxMXiRiM HArhzj+EvVfkz7Tw<br />
+ /wD+RhP/AAP/ANKiel+GR/o3hY/7P/tzLX0N8PP+RA8M/wDYMtv/AEUtfOnh 6UJB4VU4yVH/AKVS<br />
+ V9F/Dv8A5J/4Z/7Bdr/6KWt8NK9KPovyPkMx/wCRti/+vk//AEpnQVkal4k0 jTTdC/vFgNq8Mc25<br />
+ G+UynbH25BPccDBzjBxc1XTbHV7GSy1aytr6zkxvguYlljbByMqwIOCAa5nW fAOn6lqVvIjJa6bH<br />
+ ZNZPYQwhY2AV0iIxgKEWWUAAfxDptFb/ANf1+Rmal14t0i21BbEzXM120rQ+ Va2c1wVZdm4t5aNt<br />
+ UeYgLHCgnGcg1a1XXtM0k3I1C5EJt7Vr2TKMcQqcMwwOcHHAyeRxyK5WbwHd tY6PBDqtrHc2krz3<br />
+ OoCzcXUjvIJJPKkWZfKDHIKkSKRgEEDB3PE/hiPXdS0m6a5MIs5SZowm4XEW VfyzzwN8cbZ54Ujv<br />
+ R2/r5/f+HmJef9f1+Y668SWH9oadbW+pW6vPLGpRrd5PNEkUjoqsCAhIjZsn IwuMZYGqFl460XXb<br />
+ WdNA1WKK4No13DcXtnMkBiGA0gLhBIqlhuCuMHglTVXSvACafFpipqBdrLUv twYw/ejWB4I4vvcb<br />
+ UKfNzkqTgZ4XT/BV5pdn4cXTNWt1vNF02WwjkuLMyRyFzF85QSKRgRdN38XX jk0d/wCun+eg+39d<br />
+ X+n9dCHSNe1/VfDWoXltqfh5VtLhxHrH2WRrO6gWNWMiR+cCAGLIW8xh8hIz nA6rwxf3Gq+HNL1C<br />
+ 9tfsl1dW0c0sGc+WzKCV/AmuPvfAmr3FrJt1vTftN5f/AG/Ukl0t2tbpljVI 08oThlUCNCQXbcw5<br />
+ 4+Wu8sVuUs4Vv5oZroKBLJDEYkZu5VCzFR7Fj9af/A/LX+v8yf8Ag/mT0UUU hhRRRQAUUUUAFFFF<br />
+ ABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABXPfEbj4e+J /wDsF3X/AKKauhrn<br />
+ fiR/yTvxT/2Crr/0S1CA+ZPHM27RvFy56FP/AEthrjIyDGhXptH8q6Hxi5bT fGa+4/8AS2GuYsc/<br />
+ ZIs9cVwZw70l6r8mfZ+H/wDyMJ/4H/6VE7jS5ttx4TT/AGV/9Kpa+nfhz/yT 3wv/ANgu1/8ARS18<br />
+ oW7ONV8IYzjYn/pVLX1d8N/+Sd+Fv+wVa/8Aola66CSoQ9F+R81m0UsyxLX8 8/8A0pmvqupWOkWM<br />
+ l7q17bWNnHjfPcyrFGuTgZZiAMkgVzniD4gaNol5okU7Ce31cxi1uoLm3KPv ZVUqplEkgy6nMaOA<br />
+ Dk111ctrvgq01jWm1GTUNRtjItus8Fu0Yjn8iQyR7iyFhhmPCsoOec1ot1c4 XsyBfHtpIlyYdK1W<br />
+ R0vn022RViDXs6M4dYsyDhRGzFn2LjvnIGTqvju70bxNfHUNK1ZtNg0aC/mt YooXezzJOJZJGD4O<br />
+ FRPlVmJwSoOGNb03guybTRbW95fWs6ahLqcF5EyedBNI7s23chUriR1wysNp 5yeaddeDrW9i1MX9<br />
+ /f3M2o6WNKuJ3MSu0Y8z5wFQKH/et0GOBx6i7/1t/mVpdrp/wf8AL8blvxF4 lsfD9vbXWoLP9inJ<br />
+ UXEaBkVtuUUjO7L42rgHLEL1ZQfNp/H2qWHiC/ubua/W3txeSPp80EK2gjht /MWOKdQS9zuBDJ5j<br />
+ Y2TfKAqsfRvEHhey16ytbLUJbk2duDiFHCh227UdjjO5PvLgjDAN1VSMiH4d 2G4x32p6rqGnF5pj<br />
+ YXLxeSZZVZZZDtjV8t5kh27toLnCjAwNau3n/X9f5iTVlf5/1/X6Nnw41a+v Jby11261ZtWEUV00<br />
+ F7BbxRCN92Ht/KG7yyQRiRi42jcATz3FYHhnwxFoU89w2o6jqV1LFHbia+dG ZIY87I12KowCzHcQ<br />
+ WJPLHAxv05WexKv1/r+n+AUUUUhhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAB RRRQAUUUUAFFFFAB<br />
+ RRRQAUUUUAFFFFABXO/Ef/knnij/ALBV1/6JauirnfiRx8O/FP8A2Crr/wBE tQB8o+Mf+PDxlj1H<br />
+ /pbDXN2n/HtH9K3fFcwa18ZLnuP/AEthrnNIYtp8RP8Atf8AoRrz84/hL1/R n2nh/wD8jCf+B/8A<br />
+ pUTsbQot94RLYztX/wBKpK+p/hwc/DzwuR/0C7X/ANErXygSRe+DiPRP/SuS vq34Z/8AJOPCn/YJ<br />
+ tP8A0SldlD+BD0X5Hzecf8jHEf45/wDpTNnVdQh0yxku7lLl4kxlba2kuJDk 44SNWY9ewrh9R8Ty<br />
+ WHijWL2OR2tV0Synt7S8M0CmWSedQPLEbOsjfKu0RlyQFxnivQ6xdY8L6RrE 1xNf2rvPPHFE8sc8<br />
+ kThYnMkZVkYFGVmJDLg89a0ODSzX9bpmF4V8dtrs+kQS6W9pNepfGRXdx5TW 0qRkBXjRyG35+ZUI<br />
+ xyvpjv8AE6/k0oahY+HYpoItEh1y68zUPLMcTmTcifuzvcCMkZ2g85K4Gepb wLoBsbW1W2uo47aW<br />
+ SaN4r64jl3SHMm6RXDsGJywYkE9RUtv4M0C30+axhsAlrLp66U8Ymk5tV34j zuyMeY/PXnrwKf8A<br />
+ X5/8D7gVuv8AWv8Al+JFZeIrzVddu7TSdPt5NNsnWG7u57popFdolkAjiEbb wFdMlmTknGcVxXgv<br />
+ x/e6Z4N0mXxNYTNAdBk1KO8F3589yIFTzN6EDazbwVO9sj7208V6D/wjGljW k1WKO5hvFVUYwXk0<br />
+ UcoUEL5kauEkIBxlwTjHoKbF4T0OO1sbYafG1vZWclhBFIzOogkCh0IYncCE X72Tx7mlte39aP8A<br />
+ W3/BCNtOby/r+vwOSsviJq91a2a/8Iu0V/d36WUMdxJc20JDQySb981sjHHl EMFQgZBBPStzxQ8+<br />
+ oeJ9G0F7u4s7G6t7i6na1laGWYxmMCJZFwyj94WJUq3yjnG7NzTfB2jactos CX0i2ky3FuLrUbi4<br />
+ ELqjRjb5kjbRtdhtHHPTgYva/oOna/bRQ6nA0nkyCWGSKV4ZYXHG5JEIdDgk ZUjIJHQmm7f16f56<br />
+ iV/69X+ljI1LTNRttNbSNF+3GJYGuIL+fUHkeOdHRo4WLkyOjfNkkn5QVPBA rkvHGtWmp6n4Tmmn<br />
+ 8RJpt9pt5ceTor3YmMg8jZuFt8xK7mHzfKCea9A0zw5pmm3Nvc20UzXMEUkC TT3Ms8hR2VmDM7Es<br />
+ SUXliSAAAccUlj4c0+zv0vY0ka4ia4aFnkJEQnZXkVR0wWUHnOOcYHFK19/6 3/4Gvl97Ts7/ANbf<br />
+ 19/3chbeMtX0OxS18Q6as0+l6DFqmq3IuQJAxWUFEjCkM+6L+8q/MeeADdl8 a6pYx3UGr6DBFqoj<br />
+ t3tYLa/86Kbz5fKRWkaNChD/AHvlYAcgseK6m40TTbm8vLq5tI5pby1WyuPM yyyQguQhU/Lj94/b<br />
+ nPNYV34J0y18PalZabpv26W6SNSuoancEsEOUX7Q3mSRhDll2/dbkYJzTbu7 v+tX/wADv+oWWy/r<br />
+ b/gmW/jzVkuX09vD1sNWXVU0ryv7RPklmtTceZ5nlZ24GPuZ74zxUV/8S3s9 U1y2OlR3Fvp9jd3k<br />
+ NzbzTFJmtwu+Mu8Cxhskg+W8m0qQ2DV3wR4HXTI57nWoYTfyakdSiSK7muBA whEC5mkw8rbMks45<br />
+ LnjgGtL/AIQLw4Zr2RrGVjeRXEMiNdzFAk5zKqIX2xhjydgHPNJ/p+Nl+twT V1/XV3/Cxz9/8QNc<br />
+ so9TabwvbhtPsU1aZTqnP2Rt/TER/fDy3yn3OOJDmrXxTuZntPCy2iatPFd6 oqSW+mXhtJ50NvM2<br />
+ 0SCSPAyqsQXH3fwrp7zw3pN59u+02m/7bZDTrj94432434Tg8f6x+Rg89eBV m60qyum09p4d50+U<br />
+ T23zsPLcIyZ4PPyuw5z1puz+/wDUS0Xyf32/zv8AKx5v4j1WSwt30+yh1jTr mGLSJS11qck0qpLf<br />
+ 7DG37x13YVgzh2LBsEkAVfh+JV1c6lq0Vj4Z1G6s7P7UkM0UNyWmlgJBXPke UAzKwG2R26DZkkDs<br />
+ NS8N6TqV3Nc3tp5s8qwI7eY65EMpliGAccOSffocjiqg8G6Ol9e3duuoWsl4 XaZLXUrmCJmcYZxG<br />
+ kgRXPXcAGzznPNK+n3/pYbt08vutqZWia7cXepaXqlxPZfZdSD6fJDZXzXME U6FnTBZE2uQJFcFQ<br />
+ QQinOK5/wlqo04+Ktf1i18SSQ6fdak7XsmpGW1aOOdwI47cznDBVwP3Sj5Tz zz3cfhfTYdEOl232<br />
+ mOEzC481rh5ZvNDhw5kkLMzbgPvE8ADpxUVl4O0ayvLy4givCLxpXnt5L+4k tnMpJkJgZzFySf4e<br />
+ 5o9Oz/T/AIPyBba91+F/+AYWr6nrr3HhNtTtodLNzq4jMNnfvN5kRtZ22yHy 0AO4D5RuGVBzWZp/<br />
+ xBvRo1s2k+HvtEEGhwaxM11qrFkiYyAoHdGaSQCPILEBucsuBnstP8IaPYRW kcMd5IlnOLm3Fzf3<br />
+ Fx5TiNoxt8x2wu1mG0fLz0zWAfhtpcmv75oCNEi0u30+C1ivJ0JEckrMkgVh 5kZDqNrlgcHIp90v<br />
+ 60/zDS2vZfnr+DHXXxCWzvNXa8soYNOsLN71DJcMt3dosSyFoYTGFdPm2lhI cEYIFU9J8Wajqj2m<br />
+ r32m3ekw2dwttcROLlIZYp8Krjz4YSXSQJk7SFUthjkiusn8K6RcancX13BP dSzxPC0VzdSzQBGU<br />
+ KwWFmMaZAwdqjIJ9Tlth4S0ux0e80uD7e9ldReS8dzqE9ztTaVwhldtgwf4c dvSl5/1/VtBdl/W3<br />
+ +ZhXHj6RfHE2h22i3dxZ206W11epFcN5btGHyNsLRbQHTJeVCOflPG6jrXiX V9V8ExaxDappunXV<br />
+ 1p8llNDes1xJFJdxD94gQBNyHkB34Yg11SeEtLXV01XN8uogRiWWK9mhW5KD CtNHGyxyHHGWU8YH<br />
+ QAVHb+CtDt4J4I7e5+yzSpObZr6doY3SQSr5cZfbGA4BwgA4xjHFOOjV+lv6 /r8Qv1/r+v60OetP<br />
+ GN79rg03QtE+13V1c6moN5qjhE+zThGLOyOwVt/CqCF4UDbyLOmePn1DUNGj XT7ezsr+1S4869u2<br />
+ jZnYPuigAjZJnXZkjepwcgEU/V/AFlfeINMnjWSDToFvnmWC9ngmM1xJG5ZX RgwBKvkbgPmAxjpt<br />
+ r4T0dbzT7hILhRp6JHbW63cwtowgIU+QH8skA8MVJ6c8Cktl/Xf/AIH/AABy trbz/PT+vzMX4e+O<br />
+ p/GE0jHRLuxsnhFza3EkVwBIhPAYyQom7BU4jeQdfm4BOfb/ABGvr7VtTt9L 8NXNza2rXEcc7efG<br />
+ JXgYhwXaDyVBKuFxKxJ2ghcnb0Fp4F0C0hkggt7tbR3SQWpv7hoI2SUSr5cR fZGA6g4UAdunFLP4<br />
+ G0Ga4vpWgvES+ZmubeLULiO3lLffLQrIIyW/i+XnJznJo/4P/ADT8fw6nM6j 8UXFhpdzo+iTagNV<br />
+ Wa4sgv2hvMtY9g81lhgldCxcbVK4xjcyn5a9Gsbj7XZW9x5UsPnRrJ5cq7XT IztYdiOhFYN74J0K<br />
+ 82l7a4hkSeS5jltb2e3kjeT/AFmx43VlVjyyghSeSM810NvEsEEcKFykahAX cuxAGOWYkk+5JJp6<br />
+ WJ10/r+v633H0UUUhhXN/Ev/AJJx4q/7BN3/AOiWrpK534kDPw78Uj/qFXX/ AKJagD468UbjF42H<br />
+ t/7ew1k6IMaXAMY4PH4mtzxemI/GvuP/AG9hrB8PjGkQD03D/wAeNefnH8Ne v6M+04A/5GE/8D/9<br />
+ Kidd1vvB49k/9K5a+rfhp/yTjwr/ANgm0/8ARK18oKf+Jl4P+if+lctfWHw1 /wCSc+Ff+wVa/wDo<br />
+ la7KH8GHovyPm84/5GOI/wAcv/SmbGq3U1lYyT21hc6hKuMW1s0ayPk44Mjo vHXlh0rgvFvi7xHZ<br />
+ XWrHS7fT7WDTNEj1iaDUImkmYkzbocxybFOIvvgsAc8MDkekVVuNOsblrhrm ztpWuIfs85kiVjLF<br />
+ z8jZHK/M3B4+Y+tabHArdf61X6HCXHjbUf8AhO9PsLKGKfRJ7gWU8jW4RoZz btNtEhn3OQNhwIdu<br />
+ GPz5BFZ2geK/GesReHwH8O28uuabJfwt9lmkFsY/LyrDzR5m/wA0YwV2cj5+ p72z0jw9eXkOu2en<br />
+ aTPdSIpi1CKCNnZMYXbIBkjHAwelXrfTLC2+y/Z7G1i+yxmG38uFV8mM4yiY Hyqdq8DjgelDWn9e<br />
+ f6/5CXmeYW/xC8Taxc6HFoGiRzvNpVrqd5GBG2RKzKVVnuIigGxvnCy/eGVG PmvfEvS/7X8eeFLc<br />
+ 6Fo2uYs79/s2rPshGGtvmB8qT5hnj5e55FdnfeFPD1/DZRX2g6TcxWQ22qTW cbrbjjiMEfL0HTHQ<br />
+ VLrvhzRPEAhGvaPpupiHPlfbbVJvLzjO3cDjOB09BTbV726v8RrR/Ix9O1LU 9R8TanY2L6dZaXo8<br />
+ kdtNbyW7STT7olkDIwdVjT5woyr52t0rzfw14nuvD/g3T306x0o3UWh6ORcX CFWfzrl4SskgOdij<br />
+ JHHBJPPSvWn0fw7PrlvK+naTJrNhAvkuYIzcW8RLBdpxuRchwMYHX3qp4i8H 6bqui/2dbW1nZLut<br />
+ RujtlI8qCZZRFgY+XhgB0G4nHYi0+9frf8wVrW9P0ObvPE/im2ttUgH9mzTa XfLFeajbafLNHFAY<br />
+ BLu+zCYOzAsqkI7HBDbT0DrDxj4h1XxvLY6RpsV1odnLBDc3CxxgsJIVk80M 1wroMOMKIXyFPzZP<br />
+ y9JD4Y8I3+jpp8Oh6Dc6VbTuUtltIXhimBKvhMbVcHcDxnOQaTW4PB8XiLS5 9ci8PprzkJYSXiwi<br />
+ 5YqeBEW+Y4LdF7n3ojo18v6/4Hzv2T2fzOkorNg1/R7iXUI4NW0+WTTv+P1U uUY2vX/WAH5Pun72<br />
+ Oh9KsaVqVjq9jHe6Ve219ZyZ2T20qyxtg4OGUkHBBH4UgLVFFFABRRRQAUUU UAFFFFABRRRQAUUU<br />
+ UAFFFFABRRRQAUUUUAFFFFABRRRQAVz3xG/5J74n/wCwXdf+imroa574jf8A JPfFH/YLuv8A0U1C<br />
+ A+RfGwxB4zI9P/b2Guc0DnSYCep3H/x411fjNM2njInocD/ydhrmdLAFhEFx jnoMdzXBnH8Nev6M<br />
+ +08P/wDkYT/wP/0qJ2dlaGe88Iv6Kv8A6VS19S/Dkbfh74XX00u1H/kJa+bt DAx4UPfaP/SqSvpP<br />
+ 4e/8iD4a/wCwZbf+ilrupRth6b8l+R81m7vmWJ/xy/8ASmamqyX0VjI+k21t c3gxsiubhoI255y6<br />
+ o5HGf4T+HWuH1TxBe2nj/R9P1HVooDdwRqNI065t5XEpEhdpVkjEzQ8DDx7T 8p3KBkj0Oihq+hwd<br />
+ Dw3wjq3iLw94N0H7DePqf2rwxc3ltYNbJtimgWLywm0b2yJCGDMcn7u3pWtZ eLLyC1vr7TvFJ8R6<br />
+ Lp6Wt3d33lQN5YLkTxboUVeI/wB5txvXAySGAr1a8uY7SESSrMyl1TEULynL EAcKCcZPJ6AZJwAT<br />
+ S2t1b3aO9rPFOiO0TNG4YK6kqynHcEEEdiKpu7v/AFu3r96/4bQbs/6/rseW QeJvE00N/aXF9Z6b<br />
+ eQWs+ptc3gSOKCGSNTbpIxUhQrvIC2D/AKg5zkg53/CavLH4eWTxpcaXpdzH fi51S6+wuZHheEIY<br />
+ 5lTySuWYBtvIJBAfG317TNStNUhllsZfNjinkt3O0riSNyjjkDoykZ6HtVN7 Gwv/ABJb6il1vvtL<br />
+ jltWijkUhPOEbkOOobCIRyOG75FLr8v87fp+YLfX+v6f3bHlTeJL60+26xqU slnqM/h3TFe4Gy3E<br />
+ TyXM6iRzIjrEnzBmLK20Z4JGKLDxrqn9k+HrjVfEsIWS8ubZ47C4tTdX5W4C RGNZYVEybfvGJY2O<br />
+ QVBzivbK5r/hOvDX2C2vf7Wh+z3N0bKA7W3SyiQREKuNxAcgFgMYOc45pp6/ 13/4Ipar+u1v0ucN<br />
+ 4VudV0zVLKaPVHbT9Q8UalYyaf5EYjC77mQPvxv37o/7wXacbc/MWa1qF3pX xH1iWHVzb6vcXlhD<br />
+ ZaW8MbHULQqgfBKmTajGdsoQEIYvkYFejXvirR7LXI9JubmRbxyi8W8rRIz5 2K8oUxozY4VmBORg<br />
+ cjO3SWy8tPy/r52HJ3b8/wBW3/XofPMoW60TQ7e0YSy6PprR+IljO5ov9Mtn lSUAZDER3DYIyRuI<br />
+ yDz6p8PJ4r6+8Vajp8qT6TeamJLSaJg0cwFvCrujDgqXVhkcZBrX1/xVpGgX MMGqXMsckqmT93by<br />
+ yrGgIBeRkUiNMn7zlV688Gtvr0pp6ff+Lu/+GE9wooopAFFFFABRRRQAUUUU AFFFFABRRRQAUUUU<br />
+ AFFFFABRRRQAUUUUAFFFFABXPfEX/kn3if8A7Bd1/wCimroa5/4if8k/8T/9 gu6/9FNQgPlLxvhL<br />
+ DxifTaf/ACdhrldOZHsomj+6RXU+N/8Ajy8YhunGf/A2GuU0tAlhCq9ADj86 4M4/hL1/Rn2nAH/I<br />
+ wn/gf/pUT0XRQ23woQOMD/0qkr6U+Hf/ACT/AMM/9gu1/wDRS14z4L0QXnhX wzeY5UsPyuZK9p8A<br />
+ rs8C+HF9NNth/wCQlrupO+Hp+i/I+Zzdf8KWJ/xz/wDSmaWqx30tjImk3Ntb Xhxslubdp4155yiu<br />
+ hPGf4h+PSvMPHMXiU+MNOFxq1/aWMdnC0dxpulX1xE90JG83dHbzDaCPLwJh ImM46Nn1qimtGmcL<br />
+ 1TR48x8RmPUFT/hI/K+1Wv8AZWRPu+yfbk87zu/mYz9/nydvfzaradpsujaT d2Zi8WR2Y8Q3Dal9<br />
+ ma+kma2Z5mhaJgS7KSYi7QEsc/MfvV7VUdzPFa20txcyJFBEhkkkc4VVAyST 2AFF+Vf15f5fiym7<br />
+ 3Xd/o1+p4HqUPiC38FCz0218RWdw93qt1BciC9ecv57GFHSB05cNuDykp8vK turbls7vSbvxzNFZ<br />
+ eIJL7UJrWRZFa/eMRPHAskqCJhuZG3ny42WTau0bVxj0fQ/ET6vcDZomrWtj Im+C9uY40jmHbCBz<br />
+ KmRyPMRfzwKdP4ltING1PUpYblYtNlkiuYyo3rsPLYzjaVIcc5KkcZ4o8vL8 NP8AgJ+XnqK+t/P8<br />
+ 9f8AO39I5Tw1aeJbv4V3Vik0z6u808MMupefas0BmIBzJ5sqHyj8pfew+XOe a5nGpaZ8OLmw1PQr<br />
+ u3uH8RGeC2021ubwCFNQWVm+WEbVChipI+ZQCOTtHqFx4p0631rUNMmMqzWN iNQlkKjy/LyQQGz9<br />
+ 4YBI9HX1q/pF++o2wnaxurRGVGT7Rsy4ZA2cKxxjO0g4OQeowS09eZeX4P8A zT/EW1l53/D/AIKP<br />
+ LtchvLzx0Ly3ttbRpL2wntrRbGb7FeQhV3TXDFcRyx7pMKzIcxRZRyFFd94+ bUl8LXTaP9o88NGZ<br />
+ fsozP5HmL53lDr5nl79uOc4xziuhPAOelcp4E0rwq+m2fiHwz4d03SzqFsJF khsooJvLfDbWKD2G<br />
+ RkjIpLa3b+v0HfXmPOfFlmLnnRYfFy2rWGy08y0vp21CbzixtrvzwZFhyseC xjG2SQB9pYV7fFu8<br />
+ tN4CvgZA6A06q+o3X2LT7m68ma48iJpfKhAMkm0E7VBIBJxgcii9o2Yrcz0L FFRWdzFeWkFzbuHg<br />
+ mRZI2HRlIyD+RqWhq2jEnfVBRVS/1K0sJrKK7l8uS9n+zwDaTvk2M+OBx8qM cnA4q3QMKKK5648T<br />
+ i08QW+mXukapbxXMjQ218yxNBPIsbSFQFkMgO1HxuQA7TzyMgHQ0Vyln42t5 dU/s690rVdOvPNhQ<br />
+ x3SxHCS7xHKSkjDazRlOu4MVBUZzXSrNIbySE20yxqisLglNjkk5UDduyMAn KgcjBPOACaiiigAo<br />
+ oooAKKKKACiiigAooooAKKKKACiiigArn/iF/wAiD4l/7Blz/wCimroK534j nHw88UH00q6/9EtQ<br />
+ gPlnx4B9h8YEf7P/AKWw1yGnnNnFk54/rXU+MGL2HjHPqv8A6Ww1yumDFjEM 56/zNcGcfwl6/oz7<br />
+ Tw//AORhP/A//Son0P8ADe5K+DfDkA77z/5MSV6v4JGPBmgD/qH2/wD6LWvL /hVZ+d4R8PynoBJ/<br />
+ 6USV6n4OGPCOhj0sYP8A0WtdOGv7GF+y/I+czm39o4i388v/AEplzVbWa9sZ ILa/udPlbGLm2WNp<br />
+ Ewc8CRHXnpyp61xus+GNQl1qG2h3Xmk6pFFHrFxMY1YmA5DFVCgmVT5bbVwA BwBXe1Um1OwhS7ea<br />
+ 9tY1swDcl5VAgBG4b+fl4IPPatlozzt1Y8vi+HIlu7O6vNFgknl8QXs168jq xksJDOyo3zfNES0R<br />
+ 8rpk5K5ya6HRvCc//Cuta8MzoLGK4lv4LRRtdYYJJZPKwBkbQrLhew4wOldB N4s8OwTzQza/pEc0<br />
+ KPLKj3kYaNEYq7MN3AVgQSehBBpbnxV4etbGzvbnXtJhs704tZ5LyNY5z6Ix OG/DNHSy/rp+n5jc<br />
+ ve5ut7/m/wBfwRg3N3rWseHL/TNX8F3DyG1dJY/7QhS3u2xjZFIr+YA3UF0T A64PFaF9pZOvXcDW<br />
+ 7Pput2TQ3OxciOVAVBYj+9GxXP8A0zUdxWpP4g0a3urq2uNX0+K5tY2muInu UV4YwFJdwTlVAZSS<br />
+ eMMPUVWfxf4aTTTqL+IdHXTw6xm6N7EIgzLuVd+7GSCCBnkc0StJa/1fQUU4 7f1secnwb4luvD1i<br />
+ 95awnWby7Nnqn79OLF0SF2DAc5WCN9vXLEdq09Z8GXeq+J52vdNjuNJm8QQ3 jo7oUe3XTjCSy55X<br />
+ zPlKkcjsVr02N1kjV42V0YBlZTkEHuDTqd3e7/rb/L8WC0Vl2f4/1+CPIU8H 3tpBplteeGf7X0iz<br />
+ u9RW305Z4QtsJJ91tMFdwuFQMBg70DfKvUDNj8DasmhaVa6p4ZGrXCaDBYWh NxD/AMSm7Xfvl3M4<br />
+ K53RnzItz/uunC59wopdLf11/wAx31f9dbnlup+FvEMWq3ElmhuILGVNXsyJ VQ3F2VRJIsE/LlUm<br />
+ 5OATcdeDRY+E7zTvFfh25XR/t91FAiXuoXkVtJDAf3jyNAxcTxyl3OcKyMCB xyw9Sop32/r+tNPk<br />
+ ibaW/r+r6/Nnlfirw/dXGgyaRHoVxqo0y/aawgNvbS2skboxQSxzyIrohdkw rBxtUjGas22j3DeL<br />
+ 20Z4IBpaLHrk8Vu2BFclTGIkHGFMiGUE/wASk16XVWy06ysHuXsbO2tnuZTN O0MSoZZD1dsD5m4H<br />
+ J5qUv6/r7/VDev8AX9enozxqz8ByrZaQZvA9tLbaZqyTJDPa2K3txCYGR3mK SGJ23mMltyltmSuV<br />
+ BLbnwHrDX3i+Waw1a41W/g1GO3vY2sBbTxzI/lRu5C3PAKKFYlFKDB2gY9xo p/8AB/FJfoNOzT7W<br />
+ /Bt/qeP618MoXj8QpY6FblZdDj+xZdc/2kPOzMCW4m/1WZjgn+8ea3riz1ef xbY6jb6Jq0U1iHa4<br />
+ mu7yGSC6UQsoS3j85vKdnKHftj4Dbic4PoVFNtsVla39dP8AL77s898PaZqW t6Tra+IdH1HTdY1F<br />
+ Fd7m5e2kjiZc+UkIilc7Yj8wLAEklupwMLWF1XXtT1sQ6UJryfRNNivLKSOJ 2XNzceaqLN+7ZgoY<br />
+ pv8AlPyk5HX1+qenaXp+mG5Om2NraG5lM85ghWPzZD1dsAbmPqeaWgJ2Vv63 T/Q8r0Lwdr+k+HrC<br />
+ PTrSW3uppLvTp1lkgV4LKaZnSXEW2PdH1CJwN7ACnXvgm+n+I1jcR6IINLs5 Ftknt0tEiax+ytHs<br />
+ dsfaGfexGzIj2hTgkZr16ih67/1/Wv3sP6/r8PuR5FZ+EPEshtTfqc3ATSL3 9+p/0GFkKynnkvsm<br />
+ 4HI+0DPQ4n+Jfh3WPFc+lS3uj3smm20l3DLY2cljPI+WUQ3AW6Uxcqrejp5m AfvV6tRQ9d/6/r9R<br />
+ p22/r+v0XnfyGTwhr0k+qNYWlzZxXVjPBYm5uY/NtLwwKpvHKMQGl5UlMlSp YD96+Og+EXh5vD2n<br />
+ XsTabqummZo3aG9WwWMuFwWjFmAvoCzgMcL6V31FO/8AX9f12Jtol2CiiikM KKKKACiiigAooooA<br />
+ K5z4k/8AJOvFP/YKuv8A0S1dHXOfEr/knPir/sFXf/olqAPkzxVMGtPGa+hH /pbDXPaeQbOLHTH9<br />
+ a0/E+4R+Nv8AP/L7DWRozmTTYWPXkfqa8/N3+6Xr+jPtOAP+RhP/AAP/ANKi fS3wqldfBPh9Vzj9<br />
+ 5/6USV6d4O/5FDQ/+vGD/wBFrXn3whhjbwDoLsQGxLx/23kr0Lwh/wAinomP +fGD/wBFrXbR/gU/<br />
+ RfkfNZx/yMsT/jn/AOlMt6rp8Op2MlpcvcpE+MtbXMlvIMHPDxsrDp2Ncxqn hGabXdOks51GkmKK<br />
+ LUY7iV5ZZxA2+DDNuLHcSGLHJB5Jrsq5TxV4h1DQ9QSCO1juBqEYg03ajc3e T8kpB+6V+fOBgRvk<br />
+ 9KvZ6HBujJtPAs0MmmyMunmS38SXWtSsAcskgnCYO3lwJI854+XqcCsbxB8P /EV3oNzpNlc2f2G5<br />
+ m1J2gF/cWiKbiZnicmJcyBVZg0RIQluScCuwvPHfh/S76XTtU1ILfWzxw3TJ azeVFI6KyhmClU37<br />
+ ht3N8x+UEkEU9fHWgvYfakmvnH2k2ht1025NyJQm8qYBH5o+X5vu4wQelHTT b/hl/kVzO93vv+b/<br />
+ AFZzeu+GZNO0bxRe3t5o9stxeWN9HLey+XBi3SABJnI+VWeIjPONwOCeKwNA sdV8TW3iHWtCg0r7<br />
+ bNrHn2V7a6lJFBGy2iRNLFIIHFwN29TuQKxDccCuq13x++neJ57eK3SXSbTT Lu8uJCrCUzQrFJ5a<br />
+ 5PGElXORnLAcYNSab4yuNIbUIvHVxYW5tra0vPtFrDJHGiXDtGI2BZzlZEwX yAQwOFwaau9X1X6/<br />
+ /ak2slb+un6nb2qypawpcSCWdUAkkC7Q7Y5OO2T2qWuUt/iF4buLiGBLy6WW SdbUrLYXEfkysQES<br />
+ XdGPKLZG0Pt3ZGM5rq6HrqJaaBRRRSGFFFFABRRRQAUUUUAFFFFABRRRQAUU UUAFFFFABRRRQAUU<br />
+ UUAFFFFABRRRQAUUUUAFc58Sf+SdeKf+wVdf+iWro65z4k/8k78U/wDYKuv/ AES1AHyp4sssab4x<br />
+ lIJBZQfxvYa5ewjWK0jRF2KM8Zz3r0/XrdToHiZiOtzEP/J2GuJ8QxLBq00a 5wFTr/uKa8jM6nNT<br />
+ XqfdcCU+XHz/AMD/ADid34X8VyaVZ+F9PVsLIucY/vXMgr6E8ASed4D8Nynq +m2zfnEtfKlnAJL7<br />
+ wkxHIVP/AEqlr6n+G4x8O/Cw9NKtf/RK16lH+BT9F+R8rnH/ACMsT/jn/wCl M19V02x1exkstWsr<br />
+ a+s5Mb4LmJZY2wcjKsCDggGub1nwPbaozqZktoLa1SDSYraAIunOpDCVRnaW DJHjgABNvQnPSarq<br />
+ VjpFjJe6te21jZx43z3MqxRrk4GWYgDJIFcf4s8SXdhdae2k6hbXFpr8aWun yB4ykE5OVnB/jjKt<br />
+ 6n5lRR9+q9P6f9bHB6/1/XUs3PguW7t9XW41JDPqV/ZX8jpbbVVrcQZULvPD GD143d8c1/EHga41<br />
+ F9Zks9QsYZtRvEu1luLJ5HtStusOYnSaNkk+XIcEYyRjvUmo+P7PSL68sZ9P 1q7XTp4LO6vo4IzG<br />
+ skqIY84YFixkVfkU7SeQqkEv/wCFh6fDbzy6np2qab9muWtLlLhI2MEvlrIi t5bsD5gZQm0tliF4<br />
+ YgF7rT+tv+B/TBXWhSm+FejyavFeG71Ixm2u4LmGS+ndZ2uAod9pk2LnDEqF 2ksDj5RUn/CB3VzZ<br />
+ 3J1bWY7rUZWsUFzHZ+Uqw2swlVdm8/Mx37mBA+YYUYwZL681hPF2jLZ6lclr 5HludGnig22sAiOJ<br />
+ NygsHEvlry7KdzYHGRx1t4r8Sado8Oj6nPr7eMbuW2glhuILFjCHjldpLbyg I2DeTIq+ax2kAuAM<br />
+ 5ab6eX5/oxdPT+tf+D5Hd6l4M+2/25/p+z+09Rs9Q/1OfK8jyPk+9zu8jrxj d0OOeurgdO8cw2un<br />
+ aXapaeIta1O5W6HlPBbrcq9u6rKku0xxKVL8EfKQOCSV3afhrxxY6/f2lvb2 OpW8V9aNe2Vzcxos<br />
+ d1EpQMVAYspBkXh1UnORkc0Lsv60/wAl+AN6XZ1dFFFIAooooAKKKKACiiig AooooAKKKKACiiig<br />
+ AooooAKKKKACiiigAooooAKKKKACiiigArnviMM/D3xQPXS7r/0U1dDXP/EM Z8AeJh/1DLn/ANFN<br />
+ Sew1ueDeJoSnhnxIwHJuYcf+BsNefeJiTrUxYYO2PP8A3wtep+MotnhDX2/6 eYP/AEtiry7xV/yH<br />
+ Z/8Adj/9FrXz2KbdNPzZ+g8F/wDIwmv7n6xNbTmxdeE+f4V/9Kpa+ofhzz8P fC//AGC7X/0UtfL+<br />
+ nWkstx4TlQHaFX/0qlr6f+HAx8PfC4PbS7X/ANErX0FH+BT9F+R8Zm//ACMs T/jl/wClM6KsDV/C<br />
+ thq9xqE2oPPM13bC0X5lH2ZAd2YiBlWLBW3Ek5Rf7orU1XUIdMsZLu5S5eJM ZW2tpLiQ5OOEjVmP<br />
+ XsK5LU/F0FjqepzQW0nmR6Xa3cf2ye4hWQyyyokXkeWzJISuPljLsWC7eBT/ AK/A4Vf+vVfqaMvg<br />
+ yxmt9QjuLu+la/urW8nkZkDGSARbSMKAAfJUkY7tjHGItV8CaZql3fy3k960 V9cC6mt1kVUMohWJ<br />
+ GGF3AoEDLzw+G6hcZeg+Pr3Wp9Bt7bQljuNQa7Fws9zJELcW0qRuQHiDtkPk BkQ5wCFySL+qRPr/<br />
+ AI1udGvL29tdOs7GG6ENlcyWr3DyPIpZpIyr7VEY+VWAJc7gflxTvp/X9bfg Cdl6f8MO07wZcWGq<br />
+ Xd9D4s195bsgzCRLNg5CbV5+z7gF6hQQMknHJyx/ANrMZbm81jV7nWWlilj1 WRoRPB5e4IEVYxEF<br />
+ AeTIKHdvbOez9eOo6bZM8Ed2LPRRDdpcPdl2vIxvE0Tj7zbY+QWzuYqeoJrj viFeT3HjO/t9NufE<br />
+ L3/9i202kx6XJdeQLlppwryiM+VtOEyZvlKg+lLd2/rv/wAMJLR/11t+up3u k+D7HTLrTrmO4vJr<br />
+ izjuU8yaRWM7XDo8sj/KPmLICNu1RkgDGAF0bwjYaSdBNtNdN/Y1lJY2/mMp 3I/l5L4UZb90vTA5<br />
+ PHpjX/ji+srrW4jo8MqabPbWKyC82m4upxDsXbsOxMzfMxJIAyFbOA9vGWqI x059Dtv+Eh+2rZrb<br />
+ Lfk2xzCZvM8/ytwXYrceXncMYx81O/Vf1/V/uYa2O4orgdK8d3+pahpdlHoc MU91PfR3Hm32Ft1t<br />
+ ZkidgRGdxO4kDjkAEgHIz4filM9tq0n9iee1o1obc288oju47ifyVZHmhjB/ vAruQgjD96S1tbqO<br />
+ 39fgenUV54fHmr29xcpqHh21hisNQt9Pv5ItSMmxpzH5bxAxDzBiZC27YRzj dimfEl7iTxj4as0t<br />
+ dfvraW1vZJLTR9SNk7MpgCuzedECBuYY3H73Sje3n/lf8gS1sejUV5lfa0ye JrGztft9oltr8Vtc<br />
+ eZfSS+cp015cEEkADK5UEgsu7qc0zSfihfappN1qFr4WvPs/lxTWjul0iPG7 hd0rm2AXCsHPlecM<br />
+ BjnAyT+vwuDTVr/1q1+h6hRXI+HdVll1cPNdW01vrNoL22NteG5gSSMKkixS FVyhBjYYAyd5xXIf<br />
+ DjWZNJ+Httrd9p/iOa+uYbWJZNR1U3Ed9NKwRDGDPJ5Sl2XJKIQD0OMUf1+a /NC3V0eu0V5l4y1v<br />
+ VdPvLSfWYBAI9E1W5nsdP1OXy5fL8griUJGwbBbDBcruOKvTeO72C+v0j0NG 0rTbm1trm6e+xJ+/<br />
+ SJgUQod5UyjcCy8AEFiSoaV/687Dasr/ANaHf0V55efEaSxs9cuLzS4UksZl ggsluJGvJS83kxvJ<br />
+ D5OUjY4IZPMyM7QxGKn8O+Ib6/1PTtS1C0utOhvi+myWs3nrGsyZkikjWaON sMpkUsUXJCjnANJa<br />
+ 7Cem53lFeWeJvHWvnTtSGkWWmWd7aajbW4hub51uTE10It7wtbkKj9FYFhtY kHK4O3ceOJ7XxpYa<br />
+ DNp0MqXDLBNcWs00gt5zC0mxiYBF0Xp5gfDK2wA0k7q4PQ7iivLtC8aeJ9c8 Q+E5U0rTrPRtWsJ7<br />
+ toTqBkkKqYfmP7jhl3nChsMG5KkAVoTfEfy/Dmmar/ZWftuiXWs+V9o+55KR t5edvO7zMbsDGOhz<br />
+ VNWV/wCuv+TKUW3ZHoNFcz4Z8R3upatPp+q6VHp84tYr2ER3Yn3ROWAD/Ku1 wV5A3Lzwx5rl9V+I<br />
+ X9g6BcXdlphu5I76/R7WS8uZpmSCVleRNsMpC5A4bZGm5V3AYpbf152JWquv 60uenUVzegeIrnWP<br />
+ EWr2UenxxafpzRxm6a4zJI7xRygCMJgACQgnd2GAcnHSU7WAKKKKQBRRRQAU UUUAFYPj/nwH4kH/<br />
+ AFDbn/0U1b1YXjznwN4iH/UOuf8A0U1J7DW54/4/Tb4K14/9N4P/AEsiryLx Md2tTn/Zj/8AQFr2<br />
+ j4jx7fA+t+89v/6WRV4v4nG3Wpx/sx/+gLXzuJ/hr1Z+gcFO+YT/AMH6xPVf Ammpc+G/Dc7DLAN+<br />
+ lxJXtPgNdngfw6vpp1uP/IS15f8ADBQ3gzw9n0k/9KJK9T8FDHg3QR/04Qf+ i1r6Civ3FP0X5Hx2<br />
+ cP8A4UcR/jn/AOlM2a45vCj61res3viWC3WG5jt7a2js7uXeqQSSSJKZAEZJ C0g4X7u37xzXY0VZ<br />
+ 5/SxiaT4V0bSZbWWwtGSW1E4id55JGHnMryklmJYsyqSTk/mafr3hrS9dlt5 tQinW5t9wiubW6lt<br />
+ ZkDfeUSRMr7TgZXODgZHArYoo3AzNN0LTtNnlms4Css0MdvI7yPIXSPdtyWJ yfnYk9Tnkmo9E8O2<br />
+ GjyJLarK062yWYlkkLN5KMzInphd7AHGcdSa16KL9Q8jHvPDWkXkOqxXNmHT VJEluv3jAu6qqqwI<br />
+ OUZQiYK4IKgjnmsXW/B1qnh8WWj6Wl5N9qW633msXVvN5gG3zftSiSbeFwo5 +78uccV2VFH9fcO5<br />
+ x/gbwXb6HpNgNQigl1SH7UzPEzmNPtMvmSIu4/MuQo3MMnbnjJFT2PgHw5ZQ yRQWUxRxApEt5PKQ<br />
+ sMnmRKpZyVVW5CjA7YxxXU0U763EZFz4b0m5+3efabvt1zDd3H7xxvli2eW3 B4x5ScDAOOc5Obk2<br />
+ m2k2qWuoyxbr21jkhhk3EbVkKlxjODnYvUduO9W6KX9fp+QGQ/hvSX1E37Wm bs3a3xfzH/1yw+SG<br />
+ xnH+r+XHTvjPNZ9r4G0Sztri3sv7Vtbab/ljbavdxRxDduxEqygRDPZAoxx0 4rp6KAvcyE8PWENn<br />
+ pdrbLLBFpsgkt9khLA7WUhmbJbcGYMTknJOc81naf4D0Cw0q40yGC+fTpohA ba41K5njRQcjy1eQ<br />
+ iMg4IKYIwMEYrqKKAOefwbostotvcw3d0gt7i03XV9PPJ5U+3zVLu5Y52r3y McYrLsPAdmPFOr6t<br />
+ qKGVZruC4tIkupggEUMSL5sQIR2V4yylg2OCCDXa0UJ2d/67h0sc5N4K0O4X Uhd29zd/2gu2b7Ve<br />
+ zzlQG3gRl3PlYbDDy9uCFI+6MWF8NWSaMdNSbUDD5qzrLPey3EyOrBlIklZ2 4Kg4zj25NbdFC0Dc<br />
+ 5ufwTodwNQ+1RXtwb7b5rT6hcSMm1/MURM0hMQD4YCPbyB6DDovBehx6xFqY trhryN1lVnvZ2TzB<br />
+ H5fmFC5Uvs+UuRuPcmuiooB6mFD4T0aBNFWC2lhGjoY7LyrmVDGh25RiG+dT tXKvkHAyKwtY+HGk<br />
+ Nourx6NA8Wo3On3VlbNcXk8kUAmXlVRmZY03BThVwMcCu6ooev8AXcabTTOS h8E6XZaLcw21j9ru<br />
+ pRDIRd387B5IWDxJ5jF2SNXGQqjaMn5eSDTsPh7p93oyReJYBNeyS3c0/wBk u5okxcymSSElShkj<br />
+ 5AwwwdoO0V3NFNu7uJaKyKOnaVZadPeTWUPlyXbrJOd7Heyosank8YVFHHp6 1eoopAFFFFABRRRQ<br />
+ AUUUUAFYnjkZ8E+IB/1Drj/0W1bdY3jYZ8Ga8P8ApwuP/RbUnsNbnlnxOG3w PrX/AF3tv/SuGvEf<br />
+ E5zrc/8Aux/+gLXt/wAVTjwXrQ/6bW//AKVw14h4n/5DU/8Aux/+gLXz2K/h r1Z9/wAE/wDIwn/g<br />
+ f5xPb/hf/wAib4e+kn/pRJXqXgv/AJE7Qv8Arwg/9FrXlfwwP/FHeHvo/wD6 USV6p4L/AORO0H/r<br />
+ wg/9FrX0NH+BT9F+R8dm/wDyMsT/AI5/+lM2aKKKZwBRRRQAUUUUAFFFFABR RRQAUUUUAFFFFABR<br />
+ RRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVjeNP+RO 13/rwn/9FtWzWP4z<br />
+ /wCRP13/AK8J/wD0W1J7DW55Z8WB/wAUXrX/AF2tv/SuGvD/ABL/AMhmb/dj /wDQFr3L4sf8iZrX<br />
+ /Xa2/wDSuGvDfE3/ACGZv92P/wBAWvnsV8C9Wff8E/7/AD/wfrE9s+GQP/CH +HT2w/8A6USV6J4P<br />
+ /wCRS0T/AK8YP/Ra1wfwvZP+EG8PKcbv3n/pRJXe+EP+RS0T/rxg/wDRa19B Rd6FP0X5Hxub/wDI<br />
+ yxP+Of8A6UzWoooqjhCiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo AKKKKACiiigAoooo<br />
+ AKKxrLUNVv7SK7tNPsltp1EkXn3jI5Q8qSqxMBkYOMnrU/ma3/z46X/4Hyf/ ABigDSorN8zW/wDn<br />
+ x0v/AMD5P/jFHma3/wA+Ol/+B8n/AMYoA0qKzfM1v/nx0v8A8D5P/jFHma3/ AM+Ol/8AgfJ/8YoA<br />
+ 0qKzfM1v/nx0v/wPk/8AjFHma3/z46X/AOB8n/xigDSorN8zW/8Anx0v/wAD 5P8A4xR5mt/8+Ol/<br />
+ +B8n/wAYoA0qyfF3/Iqa1/15T/8Aotqct/fQX1rBqNlbxpcs0cctvcmUBwpb DBkUjKq3Iz0pvi//<br />
+ AJFPWv8Aryn/APRbUnsNbnA/Fkf8UVrX/Xa2/wDSuGvDPEgxrE3+7H/6Ate5 fFds+C9a/wCu1t/6<br />
+ Vw14d4m51qb/AHY//QFr57FfAvVn3/BH+/z/AMH6xPXPh1cGPw74bT+Ehu// AE8SV6n4POfCOiH/<br />
+ AKcYP/Ra15F4FJ/sHwwBn+L/ANKZK9c8Gf8AIn6Fn/nwg/8ARa17mGnzUYLs l+R8JmE3LNcYn0qT<br />
+ /wDSmbFFFFbGQUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQ AUUUUAFFFFAGR4Ym<br />
+ VfDGjAsARYwd/wDpmtaXnp/fX865fRJNug6SP+nK3/8ARS1c86gDc89P76/n R56f31/OsPzqPOoA<br />
+ i8R61fpqen6RoTWcd9dpJO9zdo0kUEUZUMdispdiXUAbl6k54wed1P4hXGhJ BFrX2Pz4NVFhdyQI<br />
+ 22ZGt3ljeJNxKsxCLtJbnI5yDV7XtNnvbuzv9Mu47LU7QOkcssPnRvG+N6Og ZSQdqkYYEFR1GQcm<br />
+ Xwel5HAdVu1vZmvjfXheACOfMDQ+WqZOxArDAJY8ckkk0L+vv/yHp+H6P9f6 3O70O6v5bAS6wLaG<br />
+ 5kYuIIf+WKHojNkhmHdhgZ6DudDz0/vr+dcloFrcaXp4s5717yOJisDyL+8W L+FXbJ3sOm7gkYzz<br />
+ knR86m/IleZueen99fzo89P76/nWH51HnUhlvVZFe+0TaQcXx6H/AKdp6Txj x4R1z/rxn/8ARbVR<br />
+ Z9+oaP8A9fp/9Jp6ueNTjwbrx9LCc/8AkNqUtmNbnnHxRlz4P1wek1v/AOlc NeL+IjnV5j/sp/6A<br />
+ tepfEm7WTwv4hQHkSQ/+lkNeT6u26/c/7Kf+givmazfIl5s/ReDY2x8/8H6o 9z+FumfafC3h64I4<br />
+ VX/S4kr0bwkNvhXRl9LKEf8AjgrlPg9NGnw+0FWPznzf/R8ldZ4VOfDGjkf8 +cP/AKAK+joRtQh6<br />
+ L8j4bNYKOZYlrrUn/wClM1KKKK0OIKKKKACiiigAooooAKKKKACiiigAoooo AKKKKACiiigAoooo<br />
+ AKKKKACiiigDnLfQb61t47eC+s2ghURxefaOzhBwoJWVQcDAzgdKk/sjUv8A n803/wAApf8A4/W/<br />
+ RQBgf2RqX/P5pv8A4BS//H6P7I1L/n803/wCl/8Aj9b9FAGB/ZGpf8/mm/8A gFL/APH6P7I1L/n8<br />
+ 03/wCl/+P1v0UAYH9kal/wA/mm/+AUv/AMfo/sjUv+fzTf8AwCl/+P1v0UAY H9kal/z+ab/4BS//<br />
+ AB+j+yNS/wCfzTf/AACl/wDj9b9FAGJaaPdC+tp7y7geO3ZpEjt7do8uVK5Y s7k4Vm4GOtJ47/5E<br />
+ jxDj/oHXH/opq3KxvGo3eDdeX1sLgf8AkNqTV9Bp2Z88+PriQaN4rUnoyEf+ BkNcDDI8sSvIQWI5<br />
+ IGK9W+KOmeX4b8TSKBlzEPzvIa8qSNokVHGGA9c14WPpOnFJrqfoXBNVVMbN r+T9UejeBvG9rZ6X<br />
+ DpV5dRWNxalvIed9kcqFt33z8qsGZupHGK6E674emJaS58Jlickm4sySfzrx llDjDgMPQ81EbaAn<br />
+ JgiJ/wBwV10c4hTpxg43ski8fwJXxWKq4iNZJTk3az6u57cmqeGD1u/CQ/7b Wf8AjUo1Hwsf+X3w<br />
+ j/3+s/8AGvD0ijjOY40U/wCyAKk3N/eP51p/bcP5Dk/4h3iP+f6+5ntv9oeF v+f3wj/3+s/8aa2o<br />
+ +FyCBeeEf+/1n/jXim5v7x/OmgAHIAz60f23D+QP+Id4j/n+vuZ67dTeHJM7 NQ8JD/ttZf41UxoH<br />
+ /QQ8I/8Af2yry/e394/nRvb+8fzqHnFN/YIfhxXe9dfcz1WP/hHf4tQ8I/8A f2yq3DN4YQ/NfeET<br />
+ /wBtrL/GvH97f3j+dG9v7x/Oms5gvsDXhzXX/L9fcz2sX3hUD/j88I/9/rP/ ABpw1HwsP+Xzwj/3<br />
+ +s/8a8RBIzg4z6UAlehx9Kr+24fyFf8AEO8R/wA/19zPcP7R8Lf8/vhH/v8A Wf8AjR/aPhb/AJ/f<br />
+ CP8A3+s/8a8Q3t/eb86N7f3j+dH9tw/kD/iHeI/5/r7me3/2h4W/5/fCP/f6 z/xpBqPhcdL3wl/3<br />
+ +s/8a8S3t/eb86Te395vzpf23D+QP+IeYj/n+vuZ7XLqnhvHy3vhL/v/AGf+ NZtxqWik/u7zwl/3<br />
+ /sv8a8mLsRyx/OhWK/dJH0qHnEH9gteH2JX/AC+j9zPVV1HR+954S/7/ANl/ jUU2oaST8t54S/7/<br />
+ ANl/jXmG9v7zfnSb2/vH86l5rB/ZZa4BxK/5fR+5noNzeae/3bzwl/3+sf8A GoYJdP3fPe+Eh/22<br />
+ sf8AGuCIycnk+tKOGyOvrUf2lT/lZt/qRi7W9tH7mepW02iAfvL7wl/3+sv8 avpP4bx81/4S/wC/<br />
+ 1l/jXkG9/wC8350b3/vN+dXHNKUfsGMuAsVL/l9H7meyLP4XHW/8Jf8Af6y/ xqQXXhYf8v3hL/v9<br />
+ Z/414vvf+8350eY/99vzrRZzBfYM34e4n/n+vuZ7al/4WA/4/fCX/f6z/wAa f/aPhX/n98Jf9/rP<br />
+ /GvD/Mf++350eY/99vzp/wBtw/kJ/wCId4j/AJ/r7me4jUfCv/P74S/7/Wf+ NOGpeE+974R/7/Wf<br />
+ +NeGeY/99vzo8x/77fnT/tuH8gf8Q7xH/P8AX3M91/tLwl/z++Ef+/1n/jS/ 2j4S/wCf3wj/AN/r<br />
+ P/GvCfMf++350eY/99vzo/tuH8gf8Q7xH/P9fcz3b+0fCX/P74R/7/Wf+NH9 peEv+f3wj/3+s/8A<br />
+ GvCfMf8Avt+dHmP/AH2/Oj+24fyB/wAQ7xH/AD/X3M92/tLwl/z++Ef+/wBZ /wCNL/aPhL/n+8I/<br />
+ 9/rP/GvCPMf++350eY/99vzpf23D+QP+Id4j/n+vuZ7v/aPhH/n+8I/9/rP/ ABpV1PwmrBlv/CQY<br />
+ HIInswQfzrwfzH/vt+dHmP8A32/Oj+24fyB/xDvEf8/19zPVvHfiDT9Vsf7H 0m4i1Ce6mja4mgO+<br />
+ KNEcSY3j5WYsq8AnAz+PnfieLydbnjP8Kp/6AtUory5i/wBVcTJ/uuRUc80t xK0s8jyyN1d2LE9u<br />
+prix2YRxUFFK2p9Dw3wtVybEyrzqKScWtL90/wBD/9k=<br />
+<br />
+------=_NextPart_000_0010_01C70F11.A7926B80--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310158&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310158&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310158&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_310166"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=310166&amp;#msg_310166" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=310166&amp;#msg_310166">message #310166</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=310158&amp;#msg_310158">message #310158</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 24 November 2006 01:02</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Remy Suen is currently offline" title="Remy Suen is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=27609&amp;">Remy Suen</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=remysuen%40ca.ibm.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 462<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=27609&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=27609&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">micho wrote:<br />
+&gt; using vista RC1 eclipse crashes very often.<br />
+&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt; Any Ideas?<br />
+&gt; <br />
+&gt;  ------------------------------------------------------------ ------------<br />
+&gt; <br />
+Hi Micho,<br />
+<br />
+Although your -exitdata is different (not to say I know what the heck <br />
+that is), bug 165091 may be of your interest.<br />
+<br />
+<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=165091" target="_blank">https://bugs.eclipse.org/bugs/show_bug.cgi?id=165091</a><br />
+<br />
+Regards,<br />
+Rem</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310166&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=27609&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310166&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310166&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_311150"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311150&amp;#msg_311150" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311150&amp;#msg_311150">message #311150</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=310158&amp;#msg_310158">message #310158</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 02 January 2007 15:24</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> john.eclipsefaq.org<br />
+<br />
+Existing releases of Eclipse don't work well on Vista. However, either <br />
+the latest 3.2 stream maintenance build (M20061220) or stable 3.3 stream <br />
+build (3.3 M4) work very well on Vista and have resolved the majority of <br />
+the stability problems. I suggest upgrading to one of those builds.<br />
+--<br />
+<br />
+micho wrote:<br />
+&gt; using vista RC1 eclipse crashes very often.<br />
+&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt; Any Ideas?<br />
+&gt; <br />
+&gt;  ------------------------------------------------------------ ------------<br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311150&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311150&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311150&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_311171"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311171&amp;#msg_311171" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311171&amp;#msg_311171">message #311171</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311150&amp;#msg_311150">message #311150</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 03 January 2007 12:43</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> micho2.gmx.de<br />
+<br />
+thx!<br />
+<br />
+is it possible to install the plugins in 3.3M4 like WST, oder LaszloIDE.<br />
+<br />
+Using Theo update mechanism I always get conflicts.<br />
+<br />
+<br />
+&quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+news:endtg2$4o7$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; Existing releases of Eclipse don't work well on Vista. However, either the <br />
+&gt; latest 3.2 stream maintenance build (M20061220) or stable 3.3 stream build <br />
+&gt; (3.3 M4) work very well on Vista and have resolved the majority of the <br />
+&gt; stability problems. I suggest upgrading to one of those builds.<br />
+&gt; --<br />
+&gt;<br />
+&gt; micho wrote:<br />
+&gt;&gt; using vista RC1 eclipse crashes very often.<br />
+&gt;&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt;&gt; Any Ideas?<br />
+&gt;&gt;<br />
+&gt;&gt;  ------------------------------------------------------------ ------------<br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311171&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311171&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311171&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_311180"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311180&amp;#msg_311180" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311180&amp;#msg_311180">message #311180</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311171&amp;#msg_311171">message #311171</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 03 January 2007 17:09</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> john.eclipsefaq.org<br />
+<br />
+If you need other plugins, I suggest using M20061220, which is fully <br />
+compatible with Eclipse 3.2.1 and 3.2.0.  Any plugin that works in 3.2.1 <br />
+really should work in Eclipse 3.2.2.  If not, what kind of conflicts do <br />
+you get?<br />
+--<br />
+<br />
+micho wrote:<br />
+&gt; thx!<br />
+&gt; <br />
+&gt; is it possible to install the plugins in 3.3M4 like WST, oder LaszloIDE.<br />
+&gt; <br />
+&gt; Using Theo update mechanism I always get conflicts.<br />
+&gt; <br />
+&gt; <br />
+&gt; &quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+&gt; news:endtg2$4o7$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; <br />
+&gt;&gt; Existing releases of Eclipse don't work well on Vista. However, either <br />
+&gt;&gt; the latest 3.2 stream maintenance build (M20061220) or stable 3.3 <br />
+&gt;&gt; stream build (3.3 M4) work very well on Vista and have resolved the <br />
+&gt;&gt; majority of the stability problems. I suggest upgrading to one of <br />
+&gt;&gt; those builds.<br />
+&gt;&gt; -- <br />
+&gt;&gt;<br />
+&gt;&gt; micho wrote:<br />
+&gt;&gt;<br />
+&gt;&gt;&gt; using vista RC1 eclipse crashes very often.<br />
+&gt;&gt;&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt;&gt;&gt; Any Ideas?<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;  ------------------------------------------------------------ ------------<br />
+&gt;&gt;&gt;<br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311180&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311180&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311180&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_311193"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311193&amp;#msg_311193" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311193&amp;#msg_311193">message #311193</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311180&amp;#msg_311180">message #311180</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 04 January 2007 10:37</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> micho2.gmx.de<br />
+<br />
+thx.<br />
+the two releases M20061220-1400  and  M20061220-0800 are marked with a red <br />
+cross in the windows version.<br />
+I interpret this as &quot;not working for windows&quot; is that true? I ´m sorry I <br />
+have to use windows. Any ideas?<br />
+<br />
+&quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+news:engnvo$647$<a href="mailto:2&#64;utils.eclipse.org..." target="_blank">2&#64;utils.eclipse.org...</a><br />
+&gt; If you need other plugins, I suggest using M20061220, which is fully <br />
+&gt; compatible with Eclipse 3.2.1 and 3.2.0.  Any plugin that works in 3.2.1 <br />
+&gt; really should work in Eclipse 3.2.2.  If not, what kind of conflicts do <br />
+&gt; you get?<br />
+&gt; --<br />
+&gt;<br />
+&gt; micho wrote:<br />
+&gt;&gt; thx!<br />
+&gt;&gt;<br />
+&gt;&gt; is it possible to install the plugins in 3.3M4 like WST, oder LaszloIDE.<br />
+&gt;&gt;<br />
+&gt;&gt; Using Theo update mechanism I always get conflicts.<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; &quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+&gt;&gt; news:endtg2$4o7$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt;<br />
+&gt;&gt;&gt; Existing releases of Eclipse don't work well on Vista. However, either <br />
+&gt;&gt;&gt; the latest 3.2 stream maintenance build (M20061220) or stable 3.3 stream <br />
+&gt;&gt;&gt; build (3.3 M4) work very well on Vista and have resolved the majority of <br />
+&gt;&gt;&gt; the stability problems. I suggest upgrading to one of those builds.<br />
+&gt;&gt;&gt; -- <br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; micho wrote:<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; using vista RC1 eclipse crashes very often.<br />
+&gt;&gt;&gt;&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt;&gt;&gt;&gt; Any Ideas?<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;  ------------------------------------------------------------ ------------<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311193&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311193&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311193&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_311214"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311214&amp;#msg_311214" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311214&amp;#msg_311214">message #311214</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311193&amp;#msg_311193">message #311193</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 04 January 2007 22:38</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> john.eclipsefaq.org<br />
+<br />
+The red cross indicates there were test failures, but it doesn't mean <br />
+the build isn't usable.  The test failures in this case were minor and <br />
+shouldn't affect the quality of the build.  Generally speaking all M <br />
+builds are quite stable, and particularly now that we are close to the <br />
+3.2.2 release.  I agree the red cross is misleading here... hopefully <br />
+we'll get an M build soon that is entirely free of test failures.<br />
+--<br />
+<br />
+micho wrote:<br />
+&gt; thx.<br />
+&gt; the two releases M20061220-1400  and  M20061220-0800 are marked with a <br />
+&gt; red cross in the windows version.<br />
+&gt; I interpret this as &quot;not working for windows&quot; is that true? I ´m sorry I <br />
+&gt; have to use windows. Any ideas?<br />
+&gt; <br />
+&gt; &quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+&gt; news:engnvo$647$<a href="mailto:2&#64;utils.eclipse.org..." target="_blank">2&#64;utils.eclipse.org...</a><br />
+&gt; <br />
+&gt;&gt; If you need other plugins, I suggest using M20061220, which is fully <br />
+&gt;&gt; compatible with Eclipse 3.2.1 and 3.2.0.  Any plugin that works in <br />
+&gt;&gt; 3.2.1 really should work in Eclipse 3.2.2.  If not, what kind of <br />
+&gt;&gt; conflicts do you get?<br />
+&gt;&gt; -- <br />
+&gt;&gt;<br />
+&gt;&gt; micho wrote:<br />
+&gt;&gt;<br />
+&gt;&gt;&gt; thx!<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; is it possible to install the plugins in 3.3M4 like WST, oder LaszloIDE.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Using Theo update mechanism I always get conflicts.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; &quot;John Arthorne&quot; &lt;<a href="mailto:john&#64;eclipsefaq.org" target="_blank">john&#64;eclipsefaq.org</a>&gt; schrieb im Newsbeitrag <br />
+&gt;&gt;&gt; news:endtg2$4o7$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Existing releases of Eclipse don't work well on Vista. However, <br />
+&gt;&gt;&gt;&gt; either the latest 3.2 stream maintenance build (M20061220) or stable <br />
+&gt;&gt;&gt;&gt; 3.3 stream build (3.3 M4) work very well on Vista and have resolved <br />
+&gt;&gt;&gt;&gt; the majority of the stability problems. I suggest upgrading to one <br />
+&gt;&gt;&gt;&gt; of those builds.<br />
+&gt;&gt;&gt;&gt; -- <br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; micho wrote:<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; using vista RC1 eclipse crashes very often.<br />
+&gt;&gt;&gt;&gt;&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt;&gt;&gt;&gt;&gt; Any Ideas?<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt;  ------------------------------------------------------------ ------------ <br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311214&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311214&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311214&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_311315"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311315&amp;#msg_311315" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311315&amp;#msg_311315">message #311315</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=310158&amp;#msg_310158">message #310158</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 09 January 2007 12:18</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> hsk2840.gmail.com<br />
+<br />
+micho wrote:<br />
+&gt; using vista RC1 eclipse crashes very often.<br />
+&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt; Any Ideas?<br />
+&gt; <br />
+&gt;  ------------------------------------------------------------ ------------<br />
+&gt; <br />
+<br />
+Try upgrading to Java 1.5R10 - worked for me..<br />
+<br />
+/Henrik</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311315&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311315&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311315&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_311495"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311495&amp;#msg_311495" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311495&amp;#msg_311495">message #311495</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311315&amp;#msg_311315">message #311315</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 09 January 2007 12:24</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> micho2.gmx.de<br />
+<br />
+thx!<br />
+<br />
+&quot;Henrik Skovgaard&quot; &lt;<a href="mailto:hsk2840&#64;gmail.com" target="_blank">hsk2840&#64;gmail.com</a>&gt; schrieb im Newsbeitrag <br />
+news:eo016o$mnr$<a href="mailto:1&#64;utils.eclipse.org..." target="_blank">1&#64;utils.eclipse.org...</a><br />
+&gt; micho wrote:<br />
+&gt;&gt; using vista RC1 eclipse crashes very often.<br />
+&gt;&gt; I use java 1.5R9 and updated Eclipse.<br />
+&gt;&gt; Any Ideas?<br />
+&gt;&gt;<br />
+&gt;&gt;  ------------------------------------------------------------ ------------<br />
+&gt;&gt;<br />
+&gt;<br />
+&gt; Try upgrading to Java 1.5R10 - worked for me..<br />
+&gt;<br />
+&gt; /Henrik</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311495&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311495&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311495&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_311527"></a><a href="index.php?t=msg&amp;th=101524&amp;goto=311527&amp;#msg_311527" class="MsgSubText">Re: eclipse crashes under vista</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101524&amp;goto=311527&amp;#msg_311527">message #311527</a> is a reply to <a href="index.php?t=msg&amp;th=101524&amp;goto=311495&amp;#msg_311495">message #311495</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 15 January 2007 14:05</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> hsk2840.gmail.com<br />
+<br />
+micho wrote:<br />
+&gt; thx!<br />
+&gt; <br />
+&gt;&gt;<br />
+&gt;&gt; Try upgrading to Java 1.5R10 - worked for me..<br />
+&gt;&gt;<br />
+&gt;&gt; /Henrik <br />
+&gt; <br />
+<br />
+Hmm well.. I thing I'll have to eat my words again. It seemed to work to <br />
+begin woth, but now I experience the crashes again :-/<br />
+<br />
+/Henrik</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311527&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311527&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311527&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: eclipse crashes under vista" />
+	<input type="hidden" name="reply_to" value="311527" />
+	<input type="hidden" name="th_id" value="101524" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/101524/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/311523/#msg_311523">FieldEditors in LaunchConfigurations</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/311528/#msg_311528">Eclipse 3.2.2</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 101524, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=101524&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 10:25:23 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02007 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

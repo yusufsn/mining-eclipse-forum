@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=104114&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/104114/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/104114/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/104114/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/104114/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/104114/317966/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_317966"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317966&amp;#msg_317966" class="MsgSubText">When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317966&amp;#msg_317966">message #317966</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 19:41</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+Hi,<br />
+<br />
+I've got a big problem with the way that eclipse works and I need to <br />
+talk to someone about it to try and find a solution.<br />
+<br />
+I work from a FAT32 portable hdd, FAT32 respects the case of filenames, <br />
+however trying to open a file doesnt require the correct case, therefore <br />
+it is CASE RETAINING, but not CASE SENSITIVE.<br />
+<br />
+Eclipse however, is case sensitive, very very sensitive.  To the point <br />
+that it cannot recognise the MANIFEST.MF if the META-INF and MANIFEST.MF <br />
+files are not the correct case, it will automatically remove ALL the <br />
+Plug-in Dependencies from the Project Navigator and leave your plugin <br />
+uncompilable.<br />
+<br />
+if I write a file called MANIFEST.MF to a FAT32 system, it's case will <br />
+be retained and when I try to open MANIFEST.MF, it will open, when I <br />
+then try to save to MANIFEST.MF, the file will save with new data, but <br />
+the filename will REMAIN as MANIFEST.MF.<br />
+<br />
+This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+SENSITIVE.<br />
+<br />
+So why does eclipse get this minor issue so badly wrong?  Is it because <br />
+internally eclipse lowers the case of a string so it can match it <br />
+against a &quot;known&quot; base string? that lower case string then overwrites <br />
+the original filename with the lower case string and all hell breaks loose??<br />
+<br />
+I am not even sure why eclipse has a problem, if it tries to open <br />
+META-INF/MANIFEST.MF from a FAT32 partition, it will succeed regardless <br />
+of the case.<br />
+<br />
+So can anyone explain this situation??<br />
+<br />
+Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317966&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317966&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317966&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_317967"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317967&amp;#msg_317967" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317967&amp;#msg_317967">message #317967</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317966&amp;#msg_317966">message #317966</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 19:53</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> merks.ca.ibm.com<br />
+<br />
+Chris,<br />
+<br />
+You have to keep in mind that most typically these resources will end up <br />
+in a jar, and within that jar, their access will be case sensitive no <br />
+matter the file system or the OS.  After all, on a Linux system, you <br />
+could have both a meta-inf and a META-INF folder in the same project; I <br />
+don't think Eclipse would complain.  And it isn't just as simple as oh, <br />
+because I'm on Windows, I know it's not case sensitive, since it's <br />
+possible to mount a file system that actually is case sensitive onto a <br />
+Windows OS.  So rather than fight a useless uphill battle toward <br />
+behavior that will work better with Windows' questionable file system <br />
+design, just make your file the proper case they need to be so that will <br />
+they work on all systems and at runtime.  (Just a word of advice from <br />
+someone who's still learning which battles are worth fighting and which <br />
+are futile.)<br />
+<br />
+<br />
+Chris Thomas wrote:<br />
+&gt; Hi,<br />
+&gt;<br />
+&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt; talk to someone about it to try and find a solution.<br />
+&gt;<br />
+&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt; filenames, however trying to open a file doesnt require the correct <br />
+&gt; case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;<br />
+&gt; Eclipse however, is case sensitive, very very sensitive.  To the point <br />
+&gt; that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt; leave your plugin uncompilable.<br />
+&gt;<br />
+&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case will <br />
+&gt; be retained and when I try to open MANIFEST.MF, it will open, when I <br />
+&gt; then try to save to MANIFEST.MF, the file will save with new data, but <br />
+&gt; the filename will REMAIN as MANIFEST.MF.<br />
+&gt;<br />
+&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt; SENSITIVE.<br />
+&gt;<br />
+&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt; because internally eclipse lowers the case of a string so it can match <br />
+&gt; it against a &quot;known&quot; base string? that lower case string then <br />
+&gt; overwrites the original filename with the lower case string and all <br />
+&gt; hell breaks loose??<br />
+&gt;<br />
+&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt; regardless of the case.<br />
+&gt;<br />
+&gt; So can anyone explain this situation??<br />
+&gt;<br />
+&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317967&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317967&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317967&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_317968"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317968&amp;#msg_317968" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317968&amp;#msg_317968">message #317968</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317967&amp;#msg_317967">message #317967</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 20:12</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+hi Ed,<br />
+<br />
+thanks for the reply, however on a more technical point of view I can <br />
+see this happening.<br />
+<br />
+eclipse tries to open META-INF/MANIFEST.MF and finds the file, it stores <br />
+the string MANIFEST.MF as the filename and META-INF as the directory, <br />
+internally, when you are storing these strings, Java is case sensitive, <br />
+so I would expect those strings to keep that case throughout their lifetime.<br />
+<br />
+If eclipse wants to write a filename, surely then it will use the <br />
+original filenames that were used to open the files, that would be a <br />
+directory called META-INF and a file called MANIFEST.MF.  But that is <br />
+not what is happening.<br />
+<br />
+However, eclipse is case sensitive and if you rename META-INF and <br />
+MANIFEST.MF to lower case, your plugin deps disappear and you're project <br />
+is dead, you have to manually rename these files to get back the ability <br />
+to compile.<br />
+<br />
+THEREFORE, it's INCREDIBLY IMPORTANT TO RETAIN CASE of these strings, <br />
+otherwise you just go around breaking people's projects and forcing <br />
+manual renamings.  This is even worse when you are connected to a SVN <br />
+checked out project, because any filename change you make forces a <br />
+compare against the SVN checkout and the renamed files get flagged as <br />
+being added and those changed, removed, but each time this happens, you <br />
+require to refresh the workspace, because you cannot make two filename <br />
+changes at once, but upon refreshing, you find that eclipse can renamed <br />
+the files back to lower case, so when you are connected to a SVN repo, <br />
+it is IMPOSSIBLE to fix this situation by mere file renaming<br />
+<br />
+What I find odd is that on case sensitive filesystems this doesnt <br />
+happen, only on Fat32, I cannot imagine why, because if I do the <br />
+following small snippet of code in c++, I get the desired results.<br />
+<br />
+std::ofstream f(&quot;MANIFEST.MF&quot;,std::ios::text);<br />
+<br />
+f &lt;&lt; &quot;Hello world&quot; &lt;&lt; std::endl;<br />
+f.close();<br />
+<br />
+(forgive any minor imperfections)<br />
+<br />
+I will get a file on disk named MANIFEST.MF and it will contain Hello <br />
+world, so writing files WITH A CASE TO THEIR FILENAME, is possible, so <br />
+why cannot eclipse do it? especially when you consider that this is so <br />
+utterly important and required for normal operation.<br />
+<br />
+In fact, your point about these going into JAR files which are case <br />
+sensitive, is very interesting, how do you plan to compile those JAR <br />
+files, when eclipse keeps changing the case of the files from UPPER to <br />
+lower?  When I refresh my project, I get lower case filenames and from <br />
+that point, I cannot compile and I cannot export to a JAR.  So I <br />
+basically am dead in the water.<br />
+<br />
+So, either there is something I have missed with reading and writing <br />
+files on a FAT32 system in linux, OR, eclipse is doing something wrong.<br />
+<br />
+chris<br />
+<br />
+Ed Merks wrote:<br />
+&gt; Chris,<br />
+&gt; <br />
+&gt; You have to keep in mind that most typically these resources will end up <br />
+&gt; in a jar, and within that jar, their access will be case sensitive no <br />
+&gt; matter the file system or the OS.  After all, on a Linux system, you <br />
+&gt; could have both a meta-inf and a META-INF folder in the same project; I <br />
+&gt; don't think Eclipse would complain.  And it isn't just as simple as oh, <br />
+&gt; because I'm on Windows, I know it's not case sensitive, since it's <br />
+&gt; possible to mount a file system that actually is case sensitive onto a <br />
+&gt; Windows OS.  So rather than fight a useless uphill battle toward <br />
+&gt; behavior that will work better with Windows' questionable file system <br />
+&gt; design, just make your file the proper case they need to be so that will <br />
+&gt; they work on all systems and at runtime.  (Just a word of advice from <br />
+&gt; someone who's still learning which battles are worth fighting and which <br />
+&gt; are futile.)<br />
+&gt; <br />
+&gt; <br />
+&gt; Chris Thomas wrote:<br />
+&gt;&gt; Hi,<br />
+&gt;&gt;<br />
+&gt;&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt;&gt; talk to someone about it to try and find a solution.<br />
+&gt;&gt;<br />
+&gt;&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt;&gt; filenames, however trying to open a file doesnt require the correct <br />
+&gt;&gt; case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;&gt;<br />
+&gt;&gt; Eclipse however, is case sensitive, very very sensitive.  To the point <br />
+&gt;&gt; that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt;&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt;&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt;&gt; leave your plugin uncompilable.<br />
+&gt;&gt;<br />
+&gt;&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case will <br />
+&gt;&gt; be retained and when I try to open MANIFEST.MF, it will open, when I <br />
+&gt;&gt; then try to save to MANIFEST.MF, the file will save with new data, but <br />
+&gt;&gt; the filename will REMAIN as MANIFEST.MF.<br />
+&gt;&gt;<br />
+&gt;&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt;&gt; SENSITIVE.<br />
+&gt;&gt;<br />
+&gt;&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt;&gt; because internally eclipse lowers the case of a string so it can match <br />
+&gt;&gt; it against a &quot;known&quot; base string? that lower case string then <br />
+&gt;&gt; overwrites the original filename with the lower case string and all <br />
+&gt;&gt; hell breaks loose??<br />
+&gt;&gt;<br />
+&gt;&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt;&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt;&gt; regardless of the case.<br />
+&gt;&gt;<br />
+&gt;&gt; So can anyone explain this situation??<br />
+&gt;&gt;<br />
+&gt;&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317968&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317968&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317968&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_317969"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317969&amp;#msg_317969" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317969&amp;#msg_317969">message #317969</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317968&amp;#msg_317968">message #317968</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 20:22</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> merks.ca.ibm.com<br />
+<br />
+Chris,<br />
+<br />
+Comments inline.<br />
+<br />
+<br />
+Chris Thomas wrote:<br />
+&gt; hi Ed,<br />
+&gt;<br />
+&gt; thanks for the reply, however on a more technical point of view I can <br />
+&gt; see this happening.<br />
+&gt;<br />
+&gt; eclipse tries to open META-INF/MANIFEST.MF and finds the file, it <br />
+&gt; stores the string MANIFEST.MF as the filename and META-INF as the <br />
+&gt; directory, internally, when you are storing these strings, Java is <br />
+&gt; case sensitive, so I would expect those strings to keep that case <br />
+&gt; throughout their lifetime.<br />
+Yep, I would too.<br />
+&gt;<br />
+&gt; If eclipse wants to write a filename, surely then it will use the <br />
+&gt; original filenames that were used to open the files, that would be a <br />
+&gt; directory called META-INF and a file called MANIFEST.MF.  But that is <br />
+&gt; not what is happening.<br />
+I don't really believe this assertion, but maybe I don't understand.  <br />
+What do you think it's actually using?<br />
+&gt;<br />
+&gt; However, eclipse is case sensitive and if you rename META-INF and <br />
+&gt; MANIFEST.MF to lower case, your plugin deps disappear and you're <br />
+&gt; project is dead, you have to manually rename these files to get back <br />
+&gt; the ability to compile.<br />
+Yes.  Eclipse is enforcing the rule that it must be MANIFEST.MF and not <br />
+any other case variation of this.<br />
+&gt;<br />
+&gt; THEREFORE, it's INCREDIBLY IMPORTANT TO RETAIN CASE of these strings, <br />
+&gt; otherwise you just go around breaking people's projects and forcing <br />
+&gt; manual renamings.  <br />
+I just tried this and the case in the underlying file system is changed <br />
+all all is consistent (and wrong).<br />
+&gt; This is even worse when you are connected to a SVN checked out <br />
+&gt; project, because any filename change you make forces a compare against <br />
+&gt; the SVN checkout and the renamed files get flagged as being added and <br />
+&gt; those changed, removed, but each time this happens, you require to <br />
+&gt; refresh the workspace, because you cannot make two filename changes at <br />
+&gt; once, but upon refreshing, you find that eclipse can renamed the files <br />
+&gt; back to lower case, so when you are connected to a SVN repo, it is <br />
+&gt; IMPOSSIBLE to fix this situation by mere file renaming<br />
+Sounds like an SVN integration problem.  I don't believe the assertion <br />
+that Eclipse will just lower case your file on the file system, <br />
+especially a scenario like this where it needs to be upper case.<br />
+&gt;<br />
+&gt; What I find odd is that on case sensitive filesystems this doesnt <br />
+&gt; happen, only on Fat32, I cannot imagine why, because if I do the <br />
+&gt; following small snippet of code in c++, I get the desired results.<br />
+&gt;<br />
+&gt; std::ofstream f(&quot;MANIFEST.MF&quot;,std::ios::text);<br />
+&gt;<br />
+&gt; f &lt;&lt; &quot;Hello world&quot; &lt;&lt; std::endl;<br />
+&gt; f.close();<br />
+&gt;<br />
+&gt; (forgive any minor imperfections)<br />
+&gt;<br />
+&gt; I will get a file on disk named MANIFEST.MF and it will contain Hello <br />
+&gt; world, so writing files WITH A CASE TO THEIR FILENAME, is possible, so <br />
+&gt; why cannot eclipse do it? especially when you consider that this is so <br />
+&gt; utterly important and required for normal operation.<br />
+I'm still not sure what problem you are driving at.  The Eclipse <br />
+workspace will match the file name as it actually appears in the file <br />
+system.  It even lets you rename from one case variation to another.   <br />
+Beside, you're above example should be compared to the equivalent Java <br />
+code which you'll find does the equivalent thing.<br />
+&gt;<br />
+&gt; In fact, your point about these going into JAR files which are case <br />
+&gt; sensitive, is very interesting, how do you plan to compile those JAR <br />
+&gt; files, when eclipse keeps changing the case of the files from UPPER to <br />
+&gt; lower?  <br />
+It doesn't do that though.  There must be something you've omitted or <br />
+perhaps you're experiencing an SVN bug that I've not encountered and <br />
+thinking it's Eclipse itself with the problem.<br />
+&gt; When I refresh my project, I get lower case filenames and from that <br />
+&gt; point, I cannot compile and I cannot export to a JAR.  So I basically <br />
+&gt; am dead in the water.<br />
+Eclipse will match the workspace case to the case in the actual file <br />
+system.  That's what it's supposed to do.  You need to fix the case of <br />
+your file in the file system and then Eclipse will happily work with it <br />
+as a proper MANIFEST.MF.<br />
+&gt;<br />
+&gt; So, either there is something I have missed with reading and writing <br />
+&gt; files on a FAT32 system in linux, OR, eclipse is doing something wrong.<br />
+You must be missing something.  Hopefully it's more clear now (and this <br />
+isn't a lesson in futility for me).<br />
+&gt;<br />
+&gt; chris<br />
+&gt;<br />
+&gt; Ed Merks wrote:<br />
+&gt;&gt; Chris,<br />
+&gt;&gt;<br />
+&gt;&gt; You have to keep in mind that most typically these resources will end <br />
+&gt;&gt; up in a jar, and within that jar, their access will be case sensitive <br />
+&gt;&gt; no matter the file system or the OS.  After all, on a Linux system, <br />
+&gt;&gt; you could have both a meta-inf and a META-INF folder in the same <br />
+&gt;&gt; project; I don't think Eclipse would complain.  And it isn't just as <br />
+&gt;&gt; simple as oh, because I'm on Windows, I know it's not case sensitive, <br />
+&gt;&gt; since it's possible to mount a file system that actually is case <br />
+&gt;&gt; sensitive onto a Windows OS.  So rather than fight a useless uphill <br />
+&gt;&gt; battle toward behavior that will work better with Windows' <br />
+&gt;&gt; questionable file system design, just make your file the proper case <br />
+&gt;&gt; they need to be so that will they work on all systems and at <br />
+&gt;&gt; runtime.  (Just a word of advice from someone who's still learning <br />
+&gt;&gt; which battles are worth fighting and which are futile.)<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Chris Thomas wrote:<br />
+&gt;&gt;&gt; Hi,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt;&gt;&gt; talk to someone about it to try and find a solution.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt;&gt;&gt; filenames, however trying to open a file doesnt require the correct <br />
+&gt;&gt;&gt; case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Eclipse however, is case sensitive, very very sensitive.  To the <br />
+&gt;&gt;&gt; point that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt;&gt;&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt;&gt;&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt;&gt;&gt; leave your plugin uncompilable.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case <br />
+&gt;&gt;&gt; will be retained and when I try to open MANIFEST.MF, it will open, <br />
+&gt;&gt;&gt; when I then try to save to MANIFEST.MF, the file will save with new <br />
+&gt;&gt;&gt; data, but the filename will REMAIN as MANIFEST.MF.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt;&gt;&gt; SENSITIVE.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt;&gt;&gt; because internally eclipse lowers the case of a string so it can <br />
+&gt;&gt;&gt; match it against a &quot;known&quot; base string? that lower case string then <br />
+&gt;&gt;&gt; overwrites the original filename with the lower case string and all <br />
+&gt;&gt;&gt; hell breaks loose??<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt;&gt;&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt;&gt;&gt; regardless of the case.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; So can anyone explain this situation??<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317969&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317969&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317969&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_317974"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317974&amp;#msg_317974" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317974&amp;#msg_317974">message #317974</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317969&amp;#msg_317969">message #317969</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 21:40</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+Hi Ed,<br />
+<br />
+comments inline also (with various snippage):<br />
+<br />
+Ed Merks wrote:<br />
+&gt; Chris,<br />
+&gt; <br />
+&gt; Comments inline.<br />
+&gt; <br />
+&gt; <br />
+&gt; Chris Thomas wrote:<br />
+&gt;&gt; hi Ed,<br />
+&gt;&gt;<br />
+&lt;SNIP&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; If eclipse wants to write a filename, surely then it will use the <br />
+&gt;&gt; original filenames that were used to open the files, that would be a <br />
+&gt;&gt; directory called META-INF and a file called MANIFEST.MF.  But that is <br />
+&gt;&gt; not what is happening.<br />
+&gt; I don't really believe this assertion, but maybe I don't understand.  <br />
+&gt; What do you think it's actually using?<br />
+<br />
+ok, I think I understand that you are saying this is EXACTLY what eclise <br />
+does, in that it saves back to the original file that was originally opened.<br />
+<br />
+I can prove this otherwise quite simply.<br />
+<br />
+I close my eclipse project, I open the filesystem, I change the filename <br />
+from to META-INF and MANIFEST.MF.  I open the eclipse project.  Bam, the <br />
+filenames inside the eclipse project are _lower_case_ and now I close <br />
+the eclipse project, without opening the files in question, I look at <br />
+the filesystem, I find meta-inf and manifest.mf.<br />
+<br />
+So, from this, what can you gather?  no other application other than <br />
+eclipse has opened these files, so why has their case in the filesystem <br />
+changed?<br />
+<br />
+&gt;&gt;<br />
+&gt;&gt; However, eclipse is case sensitive and if you rename META-INF and <br />
+&gt;&gt; MANIFEST.MF to lower case, your plugin deps disappear and you're <br />
+&gt;&gt; project is dead, you have to manually rename these files to get back <br />
+&gt;&gt; the ability to compile.<br />
+&gt; Yes.  Eclipse is enforcing the rule that it must be MANIFEST.MF and not <br />
+&gt; any other case variation of this.<br />
+yes, it's enforcing the rule, but it's not cooperating with the rule by <br />
+writing the correct filenames to disk.<br />
+<br />
+&gt;&gt; THEREFORE, it's INCREDIBLY IMPORTANT TO RETAIN CASE of these strings, <br />
+&gt;&gt; otherwise you just go around breaking people's projects and forcing <br />
+&gt;&gt; manual renamings.  <br />
+&gt; I just tried this and the case in the underlying file system is changed <br />
+&gt; all all is consistent (and wrong).<br />
+<br />
+read my above description of a process I just completed right now during <br />
+writing this email, it happens right before your eyes, eclipse is <br />
+rewriting the files using lower case characters but requiring them to be <br />
+UPPER CASE, whilst doing it's thing in the project management side of <br />
+things.<br />
+<br />
+It's also important to note that this ONLY happens with the linux <br />
+eclipse on a FAT32 partition, I have done this on windows xp and the <br />
+file does not change case, I think I have a theory about why this might <br />
+happen, but I would like to know if you can colloborate it.<br />
+<br />
+What I think might happen is that the windows filesystem layer in <br />
+eclipse is opening the file, the one with the correct case and <br />
+truncating it, before writing new content, whereas this might happen in <br />
+linux because the action of rewriting the file would delete the original <br />
+and write a totally new file, therefore maybe the case is getting lost <br />
+because the original file on disk is being deleted first.  However this <br />
+is just a theory.<br />
+<br />
+&gt;&gt; This is even worse when you are connected to a SVN checked out <br />
+&gt;&gt; project, because any filename change you make forces a compare against <br />
+&gt;&gt; the SVN checkout and the renamed files get flagged as being added and <br />
+&gt;&gt; those changed, removed, but each time this happens, you require to <br />
+&gt;&gt; refresh the workspace, because you cannot make two filename changes at <br />
+&gt;&gt; once, but upon refreshing, you find that eclipse can renamed the files <br />
+&gt;&gt; back to lower case, so when you are connected to a SVN repo, it is <br />
+&gt;&gt; IMPOSSIBLE to fix this situation by mere file renaming<br />
+&gt; Sounds like an SVN integration problem.  I don't believe the assertion <br />
+&gt; that Eclipse will just lower case your file on the file system, <br />
+&gt; especially a scenario like this where it needs to be upper case.<br />
+<br />
+well, in actual fact I was using this as an example of how SVN makes <br />
+this problem WORSE, not how SVN makes this problem occur.  It occurs <br />
+without SVN, but it's impossible to fix whilst you are connected to a <br />
+repo.  This is what I am trying to say here, not that it happens whilst <br />
+SVN repo's are attached.<br />
+<br />
+&gt;&gt;<br />
+&gt;&gt; What I find odd is that on case sensitive filesystems this doesnt <br />
+&gt;&gt; happen, only on Fat32, I cannot imagine why, because if I do the <br />
+&gt;&gt; following small snippet of code in c++, I get the desired results.<br />
+&gt;&gt;<br />
+&gt;&gt; std::ofstream f(&quot;MANIFEST.MF&quot;,std::ios::text);<br />
+&gt;&gt;<br />
+&gt;&gt; f &lt;&lt; &quot;Hello world&quot; &lt;&lt; std::endl;<br />
+&gt;&gt; f.close();<br />
+&gt;&gt;<br />
+&gt;&gt; (forgive any minor imperfections)<br />
+&gt;&gt;<br />
+&gt;&gt; I will get a file on disk named MANIFEST.MF and it will contain Hello <br />
+&gt;&gt; world, so writing files WITH A CASE TO THEIR FILENAME, is possible, so <br />
+&gt;&gt; why cannot eclipse do it? especially when you consider that this is so <br />
+&gt;&gt; utterly important and required for normal operation.<br />
+&gt; I'm still not sure what problem you are driving at.  The Eclipse <br />
+&gt; workspace will match the file name as it actually appears in the file <br />
+&gt; system.  It even lets you rename from one case variation to another.   <br />
+&gt; Beside, you're above example should be compared to the equivalent Java <br />
+&gt; code which you'll find does the equivalent thing.<br />
+<br />
+yes, I would have thought so, but this is not the case, experimentally <br />
+and try after try, I get repeatable behaviour, on linux, using FAT32 as <br />
+a filesystem, eclipse is CONSISTENTLY renaming the META-INF and <br />
+MANIFEST.MF names on disk as lower case.  What I was driving at is that <br />
+I can perform these actions very simply using the above code and it <br />
+works HOW I EXPECT IT SHOULD, I am putting a contrast between code I <br />
+know does the right thing and code in eclipse, which is not doing what I <br />
+think and you think it should (you believe it doesnt, I believe it does)<br />
+<br />
+&gt;&gt;<br />
+&gt;&gt; In fact, your point about these going into JAR files which are case <br />
+&gt;&gt; sensitive, is very interesting, how do you plan to compile those JAR <br />
+&gt;&gt; files, when eclipse keeps changing the case of the files from UPPER to <br />
+&gt;&gt; lower?  <br />
+&gt; It doesn't do that though.  There must be something you've omitted or <br />
+&gt; perhaps you're experiencing an SVN bug that I've not encountered and <br />
+&gt; thinking it's Eclipse itself with the problem.<br />
+<br />
+No, don't become attached to the SVN issue, you've misread what I wrote, <br />
+this happens REGARDLESS of SVN, SVN just makes it _worse_ and <br />
+_impossible_ to counteract, whereas if you are not connected to a SVN <br />
+repo, you can just rename the filenames in the project tree and for a <br />
+temporary period, it'll be ok, but when you connect to a SVN repo, each <br />
+filesystem change you make, causes the SVN integration to cause a <br />
+refresh, which means you have to refresh your project before renaming <br />
+another file, which means, eclipse will rename the file to lower case <br />
+before you can complete one &quot;cycle&quot; of actions needed to prevent your <br />
+problem.<br />
+<br />
+so, don't get hooked on the wrong issue.<br />
+<br />
+&gt;&gt; When I refresh my project, I get lower case filenames and from that <br />
+&gt;&gt; point, I cannot compile and I cannot export to a JAR.  So I basically <br />
+&gt;&gt; am dead in the water.<br />
+&gt; Eclipse will match the workspace case to the case in the actual file <br />
+&gt; system.  That's what it's supposed to do.  You need to fix the case of <br />
+&gt; your file in the file system and then Eclipse will happily work with it <br />
+&gt; as a proper MANIFEST.MF.<br />
+<br />
+I have done this many times and it's clearly the case, with this <br />
+installation and I am sure others too, that eclipse is doing something <br />
+funny with regards to files on disk, especially when it comes to FS's <br />
+which are not case sensitive, this problem is of course more an issue <br />
+when you require the correct case, but you are running from a FS which <br />
+doesnt respect case, even though it stores it.<br />
+<br />
+&gt;&gt;<br />
+&gt;&gt; So, either there is something I have missed with reading and writing <br />
+&gt;&gt; files on a FAT32 system in linux, OR, eclipse is doing something wrong.<br />
+&gt; You must be missing something.  Hopefully it's more clear now (and this <br />
+&gt; isn't a lesson in futility for me).<br />
+&gt;&gt;<br />
+&gt;&gt; chris<br />
+&gt;&gt;<br />
+&gt;&gt; Ed Merks wrote:<br />
+&gt;&gt;&gt; Chris,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; You have to keep in mind that most typically these resources will end <br />
+&gt;&gt;&gt; up in a jar, and within that jar, their access will be case sensitive <br />
+&gt;&gt;&gt; no matter the file system or the OS.  After all, on a Linux system, <br />
+&gt;&gt;&gt; you could have both a meta-inf and a META-INF folder in the same <br />
+&gt;&gt;&gt; project; I don't think Eclipse would complain.  And it isn't just as <br />
+&gt;&gt;&gt; simple as oh, because I'm on Windows, I know it's not case sensitive, <br />
+&gt;&gt;&gt; since it's possible to mount a file system that actually is case <br />
+&gt;&gt;&gt; sensitive onto a Windows OS.  So rather than fight a useless uphill <br />
+&gt;&gt;&gt; battle toward behavior that will work better with Windows' <br />
+&gt;&gt;&gt; questionable file system design, just make your file the proper case <br />
+&gt;&gt;&gt; they need to be so that will they work on all systems and at <br />
+&gt;&gt;&gt; runtime.  (Just a word of advice from someone who's still learning <br />
+&gt;&gt;&gt; which battles are worth fighting and which are futile.)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Chris Thomas wrote:<br />
+&gt;&gt;&gt;&gt; Hi,<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt;&gt;&gt;&gt; talk to someone about it to try and find a solution.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt;&gt;&gt;&gt; filenames, however trying to open a file doesnt require the correct <br />
+&gt;&gt;&gt;&gt; case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Eclipse however, is case sensitive, very very sensitive.  To the <br />
+&gt;&gt;&gt;&gt; point that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt;&gt;&gt;&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt;&gt;&gt;&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt;&gt;&gt;&gt; leave your plugin uncompilable.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case <br />
+&gt;&gt;&gt;&gt; will be retained and when I try to open MANIFEST.MF, it will open, <br />
+&gt;&gt;&gt;&gt; when I then try to save to MANIFEST.MF, the file will save with new <br />
+&gt;&gt;&gt;&gt; data, but the filename will REMAIN as MANIFEST.MF.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt;&gt;&gt;&gt; SENSITIVE.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt;&gt;&gt;&gt; because internally eclipse lowers the case of a string so it can <br />
+&gt;&gt;&gt;&gt; match it against a &quot;known&quot; base string? that lower case string then <br />
+&gt;&gt;&gt;&gt; overwrites the original filename with the lower case string and all <br />
+&gt;&gt;&gt;&gt; hell breaks loose??<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt;&gt;&gt;&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt;&gt;&gt;&gt; regardless of the case.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; So can anyone explain this situation??<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317974&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317974&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317974&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_317976"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317976&amp;#msg_317976" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317976&amp;#msg_317976">message #317976</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317974&amp;#msg_317974">message #317974</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 17 July 2007 22:27</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> automatic.javalobby.org<br />
+<br />
+Perhaps it's a problem with your caps-lock key. It seems to come on RANDOMLY through your posts for NO REASON at all.<br />
+<br />
+By the way, renaming stuff outside of Eclipse will give you grief, because then Eclipse has no idea what the case should be. The only reason that Eclipse maintains the case is because it remembers what the case should be; the underlying file system doesn't support it at all. If you renamed stuff outside of Eclipse, then Eclipse were to refresh and find the file had changed, it basically has to guess what you meant.<br />
+<br />
+If you renamed this inside of Eclipse, then Eclipse would manage the casing, even if the file system didn't.<br />
+<br />
+In any case, FAT32 isn't a case preserving file system. Eclipse is only giving the impression of case sensitivity through its copy of the metadata which it stores.<br />
+<br />
+Alex.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317976&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317976&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317976&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_317978"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317978&amp;#msg_317978" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317978&amp;#msg_317978">message #317978</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317974&amp;#msg_317974">message #317974</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 00:12</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> merks.ca.ibm.com<br />
+<br />
+Chris,<br />
+<br />
+I will gracefully bow out and say nothing more as this appears to me to <br />
+be one of those futile kinds of issues from which no good will come.  I <br />
+wish you all the luck getting a positive outcome.  I'll spend my <br />
+precious time helping people who don't feel their points are better made <br />
+with caps lock on.  Sometimes on my own newsgroup I remind folks (and I <br />
+haven't had to do that in a few years) that you'll catch more flies with <br />
+honey than you will with vinegar.<br />
+<br />
+<br />
+Chris Thomas wrote:<br />
+&gt; Hi Ed,<br />
+&gt;<br />
+&gt; comments inline also (with various snippage):<br />
+&gt;<br />
+&gt; Ed Merks wrote:<br />
+&gt;&gt; Chris,<br />
+&gt;&gt;<br />
+&gt;&gt; Comments inline.<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Chris Thomas wrote:<br />
+&gt;&gt;&gt; hi Ed,<br />
+&gt;&gt;&gt;<br />
+&gt; &lt;SNIP&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; If eclipse wants to write a filename, surely then it will use the <br />
+&gt;&gt;&gt; original filenames that were used to open the files, that would be a <br />
+&gt;&gt;&gt; directory called META-INF and a file called MANIFEST.MF.  But that <br />
+&gt;&gt;&gt; is not what is happening.<br />
+&gt;&gt; I don't really believe this assertion, but maybe I don't understand.  <br />
+&gt;&gt; What do you think it's actually using?<br />
+&gt;<br />
+&gt; ok, I think I understand that you are saying this is EXACTLY what <br />
+&gt; eclise does, in that it saves back to the original file that was <br />
+&gt; originally opened.<br />
+&gt;<br />
+&gt; I can prove this otherwise quite simply.<br />
+&gt;<br />
+&gt; I close my eclipse project, I open the filesystem, I change the <br />
+&gt; filename from to META-INF and MANIFEST.MF.  I open the eclipse <br />
+&gt; project.  Bam, the filenames inside the eclipse project are <br />
+&gt; _lower_case_ and now I close the eclipse project, without opening the <br />
+&gt; files in question, I look at the filesystem, I find meta-inf and <br />
+&gt; manifest.mf.<br />
+&gt;<br />
+&gt; So, from this, what can you gather?  no other application other than <br />
+&gt; eclipse has opened these files, so why has their case in the <br />
+&gt; filesystem changed?<br />
+&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; However, eclipse is case sensitive and if you rename META-INF and <br />
+&gt;&gt;&gt; MANIFEST.MF to lower case, your plugin deps disappear and you're <br />
+&gt;&gt;&gt; project is dead, you have to manually rename these files to get back <br />
+&gt;&gt;&gt; the ability to compile.<br />
+&gt;&gt; Yes.  Eclipse is enforcing the rule that it must be MANIFEST.MF and <br />
+&gt;&gt; not any other case variation of this.<br />
+&gt; yes, it's enforcing the rule, but it's not cooperating with the rule <br />
+&gt; by writing the correct filenames to disk.<br />
+&gt;<br />
+&gt;&gt;&gt; THEREFORE, it's INCREDIBLY IMPORTANT TO RETAIN CASE of these <br />
+&gt;&gt;&gt; strings, otherwise you just go around breaking people's projects and <br />
+&gt;&gt;&gt; forcing manual renamings.  <br />
+&gt;&gt; I just tried this and the case in the underlying file system is <br />
+&gt;&gt; changed all all is consistent (and wrong).<br />
+&gt;<br />
+&gt; read my above description of a process I just completed right now <br />
+&gt; during writing this email, it happens right before your eyes, eclipse <br />
+&gt; is rewriting the files using lower case characters but requiring them <br />
+&gt; to be UPPER CASE, whilst doing it's thing in the project management <br />
+&gt; side of things.<br />
+&gt;<br />
+&gt; It's also important to note that this ONLY happens with the linux <br />
+&gt; eclipse on a FAT32 partition, I have done this on windows xp and the <br />
+&gt; file does not change case, I think I have a theory about why this <br />
+&gt; might happen, but I would like to know if you can colloborate it.<br />
+&gt;<br />
+&gt; What I think might happen is that the windows filesystem layer in <br />
+&gt; eclipse is opening the file, the one with the correct case and <br />
+&gt; truncating it, before writing new content, whereas this might happen <br />
+&gt; in linux because the action of rewriting the file would delete the <br />
+&gt; original and write a totally new file, therefore maybe the case is <br />
+&gt; getting lost because the original file on disk is being deleted <br />
+&gt; first.  However this is just a theory.<br />
+&gt;<br />
+&gt;&gt;&gt; This is even worse when you are connected to a SVN checked out <br />
+&gt;&gt;&gt; project, because any filename change you make forces a compare <br />
+&gt;&gt;&gt; against the SVN checkout and the renamed files get flagged as being <br />
+&gt;&gt;&gt; added and those changed, removed, but each time this happens, you <br />
+&gt;&gt;&gt; require to refresh the workspace, because you cannot make two <br />
+&gt;&gt;&gt; filename changes at once, but upon refreshing, you find that eclipse <br />
+&gt;&gt;&gt; can renamed the files back to lower case, so when you are connected <br />
+&gt;&gt;&gt; to a SVN repo, it is IMPOSSIBLE to fix this situation by mere file <br />
+&gt;&gt;&gt; renaming<br />
+&gt;&gt; Sounds like an SVN integration problem.  I don't believe the <br />
+&gt;&gt; assertion that Eclipse will just lower case your file on the file <br />
+&gt;&gt; system, especially a scenario like this where it needs to be upper case.<br />
+&gt;<br />
+&gt; well, in actual fact I was using this as an example of how SVN makes <br />
+&gt; this problem WORSE, not how SVN makes this problem occur.  It occurs <br />
+&gt; without SVN, but it's impossible to fix whilst you are connected to a <br />
+&gt; repo.  This is what I am trying to say here, not that it happens <br />
+&gt; whilst SVN repo's are attached.<br />
+&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; What I find odd is that on case sensitive filesystems this doesnt <br />
+&gt;&gt;&gt; happen, only on Fat32, I cannot imagine why, because if I do the <br />
+&gt;&gt;&gt; following small snippet of code in c++, I get the desired results.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; std::ofstream f(&quot;MANIFEST.MF&quot;,std::ios::text);<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; f &lt;&lt; &quot;Hello world&quot; &lt;&lt; std::endl;<br />
+&gt;&gt;&gt; f.close();<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; (forgive any minor imperfections)<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I will get a file on disk named MANIFEST.MF and it will contain <br />
+&gt;&gt;&gt; Hello world, so writing files WITH A CASE TO THEIR FILENAME, is <br />
+&gt;&gt;&gt; possible, so why cannot eclipse do it? especially when you consider <br />
+&gt;&gt;&gt; that this is so utterly important and required for normal operation.<br />
+&gt;&gt; I'm still not sure what problem you are driving at.  The Eclipse <br />
+&gt;&gt; workspace will match the file name as it actually appears in the file <br />
+&gt;&gt; system.  It even lets you rename from one case variation to <br />
+&gt;&gt; another.   Beside, you're above example should be compared to the <br />
+&gt;&gt; equivalent Java code which you'll find does the equivalent thing.<br />
+&gt;<br />
+&gt; yes, I would have thought so, but this is not the case, experimentally <br />
+&gt; and try after try, I get repeatable behaviour, on linux, using FAT32 <br />
+&gt; as a filesystem, eclipse is CONSISTENTLY renaming the META-INF and <br />
+&gt; MANIFEST.MF names on disk as lower case.  What I was driving at is <br />
+&gt; that I can perform these actions very simply using the above code and <br />
+&gt; it works HOW I EXPECT IT SHOULD, I am putting a contrast between code <br />
+&gt; I know does the right thing and code in eclipse, which is not doing <br />
+&gt; what I think and you think it should (you believe it doesnt, I believe <br />
+&gt; it does)<br />
+&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; In fact, your point about these going into JAR files which are case <br />
+&gt;&gt;&gt; sensitive, is very interesting, how do you plan to compile those JAR <br />
+&gt;&gt;&gt; files, when eclipse keeps changing the case of the files from UPPER <br />
+&gt;&gt;&gt; to lower?  <br />
+&gt;&gt; It doesn't do that though.  There must be something you've omitted or <br />
+&gt;&gt; perhaps you're experiencing an SVN bug that I've not encountered and <br />
+&gt;&gt; thinking it's Eclipse itself with the problem.<br />
+&gt;<br />
+&gt; No, don't become attached to the SVN issue, you've misread what I <br />
+&gt; wrote, this happens REGARDLESS of SVN, SVN just makes it _worse_ and <br />
+&gt; _impossible_ to counteract, whereas if you are not connected to a SVN <br />
+&gt; repo, you can just rename the filenames in the project tree and for a <br />
+&gt; temporary period, it'll be ok, but when you connect to a SVN repo, <br />
+&gt; each filesystem change you make, causes the SVN integration to cause a <br />
+&gt; refresh, which means you have to refresh your project before renaming <br />
+&gt; another file, which means, eclipse will rename the file to lower case <br />
+&gt; before you can complete one &quot;cycle&quot; of actions needed to prevent your <br />
+&gt; problem.<br />
+&gt;<br />
+&gt; so, don't get hooked on the wrong issue.<br />
+&gt;<br />
+&gt;&gt;&gt; When I refresh my project, I get lower case filenames and from that <br />
+&gt;&gt;&gt; point, I cannot compile and I cannot export to a JAR.  So I <br />
+&gt;&gt;&gt; basically am dead in the water.<br />
+&gt;&gt; Eclipse will match the workspace case to the case in the actual file <br />
+&gt;&gt; system.  That's what it's supposed to do.  You need to fix the case <br />
+&gt;&gt; of your file in the file system and then Eclipse will happily work <br />
+&gt;&gt; with it as a proper MANIFEST.MF.<br />
+&gt;<br />
+&gt; I have done this many times and it's clearly the case, with this <br />
+&gt; installation and I am sure others too, that eclipse is doing something <br />
+&gt; funny with regards to files on disk, especially when it comes to FS's <br />
+&gt; which are not case sensitive, this problem is of course more an issue <br />
+&gt; when you require the correct case, but you are running from a FS which <br />
+&gt; doesnt respect case, even though it stores it.<br />
+&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; So, either there is something I have missed with reading and writing <br />
+&gt;&gt;&gt; files on a FAT32 system in linux, OR, eclipse is doing something wrong.<br />
+&gt;&gt; You must be missing something.  Hopefully it's more clear now (and <br />
+&gt;&gt; this isn't a lesson in futility for me).<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; chris<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Ed Merks wrote:<br />
+&gt;&gt;&gt;&gt; Chris,<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; You have to keep in mind that most typically these resources will <br />
+&gt;&gt;&gt;&gt; end up in a jar, and within that jar, their access will be case <br />
+&gt;&gt;&gt;&gt; sensitive no matter the file system or the OS.  After all, on a <br />
+&gt;&gt;&gt;&gt; Linux system, you could have both a meta-inf and a META-INF folder <br />
+&gt;&gt;&gt;&gt; in the same project; I don't think Eclipse would complain.  And it <br />
+&gt;&gt;&gt;&gt; isn't just as simple as oh, because I'm on Windows, I know it's not <br />
+&gt;&gt;&gt;&gt; case sensitive, since it's possible to mount a file system that <br />
+&gt;&gt;&gt;&gt; actually is case sensitive onto a Windows OS.  So rather than fight <br />
+&gt;&gt;&gt;&gt; a useless uphill battle toward behavior that will work better with <br />
+&gt;&gt;&gt;&gt; Windows' questionable file system design, just make your file the <br />
+&gt;&gt;&gt;&gt; proper case they need to be so that will they work on all systems <br />
+&gt;&gt;&gt;&gt; and at runtime.  (Just a word of advice from someone who's still <br />
+&gt;&gt;&gt;&gt; learning which battles are worth fighting and which are futile.)<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Chris Thomas wrote:<br />
+&gt;&gt;&gt;&gt;&gt; Hi,<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I've got a big problem with the way that eclipse works and I need <br />
+&gt;&gt;&gt;&gt;&gt; to talk to someone about it to try and find a solution.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt;&gt;&gt;&gt;&gt; filenames, however trying to open a file doesnt require the <br />
+&gt;&gt;&gt;&gt;&gt; correct case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; Eclipse however, is case sensitive, very very sensitive.  To the <br />
+&gt;&gt;&gt;&gt;&gt; point that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt;&gt;&gt;&gt;&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt;&gt;&gt;&gt;&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt;&gt;&gt;&gt;&gt; leave your plugin uncompilable.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case <br />
+&gt;&gt;&gt;&gt;&gt; will be retained and when I try to open MANIFEST.MF, it will open, <br />
+&gt;&gt;&gt;&gt;&gt; when I then try to save to MANIFEST.MF, the file will save with <br />
+&gt;&gt;&gt;&gt;&gt; new data, but the filename will REMAIN as MANIFEST.MF.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt;&gt;&gt;&gt;&gt; SENSITIVE.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt;&gt;&gt;&gt;&gt; because internally eclipse lowers the case of a string so it can <br />
+&gt;&gt;&gt;&gt;&gt; match it against a &quot;known&quot; base string? that lower case string <br />
+&gt;&gt;&gt;&gt;&gt; then overwrites the original filename with the lower case string <br />
+&gt;&gt;&gt;&gt;&gt; and all hell breaks loose??<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt;&gt;&gt;&gt;&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt;&gt;&gt;&gt;&gt; regardless of the case.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; So can anyone explain this situation??<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317978&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317978&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317978&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_317985"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317985&amp;#msg_317985" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317985&amp;#msg_317985">message #317985</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317978&amp;#msg_317978">message #317978</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 06:36</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+Ed Merks wrote:<br />
+&gt; Chris,<br />
+&gt; <br />
+&gt; I will gracefully bow out and say nothing more as this appears to me to <br />
+&gt; be one of those futile kinds of issues from which no good will come.  I <br />
+&gt; wish you all the luck getting a positive outcome.  I'll spend my <br />
+&gt; precious time helping people who don't feel their points are better made <br />
+&gt; with caps lock on.  Sometimes on my own newsgroup I remind folks (and I <br />
+&gt; haven't had to do that in a few years) that you'll catch more flies with <br />
+&gt; honey than you will with vinegar.<br />
+&gt; <br />
+<br />
+Ed,<br />
+<br />
+this is the internet, the caps are for emphasis, not for shouting, if <br />
+your skin is that thin, maybe you should put more time in at the local <br />
+nursing home listening to granddad's tell you their war stories over a <br />
+nice cup of tea than dealing with this.<br />
+<br />
+thanks anyway.<br />
+<br />
+chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317985&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317985&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317985&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_317997"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317997&amp;#msg_317997" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317997&amp;#msg_317997">message #317997</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317985&amp;#msg_317985">message #317985</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 13:33</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> merks.ca.ibm.com<br />
+<br />
+Chris,<br />
+<br />
+Ouch. <br />
+<br />
+Given that I answer many thousands of questions a year (like 3-4 <br />
+thousand) on various Eclipse newsgroups, I don't have nearly as much <br />
+time for the nursing home stories as I might like.  I'll bet the stories <br />
+would be quite interesting and that they'd really appreciate my time.  I <br />
+really do hope you can resolve your problems satisfactorily since I like <br />
+to see everyone have a positive experience with Eclipse and with the <br />
+Eclipse community.  Sorry that I contributed something negative to yours.<br />
+<br />
+<br />
+Chris Thomas wrote:<br />
+&gt; Ed Merks wrote:<br />
+&gt;&gt; Chris,<br />
+&gt;&gt;<br />
+&gt;&gt; I will gracefully bow out and say nothing more as this appears to me <br />
+&gt;&gt; to be one of those futile kinds of issues from which no good will <br />
+&gt;&gt; come.  I wish you all the luck getting a positive outcome.  I'll <br />
+&gt;&gt; spend my precious time helping people who don't feel their points are <br />
+&gt;&gt; better made with caps lock on.  Sometimes on my own newsgroup I <br />
+&gt;&gt; remind folks (and I haven't had to do that in a few years) that <br />
+&gt;&gt; you'll catch more flies with honey than you will with vinegar.<br />
+&gt;&gt;<br />
+&gt;<br />
+&gt; Ed,<br />
+&gt;<br />
+&gt; this is the internet, the caps are for emphasis, not for shouting, if <br />
+&gt; your skin is that thin, maybe you should put more time in at the local <br />
+&gt; nursing home listening to granddad's tell you their war stories over a <br />
+&gt; nice cup of tea than dealing with this.<br />
+&gt;<br />
+&gt; thanks anyway.<br />
+&gt;<br />
+&gt; chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317997&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317997&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317997&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_317998"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=317998&amp;#msg_317998" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=317998&amp;#msg_317998">message #317998</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317966&amp;#msg_317966">message #317966</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 13:38</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Paul Webster is currently offline" title="Paul Webster is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=17212&amp;">Paul Webster</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=pwebster%40ca.ibm.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6859<br /><b>Registered:</b> July 2009 <br /><b>Location: </b>Ottawa</td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=17212&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=17212&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /><img src="theme/Solstice/images/google.png" title="paulweb515&#64;gmail&#46;com" alt="" /><a href="http://twitter.com/paulweb515"><img src="theme/Solstice/images/twitter.png" title="paulweb515" alt="" /></a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Chris Thomas wrote:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt; talk to someone about it to try and find a solution.<br />
+<br />
+I've used eclipse on windows and linux, and have not encountered this <br />
+problem ... but I haven't used linux with a FAT32 mount.  Eclipse itself <br />
+will not change the case of the file, that I'm sure of.  On linux, a <br />
+FAT32 mounted file system is still just a mounted file system.  It <br />
+sounds like the linux-fat32 drivers are doing something on the way down, <br />
+although there is always a chance it's a bug in <br />
+org.eclipse.core.filesystem.linux<br />
+<br />
+It's definitely worth opening a bug report at <br />
+<a href="https://bugs.eclipse.org/bugs/" target="_blank">https://bugs.eclipse.org/bugs/</a> against Eclipse Platform Resources.<br />
+<br />
+Please include a testcase ... I'm guessing:<br />
+1) workspace on a FAT32 partition mounted on linux<br />
+2) create the default hello world plugin<br />
+3) run (works fine)<br />
+4) change the manifest and save<br />
+5) now there are problems.<br />
+<br />
+Later,<br />
+PW</span>
+
+<br /><br /><div class="signature" />Paul Webster<br />
+<a href="http&#58;&#47;&#47;wiki.eclipse.org/Platform_Command_Framework">http://wiki.eclipse.org/Platform_Command_Framework</a><br />
+<a href="http&#58;&#47;&#47;wiki.eclipse.org/Command_Core_Expressions">http://wiki.eclipse.org/Command_Core_Expressions</a><br />
+<a href="http&#58;&#47;&#47;wiki.eclipse.org/Menu_Contributions">http://wiki.eclipse.org/Menu_Contributions</a></div>
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=317998&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=17212&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=317998&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=317998&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_11"></a><a name="msg_318018"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=318018&amp;#msg_318018" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=318018&amp;#msg_318018">message #318018</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317968&amp;#msg_317968">message #317968</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 17:50</span> <a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Steve Blass is currently offline" title="Steve Blass is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=21064&amp;">Steve Blass</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=sblass%40acm.org" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 276<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=21064&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=21064&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">&gt; reading and writing files on a FAT32 system in linux<br />
+<br />
+You might experiment with the 'shortname' options to the linux mount <br />
+command for mounting vfat partitions and see if using shortname=win95 or <br />
+shortname=mixed can clear up the file name snafus you're experiencing.<br />
+<br />
+<br />
+-<br />
+Steve<br />
+<br />
+<br />
+<br />
+<br />
+Chris Thomas wrote:<br />
+&gt; hi Ed,<br />
+&gt; <br />
+&gt; thanks for the reply, however on a more technical point of view I can <br />
+&gt; see this happening.<br />
+&gt; <br />
+&gt; eclipse tries to open META-INF/MANIFEST.MF and finds the file, it stores <br />
+&gt; the string MANIFEST.MF as the filename and META-INF as the directory, <br />
+&gt; internally, when you are storing these strings, Java is case sensitive, <br />
+&gt; so I would expect those strings to keep that case throughout their <br />
+&gt; lifetime.<br />
+&gt; <br />
+&gt; If eclipse wants to write a filename, surely then it will use the <br />
+&gt; original filenames that were used to open the files, that would be a <br />
+&gt; directory called META-INF and a file called MANIFEST.MF.  But that is <br />
+&gt; not what is happening.<br />
+&gt; <br />
+&gt; However, eclipse is case sensitive and if you rename META-INF and <br />
+&gt; MANIFEST.MF to lower case, your plugin deps disappear and you're project <br />
+&gt; is dead, you have to manually rename these files to get back the ability <br />
+&gt; to compile.<br />
+&gt; <br />
+&gt; THEREFORE, it's INCREDIBLY IMPORTANT TO RETAIN CASE of these strings, <br />
+&gt; otherwise you just go around breaking people's projects and forcing <br />
+&gt; manual renamings.  This is even worse when you are connected to a SVN <br />
+&gt; checked out project, because any filename change you make forces a <br />
+&gt; compare against the SVN checkout and the renamed files get flagged as <br />
+&gt; being added and those changed, removed, but each time this happens, you <br />
+&gt; require to refresh the workspace, because you cannot make two filename <br />
+&gt; changes at once, but upon refreshing, you find that eclipse can renamed <br />
+&gt; the files back to lower case, so when you are connected to a SVN repo, <br />
+&gt; it is IMPOSSIBLE to fix this situation by mere file renaming<br />
+&gt; <br />
+&gt; What I find odd is that on case sensitive filesystems this doesnt <br />
+&gt; happen, only on Fat32, I cannot imagine why, because if I do the <br />
+&gt; following small snippet of code in c++, I get the desired results.<br />
+&gt; <br />
+&gt; std::ofstream f(&quot;MANIFEST.MF&quot;,std::ios::text);<br />
+&gt; <br />
+&gt; f &lt;&lt; &quot;Hello world&quot; &lt;&lt; std::endl;<br />
+&gt; f.close();<br />
+&gt; <br />
+&gt; (forgive any minor imperfections)<br />
+&gt; <br />
+&gt; I will get a file on disk named MANIFEST.MF and it will contain Hello <br />
+&gt; world, so writing files WITH A CASE TO THEIR FILENAME, is possible, so <br />
+&gt; why cannot eclipse do it? especially when you consider that this is so <br />
+&gt; utterly important and required for normal operation.<br />
+&gt; <br />
+&gt; In fact, your point about these going into JAR files which are case <br />
+&gt; sensitive, is very interesting, how do you plan to compile those JAR <br />
+&gt; files, when eclipse keeps changing the case of the files from UPPER to <br />
+&gt; lower?  When I refresh my project, I get lower case filenames and from <br />
+&gt; that point, I cannot compile and I cannot export to a JAR.  So I <br />
+&gt; basically am dead in the water.<br />
+&gt; <br />
+&gt; So, either there is something I have missed with reading and writing <br />
+&gt; files on a FAT32 system in linux, OR, eclipse is doing something wrong.<br />
+&gt; <br />
+&gt; chris<br />
+&gt; <br />
+&gt; Ed Merks wrote:<br />
+&gt;&gt; Chris,<br />
+&gt;&gt;<br />
+&gt;&gt; You have to keep in mind that most typically these resources will end <br />
+&gt;&gt; up in a jar, and within that jar, their access will be case sensitive <br />
+&gt;&gt; no matter the file system or the OS.  After all, on a Linux system, <br />
+&gt;&gt; you could have both a meta-inf and a META-INF folder in the same <br />
+&gt;&gt; project; I don't think Eclipse would complain.  And it isn't just as <br />
+&gt;&gt; simple as oh, because I'm on Windows, I know it's not case sensitive, <br />
+&gt;&gt; since it's possible to mount a file system that actually is case <br />
+&gt;&gt; sensitive onto a Windows OS.  So rather than fight a useless uphill <br />
+&gt;&gt; battle toward behavior that will work better with Windows' <br />
+&gt;&gt; questionable file system design, just make your file the proper case <br />
+&gt;&gt; they need to be so that will they work on all systems and at runtime.  <br />
+&gt;&gt; (Just a word of advice from someone who's still learning which battles <br />
+&gt;&gt; are worth fighting and which are futile.)<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Chris Thomas wrote:<br />
+&gt;&gt;&gt; Hi,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I've got a big problem with the way that eclipse works and I need to <br />
+&gt;&gt;&gt; talk to someone about it to try and find a solution.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I work from a FAT32 portable hdd, FAT32 respects the case of <br />
+&gt;&gt;&gt; filenames, however trying to open a file doesnt require the correct <br />
+&gt;&gt;&gt; case, therefore it is CASE RETAINING, but not CASE SENSITIVE.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Eclipse however, is case sensitive, very very sensitive.  To the <br />
+&gt;&gt;&gt; point that it cannot recognise the MANIFEST.MF if the META-INF and <br />
+&gt;&gt;&gt; MANIFEST.MF files are not the correct case, it will automatically <br />
+&gt;&gt;&gt; remove ALL the Plug-in Dependencies from the Project Navigator and <br />
+&gt;&gt;&gt; leave your plugin uncompilable.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; if I write a file called MANIFEST.MF to a FAT32 system, it's case <br />
+&gt;&gt;&gt; will be retained and when I try to open MANIFEST.MF, it will open, <br />
+&gt;&gt;&gt; when I then try to save to MANIFEST.MF, the file will save with new <br />
+&gt;&gt;&gt; data, but the filename will REMAIN as MANIFEST.MF.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; This I know from practice, hence it's CASE RETAINING, but not CASE <br />
+&gt;&gt;&gt; SENSITIVE.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; So why does eclipse get this minor issue so badly wrong?  Is it <br />
+&gt;&gt;&gt; because internally eclipse lowers the case of a string so it can <br />
+&gt;&gt;&gt; match it against a &quot;known&quot; base string? that lower case string then <br />
+&gt;&gt;&gt; overwrites the original filename with the lower case string and all <br />
+&gt;&gt;&gt; hell breaks loose??<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I am not even sure why eclipse has a problem, if it tries to open <br />
+&gt;&gt;&gt; META-INF/MANIFEST.MF from a FAT32 partition, it will succeed <br />
+&gt;&gt;&gt; regardless of the case.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; So can anyone explain this situation??<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=318018&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=21064&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=318018&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=318018&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_12"></a><a name="msg_318026"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=318026&amp;#msg_318026" class="MsgSubText">(apology) Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=318026&amp;#msg_318026">message #318026</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=317997&amp;#msg_317997">message #317997</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 20:55</span> <a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+Ed Merks wrote:<br />
+&gt; Chris,<br />
+&gt; <br />
+&gt; Ouch.<br />
+&gt; Given that I answer many thousands of questions a year (like 3-4 <br />
+&gt; thousand) on various Eclipse newsgroups, I don't have nearly as much <br />
+&gt; time for the nursing home stories as I might like.  I'll bet the stories <br />
+&gt; would be quite interesting and that they'd really appreciate my time.  I <br />
+&gt; really do hope you can resolve your problems satisfactorily since I like <br />
+&gt; to see everyone have a positive experience with Eclipse and with the <br />
+&gt; Eclipse community.  Sorry that I contributed something negative to yours.<br />
+&gt; <br />
+&gt; <br />
+Ed,<br />
+<br />
+sorry for before, I react badly to what I see as the old Grammer Nazis, <br />
+so my response was probably disproportionate, admittedly you help far <br />
+more people than I help and I apologise for the outburst.  was a bit <br />
+childish<br />
+<br />
+chris</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=318026&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=318026&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=318026&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_13"></a><a name="msg_318031"></a><a href="index.php?t=msg&amp;th=104114&amp;goto=318031&amp;#msg_318031" class="MsgSubText">Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=104114&amp;goto=318031&amp;#msg_318031">message #318031</a> is a reply to <a href="index.php?t=msg&amp;th=104114&amp;goto=318018&amp;#msg_318018">message #318018</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 18 July 2007 22:58</span> <a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> chris.thomas.antimatter-studios.co.uk<br />
+<br />
+Steve Blass wrote:<br />
+&gt;  &gt; reading and writing files on a FAT32 system in linux<br />
+&gt; <br />
+&gt; You might experiment with the 'shortname' options to the linux mount <br />
+&gt; command for mounting vfat partitions and see if using shortname=win95 or <br />
+&gt; shortname=mixed can clear up the file name snafus you're experiencing.<br />
+&gt; <br />
+&gt; <br />
+&gt; -<br />
+&gt; Steve<br />
+&gt; <br />
+<br />
+You're absolutely correct, I checked this out and found that HAL is <br />
+mounting my partition using shortname=lower, which would explain it, <br />
+also this explains it exactly.<br />
+<br />
+<a href="http://blogs.sun.com/abhi/entry/fat32_filenames_in_linux" target="_blank">http://blogs.sun.com/abhi/entry/fat32_filenames_in_linux</a><br />
+<br />
+thanks steve.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=318031&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=318031&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=318031&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: When MANIFEST.MF is not the same filename as manifest.mf or MaNiFeSt.Mf" />
+	<input type="hidden" name="reply_to" value="318031" />
+	<input type="hidden" name="th_id" value="104114" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/104114/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/318029/#msg_318029">View version of ColorCellEditor</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/318033/#msg_318033">running eclipse based application as a commandline tool</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 104114, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=104114&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 10:57:00 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02724 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; Does jface databinding support treeviewer?</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=107403&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; Does jface databinding support treeviewer? | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; Does jface databinding support treeviewer? | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; Does jface databinding support treeviewer? | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>Does jface databinding support treeviewer?</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/107403/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/107403/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/107403/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/107403/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/107403/328406/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_328406"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328406&amp;#msg_328406" class="MsgSubText">Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328406&amp;#msg_328406">message #328406</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 24 May 2008 04:18</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+Does jface databinding support treeviewer? If it does, could you please <br />
+show me an example?<br />
+<br />
+thanks<br />
+hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328406&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328406&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328406&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_328413"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328413&amp;#msg_328413" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328413&amp;#msg_328413">message #328413</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328406&amp;#msg_328406">message #328406</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 24 May 2008 07:27</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao schrieb:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; Does jface databinding support treeviewer? If it does, could you please <br />
+&gt; show me an example?<br />
+&gt; <br />
+&gt; thanks<br />
+&gt; hao<br />
+&gt; <br />
+<br />
+yes in 3.4 with an official api and in 3.3 with an in official.<br />
+<br />
+Tom<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328413&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328413&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328413&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_328427"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328427&amp;#msg_328427" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328427&amp;#msg_328427">message #328427</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328413&amp;#msg_328413">message #328413</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 24 May 2008 12:28</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+What are the corresponding API for 3.4? What's the in-offical way for 3.3? <br />
+Could you please provide some sample code?<br />
+<br />
+thanks!<br />
+hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328427&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328427&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328427&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_328431"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328431&amp;#msg_328431" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328431&amp;#msg_328431">message #328431</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328427&amp;#msg_328427">message #328427</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 24 May 2008 12:37</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.jface.examples.databinding/src/org/eclipse/jface/examples/databinding/snippets/" target="_blank"> http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.jface.e xamples.databinding/src/org/eclipse/jface/examples/databindi ng/snippets/</a><br />
+<br />
+Tom<br />
+hao schrieb:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; What are the corresponding API for 3.4? What's the in-offical way for <br />
+&gt; 3.3? Could you please provide some sample code?<br />
+&gt; <br />
+&gt; thanks!<br />
+&gt; hao<br />
+&gt; <br />
+<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328431&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328431&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328431&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_328439"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328439&amp;#msg_328439" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328439&amp;#msg_328439">message #328439</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328431&amp;#msg_328431">message #328431</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sun, 25 May 2008 01:36</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">The jface databinding example is too sample. Basically, the nodes on a <br />
+tree may contain different objects. The BeansObservables.listFactory() is <br />
+not good enough for that kind of situation. I would like find some butter <br />
+examples which use real tree structure.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328439&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328439&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328439&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_328441"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328441&amp;#msg_328441" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328441&amp;#msg_328441">message #328441</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328439&amp;#msg_328439">message #328439</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sun, 25 May 2008 09:29</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Good luck. You'll to study the code yourself, you are welcome to provide <br />
+one after having found out how to do it.<br />
+<br />
+Tom<br />
+<br />
+hao schrieb:<br />
+&gt; The jface databinding example is too sample. Basically, the nodes on a <br />
+&gt; tree may contain different objects. The BeansObservables.listFactory() <br />
+&gt; is not good enough for that kind of situation. I would like find some <br />
+&gt; butter examples which use real tree structure.<br />
+&gt; <br />
+<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328441&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328441&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328441&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_328491"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328491&amp;#msg_328491" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328491&amp;#msg_328491">message #328491</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328439&amp;#msg_328439">message #328439</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 26 May 2008 16:21</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">In this case you will want to write an IObservableFactory which <br />
+delegates to the correct factory on a case-by-case basis:<br />
+<br />
+IObservableFactory listFactory = new IObservableFactory() {<br />
+   IObservableFactory workspaceProjects = ...;<br />
+   IObservableFactory projectFiles = ...;<br />
+   IObservableFactory folderFiles = ...;<br />
+<br />
+   public IObservable createObservable(Object target) {<br />
+     if (target instanceof IWorkspace)<br />
+       return workspaceProjects.createObservable(target);<br />
+     if (target instanceof IProject)<br />
+       return projectFiles.createObservable(target);<br />
+     if (target instanceof IFolder)<br />
+       return folderFiles.createObservable(target);<br />
+     return null;<br />
+   }<br />
+};<br />
+<br />
+Does this help?<br />
+<br />
+Matthew<br />
+<br />
+hao wrote:<br />
+&gt; The jface databinding example is too sample. Basically, the nodes on a <br />
+&gt; tree may contain different objects. The BeansObservables.listFactory() <br />
+&gt; is not good enough for that kind of situation. I would like find some <br />
+&gt; butter examples which use real tree structure.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328491&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328491&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328491&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_328502"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328502&amp;#msg_328502" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328502&amp;#msg_328502">message #328502</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328491&amp;#msg_328491">message #328491</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 26 May 2008 18:48</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">HI,<br />
+<br />
+I already did that but still get error. Please see the source code on my <br />
+post of treeviewer databinding error. I think the problem is that the <br />
+label provider is not generated correctly. Do you have any idea on how to <br />
+create the label provider?<br />
+<br />
+thanks!</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328502&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328502&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328502&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_328547"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328547&amp;#msg_328547" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328547&amp;#msg_328547">message #328547</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328502&amp;#msg_328502">message #328502</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 16:16</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; HI,<br />
+&gt; <br />
+&gt; I already did that but still get error. Please see the source code on my <br />
+&gt; post of treeviewer databinding error. I think the problem is that the <br />
+&gt; label provider is not generated correctly. Do you have any idea on how <br />
+&gt; to create the label provider?<br />
+&gt; <br />
+&gt; thanks!<br />
+&gt; <br />
+<br />
+hao,<br />
+<br />
+I've looked back through this thread but didn't see the code you're <br />
+talking about.  Could you repost?<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328547&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328547&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328547&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_328549"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328549&amp;#msg_328549" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328549&amp;#msg_328549">message #328549</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328547&amp;#msg_328547">message #328547</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 15:22</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Thomas Schindl is currently offline" title="Thomas Schindl is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=10577&amp;">Thomas Schindl</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=tom.schindl%40bestsolution.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 6421<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=10577&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Matt its part of the &quot;treeviewer databinding error&quot; thread.<br />
+<br />
+Tom<br />
+<br />
+Matthew Hall schrieb:<br />
+&gt; hao wrote:<br />
+&gt;&gt; HI,<br />
+&gt;&gt;<br />
+&gt;&gt; I already did that but still get error. Please see the source code on <br />
+&gt;&gt; my post of treeviewer databinding error. I think the problem is that <br />
+&gt;&gt; the label provider is not generated correctly. Do you have any idea on <br />
+&gt;&gt; how to create the label provider?<br />
+&gt;&gt;<br />
+&gt;&gt; thanks!<br />
+&gt;&gt;<br />
+&gt; <br />
+&gt; hao,<br />
+&gt; <br />
+&gt; I've looked back through this thread but didn't see the code you're <br />
+&gt; talking about.  Could you repost?<br />
+&gt; <br />
+&gt; Matthew<br />
+<br />
+<br />
+-- <br />
+B e s t S o l u t i o n . at<br />
+ ------------------------------------------------------------ --------<br />
+Tom Schindl                                          JFace-Committer<br />
+ ------------------------------------------------------------ --------</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328549&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=10577&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328549&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328549&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_11"></a><a name="msg_328562"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328562&amp;#msg_328562" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328562&amp;#msg_328562">message #328562</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328549&amp;#msg_328549">message #328549</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 16:42</span> <a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Here's the code.<br />
+<br />
+package com.discover.plugin.phonebook.treeviewer.v34;<br />
+<br />
+import java.beans.PropertyChangeListener;<br />
+import java.beans.PropertyChangeSupport;<br />
+import java.util.ArrayList;<br />
+import java.util.Iterator;<br />
+import java.util.List;<br />
+import java.util.Set;<br />
+<br />
+import org.eclipse.core.databinding.DataBindingContext;<br />
+import org.eclipse.core.databinding.UpdateValueStrategy;<br />
+import org.eclipse.core.databinding.beans.BeansObservables;<br />
+import org.eclipse.core.databinding.observable.IObservable;<br />
+import org.eclipse.core.databinding.observable.Realm;<br />
+import org.eclipse.core.databinding.observable.map.IObservableMap;<br />
+import <br />
+ org.eclipse.core.databinding.observable.masterdetail.IObserv ableFactory;<br />
+import  org.eclipse.core.databinding.observable.value.IObservableVal ue;<br />
+import  org.eclipse.core.internal.databinding.beans.JavaBeanObservab leMap;<br />
+import <br />
+ org.eclipse.core.internal.databinding.observable.EmptyObserv ableList;<br />
+import org.eclipse.core.runtime.IStatus;<br />
+import org.eclipse.jface.databinding.swt.SWTObservables;<br />
+import <br />
+ org.eclipse.jface.databinding.viewers.ObservableListTreeCont entProvider;<br />
+import  org.eclipse.jface.databinding.viewers.ObservableMapLabelProv ider;<br />
+import org.eclipse.jface.databinding.viewers.ViewersObservables;<br />
+import org.eclipse.jface.viewers.ILabelProviderListener;<br />
+import org.eclipse.jface.viewers.ITableLabelProvider;<br />
+import org.eclipse.jface.viewers.TreeViewer;<br />
+import org.eclipse.swt.SWT;<br />
+import org.eclipse.swt.custom.SashForm;<br />
+import org.eclipse.swt.graphics.Image;<br />
+import org.eclipse.swt.layout.FillLayout;<br />
+import org.eclipse.swt.layout.GridData;<br />
+import org.eclipse.swt.layout.GridLayout;<br />
+import org.eclipse.swt.widgets.Composite;<br />
+import org.eclipse.swt.widgets.Display;<br />
+import org.eclipse.swt.widgets.Label;<br />
+import org.eclipse.swt.widgets.Shell;<br />
+import org.eclipse.swt.widgets.Text;<br />
+import org.eclipse.swt.widgets.Tree;<br />
+import org.eclipse.swt.widgets.TreeColumn;<br />
+<br />
+/**<br />
+ * <br />
+ * @author hchen<br />
+ * The code is not a good solution <br />
+ * Always get error: org.eclipse.core.databinding.BindingException: Could <br />
+not find property with name email in class class <br />
+com.discover.plugin.model.PersonGroup<br />
+ */<br />
+public class PhoneBookUsingTreeViewerEx {<br />
+<br />
+	class AbstractModelObject {<br />
+		private final PropertyChangeSupport propertyChangeSupport = new <br />
+PropertyChangeSupport(<br />
+				this);<br />
+<br />
+		public void addPropertyChangeListener(PropertyChangeListener listener) {<br />
+			propertyChangeSupport.addPropertyChangeListener(listener);<br />
+		}<br />
+<br />
+		public void addPropertyChangeListener(String propertyName,<br />
+				PropertyChangeListener listener) {<br />
+			 propertyChangeSupport.addPropertyChangeListener(propertyName , listener);<br />
+		}<br />
+<br />
+		public void removePropertyChangeListener(PropertyChangeListener <br />
+listener) {<br />
+			 propertyChangeSupport.removePropertyChangeListener(listener) ;<br />
+		}<br />
+<br />
+		public void removePropertyChangeListener(String propertyName,<br />
+				PropertyChangeListener listener) {<br />
+			 propertyChangeSupport.removePropertyChangeListener(propertyN ame,<br />
+					listener);<br />
+		}<br />
+<br />
+		protected void firePropertyChange(String propertyName, Object oldValue,<br />
+				Object newValue) {<br />
+			propertyChangeSupport.firePropertyChange(propertyName, oldValue,<br />
+					newValue);<br />
+		}<br />
+	}<br />
+	<br />
+	class PersonPhone extends AbstractModelObject{<br />
+		private String m_name = &quot;&quot;;<br />
+		private String m_email = &quot;&quot;;<br />
+		private String m_phone = &quot;&quot;;<br />
+		private String m_mobilePhone1 = &quot;&quot;;<br />
+		private String m_mobilePhone2 = &quot;&quot;;<br />
+<br />
+		public PersonPhone() {<br />
+		}<br />
+<br />
+		public PersonPhone(String name, String email, String phone, String <br />
+phone1,<br />
+				String phone2) {<br />
+			m_name = name;<br />
+			m_email = email;<br />
+			m_phone = phone;<br />
+			m_mobilePhone1 = phone1;<br />
+			m_mobilePhone2 = phone2;<br />
+		}<br />
+<br />
+		public String getName() {<br />
+			return m_name;<br />
+		}<br />
+<br />
+		public void setName(String name) {<br />
+			String oldValue = m_name;<br />
+			m_name = name;<br />
+			firePropertyChange(&quot;name&quot;, oldValue, m_name);<br />
+		}<br />
+<br />
+		public String getEmail() {<br />
+			return m_email;<br />
+		}<br />
+<br />
+		public void setEmail(String email) {<br />
+			String oldValue = m_email;<br />
+			m_email = email;<br />
+			firePropertyChange(&quot;email&quot;, oldValue, m_email);<br />
+		}<br />
+<br />
+		public String getPhone() {<br />
+			return m_phone;<br />
+		}<br />
+<br />
+		public void setPhone(String phone) {<br />
+			String oldValue = m_phone;<br />
+			m_phone = phone;<br />
+			firePropertyChange(&quot;phone&quot;, oldValue, m_phone);<br />
+		}<br />
+<br />
+		public String getMobilePhone1() {<br />
+			return m_mobilePhone1;<br />
+		}<br />
+<br />
+		public void setMobilePhone1(String phone1) {<br />
+			String oldValue = m_mobilePhone1;<br />
+			m_mobilePhone1 = phone1;<br />
+			firePropertyChange(&quot;mobilePhone1&quot;, oldValue, m_mobilePhone1);<br />
+		}<br />
+<br />
+		public String getMobilePhone2() {<br />
+			return m_mobilePhone2;<br />
+		}<br />
+<br />
+		public void setMobilePhone2(String phone2) {<br />
+			String oldValue = m_mobilePhone2;<br />
+			m_mobilePhone2 = phone2;<br />
+			firePropertyChange(&quot;mobilePhone2&quot;, oldValue, m_mobilePhone2);<br />
+		}<br />
+<br />
+		@Override<br />
+		public String toString() {<br />
+			StringBuilder strBuf = new StringBuilder();<br />
+			strBuf.append(&quot;name=&quot;);<br />
+			strBuf.append(m_name);<br />
+			strBuf.append(&quot;;&quot;);<br />
+			strBuf.append(&quot;email=&quot;);<br />
+			strBuf.append(m_email);<br />
+			strBuf.append(&quot;;&quot;);<br />
+			strBuf.append(&quot;phone=&quot;);<br />
+			strBuf.append(m_phone);<br />
+			strBuf.append(&quot;;&quot;);<br />
+			strBuf.append(&quot;mobilePhone1=&quot;);<br />
+			strBuf.append(m_mobilePhone1);<br />
+			strBuf.append(&quot;;&quot;);<br />
+			strBuf.append(&quot;mobilePhone2=&quot;);<br />
+			strBuf.append(m_mobilePhone2);<br />
+			return strBuf.toString();<br />
+		}		<br />
+	}<br />
+	<br />
+	class PersonPhoneGroup extends AbstractModelObject{<br />
+		private final List m_persons = new ArrayList();<br />
+		private String m_name;<br />
+<br />
+		public PersonPhoneGroup() {<br />
+		}<br />
+<br />
+		public PersonPhoneGroup(String name) {<br />
+			m_name = name;<br />
+		}<br />
+<br />
+		public String getName() {<br />
+			return m_name;<br />
+		}<br />
+<br />
+		public void setName(String name) {<br />
+			String oldValue = m_name;<br />
+			m_name = name;<br />
+			firePropertyChange(&quot;name&quot;, oldValue, m_name);<br />
+		}<br />
+<br />
+		public void addPersonPhone(PersonPhone person) {<br />
+			m_persons.add(person);<br />
+			firePropertyChange(&quot;persons&quot;, null, m_persons);<br />
+		}<br />
+<br />
+		public void removePersonPhone(PersonPhone person) {<br />
+			m_persons.remove(person);<br />
+			firePropertyChange(&quot;persons&quot;, null, m_persons);<br />
+		}<br />
+<br />
+		public List getPersons() {<br />
+			return m_persons;<br />
+		}<br />
+<br />
+		public String getEmail() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setEmail(String email) {<br />
+		}<br />
+<br />
+		public String getPhone() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setPhone(String phone) {<br />
+		}<br />
+<br />
+		public String getMobilePhone1() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setMobilePhone1(String phone1) {<br />
+		}<br />
+<br />
+		public String getMobilePhone2() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setMobilePhone2(String phone2) {<br />
+		}<br />
+<br />
+		<br />
+		@Override<br />
+		public String toString() {<br />
+			String RL = System.getProperty(&quot;line.separator&quot;);<br />
+			StringBuilder strBuf = new StringBuilder();<br />
+			strBuf.append(&quot;Person Group - &quot;);<br />
+			strBuf.append(m_name);<br />
+			strBuf.append(RL);<br />
+			for(Iterator it= m_persons.iterator(); it.hasNext();  ){<br />
+				strBuf.append(it.next());<br />
+				strBuf.append(RL);<br />
+			}<br />
+			return strBuf.toString();<br />
+		}		<br />
+	}<br />
+	<br />
+	class PersonPhoneGroups extends AbstractModelObject {<br />
+		private List m_groups;<br />
+<br />
+		public PersonPhoneGroups(){<br />
+			m_groups = new ArrayList();<br />
+		}<br />
+<br />
+		public void addGroup(PersonPhoneGroup group) {<br />
+			m_groups.add(group);<br />
+			firePropertyChange(&quot;groups&quot;, null, m_groups);<br />
+		}<br />
+<br />
+		public void removeGroup(PersonPhoneGroup group) {<br />
+			m_groups.remove(group);<br />
+			firePropertyChange(&quot;groups&quot;, null, m_groups);<br />
+		}<br />
+		<br />
+		public List getGroups() {<br />
+			return m_groups;<br />
+		}<br />
+<br />
+		@Override<br />
+		public String toString() {<br />
+			String RL = System.getProperty(&quot;line.separator&quot;);<br />
+			StringBuilder strBuf = new StringBuilder();<br />
+			strBuf.append(&quot;Person Groups&quot;);<br />
+			strBuf.append(RL);<br />
+			for(Iterator it= m_groups.iterator(); it.hasNext();  ){<br />
+				strBuf.append(it.next());<br />
+				strBuf.append(RL);<br />
+			}<br />
+			return strBuf.toString();<br />
+		}<br />
+		<br />
+		public String getName() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setName(String name) {<br />
+		}<br />
+<br />
+		public String getEmail() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setEmail(String email) {<br />
+		}<br />
+<br />
+		public String getPhone() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setPhone(String phone) {<br />
+		}<br />
+<br />
+		public String getMobilePhone1() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setMobilePhone1(String phone1) {<br />
+		}<br />
+<br />
+		public String getMobilePhone2() {<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public void setMobilePhone2(String phone2) {<br />
+		}<br />
+<br />
+	}<br />
+	public class PersonPhoneObservableFactory implements IObservableFactory{<br />
+<br />
+		public PersonPhoneObservableFactory() {<br />
+			super();<br />
+		}<br />
+<br />
+		public IObservable createObservable(Object target) {<br />
+			if( target instanceof PersonPhoneGroups ){<br />
+				return BeansObservables.observeList(Realm.getDefault(), target, <br />
+&quot;groups&quot;, PersonPhoneGroup.class);<br />
+			}else if( target instanceof PersonPhoneGroup ){<br />
+				return BeansObservables.observeList(Realm.getDefault(), target, <br />
+&quot;persons&quot;, PersonPhone.class);<br />
+			}else{<br />
+				return new EmptyObservableList(Realm.getDefault(), null);<br />
+			}<br />
+		}<br />
+		<br />
+	}<br />
+	<br />
+	private DataBindingContext m_bindingContext;<br />
+	private TreeColumn newColumnTreeColumn_4;<br />
+	private TreeColumn newColumnTreeColumn_3;<br />
+	private TreeColumn newColumnTreeColumn_2;<br />
+	private TreeColumn newColumnTreeColumn_1;<br />
+	private TreeColumn newColumnTreeColumn;<br />
+	private Tree tree;<br />
+	private TreeViewer m_personViewer;<br />
+	<br />
+	private PersonPhoneGroups m_groups = new PersonPhoneGroups();<br />
+	private Text m_mobile2Text;<br />
+	private Text m_mobile1Text;<br />
+	private Text m_phoneText;<br />
+	private Text m_emailText;<br />
+	private Text m_nameText;<br />
+	protected Shell shell;<br />
+<br />
+	class TreeLabelProvider implements ITableLabelProvider {<br />
+		public String getColumnText(Object element, int columnIndex) {<br />
+			if (columnIndex == 0) {<br />
+				if (element instanceof PersonPhoneGroup) {<br />
+					return ((PersonPhoneGroup)element).getName();<br />
+				} else if (element instanceof PersonPhone) {<br />
+					return ((PersonPhone)element).getName();					<br />
+				}<br />
+			} else if (element instanceof PersonPhone) {<br />
+				PersonPhone person = (PersonPhone) element;<br />
+				switch (columnIndex) {<br />
+				case 1:<br />
+					return person.getEmail();<br />
+				case 2:<br />
+					return person.getPhone();<br />
+				case 3:<br />
+					return person.getMobilePhone1();<br />
+				case 4:<br />
+					return person.getMobilePhone2();<br />
+				default:<br />
+					return &quot;&quot;;<br />
+				}<br />
+			}<br />
+			return &quot;&quot;;<br />
+		}<br />
+<br />
+		public Image getColumnImage(Object element, int columnIndex) {<br />
+			// TODO Auto-generated method stub<br />
+			return null;<br />
+		}<br />
+<br />
+		public void addListener(ILabelProviderListener listener) {<br />
+			// TODO Auto-generated method stub<br />
+			<br />
+		}<br />
+<br />
+		public void dispose() {<br />
+			// TODO Auto-generated method stub<br />
+			<br />
+		}<br />
+<br />
+		public boolean isLabelProperty(Object element, String property) {<br />
+			// TODO Auto-generated method stub<br />
+			return false;<br />
+		}<br />
+<br />
+		public void removeListener(ILabelProviderListener listener) {<br />
+			// TODO Auto-generated method stub<br />
+			<br />
+		}<br />
+	}<br />
+	<br />
+	private void setDefaultValues() {<br />
+		PersonPhoneGroup group1 = new PersonPhoneGroup(&quot;Developer Team&quot;);<br />
+		m_groups.addGroup(group1);<br />
+		//<br />
+		PersonPhoneGroup group2 = new PersonPhoneGroup(&quot;Management Team&quot;);<br />
+		m_groups.addGroup(group2);<br />
+		//<br />
+		PersonPhoneGroup group3 = new PersonPhoneGroup(&quot;Support Team&quot;);<br />
+		m_groups.addGroup(group3);<br />
+<br />
+		group1.addPersonPhone(new PersonPhone(&quot;Konstantin Scheglov&quot;, <br />
+&quot;<a href="mailto:kosta&#64;nospam.com" target="_blank">kosta&#64;nospam.com</a>&quot;,<br />
+				&quot;1234567890&quot;, &quot;&quot;, &quot;&quot;));<br />
+		group1.addPersonPhone(new PersonPhone(&quot;Alexander Mitin&quot;, <br />
+&quot;<a href="mailto:mitin&#64;nospam.com" target="_blank">mitin&#64;nospam.com</a>&quot;, &quot;&quot;,<br />
+				&quot;0987654321&quot;, &quot;&quot;));<br />
+		group1.addPersonPhone(new PersonPhone(&quot;Alexander Lobas&quot;, <br />
+&quot;<a href="mailto:lobas&#64;nospam.com" target="_blank">lobas&#64;nospam.com</a>&quot;, &quot;&quot;,<br />
+				&quot;&quot;, &quot;111-222-333-00&quot;));<br />
+		<br />
+		group2.addPersonPhone(new PersonPhone(&quot;Mike Taylor&quot;, <br />
+&quot;<a href="mailto:taylor&#64;instantiations.com" target="_blank">taylor&#64;instantiations.com</a>&quot;,<br />
+				&quot;503-598-4900&quot;, &quot;&quot;, &quot;&quot;));<br />
+		group2.addPersonPhone(new PersonPhone(&quot;Eric Clayberg&quot;,<br />
+				&quot;<a href="mailto:clayberg&#64;instantiations.com" target="_blank">clayberg&#64;instantiations.com</a>&quot;, &quot;+1 (503) 598-4900&quot;, &quot;&quot;, &quot;&quot;));<br />
+		group2.addPersonPhone(new PersonPhone(&quot;Dan Rubel&quot;, <br />
+&quot;<a href="mailto:dan&#64;instantiations.com" target="_blank">dan&#64;instantiations.com</a>&quot;,<br />
+				&quot;503-598-4900&quot;, &quot;&quot;, &quot;&quot;));<br />
+<br />
+		group3.addPersonPhone(new PersonPhone(&quot;Gina Nebling&quot;,<br />
+				&quot;<a href="mailto:support&#64;instantiations.com" target="_blank">support&#64;instantiations.com</a>&quot;, &quot;800-808-3737&quot;, &quot;&quot;, &quot;&quot;));<br />
+				<br />
+	}<br />
+	<br />
+	public static void main(String[] args) {<br />
+		Display display = new Display();<br />
+		Realm.runWithDefault(SWTObservables.getRealm(display), new Runnable() {<br />
+			public void run() {<br />
+<br />
+				try {<br />
+					PhoneBookUsingTreeViewerEx window = new PhoneBookUsingTreeViewerEx();<br />
+					window.open();<br />
+				} catch (Exception e) {<br />
+					e.printStackTrace();<br />
+				}<br />
+			}<br />
+		});<br />
+	}<br />
+<br />
+	/**<br />
+	 * Open the window<br />
+	 */<br />
+	public void open() {<br />
+		final Display display = Display.getDefault();<br />
+		setDefaultValues();<br />
+		createContents();<br />
+		initDataBindings0();<br />
+		shell.open();<br />
+		shell.layout();<br />
+		while (!shell.isDisposed()) {<br />
+			if (!display.readAndDispatch())<br />
+				display.sleep();<br />
+		}<br />
+	}<br />
+<br />
+	/**<br />
+	 * Create contents of the window<br />
+	 */<br />
+	protected void createContents() {<br />
+		shell = new Shell();<br />
+		shell.setLayout(new FillLayout());<br />
+		shell.setSize(789, 517);<br />
+		shell.setText(&quot;Phone Book&quot;);<br />
+<br />
+		final SashForm sashForm = new SashForm(shell, SWT.VERTICAL);<br />
+<br />
+		m_personViewer = new TreeViewer(sashForm, SWT.FULL_SELECTION);<br />
+		//m_personViewer.setLabelProvider(new TreeLabelProvider());<br />
+		tree = m_personViewer.getTree();<br />
+		tree.setLinesVisible(true);<br />
+		tree.setHeaderVisible(true);<br />
+<br />
+/**		<br />
+		newColumnTreeColumn = new TreeColumn(tree, SWT.NONE);<br />
+		newColumnTreeColumn.setWidth(148);<br />
+		newColumnTreeColumn.setText(&quot;Name&quot;);<br />
+<br />
+		newColumnTreeColumn_1 = new TreeColumn(tree, SWT.NONE);<br />
+		newColumnTreeColumn_1.setWidth(168);<br />
+		newColumnTreeColumn_1.setText(&quot;E-mail&quot;);<br />
+<br />
+		newColumnTreeColumn_2 = new TreeColumn(tree, SWT.NONE);<br />
+		newColumnTreeColumn_2.setWidth(119);<br />
+		newColumnTreeColumn_2.setText(&quot;Phone&quot;);<br />
+<br />
+		newColumnTreeColumn_3 = new TreeColumn(tree, SWT.NONE);<br />
+		newColumnTreeColumn_3.setWidth(100);<br />
+		newColumnTreeColumn_3.setText(&quot;Mobile Phone 1&quot;);<br />
+<br />
+		newColumnTreeColumn_4 = new TreeColumn(tree, SWT.NONE);<br />
+		newColumnTreeColumn_4.setWidth(100);<br />
+		newColumnTreeColumn_4.setText(&quot;Mobile Phone 2&quot;);<br />
+**/<br />
+		<br />
+		final Composite detailComposite = new Composite(sashForm, SWT.BORDER);<br />
+		final GridLayout gridLayout_2 = new GridLayout();<br />
+		gridLayout_2.numColumns = 2;<br />
+		detailComposite.setLayout(gridLayout_2);<br />
+<br />
+		final Label descriptionLabel = new Label(detailComposite, SWT.NONE);<br />
+		descriptionLabel.setText(&quot;Description:&quot;);<br />
+		new Label(detailComposite, SWT.NONE);<br />
+<br />
+		final Label label = new Label(detailComposite, SWT.NONE);<br />
+		label.setText(&quot;Name:&quot;);<br />
+<br />
+		m_nameText = new Text(detailComposite, SWT.BORDER);<br />
+		final GridData gd_m_nameText = new GridData(SWT.FILL, SWT.CENTER, true,<br />
+				false);<br />
+		m_nameText.setLayoutData(gd_m_nameText);<br />
+<br />
+		final Label emailLabel = new Label(detailComposite, SWT.NONE);<br />
+		emailLabel.setText(&quot;E-mail:&quot;);<br />
+<br />
+		m_emailText = new Text(detailComposite, SWT.BORDER);<br />
+		final GridData gd_m_emailText = new GridData(SWT.FILL, SWT.CENTER,<br />
+				true, false);<br />
+		m_emailText.setLayoutData(gd_m_emailText);<br />
+<br />
+		final Label phoneLabel = new Label(detailComposite, SWT.NONE);<br />
+		phoneLabel.setText(&quot;Phone:&quot;);<br />
+<br />
+		m_phoneText = new Text(detailComposite, SWT.BORDER);<br />
+		final GridData gd_m_phoneText = new GridData(SWT.FILL, SWT.CENTER,<br />
+				true, false);<br />
+		m_phoneText.setLayoutData(gd_m_phoneText);<br />
+<br />
+		final Label mobilePhone1Label = new Label(detailComposite, SWT.NONE);<br />
+		mobilePhone1Label.setText(&quot;Mobile Phone 1:&quot;);<br />
+<br />
+		m_mobile1Text = new Text(detailComposite, SWT.BORDER);<br />
+		final GridData gd_m_mobile1Text = new GridData(SWT.FILL, SWT.CENTER,<br />
+				true, false);<br />
+		m_mobile1Text.setLayoutData(gd_m_mobile1Text);<br />
+<br />
+		final Label mobilePhone2Label = new Label(detailComposite, SWT.NONE);<br />
+		mobilePhone2Label.setText(&quot;Mobile Phone 2:&quot;);<br />
+<br />
+		m_mobile2Text = new Text(detailComposite, SWT.BORDER);<br />
+		final GridData gd_m_mobile2Text = new GridData(SWT.FILL, SWT.CENTER,<br />
+				true, false);<br />
+		m_mobile2Text.setLayoutData(gd_m_mobile2Text);<br />
+		sashForm.setWeights(new int[] {218, 262 });<br />
+		m_bindingContext = initDataBindings();<br />
+		//m_bindingContext = initDataBindings();<br />
+		//<br />
+	}<br />
+<br />
+	class PersonViewerUpdateValueStrategy extends UpdateValueStrategy {<br />
+		protected IStatus doSet(IObservableValue observableValue, Object value) {<br />
+			Realm.getDefault().asyncExec(new Runnable() {<br />
+				public void run() {<br />
+					m_personViewer.refresh();<br />
+				}				<br />
+			});<br />
+			return super.doSet(observableValue, value);<br />
+		}<br />
+	}<br />
+	protected DataBindingContext initDataBindings() {<br />
+		<br />
+		ObservableListTreeContentProvider contentProvider = <br />
+			new ObservableListTreeContentProvider((IObservableFactory)new <br />
+PersonPhoneObservableFactory(), null);<br />
+		m_personViewer.setContentProvider(contentProvider);<br />
+<br />
+		IObservableMap[] personViewerLabelProviderMaps00 = <br />
+ BeansObservables.observeMaps(contentProvider.getKnownElement s(), <br />
+PersonPhoneGroups.class, new String[]{&quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, <br />
+&quot;mobilePhone1&quot;, &quot;mobilePhone2&quot;});<br />
+		IObservableMap[] personViewerLabelProviderMaps0 = <br />
+ BeansObservables.observeMaps(contentProvider.getKnownElement s(), <br />
+PersonPhoneGroup.class, new String[]{&quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, <br />
+&quot;mobilePhone1&quot;, &quot;mobilePhone2&quot;});<br />
+		IObservableMap[] personViewerLabelProviderMaps1 = <br />
+ BeansObservables.observeMaps(contentProvider.getKnownElement s(), <br />
+PersonPhone.class, new String[]{&quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, &quot;mobilePhone1&quot;, <br />
+&quot;mobilePhone2&quot;});<br />
+		IObservableMap[] personViewerLabelProviderMaps = new <br />
+ IObservableMap[personViewerLabelProviderMaps00.length+person ViewerLabelProviderMaps0.length+personViewerLabelProviderMap s1.length];<br />
+		int count=0;<br />
+		for(int i=0; i&lt;personViewerLabelProviderMaps00.length; i++){<br />
+			personViewerLabelProviderMaps[count++] = <br />
+personViewerLabelProviderMaps00[i];<br />
+		}<br />
+		for(int i=0; i&lt;personViewerLabelProviderMaps0.length; i++){<br />
+			personViewerLabelProviderMaps[count++] = <br />
+personViewerLabelProviderMaps0[i];<br />
+		}<br />
+		for(int i=0; i&lt;personViewerLabelProviderMaps1.length; i++){<br />
+			personViewerLabelProviderMaps[count++] = <br />
+personViewerLabelProviderMaps1[i];<br />
+		}<br />
+		<br />
+/**		<br />
+		int mapLength = personViewerLabelProviderMaps.length;<br />
+		System.out.println(mapLength);<br />
+		for(int i=0; i&lt;mapLength; i++){<br />
+			IObservableMap map = personViewerLabelProviderMaps[i];<br />
+			Set mapKeySet = map.keySet();<br />
+			Iterator it = mapKeySet.iterator();<br />
+			boolean go = it.hasNext();<br />
+			while(go){<br />
+				Object mapKey = it.next();<br />
+				Object value = map.get(mapKey);<br />
+				System.out.println(mapKey+&quot;,&quot;+value);<br />
+				go = it.hasNext();<br />
+			}<br />
+			if( map instanceof JavaBeanObservableMap ){<br />
+				JavaBeanObservableMap javaBmap = (JavaBeanObservableMap)map;<br />
+			}<br />
+**/		<br />
+		m_personViewer.setLabelProvider(new <br />
+ObservableMapLabelProvider(personViewerLabelProviderMaps));<br />
+<br />
+/**<br />
+		IObservableMap map = <br />
+ BeansObservables.observeMap(contentProvider.getKnownElements (), <br />
+PersonPhoneGroup.class, &quot;name&quot;);<br />
+		Set mapKeySet = map.keySet();<br />
+		Iterator it = mapKeySet.iterator();<br />
+		boolean go = it.hasNext();<br />
+		while(go){<br />
+			Object mapKey = it.next();<br />
+			Object value = map.get(mapKey);<br />
+			System.out.println(mapKey+&quot;,&quot;+value);<br />
+			go = it.hasNext();<br />
+		}<br />
+		m_personViewer.setLabelProvider(new ObservableMapLabelProvider(map));<br />
+**/<br />
+		//IObservableMap[] m_personViewerLabelProviderMaps = <br />
+ BeansObservables.observeMaps(contentProvider.getKnownElement s(), <br />
+PersonPhoneGroup.class, new String[]{&quot;persons&quot;});<br />
+		//m_personViewer.setLabelProvider(new <br />
+ ObservableMapLabelProvider(m_personViewerLabelProviderMaps)) ;<br />
+<br />
+		m_personViewer.setInput(m_groups);<br />
+				<br />
+		//<br />
+		DataBindingContext bindingContext = new DataBindingContext();<br />
+		//<br />
+		//<br />
+		return bindingContext;<br />
+	}<br />
+<br />
+	public Image getColumnImage(Object element, int columnIndex) {<br />
+		// TODO Auto-generated method stub<br />
+		return null;<br />
+	}<br />
+<br />
+	public void addListener(ILabelProviderListener listener) {<br />
+		// TODO Auto-generated method stub<br />
+		<br />
+	}<br />
+<br />
+	public void dispose() {<br />
+		// TODO Auto-generated method stub<br />
+		<br />
+	}<br />
+<br />
+	public boolean isLabelProperty(Object element, String property) {<br />
+		// TODO Auto-generated method stub<br />
+		return false;<br />
+	}<br />
+<br />
+	public void removeListener(ILabelProviderListener listener) {<br />
+		// TODO Auto-generated method stub<br />
+		<br />
+	}<br />
+<br />
+	protected DataBindingContext initDataBindings0() {<br />
+		IObservableValue m_mobile2TextTextObserveWidget = <br />
+SWTObservables.observeText(m_mobile2Text, SWT.Modify);<br />
+		IObservableValue m_mobile1TextTextObserveWidget = <br />
+SWTObservables.observeText(m_mobile1Text, SWT.Modify);<br />
+		IObservableValue m_personViewerSelectionObserveSelection = <br />
+ViewersObservables.observeSingleSelection(m_personViewer);<br />
+		IObservableValue m_personViewerSelectionObserveSelection_1 = <br />
+ViewersObservables.observeSingleSelection(m_personViewer);<br />
+		IObservableValue m_emailTextTextObserveWidget = <br />
+SWTObservables.observeText(m_emailText, SWT.Modify);<br />
+		IObservableValue m_nameTextTextObserveWidget = <br />
+SWTObservables.observeText(m_nameText, SWT.Modify);<br />
+		IObservableValue m_personViewerSelectionObserveSelection_1_1 = <br />
+ViewersObservables.observeSingleSelection(m_personViewer);<br />
+		IObservableValue m_phoneTextTextObserveWidget = <br />
+SWTObservables.observeText(m_phoneText, SWT.Modify);<br />
+		IObservableValue m_personViewerSelectionObserveSelection_1_1_1 = <br />
+ViewersObservables.observeSingleSelection(m_personViewer);<br />
+		IObservableValue m_personViewerSelectionObserveSelection_1_1_1_1 = <br />
+ViewersObservables.observeSingleSelection(m_personViewer);<br />
+		IObservableValue m_personViewerMobilePhone2ObserveDetailValue = <br />
+BeansObservables.observeDetailValue(Realm.getDefault(), <br />
+m_personViewerSelectionObserveSelection_1, &quot;mobilePhone2&quot;, <br />
+java.lang.String.class);<br />
+		IObservableValue m_personViewerMobilePhone1ObserveDetailValue = <br />
+BeansObservables.observeDetailValue(Realm.getDefault(), <br />
+m_personViewerSelectionObserveSelection_1_1, &quot;mobilePhone1&quot;, <br />
+java.lang.String.class);<br />
+		IObservableValue m_personViewerEmailObserveDetailValue = <br />
+BeansObservables.observeDetailValue(Realm.getDefault(), <br />
+m_personViewerSelectionObserveSelection_1_1_1, &quot;email&quot;, <br />
+java.lang.String.class);<br />
+		IObservableValue m_personViewerNameObserveDetailValue = <br />
+BeansObservables.observeDetailValue(Realm.getDefault(), <br />
+m_personViewerSelectionObserveSelection_1_1_1_1, &quot;name&quot;, <br />
+java.lang.String.class);<br />
+		IObservableValue m_personViewerPhoneObserveDetailValue = <br />
+BeansObservables.observeDetailValue(Realm.getDefault(), <br />
+m_personViewerSelectionObserveSelection, &quot;phone&quot;, java.lang.String.class);<br />
+		//<br />
+		//<br />
+		//DataBindingContext bindingContext = new DataBindingContext();<br />
+		DataBindingContext bindingContext = m_bindingContext;<br />
+		//<br />
+		 bindingContext.bindValue(m_personViewerNameObserveDetailValu e, <br />
+m_nameTextTextObserveWidget, null, new PersonViewerUpdateValueStrategy());<br />
+		 bindingContext.bindValue(m_personViewerEmailObserveDetailVal ue, <br />
+m_emailTextTextObserveWidget, null, new PersonViewerUpdateValueStrategy());<br />
+		 bindingContext.bindValue(m_personViewerPhoneObserveDetailVal ue, <br />
+m_phoneTextTextObserveWidget, null, new PersonViewerUpdateValueStrategy());<br />
+		 bindingContext.bindValue(m_personViewerMobilePhone1ObserveDe tailValue, <br />
+m_mobile1TextTextObserveWidget, null, new <br />
+PersonViewerUpdateValueStrategy());<br />
+		 bindingContext.bindValue(m_personViewerMobilePhone2ObserveDe tailValue, <br />
+m_mobile2TextTextObserveWidget, null, new <br />
+PersonViewerUpdateValueStrategy());<br />
+		//<br />
+		return bindingContext;<br />
+	}<br />
+<br />
+}</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328562&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328562&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328562&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_12"></a><a name="msg_328567"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328567&amp;#msg_328567" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328567&amp;#msg_328567">message #328567</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328502&amp;#msg_328502">message #328502</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 18:08</span> <a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; HI,<br />
+&gt; <br />
+&gt; I already did that but still get error. Please see the source code on my <br />
+&gt; post of treeviewer databinding error. I think the problem is that the <br />
+&gt; label provider is not generated correctly. Do you have any idea on how <br />
+&gt; to create the label provider?<br />
+&gt; <br />
+&gt; thanks!<br />
+<br />
+I see the problem.  In the code that sets up the label providers, you <br />
+are using BeansObservables.observeMaps() and specifying <br />
+PersonPhone.class as the bean class.  However PersonPhoneGroup instances <br />
+are not instanceof PersonPhone.  Bean properties are not duck-typed so <br />
+there has to be common superclass for them.<br />
+<br />
+You can subclass ListeningLabelProvider to accommodate viewers where <br />
+elements do not have properties in common.  I suggest writing your own <br />
+subclass of ListeningLabelProvider which delegates to another label <br />
+provider based on the runtime type of the element:<br />
+<br />
+class PersonGroupLabelProvider extends ListeningLabelProvider<br />
+     implements ITableLabelProvider {<br />
+   boolean initialized;<br />
+<br />
+   IObservableSet personPhoneKnownElements;<br />
+   IObservableSet personGroupKnownElements;<br />
+<br />
+   ObservableMapLabelProvider personPhoneLabelProvider;<br />
+   ObservableMapLabelProvider personPhoneGroupLabelProvider;<br />
+<br />
+   PersonGroupLabelProvider(IObservableSet knownElements) {<br />
+     super(knownElements);<br />
+     // Cannot init in the constructor because superconstructor calls<br />
+     // addListenerTo.  That aspect should probably be changed...<br />
+   }<br />
+<br />
+   private void init() {<br />
+     if (!initialized) {<br />
+       personPhoneKnownElements = new WritableSet();<br />
+       IObservableMap[] maps = BeansObservables.observeMaps(<br />
+           personPhoneKnownElements,<br />
+           PersonPhone.class,<br />
+           new String[] { &quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, &quot;mobilePhone1&quot;,<br />
+                          &quot;mobilePhone2&quot; } );<br />
+       personPhoneLabelProvider = new ObservableMapLabelProvider(maps)<br />
+<br />
+       personPhoneGroupKnownElements = new WritableSet();<br />
+       maps = BeansObservables.observeMaps(<br />
+           personPhoneGroupKnownElements,<br />
+           PersonPhoneGroup,<br />
+           new String[] { &quot;name&quot; } );<br />
+       personPhoneGroupLabelProvider =<br />
+           new ObservableMapLabelProvider(maps);<br />
+<br />
+       initialized = true;<br />
+     }<br />
+   }<br />
+<br />
+   protected void addListenerTo(Object element) {<br />
+     init();<br />
+     if (element instanceof PersonPhone)<br />
+       personPhoneKnownElements.add(element);<br />
+     if (element instanceof PersonPhoneGroup)<br />
+       personPhoneGroupKnownElements.add(element);<br />
+   }<br />
+<br />
+   protected void removeListenerFrom(Object element) {<br />
+     init();<br />
+     if (element instanceof PersonPhone)<br />
+       personPhoneKnownElements.remove(element);<br />
+     if (element instanceof PersonPhoneGroup)<br />
+       personPhoneGroupKnownElements.remove(element);<br />
+   }<br />
+<br />
+   public void addListener(ILabelProviderListener listener) {<br />
+     init();<br />
+     personPhoneLabelProvider.addListener(listener);<br />
+     personPhoneGroupLabelProvider.addListener(listener);<br />
+   }<br />
+<br />
+   public void removeListener(ILabelProviderListener listener) {<br />
+     init();<br />
+     personPhoneLabelProvider.removeListener(listener);<br />
+     personPhoneGroupLabelProvider.removeListener(listener);<br />
+   }<br />
+<br />
+   // Implement the ITableLabelProvider methods so they delegate<br />
+   // to personPhoneLabelProvider if the element is an instance of<br />
+   // PersonPhone, or to personPhoneGroupLabelProvider if the element is<br />
+   // an instanceof PersonPhoneGroup.<br />
+}<br />
+<br />
+I also noticed that PersonPhoneGroup has several of the PersonPhone <br />
+properties, but they are not used.  With the above changes you could <br />
+eliminate those.<br />
+<br />
+Or you could just go the easy route and extract a common interface <br />
+between the two classes, then change the call to <br />
+BeansObservables.observeMaps() so it passes the extracted interface <br />
+instead of PersonPhone.class:<br />
+<br />
+interface IPersonPhone {<br />
+   public void setName(String name);<br />
+   public String getName();<br />
+<br />
+   public void setEmail(String email);<br />
+   // etc<br />
+}<br />
+<br />
+Let us know what you decide to do, and how it goes.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328567&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328567&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328567&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_13"></a><a name="msg_328575"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328575&amp;#msg_328575" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328575&amp;#msg_328575">message #328575</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328567&amp;#msg_328567">message #328567</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 19:04</span> <a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+It looks like you found the problem. Before I go ahead to decide what <br />
+change I would like to make, I would like to confirm what's the constrains <br />
+on using BeansObservables.observeMap() method:<br />
+<br />
+In order to use BeansObservables.observeMap, the model object which <br />
+represents the tree must define a common interface for all of the nodes of <br />
+the tree even if the nodes of the tree may hold different information or <br />
+data.  Is the statement right?<br />
+<br />
+thanks a lot.<br />
+<br />
+hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328575&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328575&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328575&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_14"></a><a name="msg_328577"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328577&amp;#msg_328577" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328577&amp;#msg_328577">message #328577</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328575&amp;#msg_328575">message #328575</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 21:03</span> <a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; It looks like you found the problem. Before I go ahead to decide what <br />
+&gt; change I would like to make, I would like to confirm what's the <br />
+&gt; constrains on using BeansObservables.observeMap() method:<br />
+&gt; <br />
+&gt; In order to use BeansObservables.observeMap, the model object which <br />
+&gt; represents the tree must define a common interface for all of the nodes <br />
+&gt; of the tree even if the nodes of the tree may hold different information <br />
+&gt; or data.  Is the statement right?<br />
+&gt; <br />
+&gt; thanks a lot.<br />
+&gt; <br />
+&gt; hao<br />
+&gt; <br />
+<br />
+Correct.  This constraint is inherited from BeanDescriptor in the JDK.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328577&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328577&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328577&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_15"></a><a name="msg_328582"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328582&amp;#msg_328582" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328582&amp;#msg_328582">message #328582</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328567&amp;#msg_328567">message #328567</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 21:43</span> <a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_16');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+I have some questions regarding PersonGroupLabelProvider class <br />
+implmentations:<br />
+<br />
+1. For its constructor - PersonGroupLabelProvider(IObservableSet <br />
+knownElements), what's the input - knownElements and how could I set it <br />
+up? can it be a null. It looks like the class does not use it at all.<br />
+<br />
+2. What does the following call of method BeansObservables.observeMaps() <br />
+do to the argument - personPhoneKnownElements? I am trying to understand <br />
+why we need to pass a new instance of WritableSet(). I guess it should be <br />
+some kind of wrapper of the business model object - PersonPhoneGroups <br />
+clas. Actually, it is not. Why? <br />
+personPhoneKnownElements = new WritableSet();<br />
+IObservableMap[] maps = BeansObservables.observeMaps(<br />
+    personPhoneKnownElements,<br />
+    PersonPhone.class,<br />
+    new String[] { &quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, &quot;mobilePhone1&quot;, <br />
+&quot;mobilePhone2&quot; } <br />
+);<br />
+<br />
+3. I have already implemented ITableLableProvider. Why do I need to <br />
+implement PersonGroupLabelProvider instead, just use my original <br />
+ITableLableProvider?<br />
+ <br />
+Using PersonGroupLabelProvider works for this test case. I just try <br />
+convince myself that's the way I must do.<br />
+<br />
+Thanks a lot for your help.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328582&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328582&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328582&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_16"></a><a name="msg_328588"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328588&amp;#msg_328588" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328588&amp;#msg_328588">message #328588</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328582&amp;#msg_328582">message #328582</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 27 May 2008 23:58</span> <a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_17');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; Hi,<br />
+&gt; <br />
+&gt; I have some questions regarding PersonGroupLabelProvider class <br />
+&gt; implmentations:<br />
+&gt; <br />
+&gt; 1. For its constructor - PersonGroupLabelProvider(IObservableSet <br />
+&gt; knownElements), what's the input - knownElements and how could I set it <br />
+&gt; up? can it be a null. It looks like the class does not use it at all.<br />
+<br />
+The input is contentProvider.getKnownElements(), just like with <br />
+ObservableMapLabelProvider<br />
+<br />
+&gt; 2. What does the following call of method BeansObservables.observeMaps() <br />
+&gt; do to the argument - personPhoneKnownElements? I am trying to understand <br />
+&gt; why we need to pass a new instance of WritableSet(). I guess it should <br />
+&gt; be some kind of wrapper of the business model object - PersonPhoneGroups <br />
+&gt; clas. Actually, it is not. Why? personPhoneKnownElements = new <br />
+&gt; WritableSet();<br />
+&gt; IObservableMap[] maps = BeansObservables.observeMaps(<br />
+&gt;    personPhoneKnownElements,<br />
+&gt;    PersonPhone.class,<br />
+&gt;    new String[] { &quot;name&quot;, &quot;email&quot;, &quot;phone&quot;, &quot;mobilePhone1&quot;, <br />
+&gt; &quot;mobilePhone2&quot; } );<br />
+<br />
+personPhoneKnownElements becomes the keySet of the maps in the returned <br />
+IObservableMap array.  In each map, the value associated with each key <br />
+is the value of the named property.<br />
+<br />
+Thus, given a set of users:<br />
+{ dave = [&quot;Dave&quot;, &quot;<a href="mailto:dave&#64;example.com" target="_blank">dave&#64;example.com</a>&quot;, &quot;123-456-7890&quot;, null, null],<br />
+   george = [&quot;George&quot;, &quot;<a href="mailto:george&#64;nonexistent.org" target="_blank">george&#64;nonexistent.org</a>&quot;, &quot;800-555-5555&quot;, null, <br />
+null] }<br />
+<br />
+maps[0] == { dave : &quot;Dave&quot;, george : &quot;George&quot; }<br />
+maps[1] == { dave : &quot;<a href="mailto:dave&#64;example.com" target="_blank">dave&#64;example.com</a>&quot;, george : &quot;<a href="mailto:george&#64;nonexistent.org" target="_blank">george&#64;nonexistent.org</a>&quot; }<br />
+etc<br />
+<br />
+Thus, when you add or remove an element from the known elements set, <br />
+this automatically adds/removes the entry with that key from the <br />
+associated IObservableMaps.<br />
+<br />
+The problem in your case is that you have two different types of objects <br />
+in your tree: PersonPhone and PersonPhoneGroup.  However <br />
+BeansObservables.observeMaps(knownElementsSet, PersonPhone.class, <br />
+propertyArray) expects knownElementsSet to only contain instances of <br />
+PersonPhone.  The original known elements set violates this constraint <br />
+by containing both types.<br />
+<br />
+The solution I advocated separates the original known elements set into <br />
+two separate sets: personPhoneKnownElements (for PersonPhone instances) <br />
+and personPhoneGroupKnownElements (for PersonPhoneGroup instances). <br />
+These observable sets only contain instances of the correct types, so <br />
+they can be safely passed to BeansObservables.observeMaps().<br />
+<br />
+The final part of the solution lies in the behavior of <br />
+ListeneingLabelProvider.  ListeningLabelProvider calls the <br />
+addListenerTo(element) method for every element in the set at the time <br />
+of construction.  It also registers an ISetChangeListener on the set, <br />
+and calls addListenerTo(element) and removeListenerFrom(element) <br />
+whenever elements are added to / removed from the set.  We implement <br />
+these methods in PersonGroupLabelProvider and use instanceof to <br />
+determine which observable set the belong to.<br />
+<br />
+&gt; 3. I have already implemented ITableLableProvider. Why do I need to <br />
+&gt; implement PersonGroupLabelProvider instead, just use my original <br />
+&gt; ITableLableProvider?<br />
+&gt; <br />
+&gt; Using PersonGroupLabelProvider works for this test case. I just try <br />
+&gt; convince myself that's the way I must do.<br />
+<br />
+You need to implement ITableLabelProvider so that the tree viewer will <br />
+recognize that your label provider supports columns.  It should not be <br />
+very involved, you just need to delegate each call to <br />
+personPhoneLabelProvider or personPhoneGroupLabelProvider depending on <br />
+the runtime type of the element.<br />
+<br />
+Hope this helps.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328588&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328588&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328588&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_17"></a><a name="msg_328605"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328605&amp;#msg_328605" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328605&amp;#msg_328605">message #328605</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328588&amp;#msg_328588">message #328588</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 10:22</span> <a href="javascript://" onclick="chng_focus('#msg_num_16');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_18');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">&gt;The input is contentProvider.getKnownElements().<br />
+I do not see the elements returned by contentProvider.getKnownElements() <br />
+are used in the implementation of PersonGroupLabelProvider. It looks like <br />
+the PersonGroupLabelProvider has not relation with the content provider at <br />
+all. <br />
+<br />
+&gt;You need to implement ITableLabelProvider so that the tree viewer will <br />
+recognize that your label provider supports columns.<br />
+Why does PersonGroupLabelProvider need to extends ListeneingLabelProvider? <br />
+Is only implementing ITableLabelProvider enough?<br />
+<br />
+Your explanation is very helpful. Thanks a lot.<br />
+<br />
+Hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328605&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328605&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328605&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_18"></a><a name="msg_328616"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328616&amp;#msg_328616" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328616&amp;#msg_328616">message #328616</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328605&amp;#msg_328605">message #328605</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 17:54</span> <a href="javascript://" onclick="chng_focus('#msg_num_17');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_19');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt;&gt; The input is contentProvider.getKnownElements().<br />
+&gt; I do not see the elements returned by contentProvider.getKnownElements() <br />
+&gt; are used in the implementation of PersonGroupLabelProvider. It looks <br />
+&gt; like the PersonGroupLabelProvider has not relation with the content <br />
+&gt; provider at all.<br />
+<br />
+contentProvider.getKnownElements is passed to the ListeningLabelProvider <br />
+constructor.  If you look at the code in that constructor, you will see <br />
+that it is calling addListenerTo for each element in the set.  It also <br />
+adds an ISetChangeListener to the set so that future additions / <br />
+removals in the set will result in a call to addListenerTo() / <br />
+removeListenerFrom(), respectively.<br />
+<br />
+This is useful because the set of known elements tells the label <br />
+provider exactly what elements are in the viewer.  The label provider in <br />
+turn adds property change listeners (in the case of beans) to every <br />
+element in the set, so that when those properties change it can update <br />
+the labels in the viewer.  This is the point of the known elements set.<br />
+<br />
+&gt;&gt; You need to implement ITableLabelProvider so that the tree viewer will <br />
+&gt; recognize that your label provider supports columns.<br />
+&gt; Why does PersonGroupLabelProvider need to extends <br />
+&gt; ListeneingLabelProvider? Is only implementing ITableLabelProvider enough?<br />
+&gt; <br />
+&gt; Your explanation is very helpful. Thanks a lot.<br />
+&gt; <br />
+&gt; Hao<br />
+&gt; <br />
+<br />
+The DataBinding label providers automatically take care of updating <br />
+labels in the viewer when the underlying model changes.  You could <br />
+certainly implement ITableLabelProvider directly, but then you have to <br />
+take care of all these details manually.  In this case, subclassing <br />
+ListeningLabelProvider is convenient because there is already API for <br />
+monitoring the known elements set and there is a clear way to be <br />
+notified of added and removed elements (addListenerTo / removeListenerFrom).<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328616&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328616&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328616&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_19"></a><a name="msg_328618"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328618&amp;#msg_328618" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328618&amp;#msg_328618">message #328618</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328616&amp;#msg_328616">message #328616</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 17:32</span> <a href="javascript://" onclick="chng_focus('#msg_num_18');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_20');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">&gt;contentProvider.getKnownElements is passed to the ListeningLabelProvider <br />
+constructor....<br />
+<br />
+I am sorry but still confusing about the contectprovider's <br />
+getKnowElements(). Let's start with steps of setting those providers:<br />
+1. Creat content provider,<br />
+2. Set content provider,<br />
+3. Create label provider,<br />
+4. Set label provider,<br />
+5. Set input.<br />
+<br />
+Before the input is set (at step 5), I believe the ObservableSet returned <br />
+by contentProvider.getKnownElements() is a empty set. The <br />
+PersonGroupLabelProvider implementation actually use another 2 sets of <br />
+ObservableSet - personPhoneKnownElements &amp; personPhoneGroupKnownElements. <br />
+Only when addListenerTo() method is called the elements are added into the <br />
+2 sets of ObservableSet - personPhoneKnownElements &amp; <br />
+personPhoneGroupKnownElements. From the implementation of <br />
+PersonGroupLabelProvider, I do not see the super class addListenerTo' <br />
+addListenerTo() method is got called even when the treeviewer input is set.<br />
+<br />
+Thanks!<br />
+hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328618&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328618&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328618&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_20"></a><a name="msg_328621"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328621&amp;#msg_328621" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328621&amp;#msg_328621">message #328621</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328618&amp;#msg_328618">message #328618</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 20:45</span> <a href="javascript://" onclick="chng_focus('#msg_num_19');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_21');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt;&gt; contentProvider.getKnownElements is passed to the ListeningLabelProvider <br />
+&gt; constructor....<br />
+&gt; <br />
+&gt; I am sorry but still confusing about the contectprovider's <br />
+&gt; getKnowElements(). Let's start with steps of setting those providers:<br />
+&gt; 1. Creat content provider,<br />
+&gt; 2. Set content provider,<br />
+&gt; 3. Create label provider,<br />
+&gt; 4. Set label provider,<br />
+&gt; 5. Set input.<br />
+&gt; <br />
+&gt; Before the input is set (at step 5), I believe the ObservableSet <br />
+&gt; returned by contentProvider.getKnownElements() is a empty set. The <br />
+&gt; PersonGroupLabelProvider implementation actually use another 2 sets of <br />
+&gt; ObservableSet - personPhoneKnownElements &amp; <br />
+&gt; personPhoneGroupKnownElements. Only when addListenerTo() method is <br />
+&gt; called the elements are added into the 2 sets of ObservableSet - <br />
+&gt; personPhoneKnownElements &amp; personPhoneGroupKnownElements. From the <br />
+&gt; implementation of PersonGroupLabelProvider, I do not see the super class <br />
+&gt; addListenerTo' addListenerTo() method is got called even when the <br />
+&gt; treeviewer input is set.<br />
+&gt; <br />
+&gt; Thanks!<br />
+&gt; hao<br />
+&gt; <br />
+<br />
+The known elements set is populated by the content provider when the <br />
+viewer elements are first discovered (after you set the input).  After <br />
+that initial step, the content provider watches the input for additions <br />
+/ removals in the collection, and adds / removes elements from the known <br />
+elements set accordingly.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328621&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328621&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328621&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_21"></a><a name="msg_328622"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328622&amp;#msg_328622" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328622&amp;#msg_328622">message #328622</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328616&amp;#msg_328616">message #328616</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 20:01</span> <a href="javascript://" onclick="chng_focus('#msg_num_20');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_22');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Another confusion to me, I found that the addListenerTo() method of <br />
+PersonGroupLabelProvider which extends ListeningLabelProvider is never got <br />
+called by the application. How is the model's elment added into <br />
+personPhoneKnownElements and personPhoneGroupKnownElements ObservableSets <br />
+and how does the element's change got listened? What's the purpose of <br />
+addListenerTo(). I could not find any document and comment on what the <br />
+method does. From its name, looks like it adding listner to the element <br />
+such that the element's change can be notified. But I went through the <br />
+source code and did not find that.<br />
+<br />
+thanks!<br />
+hao</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328622&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328622&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328622&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_22"></a><a name="msg_328623"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328623&amp;#msg_328623" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328623&amp;#msg_328623">message #328623</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328621&amp;#msg_328621">message #328621</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 20:06</span> <a href="javascript://" onclick="chng_focus('#msg_num_21');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_23');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">If the viewer's elements got into content provider's ObservableSet, how <br />
+does the personPhoneKnownElements &amp; personPhoneGroupKnownElements <br />
+ObservableSet of label provider got to be populated?</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328623&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328623&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328623&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_23"></a><a name="msg_328625"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328625&amp;#msg_328625" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328625&amp;#msg_328625">message #328625</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328622&amp;#msg_328622">message #328622</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 22:55</span> <a href="javascript://" onclick="chng_focus('#msg_num_22');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_24');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; Another confusion to me, I found that the addListenerTo() method of <br />
+&gt; PersonGroupLabelProvider which extends ListeningLabelProvider is never <br />
+&gt; got called by the application. How is the model's elment added into <br />
+&gt; personPhoneKnownElements and personPhoneGroupKnownElements <br />
+&gt; ObservableSets and how does the element's change got listened? What's <br />
+&gt; the purpose of addListenerTo(). I could not find any document and <br />
+&gt; comment on what the method does. From its name, looks like it adding <br />
+&gt; listner to the element such that the element's change can be notified. <br />
+&gt; But I went through the source code and did not find that.<br />
+&gt; <br />
+&gt; thanks!<br />
+&gt; hao<br />
+<br />
+Those methods should be getting called.  Could you send another <br />
+standalone snippet with all your latest changes rolled in?<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328625&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328625&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328625&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_24"></a><a name="msg_328626"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328626&amp;#msg_328626" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328626&amp;#msg_328626">message #328626</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328623&amp;#msg_328623">message #328623</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 23:04</span> <a href="javascript://" onclick="chng_focus('#msg_num_23');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_25');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; If the viewer's elements got into content provider's ObservableSet, how <br />
+&gt; does the personPhoneKnownElements &amp; personPhoneGroupKnownElements <br />
+&gt; ObservableSet of label provider got to be populated?<br />
+<br />
+They are populated in response to a SetChangeEvent on the known elements <br />
+set.  See ListeningLabelProvider constructor: it adds an <br />
+ISetChangeListener that calls addListenerTo() when an element is added, <br />
+and calls removeListenerFrom() when an element is removed.<br />
+<br />
+We receive these messages in PersonGroupLabelProvider's addListenerTo() <br />
+and removeListenerFrom() methods, and manually add them to / remove them <br />
+from either personPhoneKnownElements or personPhonGroupKnownElements, <br />
+depending on type.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328626&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328626&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328626&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_25"></a><a name="msg_328629"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328629&amp;#msg_328629" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328629&amp;#msg_328629">message #328629</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328625&amp;#msg_328625">message #328625</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 28 May 2008 23:45</span> <a href="javascript://" onclick="chng_focus('#msg_num_24');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_26');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hao Missing name is currently offline" title="Hao Missing name is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=54246&amp;">Hao Missing name</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=d95776%40yahoo.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 115<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=54246&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">The addListenerTo() of the label provider does get called if I set the <br />
+label provider's constructor input as contentprovider.getKnownElements(). <br />
+Could you please briefly describe what the addListenerTo() of the <br />
+listeninglabelprovider does.<br />
+<br />
+<br />
+Thanks a lot! I hope it is my last question for the post.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328629&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=54246&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328629&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328629&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_26"></a><a name="msg_328649"></a><a href="index.php?t=msg&amp;th=107403&amp;goto=328649&amp;#msg_328649" class="MsgSubText">Re: Does jface databinding support treeviewer?</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=107403&amp;goto=328649&amp;#msg_328649">message #328649</a> is a reply to <a href="index.php?t=msg&amp;th=107403&amp;goto=328629&amp;#msg_328629">message #328629</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 30 May 2008 05:37</span> <a href="javascript://" onclick="chng_focus('#msg_num_25');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Matthew Hall is currently offline" title="Matthew Hall is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=15157&amp;">Matthew Hall</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=qualidafial%40gmail.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 368<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=15157&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">hao wrote:<br />
+&gt; The addListenerTo() of the label provider does get called if I set the <br />
+&gt; label provider's constructor input as <br />
+&gt; contentprovider.getKnownElements(). Could you please briefly describe <br />
+&gt; what the addListenerTo() of the listeninglabelprovider does.<br />
+<br />
+The content provider adds and remove elements from the known elements <br />
+set as they are added to and removed from the viewer.  addListenerTo() <br />
+is called for every element as it is first added to the viewer, and <br />
+removeListenerFrom() is called for every element as the last instance of <br />
+it is removed from the viewer.<br />
+<br />
+The idea is that you should add a listener to the element, and fire a <br />
+LabelProviderChangedEvent whenever elements change and should be updated <br />
+in the viewer.<br />
+<br />
+Matthew</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=328649&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=15157&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=328649&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=328649&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: Does jface databinding support treeviewer?" />
+	<input type="hidden" name="reply_to" value="328649" />
+	<input type="hidden" name="th_id" value="107403" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/107403/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/328648/#msg_328648">fastview position</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/328652/#msg_328652">Extension PopupMenu : Add icon to category menu</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 107403, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=107403&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 11:37:17 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.03800 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

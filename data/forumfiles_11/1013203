@@ -1,0 +1,2540 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; eclipse hang when exec program</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=101320&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse hang when exec program | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse hang when exec program | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; eclipse hang when exec program | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>eclipse hang when exec program</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/101320/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/101320/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/101320/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/101320/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/101320/309601/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_309601"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309601&amp;#msg_309601" class="MsgSubText">eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309601&amp;#msg_309601">message #309601</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 02 November 2006 09:41</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+hi all,<br />
+<br />
+i'm having problem with eclipse where it hang when execute a program using <br />
+the ProcessBuilder. Below is actually how i create the process and print <br />
+out the process details in console view. FYI, i didnt implements any <br />
+interfaces or classes. i just create a class which extend from Action. Do <br />
+i miss out anything? Please advice. thanks.<br />
+<br />
+ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+pb.directory(path.toFile());<br />
+Process p = pb.start();<br />
+InputStream is = p.getInputStream();<br />
+int c;<br />
+StringBuffer sb = new StringBuffer();<br />
+while((c=is.read()) != -1)<br />
+{<br />
+sb.append((char)c);<br />
+}<br />
+System.out.println(sb.toString());</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309601&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309601&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309601&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_309604"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309604&amp;#msg_309604" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309604&amp;#msg_309604">message #309604</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309601&amp;#msg_309601">message #309601</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 02 November 2006 11:05</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hans Mueller-Dieckert is currently offline" title="Hans Mueller-Dieckert is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=31281&amp;">Hans Mueller-Dieckert</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=hmd%40arcsolutions.de" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 32<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=31281&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=31281&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi joneo,<br />
+<br />
+InputStream.read() will block your thread when there is no data <br />
+available from the stream and the end of the stream has not been reached.<br />
+<br />
+I guess that this is the reason for your problem.<br />
+<br />
+greetings,<br />
+Hans<br />
+<br />
+joneo schrieb:<br />
+&gt; hi all,<br />
+&gt; <br />
+&gt; i'm having problem with eclipse where it hang when execute a program <br />
+&gt; using the ProcessBuilder. Below is actually how i create the process and <br />
+&gt; print out the process details in console view. FYI, i didnt implements <br />
+&gt; any interfaces or classes. i just create a class which extend from <br />
+&gt; Action. Do i miss out anything? Please advice. thanks.<br />
+&gt; <br />
+&gt; ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+&gt; pb.directory(path.toFile());<br />
+&gt; Process p = pb.start();<br />
+&gt; InputStream is = p.getInputStream();<br />
+&gt; int c;<br />
+&gt; StringBuffer sb = new StringBuffer();<br />
+&gt; while((c=is.read()) != -1)<br />
+&gt; {<br />
+&gt; sb.append((char)c);<br />
+&gt; }<br />
+&gt; System.out.println(sb.toString());<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309604&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=31281&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309604&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309604&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_309610"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309610&amp;#msg_309610" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309610&amp;#msg_309610">message #309610</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309601&amp;#msg_309601">message #309601</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 02 November 2006 14:02</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Guenther Koegel is currently offline" title="Guenther Koegel is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=25389&amp;">Guenther Koegel</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=guenther.koegel%40mind8.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 56<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Dear Joneo,<br />
+<br />
+joneo schrieb:<br />
+&gt; hi all,<br />
+&gt; ...<br />
+<br />
+when starting a sub-process you have to monitor *THREE* streams in <br />
+parallel: Compare with System.in, System.out and System.err, but now you <br />
+are on the opposite side. Your process writes to the System.in of the <br />
+sub-process and reads/checks the data coming from System.out and <br />
+System.err. Most important: all output data may appear any time.<br />
+<br />
+Solution 1: Use a separate Thread for each channel<br />
+and one to monitor sub-process termination (+exit status)<br />
+==&gt; use blocking IO and thread termination<br />
+<br />
+Solution 2: Use a single thread<br />
+==&gt; Poll each channel with InputStream.available() and read only<br />
+if data is available. Error stream has highest priority...<br />
+<br />
+&lt;Some code to illustrate&gt;<br />
+while (sub-process.isAlive())<br />
+{<br />
+	if (err.available()<br />
+		err.read()<br />
+         else if (out.available())<br />
+		out.read()<br />
+	else<br />
+		in.write(&quot;some input data for sup-process&quot;)<br />
+<br />
+	check sub-process.isAlive();<br />
+	Thread.sleep(...);<br />
+}<br />
+&lt;/code&gt;<br />
+<br />
+<br />
+Bye,<br />
+<br />
+G&amp;uuml;nther</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309610&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=25389&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309610&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309610&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_309720"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309720&amp;#msg_309720" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309720&amp;#msg_309720">message #309720</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309610&amp;#msg_309610">message #309610</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 06 November 2006 16:57</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+sorry i'm new to java and eclipse. may i know what do you mean with <br />
+sub-process? is it creating another thread? do you mind to provide more <br />
+guidelines? where should i create the thread? where should i put the code <br />
+you have shown me? i've tried the below code but is not working. it does <br />
+not go in the while loop.can anyone give some guidance? thanks.<br />
+<br />
+Process p = null;<br />
+<br />
+Thread t = new Thread(){<br />
+  public void run(){<br />
+    ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+    pb.directory(path.toFile());<br />
+    p = pb.start();<br />
+  }<br />
+};<br />
+<br />
+t.start();<br />
+InputStream is = p.getInputStream();<br />
+InputStream es = p.getErrorStream();<br />
+OutputStream os = p.getOutputStream();<br />
+<br />
+while(t.isAlive()){<br />
+  if(es.available())<br />
+    es.read();<br />
+  else if (is.available())<br />
+    is.read();<br />
+  else<br />
+    os.write();<br />
+}<br />
+<br />
+Guenther Koegel wrote:<br />
+<br />
+&gt; Dear Joneo,<br />
+<br />
+&gt; joneo schrieb:<br />
+&gt;&gt; hi all,<br />
+&gt;&gt; ...<br />
+<br />
+&gt; when starting a sub-process you have to monitor *THREE* streams in <br />
+&gt; parallel: Compare with System.in, System.out and System.err, but now you <br />
+&gt; are on the opposite side. Your process writes to the System.in of the <br />
+&gt; sub-process and reads/checks the data coming from System.out and <br />
+&gt; System.err. Most important: all output data may appear any time.<br />
+<br />
+&gt; Solution 1: Use a separate Thread for each channel<br />
+&gt; and one to monitor sub-process termination (+exit status)<br />
+&gt; ==&gt; use blocking IO and thread termination<br />
+<br />
+&gt; Solution 2: Use a single thread<br />
+&gt; ==&gt; Poll each channel with InputStream.available() and read only<br />
+&gt; if data is available. Error stream has highest priority...<br />
+<br />
+&gt; &lt;Some code to illustrate&gt;<br />
+&gt; while (sub-process.isAlive())<br />
+&gt; {<br />
+&gt; 	if (err.available()<br />
+&gt; 		err.read()<br />
+&gt;          else if (out.available())<br />
+&gt; 		out.read()<br />
+&gt; 	else<br />
+&gt; 		in.write(&quot;some input data for sup-process&quot;)<br />
+<br />
+&gt; 	check sub-process.isAlive();<br />
+&gt; 	Thread.sleep(...);<br />
+&gt; }<br />
+&gt; &lt;/code&gt;<br />
+<br />
+<br />
+&gt; Bye,<br />
+<br />
+&gt; G&amp;uuml;nther</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309720&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309720&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309720&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_309756"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309756&amp;#msg_309756" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309756&amp;#msg_309756">message #309756</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309720&amp;#msg_309720">message #309720</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 07 November 2006 15:07</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Guenther Koegel is currently offline" title="Guenther Koegel is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=25389&amp;">Guenther Koegel</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=guenther.koegel%40mind8.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 56<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Dear Joneo,<br />
+<br />
+joneo schrieb:<br />
+&gt; sorry i'm new to java and eclipse. may i know what do you mean with <br />
+&gt; sub-process? is it creating another thread? do you mind to provide more <br />
+&gt; guidelines? where should i create the thread? where should i put the <br />
+&gt; code you have shown me? i've tried the below code but is not working. it <br />
+&gt; does not go in the while loop.can anyone give some guidance? thanks.<br />
+<br />
+A sub-process is a new program started by your program. It runs in its <br />
+own memory space and the only way to communicate with is via input, <br />
+output and error streams. As an example type in a Windows command line <br />
+&quot;cmd&quot; and you get a sub-process. The parent waits until the termination <br />
+of the  sub-process (sometimes also named as child process).<br />
+<br />
+&gt; Process p = null;<br />
+&gt; <br />
+&gt; Thread t = new Thread(){<br />
+&gt;  public void run(){<br />
+&gt;    ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+&gt;    pb.directory(path.toFile());<br />
+&gt;    p = pb.start();<br />
+&gt;  }<br />
+&gt; };<br />
+&gt; <br />
+&gt; t.start();<br />
+<br />
+The ProcessBuilder is just a convenience class to set-up a new <br />
+sub-process and you do not need a separate thread to create the process. <br />
+After that you have to handle the Process p you got back from <br />
+ProcessBuilder.start().<br />
+<br />
+&gt; InputStream is = p.getInputStream();<br />
+&gt; InputStream es = p.getErrorStream();<br />
+&gt; OutputStream os = p.getOutputStream();<br />
+<br />
+Yes, these are the streams you need to read from and write to for <br />
+communicating with your sub-process. Now you have to check four conditions:<br />
+<br />
+1) Data available on error stream? read and report error message<br />
+2) Data available on input stream? read and work with the output<br />
+3) Data needed on the output stream? write new data, line by line<br />
+4) Sub-process terminated: check exit code,<br />
+    read all from is and es; done<br />
+<br />
+&gt; <br />
+&gt; while(t.isAlive()){<br />
+&gt;  if(es.available())<br />
+&gt;    es.read();<br />
+&gt;  else if (is.available())<br />
+&gt;    is.read();<br />
+&gt;  else<br />
+&gt;    os.write();<br />
+&gt; }<br />
+<br />
+// If you insist on some code, here it comes...<br />
+int length;<br />
+int resultCode;<br />
+while(true)<br />
+{<br />
+   if ((length = es.available()) &gt; 0)<br />
+   {<br />
+      byte[] b = new byte[length];<br />
+      es.read(b);<br />
+      // report error<br />
+   }<br />
+   else if (length = is.available()) &gt; 0)<br />
+   {<br />
+	// same as above<br />
+   }<br />
+   else<br />
+   {<br />
+     try<br />
+     {<br />
+       resultCode = p.exitValue();<br />
+       break;<br />
+     }<br />
+     catch(IllegalThreadStateException e)<br />
+     {<br />
+        Thread.sleep(100);<br />
+     }<br />
+   }<br />
+}<br />
+<br />
+Loop over all streams. Try to read the exit value which fails if the <br />
+process is still alive.<br />
+<br />
+Check the documentation of Process, Runtime.exec and search the Internet <br />
+for some tutorials how to start processes and handle the inter-process <br />
+communication... You may need to read some additional documentation <br />
+about processes in general as the API documentation explains typically <br />
+how to do it but not how things work together.<br />
+<br />
+Bye,<br />
+<br />
+G&amp;uuml;nther</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309756&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=25389&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309756&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309756&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_309764"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309764&amp;#msg_309764" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309764&amp;#msg_309764">message #309764</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309756&amp;#msg_309756">message #309756</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Tue, 07 November 2006 18:13</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+Thanks for the guidance.Actually the reason i'm doing so is to be able to <br />
+pipe the process executions to the console view. is it possible?<br />
+<br />
+Guenther Koegel wrote:<br />
+<br />
+&gt; Dear Joneo,<br />
+<br />
+&gt; joneo schrieb:<br />
+&gt;&gt; sorry i'm new to java and eclipse. may i know what do you mean with <br />
+&gt;&gt; sub-process? is it creating another thread? do you mind to provide more <br />
+&gt;&gt; guidelines? where should i create the thread? where should i put the <br />
+&gt;&gt; code you have shown me? i've tried the below code but is not working. it <br />
+&gt;&gt; does not go in the while loop.can anyone give some guidance? thanks.<br />
+<br />
+&gt; A sub-process is a new program started by your program. It runs in its <br />
+&gt; own memory space and the only way to communicate with is via input, <br />
+&gt; output and error streams. As an example type in a Windows command line <br />
+&gt; &quot;cmd&quot; and you get a sub-process. The parent waits until the termination <br />
+&gt; of the  sub-process (sometimes also named as child process).<br />
+<br />
+&gt;&gt; Process p = null;<br />
+&gt;&gt; <br />
+&gt;&gt; Thread t = new Thread(){<br />
+&gt;&gt;  public void run(){<br />
+&gt;&gt;    ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+&gt;&gt;    pb.directory(path.toFile());<br />
+&gt;&gt;    p = pb.start();<br />
+&gt;&gt;  }<br />
+&gt;&gt; };<br />
+&gt;&gt; <br />
+&gt;&gt; t.start();<br />
+<br />
+&gt; The ProcessBuilder is just a convenience class to set-up a new <br />
+&gt; sub-process and you do not need a separate thread to create the process. <br />
+&gt; After that you have to handle the Process p you got back from <br />
+&gt; ProcessBuilder.start().<br />
+<br />
+&gt;&gt; InputStream is = p.getInputStream();<br />
+&gt;&gt; InputStream es = p.getErrorStream();<br />
+&gt;&gt; OutputStream os = p.getOutputStream();<br />
+<br />
+&gt; Yes, these are the streams you need to read from and write to for <br />
+&gt; communicating with your sub-process. Now you have to check four conditions:<br />
+<br />
+&gt; 1) Data available on error stream? read and report error message<br />
+&gt; 2) Data available on input stream? read and work with the output<br />
+&gt; 3) Data needed on the output stream? write new data, line by line<br />
+&gt; 4) Sub-process terminated: check exit code,<br />
+&gt;     read all from is and es; done<br />
+<br />
+&gt;&gt; <br />
+&gt;&gt; while(t.isAlive()){<br />
+&gt;&gt;  if(es.available())<br />
+&gt;&gt;    es.read();<br />
+&gt;&gt;  else if (is.available())<br />
+&gt;&gt;    is.read();<br />
+&gt;&gt;  else<br />
+&gt;&gt;    os.write();<br />
+&gt;&gt; }<br />
+<br />
+&gt; // If you insist on some code, here it comes...<br />
+&gt; int length;<br />
+&gt; int resultCode;<br />
+&gt; while(true)<br />
+&gt; {<br />
+&gt;    if ((length = es.available()) &gt; 0)<br />
+&gt;    {<br />
+&gt;       byte[] b = new byte[length];<br />
+&gt;       es.read(b);<br />
+&gt;       // report error<br />
+&gt;    }<br />
+&gt;    else if (length = is.available()) &gt; 0)<br />
+&gt;    {<br />
+&gt; 	// same as above<br />
+&gt;    }<br />
+&gt;    else<br />
+&gt;    {<br />
+&gt;      try<br />
+&gt;      {<br />
+&gt;        resultCode = p.exitValue();<br />
+&gt;        break;<br />
+&gt;      }<br />
+&gt;      catch(IllegalThreadStateException e)<br />
+&gt;      {<br />
+&gt;         Thread.sleep(100);<br />
+&gt;      }<br />
+&gt;    }<br />
+&gt; }<br />
+<br />
+&gt; Loop over all streams. Try to read the exit value which fails if the <br />
+&gt; process is still alive.<br />
+<br />
+&gt; Check the documentation of Process, Runtime.exec and search the Internet <br />
+&gt; for some tutorials how to start processes and handle the inter-process <br />
+&gt; communication... You may need to read some additional documentation <br />
+&gt; about processes in general as the API documentation explains typically <br />
+&gt; how to do it but not how things work together.<br />
+<br />
+&gt; Bye,<br />
+<br />
+&gt; G&amp;uuml;nther</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309764&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309764&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309764&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_309796"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=309796&amp;#msg_309796" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=309796&amp;#msg_309796">message #309796</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309764&amp;#msg_309764">message #309764</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 09 November 2006 08:18</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Guenther Koegel is currently offline" title="Guenther Koegel is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=25389&amp;">Guenther Koegel</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=guenther.koegel%40mind8.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 56<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Dear Joneo,<br />
+<br />
+Am I right by assuming that you want to read the output (and error <br />
+messages) from the sub-process and print it to your console?<br />
+<br />
+Then your part of the implementation is marked with the comment<br />
+// report error<br />
+and<br />
+// same as above<br />
+<br />
+Read data into the byte array, convert to String and forward it where <br />
+you want it and you are done! On &quot;How to send it to the console view&quot; I <br />
+have no clue...<br />
+<br />
+Bye<br />
+<br />
+G&amp;uuml;nther<br />
+<br />
+joneo schrieb:<br />
+&gt; Thanks for the guidance.Actually the reason i'm doing so is to be able <br />
+&gt; to pipe the process executions to the console view. is it possible?<br />
+&gt; <br />
+&gt; Guenther Koegel wrote:<br />
+&gt; <br />
+&gt;&gt; Dear Joneo,<br />
+&gt; <br />
+&gt;&gt; joneo schrieb:<br />
+&gt;&gt;&gt; sorry i'm new to java and eclipse. may i know what do you mean with <br />
+&gt;&gt;&gt; sub-process? is it creating another thread? do you mind to provide <br />
+&gt;&gt;&gt; more guidelines? where should i create the thread? where should i put <br />
+&gt;&gt;&gt; the code you have shown me? i've tried the below code but is not <br />
+&gt;&gt;&gt; working. it does not go in the while loop.can anyone give some <br />
+&gt;&gt;&gt; guidance? thanks.<br />
+&gt; <br />
+&gt;&gt; A sub-process is a new program started by your program. It runs in its <br />
+&gt;&gt; own memory space and the only way to communicate with is via input, <br />
+&gt;&gt; output and error streams. As an example type in a Windows command line <br />
+&gt;&gt; &quot;cmd&quot; and you get a sub-process. The parent waits until the <br />
+&gt;&gt; termination of the  sub-process (sometimes also named as child process).<br />
+&gt; <br />
+&gt;&gt;&gt; Process p = null;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Thread t = new Thread(){<br />
+&gt;&gt;&gt;  public void run(){<br />
+&gt;&gt;&gt;    ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+&gt;&gt;&gt;    pb.directory(path.toFile());<br />
+&gt;&gt;&gt;    p = pb.start();<br />
+&gt;&gt;&gt;  }<br />
+&gt;&gt;&gt; };<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; t.start();<br />
+&gt; <br />
+&gt;&gt; The ProcessBuilder is just a convenience class to set-up a new <br />
+&gt;&gt; sub-process and you do not need a separate thread to create the <br />
+&gt;&gt; process. After that you have to handle the Process p you got back from <br />
+&gt;&gt; ProcessBuilder.start().<br />
+&gt; <br />
+&gt;&gt;&gt; InputStream is = p.getInputStream();<br />
+&gt;&gt;&gt; InputStream es = p.getErrorStream();<br />
+&gt;&gt;&gt; OutputStream os = p.getOutputStream();<br />
+&gt; <br />
+&gt;&gt; Yes, these are the streams you need to read from and write to for <br />
+&gt;&gt; communicating with your sub-process. Now you have to check four <br />
+&gt;&gt; conditions:<br />
+&gt; <br />
+&gt;&gt; 1) Data available on error stream? read and report error message<br />
+&gt;&gt; 2) Data available on input stream? read and work with the output<br />
+&gt;&gt; 3) Data needed on the output stream? write new data, line by line<br />
+&gt;&gt; 4) Sub-process terminated: check exit code,<br />
+&gt;&gt;     read all from is and es; done<br />
+&gt; <br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; while(t.isAlive()){<br />
+&gt;&gt;&gt;  if(es.available())<br />
+&gt;&gt;&gt;    es.read();<br />
+&gt;&gt;&gt;  else if (is.available())<br />
+&gt;&gt;&gt;    is.read();<br />
+&gt;&gt;&gt;  else<br />
+&gt;&gt;&gt;    os.write();<br />
+&gt;&gt;&gt; }<br />
+&gt; <br />
+&gt;&gt; // If you insist on some code, here it comes...<br />
+&gt;&gt; int length;<br />
+&gt;&gt; int resultCode;<br />
+&gt;&gt; while(true)<br />
+&gt;&gt; {<br />
+&gt;&gt;    if ((length = es.available()) &gt; 0)<br />
+&gt;&gt;    {<br />
+&gt;&gt;       byte[] b = new byte[length];<br />
+&gt;&gt;       es.read(b);<br />
+&gt;&gt;       // report error<br />
+&gt;&gt;    }<br />
+&gt;&gt;    else if (length = is.available()) &gt; 0)<br />
+&gt;&gt;    {<br />
+&gt;&gt;     // same as above<br />
+&gt;&gt;    }<br />
+&gt;&gt;    else<br />
+&gt;&gt;    {<br />
+&gt;&gt;      try<br />
+&gt;&gt;      {<br />
+&gt;&gt;        resultCode = p.exitValue();<br />
+&gt;&gt;        break;<br />
+&gt;&gt;      }<br />
+&gt;&gt;      catch(IllegalThreadStateException e)<br />
+&gt;&gt;      {<br />
+&gt;&gt;         Thread.sleep(100);<br />
+&gt;&gt;      }<br />
+&gt;&gt;    }<br />
+&gt;&gt; }<br />
+&gt; <br />
+&gt;&gt; Loop over all streams. Try to read the exit value which fails if the <br />
+&gt;&gt; process is still alive.<br />
+&gt; <br />
+&gt;&gt; Check the documentation of Process, Runtime.exec and search the <br />
+&gt;&gt; Internet for some tutorials how to start processes and handle the <br />
+&gt;&gt; inter-process communication... You may need to read some additional <br />
+&gt;&gt; documentation about processes in general as the API documentation <br />
+&gt;&gt; explains typically how to do it but not how things work together.<br />
+&gt; <br />
+&gt;&gt; Bye,<br />
+&gt; <br />
+&gt;&gt; G&amp;uuml;nther<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=309796&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=25389&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=309796&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=309796&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_8"></a><a name="msg_310003"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310003&amp;#msg_310003" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310003&amp;#msg_310003">message #310003</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=309796&amp;#msg_309796">message #309796</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Wed, 15 November 2006 03:13</span> <a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+sorry for the late reply. besides reading the output and error messages <br />
+from the sub-process, i also want to be able to accept input from user <br />
+whenever needed and print at the console. kind of like interactive ways. <br />
+i've looked into the debug console but their approach is through the <br />
+launchconfig file. but for me i dont have any launchconfig file being <br />
+created.<br />
+<br />
+Guenther Koegel wrote:<br />
+<br />
+&gt; Dear Joneo,<br />
+<br />
+&gt; Am I right by assuming that you want to read the output (and error <br />
+&gt; messages) from the sub-process and print it to your console?<br />
+<br />
+&gt; Then your part of the implementation is marked with the comment<br />
+&gt; // report error<br />
+&gt; and<br />
+&gt; // same as above<br />
+<br />
+&gt; Read data into the byte array, convert to String and forward it where <br />
+&gt; you want it and you are done! On &quot;How to send it to the console view&quot; I <br />
+&gt; have no clue...<br />
+<br />
+&gt; Bye<br />
+<br />
+&gt; G&amp;uuml;nther<br />
+<br />
+&gt; joneo schrieb:<br />
+&gt;&gt; Thanks for the guidance.Actually the reason i'm doing so is to be able <br />
+&gt;&gt; to pipe the process executions to the console view. is it possible?<br />
+&gt;&gt; <br />
+&gt;&gt; Guenther Koegel wrote:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Dear Joneo,<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; joneo schrieb:<br />
+&gt;&gt;&gt;&gt; sorry i'm new to java and eclipse. may i know what do you mean with <br />
+&gt;&gt;&gt;&gt; sub-process? is it creating another thread? do you mind to provide <br />
+&gt;&gt;&gt;&gt; more guidelines? where should i create the thread? where should i put <br />
+&gt;&gt;&gt;&gt; the code you have shown me? i've tried the below code but is not <br />
+&gt;&gt;&gt;&gt; working. it does not go in the while loop.can anyone give some <br />
+&gt;&gt;&gt;&gt; guidance? thanks.<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; A sub-process is a new program started by your program. It runs in its <br />
+&gt;&gt;&gt; own memory space and the only way to communicate with is via input, <br />
+&gt;&gt;&gt; output and error streams. As an example type in a Windows command line <br />
+&gt;&gt;&gt; &quot;cmd&quot; and you get a sub-process. The parent waits until the <br />
+&gt;&gt;&gt; termination of the  sub-process (sometimes also named as child process).<br />
+&gt;&gt; <br />
+&gt;&gt;&gt;&gt; Process p = null;<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Thread t = new Thread(){<br />
+&gt;&gt;&gt;&gt;  public void run(){<br />
+&gt;&gt;&gt;&gt;    ProcessBuilder pb = new ProcessBuilder(EXECUTE.toString(),&quot;-g&quot;);<br />
+&gt;&gt;&gt;&gt;    pb.directory(path.toFile());<br />
+&gt;&gt;&gt;&gt;    p = pb.start();<br />
+&gt;&gt;&gt;&gt;  }<br />
+&gt;&gt;&gt;&gt; };<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; t.start();<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; The ProcessBuilder is just a convenience class to set-up a new <br />
+&gt;&gt;&gt; sub-process and you do not need a separate thread to create the <br />
+&gt;&gt;&gt; process. After that you have to handle the Process p you got back from <br />
+&gt;&gt;&gt; ProcessBuilder.start().<br />
+&gt;&gt; <br />
+&gt;&gt;&gt;&gt; InputStream is = p.getInputStream();<br />
+&gt;&gt;&gt;&gt; InputStream es = p.getErrorStream();<br />
+&gt;&gt;&gt;&gt; OutputStream os = p.getOutputStream();<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Yes, these are the streams you need to read from and write to for <br />
+&gt;&gt;&gt; communicating with your sub-process. Now you have to check four <br />
+&gt;&gt;&gt; conditions:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; 1) Data available on error stream? read and report error message<br />
+&gt;&gt;&gt; 2) Data available on input stream? read and work with the output<br />
+&gt;&gt;&gt; 3) Data needed on the output stream? write new data, line by line<br />
+&gt;&gt;&gt; 4) Sub-process terminated: check exit code,<br />
+&gt;&gt;&gt;     read all from is and es; done<br />
+&gt;&gt; <br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; while(t.isAlive()){<br />
+&gt;&gt;&gt;&gt;  if(es.available())<br />
+&gt;&gt;&gt;&gt;    es.read();<br />
+&gt;&gt;&gt;&gt;  else if (is.available())<br />
+&gt;&gt;&gt;&gt;    is.read();<br />
+&gt;&gt;&gt;&gt;  else<br />
+&gt;&gt;&gt;&gt;    os.write();<br />
+&gt;&gt;&gt;&gt; }<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; // If you insist on some code, here it comes...<br />
+&gt;&gt;&gt; int length;<br />
+&gt;&gt;&gt; int resultCode;<br />
+&gt;&gt;&gt; while(true)<br />
+&gt;&gt;&gt; {<br />
+&gt;&gt;&gt;    if ((length = es.available()) &gt; 0)<br />
+&gt;&gt;&gt;    {<br />
+&gt;&gt;&gt;       byte[] b = new byte[length];<br />
+&gt;&gt;&gt;       es.read(b);<br />
+&gt;&gt;&gt;       // report error<br />
+&gt;&gt;&gt;    }<br />
+&gt;&gt;&gt;    else if (length = is.available()) &gt; 0)<br />
+&gt;&gt;&gt;    {<br />
+&gt;&gt;&gt;     // same as above<br />
+&gt;&gt;&gt;    }<br />
+&gt;&gt;&gt;    else<br />
+&gt;&gt;&gt;    {<br />
+&gt;&gt;&gt;      try<br />
+&gt;&gt;&gt;      {<br />
+&gt;&gt;&gt;        resultCode = p.exitValue();<br />
+&gt;&gt;&gt;        break;<br />
+&gt;&gt;&gt;      }<br />
+&gt;&gt;&gt;      catch(IllegalThreadStateException e)<br />
+&gt;&gt;&gt;      {<br />
+&gt;&gt;&gt;         Thread.sleep(100);<br />
+&gt;&gt;&gt;      }<br />
+&gt;&gt;&gt;    }<br />
+&gt;&gt;&gt; }<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Loop over all streams. Try to read the exit value which fails if the <br />
+&gt;&gt;&gt; process is still alive.<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Check the documentation of Process, Runtime.exec and search the <br />
+&gt;&gt;&gt; Internet for some tutorials how to start processes and handle the <br />
+&gt;&gt;&gt; inter-process communication... You may need to read some additional <br />
+&gt;&gt;&gt; documentation about processes in general as the API documentation <br />
+&gt;&gt;&gt; explains typically how to do it but not how things work together.<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; Bye,<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; G&amp;uuml;nther<br />
+&gt;&gt; <br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310003&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310003&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310003&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_9"></a><a name="msg_310951"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310951&amp;#msg_310951" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310951&amp;#msg_310951">message #310951</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310003&amp;#msg_310003">message #310003</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 22 December 2006 02:03</span> <a href="javascript://" onclick="chng_focus('#msg_num_8');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+hi,<br />
+<br />
+i'm still unable to solve the eclipse hang issue. i just found out that <br />
+the program that i exec will call another program during the execution. so <br />
+i wonder will is be detected by the process inputStream which i create <br />
+earlier to run the 1st program? ok let me explain the execution flow.<br />
+<br />
+i execute the program A through the ProcessBuilder. Internally program A <br />
+will call another program B. i use the inputStream from the ProcessBuilder <br />
+to capture all the execution process and display it in the console. there <br />
+is one part before calling the program B i saw a command line call &quot;echo <br />
+off&quot;. when i debug into the eclipse program, i found it actually stop <br />
+printing when reaching that line and causing the eclipse hang there. i <br />
+follow the code given where i put an infinite loop ( while(true){ } ) to <br />
+capture the inputStream/errorStream/outputStream. somehow is just won't <br />
+continue when reaching that part. does this mean that it failed to detect <br />
+the inputStream from program B? but when i run it through the external <br />
+tool configuration, it is able to go through and run the program smoothly <br />
+and print all the execution process at the console view. but the words is <br />
+printed in red color in the console. how can i fix this issue. can someone <br />
+help me?</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310951&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310951&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310951&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_10"></a><a name="msg_310967"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310967&amp;#msg_310967" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310967&amp;#msg_310967">message #310967</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310951&amp;#msg_310951">message #310951</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 22 December 2006 15:22</span> <a href="javascript://" onclick="chng_focus('#msg_num_9');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Guenther Koegel is currently offline" title="Guenther Koegel is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=25389&amp;">Guenther Koegel</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=guenther.koegel%40mind8.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 56<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=25389&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Dear Joneo,<br />
+<br />
+joneo schrieb:<br />
+&gt; hi,<br />
+&gt; <br />
+&gt; i'm still unable to solve the eclipse hang issue. i just found out that <br />
+&gt; the program that i exec will call another program during the execution. <br />
+&gt; so i wonder will is be detected by the process inputStream which i <br />
+&gt; create earlier to run the 1st program? ok let me explain the execution <br />
+&gt; flow.<br />
+<br />
+Hmmm, two processes make it much more complicated because you cannot <br />
+monitor the communication between both... Are there any debug options <br />
+available?<br />
+<br />
+&gt; <br />
+&gt; i execute the program A through the ProcessBuilder. Internally program A <br />
+&gt; will call another program B. i use the inputStream from the <br />
+&gt; ProcessBuilder to capture all the execution process and display it in <br />
+&gt; the console. there is one part before calling the program B i saw a <br />
+&gt; command line call &quot;echo off&quot;. when i debug into the eclipse program, i <br />
+&gt; found it actually stop printing when reaching that line and causing the <br />
+&gt; eclipse hang there. i follow the code given where i put an infinite loop <br />
+&gt; ( while(true){ } ) to capture the inputStream/errorStream/outputStream. <br />
+&gt; somehow is just won't continue when reaching that part. does this mean <br />
+&gt; that it failed to detect the inputStream from program B? but when i run <br />
+&gt; it through the external tool configuration, it is able to go through and <br />
+&gt; run the program smoothly and print all the execution process at the <br />
+&gt; console view. but the words is printed in red color in the console. how <br />
+&gt; can i fix this issue. can someone help me?<br />
+&gt; <br />
+<br />
+Here you have a very ugly situation. Let me suggest some tries:<br />
+<br />
+1) Try to separate both processes<br />
+2) Try to call process A without Eclipse and use a batch script<br />
+    See whether the prints some errors<br />
+3) Read the documentation of process A and B for any debug options<br />
+4) Use unbuffered io<br />
+5) Provide input to both processes, several lines!<br />
+    And see whether you get error messages<br />
+6) Gracefully kill the processes and check for error messages<br />
+    in your errorStream<br />
+<br />
+Maybe the processes print some error messages but you will not see them <br />
+because they are small and the streams are buffered. Or the processes <br />
+need additional information before the continue... e.g. like the DOS <br />
+command del that may ask you whether you really want to delete the file.<br />
+<br />
+Hope that helps<br />
+<br />
+G&amp;uuml;nther</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310967&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=25389&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310967&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310967&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_11"></a><a name="msg_310972"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310972&amp;#msg_310972" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310972&amp;#msg_310972">message #310972</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310951&amp;#msg_310951">message #310951</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 22 December 2006 19:54</span> <a href="javascript://" onclick="chng_focus('#msg_num_10');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> wegener.cboenospam.com<br />
+<br />
+joneo wrote:<br />
+&gt; hi,<br />
+&gt; <br />
+&gt; i'm still unable to solve the eclipse hang issue. i just found out that <br />
+&gt; the program that i exec will call another program during the execution. <br />
+&gt; so i wonder will is be detected by the process inputStream which i <br />
+&gt; create earlier to run the 1st program? ok let me explain the execution <br />
+&gt; flow.<br />
+&gt; <br />
+&gt; i execute the program A through the ProcessBuilder. Internally program A <br />
+&gt; will call another program B. i use the inputStream from the <br />
+&gt; ProcessBuilder to capture all the execution process and display it in <br />
+&gt; the console. there is one part before calling the program B i saw a <br />
+&gt; command line call &quot;echo off&quot;. when i debug into the eclipse program, i <br />
+&gt; found it actually stop printing when reaching that line and causing the <br />
+&gt; eclipse hang there. i follow the code given where i put an infinite loop <br />
+&gt; ( while(true){ } ) to capture the inputStream/errorStream/outputStream. <br />
+&gt; somehow is just won't continue when reaching that part. does this mean <br />
+&gt; that it failed to detect the inputStream from program B? but when i run <br />
+&gt; it through the external tool configuration, it is able to go through and <br />
+&gt; run the program smoothly and print all the execution process at the <br />
+&gt; console view. but the words is printed in red color in the console. how <br />
+&gt; can i fix this issue. can someone help me?<br />
+&gt; <br />
+<br />
+It sounds like you are stuck on a blocking call.  What is in your <br />
+infinite while loop?  You indicate that you are capturing the input, <br />
+error, and output streams.  I don't understand how you can capture all <br />
+of these.  The Process InputStream (retrieved by calling <br />
+process.getOutputStream()) is used to write data to the processes input <br />
+stream, you can't capture this in a while loop.<br />
+<br />
+You can capture data from the streams returned by the <br />
+process.getInputStream() and the process.getErrorStream() methods by <br />
+calling one of the read() methods.  Note that if there isn't any data <br />
+available on the InputStream when you issue the read() call, the call <br />
+will block until data is available.  You can call the available() method <br />
+to see if anything is available to be read in.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310972&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310972&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310972&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_12"></a><a name="msg_310981"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310981&amp;#msg_310981" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310981&amp;#msg_310981">message #310981</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310972&amp;#msg_310972">message #310972</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 23 December 2006 04:18</span> <a href="javascript://" onclick="chng_focus('#msg_num_11');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+Guys thanks for the replies. i really appreciate it. i've been waiting for <br />
+somebody to come rescue me for long time ago. below are the source code on <br />
+what i've done so far to capture the process execution output. temporary i <br />
+focus on capturing the output from the process first. well i've tried run <br />
+the same execution through the external tools configuration. it run <br />
+smoothly without having this kind of problem. i debug the code and found <br />
+that it is using the ProcessConsole function which required the <br />
+configuration setup. so i'm not able to use it's method. can anybody <br />
+explain to me how the debug console process flow is? coz i still not clear <br />
+on the magic behind through debugging the code. please....<br />
+<br />
+This is what i've just discover lately and i hope this is useful to you <br />
+guys. FYI, my program A is written in C++. Program A will call program B <br />
+which is written in Perl. One thing i just discovered is that program B <br />
+will call another program C (i've no idea what language it is written in <br />
+but it is an .exe program which will check on the file checksum). i've no <br />
+access to modify the program C code as it come in exe. so what i've done <br />
+it to modify the program B to print out the result return by program C. <br />
+through the debugging, i found that it actually did execute the program C <br />
+but it stopped for the third time of executing it. all the value return by <br />
+program C is able to be print out by program B. but i've no idea why it <br />
+stop at the third time calling the program C. it is able to run smoothly <br />
+when i execute it through command prompt. one thing miss out from the <br />
+execution is that the program C will also print out some <br />
+information/comments but it is not captured by the inputStream of the <br />
+process. is this the one causing the execution to hang? when execute <br />
+through the external tool, all the information/comments that return by the <br />
+program C is highlighted in red color. what does it means? <br />
+<br />
+Actually previously there are 2 solution suggested by Guenther Koegel <br />
+<br />
+Solution 1: Use a separate Thread for each channel<br />
+and one to monitor sub-process termination (+exit status)<br />
+==&gt; use blocking IO and thread termination<br />
+<br />
+<br />
+Solution 2: Use a single thread<br />
+==&gt; Poll each channel with InputStream.available() and read only<br />
+if data is available. Error stream has highest priority...<br />
+<br />
+the one i'm using is the solution 2. so how is the solution 1 code looks <br />
+like?<br />
+i not really understand how can i use separate thread for each stream <br />
+channel since i only hav one process. so can anybody guide me on this? <br />
+sorry i'm still new to eclipse and java programming. please help me. <br />
+thanks in advance.<br />
+<br />
+################### Source Code ######################################<br />
+<br />
+try<br />
+{<br />
+	ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+	IConsoleManager conMan = plugin.getConsoleManager();<br />
+	MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+	conMan.addConsoles(new IConsole[]{myConsole});<br />
+	conMan.showConsoleView(myConsole);<br />
+	MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+	<br />
+	p = DebugPlugin.exec(cmd, path.toFile());<br />
+	InputStream is = p.getInputStream();<br />
+	InputStream es = p.getErrorStream();<br />
+	is.mark(50);<br />
+<br />
+	int rc;<br />
+	while(true)<br />
+	{<br />
+		if (es.available()&gt;0)<br />
+		{<br />
+			//os.write(es.available());<br />
+			//System.out.println(&quot;die&quot;);<br />
+		}<br />
+		else if (is.available()&gt;0)<br />
+		{<br />
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));<br />
+			String s;<br />
+			while((s = br.readLine()) != null)<br />
+			{<br />
+				ocons.println(s);<br />
+			}<br />
+		}<br />
+		else<br />
+		{<br />
+			System.out.println(&quot;Here&quot;);<br />
+			try<br />
+			{<br />
+				rc = p.exitValue();<br />
+				System.out.println(&quot;rC : &quot;+rc);<br />
+				break;<br />
+			}<br />
+			catch(IllegalThreadStateException e)<br />
+			{<br />
+				System.out.println(&quot;slp&quot;);<br />
+				Thread.sleep(1000);<br />
+				//is.reset();<br />
+			}<br />
+		}<br />
+	}<br />
+}<br />
+catch (Exception e)<br />
+{<br />
+	System.out.println(e.getMessage());<br />
+	e.printStackTrace();<br />
+}		<br />
+<br />
+ ############################################################ #####<br />
+<br />
+David Wegener wrote:<br />
+<br />
+&gt; joneo wrote:<br />
+&gt;&gt; hi,<br />
+&gt;&gt; <br />
+&gt;&gt; i'm still unable to solve the eclipse hang issue. i just found out that <br />
+&gt;&gt; the program that i exec will call another program during the execution. <br />
+&gt;&gt; so i wonder will is be detected by the process inputStream which i <br />
+&gt;&gt; create earlier to run the 1st program? ok let me explain the execution <br />
+&gt;&gt; flow.<br />
+&gt;&gt; <br />
+&gt;&gt; i execute the program A through the ProcessBuilder. Internally program A <br />
+&gt;&gt; will call another program B. i use the inputStream from the <br />
+&gt;&gt; ProcessBuilder to capture all the execution process and display it in <br />
+&gt;&gt; the console. there is one part before calling the program B i saw a <br />
+&gt;&gt; command line call &quot;echo off&quot;. when i debug into the eclipse program, i <br />
+&gt;&gt; found it actually stop printing when reaching that line and causing the <br />
+&gt;&gt; eclipse hang there. i follow the code given where i put an infinite loop <br />
+&gt;&gt; ( while(true){ } ) to capture the inputStream/errorStream/outputStream. <br />
+&gt;&gt; somehow is just won't continue when reaching that part. does this mean <br />
+&gt;&gt; that it failed to detect the inputStream from program B? but when i run <br />
+&gt;&gt; it through the external tool configuration, it is able to go through and <br />
+&gt;&gt; run the program smoothly and print all the execution process at the <br />
+&gt;&gt; console view. but the words is printed in red color in the console. how <br />
+&gt;&gt; can i fix this issue. can someone help me?<br />
+&gt;&gt; <br />
+<br />
+&gt; It sounds like you are stuck on a blocking call.  What is in your <br />
+&gt; infinite while loop?  You indicate that you are capturing the input, <br />
+&gt; error, and output streams.  I don't understand how you can capture all <br />
+&gt; of these.  The Process InputStream (retrieved by calling <br />
+&gt; process.getOutputStream()) is used to write data to the processes input <br />
+&gt; stream, you can't capture this in a while loop.<br />
+<br />
+&gt; You can capture data from the streams returned by the <br />
+&gt; process.getInputStream() and the process.getErrorStream() methods by <br />
+&gt; calling one of the read() methods.  Note that if there isn't any data <br />
+&gt; available on the InputStream when you issue the read() call, the call <br />
+&gt; will block until data is available.  You can call the available() method <br />
+&gt; to see if anything is available to be read in.</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310981&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310981&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310981&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_13"></a><a name="msg_310995"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=310995&amp;#msg_310995" class="MsgSubText">Re: eclipse hang when exec program</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=310995&amp;#msg_310995">message #310995</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310981&amp;#msg_310981">message #310981</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sat, 23 December 2006 18:15</span> <a href="javascript://" onclick="chng_focus('#msg_num_12');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> wegener.cboenospam.com<br />
+<br />
+See comments in code below<br />
+<br />
+joneo wrote:<br />
+&gt; Guys thanks for the replies. i really appreciate it. i've been waiting <br />
+&gt; for somebody to come rescue me for long time ago. below are the source <br />
+&gt; code on what i've done so far to capture the process execution output. <br />
+&gt; temporary i focus on capturing the output from the process first. well <br />
+&gt; i've tried run the same execution through the external tools <br />
+&gt; configuration. it run smoothly without having this kind of problem. i <br />
+&gt; debug the code and found that it is using the ProcessConsole function <br />
+&gt; which required the configuration setup. so i'm not able to use it's <br />
+&gt; method. can anybody explain to me how the debug console process flow is? <br />
+&gt; coz i still not clear on the magic behind through debugging the code. <br />
+&gt; please....<br />
+&gt; <br />
+&gt; This is what i've just discover lately and i hope this is useful to you <br />
+&gt; guys. FYI, my program A is written in C++. Program A will call program B <br />
+&gt; which is written in Perl. One thing i just discovered is that program B <br />
+&gt; will call another program C (i've no idea what language it is written in <br />
+&gt; but it is an .exe program which will check on the file checksum). i've <br />
+&gt; no access to modify the program C code as it come in exe. so what i've <br />
+&gt; done it to modify the program B to print out the result return by <br />
+&gt; program C. through the debugging, i found that it actually did execute <br />
+&gt; the program C but it stopped for the third time of executing it. all the <br />
+&gt; value return by program C is able to be print out by program B. but i've <br />
+&gt; no idea why it stop at the third time calling the program C. it is able <br />
+&gt; to run smoothly when i execute it through command prompt. one thing miss <br />
+&gt; out from the execution is that the program C will also print out some <br />
+&gt; information/comments but it is not captured by the inputStream of the <br />
+&gt; process. is this the one causing the execution to hang? when execute <br />
+&gt; through the external tool, all the information/comments that return by <br />
+&gt; the program C is highlighted in red color. what does it means?<br />
+&gt; Actually previously there are 2 solution suggested by Guenther Koegel<br />
+&gt; Solution 1: Use a separate Thread for each channel<br />
+&gt; and one to monitor sub-process termination (+exit status)<br />
+&gt; ==&gt; use blocking IO and thread termination<br />
+&gt; <br />
+&gt; <br />
+&gt; Solution 2: Use a single thread<br />
+&gt; ==&gt; Poll each channel with InputStream.available() and read only<br />
+&gt; if data is available. Error stream has highest priority...<br />
+&gt; <br />
+&gt; the one i'm using is the solution 2. so how is the solution 1 code looks <br />
+&gt; like?<br />
+&gt; i not really understand how can i use separate thread for each stream <br />
+&gt; channel since i only hav one process. so can anybody guide me on this? <br />
+&gt; sorry i'm still new to eclipse and java programming. please help me. <br />
+&gt; thanks in advance.<br />
+<br />
+Multiple Thread approach:<br />
+declare is and es final (final InputStream is = p.getInputStream()).<br />
+Replace the infinite loop below with the following:<br />
+<br />
+Thread isThread = new Thread() {<br />
+     public void run() {<br />
+         BufferedReader isReader = new BufferedReader(new <br />
+InputStreamReader(is));<br />
+         String isString;<br />
+         // You don't care that the readLine will block<br />
+         // because it is running in a different thread.<br />
+         while ((isString = isReader.readLine()) != null) {<br />
+             // This may need to be executed on the Display<br />
+             // Thread.  If so, you need to wrap the<br />
+             // ocons.println call in a Display.asyncExec() call.<br />
+             ocons.println(isString);<br />
+         }<br />
+};<br />
+isThread.start();<br />
+<br />
+Thread esThread = new Thread() {<br />
+     public void run() {<br />
+         byte[] buffer = new byte[100];<br />
+         while (es.read(buffer) != -1) {<br />
+         }<br />
+};<br />
+esThread.start();<br />
+<br />
+There may be some exception handling missing from this.  I haven't <br />
+actually tried the code, so there could be some other syntax errors as well.<br />
+<br />
+&gt; <br />
+&gt; ################### Source Code ######################################<br />
+&gt; <br />
+&gt; try<br />
+&gt; {<br />
+&gt;     ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+&gt;     IConsoleManager conMan = plugin.getConsoleManager();<br />
+&gt;     MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+&gt;     conMan.addConsoles(new IConsole[]{myConsole});<br />
+&gt;     conMan.showConsoleView(myConsole);<br />
+&gt;     MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+&gt;     <br />
+&gt;     p = DebugPlugin.exec(cmd, path.toFile());<br />
+&gt;     InputStream is = p.getInputStream();<br />
+&gt;     InputStream es = p.getErrorStream();<br />
+&gt;     is.mark(50);<br />
+&gt; <br />
+&gt;     int rc;<br />
+&gt;     while(true)<br />
+&gt;     {<br />
+&gt;         if (es.available()&gt;0)<br />
+&gt;         {<br />
+<br />
+Most likely, you problem is here.  You never read anything from the <br />
+ErrorStream of the process.  The processes error stream is a buffer. <br />
+When it fills up, the process (any any subprocess) will block if it <br />
+attempts to write to the error stream.  Once the error stream has data <br />
+in it, you will never read from the input stream because you have that <br />
+processing in the else of es.available().<br />
+<br />
+ From your description, it sounds like program C is writing its data to <br />
+the error stream.  That is why it shows up in red when run as an <br />
+external application.  Within this if block, you need to read data from <br />
+the error stream.  Something like this should work.<br />
+<br />
+               byte[] buffer = new byte[es.available()];<br />
+               es.read(buffer);<br />
+<br />
+&gt;             //os.write(es.available());<br />
+&gt;             //System.out.println(&quot;die&quot;);<br />
+&gt;         }<br />
+&gt;         else if (is.available()&gt;0)<br />
+&gt;         {<br />
+<br />
+This block of code will also cause you problems.  The <br />
+BufferedReader.readLine method will block until a complete line (with <br />
+terminating line end) is available.  Your while loop below will never <br />
+exit.  The readLine method only returns null if at end of file.  This <br />
+will only occur if the process exits and closes the input stream you are <br />
+reading.  Once you enter the loop, you will block on the readLine method <br />
+  when all of the available data has been read.  When the second process <br />
+blocks on the error stream mentioned above, there will never be any <br />
+additional data writen to the input stream you are blocked on.<br />
+<br />
+Instead of the BufferedReader, I would read the data into a byte array <br />
+like shown above.<br />
+&gt;             BufferedReader br = new BufferedReader(new <br />
+&gt; InputStreamReader(is));<br />
+&gt;             String s;<br />
+&gt;             while((s = br.readLine()) != null)<br />
+&gt;             {<br />
+&gt;                 ocons.println(s);<br />
+&gt;             }<br />
+&gt;         }<br />
+&gt;         else<br />
+&gt;         {<br />
+&gt;             System.out.println(&quot;Here&quot;);<br />
+&gt;             try<br />
+&gt;             {<br />
+&gt;                 rc = p.exitValue();<br />
+&gt;                 System.out.println(&quot;rC : &quot;+rc);<br />
+&gt;                 break;<br />
+&gt;             }<br />
+&gt;             catch(IllegalThreadStateException e)<br />
+&gt;             {<br />
+&gt;                 System.out.println(&quot;slp&quot;);<br />
+&gt;                 Thread.sleep(1000);<br />
+&gt;                 //is.reset();<br />
+&gt;             }<br />
+&gt;         }<br />
+&gt;     }<br />
+&gt; }<br />
+&gt; catch (Exception e)<br />
+&gt; {<br />
+&gt;     System.out.println(e.getMessage());<br />
+&gt;     e.printStackTrace();<br />
+&gt; }       <br />
+&gt; <br />
+&gt;  ############################################################ #####<br />
+&gt; <br />
+&gt; David Wegener wrote:<br />
+&gt; <br />
+&gt;&gt; joneo wrote:<br />
+&gt;&gt;&gt; hi,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; i'm still unable to solve the eclipse hang issue. i just found out <br />
+&gt;&gt;&gt; that the program that i exec will call another program during the <br />
+&gt;&gt;&gt; execution. so i wonder will is be detected by the process inputStream <br />
+&gt;&gt;&gt; which i create earlier to run the 1st program? ok let me explain the <br />
+&gt;&gt;&gt; execution flow.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; i execute the program A through the ProcessBuilder. Internally <br />
+&gt;&gt;&gt; program A will call another program B. i use the inputStream from the <br />
+&gt;&gt;&gt; ProcessBuilder to capture all the execution process and display it in <br />
+&gt;&gt;&gt; the console. there is one part before calling the program B i saw a <br />
+&gt;&gt;&gt; command line call &quot;echo off&quot;. when i debug into the eclipse program, <br />
+&gt;&gt;&gt; i found it actually stop printing when reaching that line and causing <br />
+&gt;&gt;&gt; the eclipse hang there. i follow the code given where i put an <br />
+&gt;&gt;&gt; infinite loop ( while(true){ } ) to capture the <br />
+&gt;&gt;&gt; inputStream/errorStream/outputStream. somehow is just won't continue <br />
+&gt;&gt;&gt; when reaching that part. does this mean that it failed to detect the <br />
+&gt;&gt;&gt; inputStream from program B? but when i run it through the external <br />
+&gt;&gt;&gt; tool configuration, it is able to go through and run the program <br />
+&gt;&gt;&gt; smoothly and print all the execution process at the console view. but <br />
+&gt;&gt;&gt; the words is printed in red color in the console. how can i fix this <br />
+&gt;&gt;&gt; issue. can someone help me?<br />
+&gt;&gt;&gt;<br />
+&gt; <br />
+&gt;&gt; It sounds like you are stuck on a blocking call.  What is in your <br />
+&gt;&gt; infinite while loop?  You indicate that you are capturing the input, <br />
+&gt;&gt; error, and output streams.  I don't understand how you can capture all <br />
+&gt;&gt; of these.  The Process InputStream (retrieved by calling <br />
+&gt;&gt; process.getOutputStream()) is used to write data to the processes <br />
+&gt;&gt; input stream, you can't capture this in a while loop.<br />
+&gt; <br />
+&gt;&gt; You can capture data from the streams returned by the <br />
+&gt;&gt; process.getInputStream() and the process.getErrorStream() methods by <br />
+&gt;&gt; calling one of the read() methods.  Note that if there isn't any data <br />
+&gt;&gt; available on the InputStream when you issue the read() call, the call <br />
+&gt;&gt; will block until data is available.  You can call the available() <br />
+&gt;&gt; method to see if anything is available to be read in.<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=310995&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=310995&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=310995&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_14"></a><a name="msg_311008"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=311008&amp;#msg_311008" class="MsgSubText">Re: eclipse hang when exec program + console tips</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=311008&amp;#msg_311008">message #311008</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=310995&amp;#msg_310995">message #310995</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 25 December 2006 00:19</span> <a href="javascript://" onclick="chng_focus('#msg_num_13');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> joneo_ytk81.hotmail.com<br />
+<br />
+hi David Wegener,<br />
+<br />
+thanks for the help. is working now. i guess you are right. i've added in <br />
+to capture the error stream. and its running smoothly now. i've include my <br />
+source code as well in case others would need it as reference. but i got <br />
+one question. how can i print the execution process instantly by not <br />
+waiting till the process end then only print out the whole things? is it <br />
+required to use different thread for that?<br />
+<br />
+################### Source Code ######################################<br />
+<br />
+try<br />
+{<br />
+ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+IConsoleManager conMan = plugin.getConsoleManager();<br />
+MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+conMan.addConsoles(new IConsole[]{myConsole});<br />
+conMan.showConsoleView(myConsole);<br />
+MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+<br />
+p = DebugPlugin.exec(cmd, path.toFile());<br />
+InputStream is = p.getInputStream();<br />
+InputStream es = p.getErrorStream();<br />
+<br />
+int rc;<br />
+StringBuffer sb = new StringBuffer();<br />
+while(true)<br />
+{<br />
+if (es.available()&gt;0)<br />
+{<br />
+byte [] bes = new byte[es.available()];<br />
+es.read(bes);<br />
+for (int i = 0; i&lt;bes.length; i++)<br />
+{<br />
+sb.append((char)bes[i]);<br />
+}<br />
+}<br />
+else if (is.available()&gt;0)<br />
+{<br />
+byte [] bis = new byte[is.available()];<br />
+is.read(bis);<br />
+for (int i = 0; i&lt;bis.length; i++)<br />
+{<br />
+sb.append((char)bis[i]);<br />
+}<br />
+}<br />
+else<br />
+{<br />
+try<br />
+{<br />
+rc = p.exitValue();<br />
+break;<br />
+}<br />
+catch(IllegalThreadStateException e)<br />
+{<br />
+Thread.sleep(10);<br />
+}<br />
+}<br />
+}<br />
+ocons.println(sb.toString());<br />
+}<br />
+catch (Exception e)<br />
+{<br />
+System.out.println(e.getMessage());<br />
+e.printStackTrace();<br />
+} <br />
+<br />
+ ############################################################ #####<br />
+<br />
+<br />
+David Wegener wrote:<br />
+<br />
+&gt; See comments in code below<br />
+<br />
+&gt; joneo wrote:<br />
+&gt;&gt; Guys thanks for the replies. i really appreciate it. i've been waiting <br />
+&gt;&gt; for somebody to come rescue me for long time ago. below are the source <br />
+&gt;&gt; code on what i've done so far to capture the process execution output. <br />
+&gt;&gt; temporary i focus on capturing the output from the process first. well <br />
+&gt;&gt; i've tried run the same execution through the external tools <br />
+&gt;&gt; configuration. it run smoothly without having this kind of problem. i <br />
+&gt;&gt; debug the code and found that it is using the ProcessConsole function <br />
+&gt;&gt; which required the configuration setup. so i'm not able to use it's <br />
+&gt;&gt; method. can anybody explain to me how the debug console process flow is? <br />
+&gt;&gt; coz i still not clear on the magic behind through debugging the code. <br />
+&gt;&gt; please....<br />
+&gt;&gt; <br />
+&gt;&gt; This is what i've just discover lately and i hope this is useful to you <br />
+&gt;&gt; guys. FYI, my program A is written in C++. Program A will call program B <br />
+&gt;&gt; which is written in Perl. One thing i just discovered is that program B <br />
+&gt;&gt; will call another program C (i've no idea what language it is written in <br />
+&gt;&gt; but it is an .exe program which will check on the file checksum). i've <br />
+&gt;&gt; no access to modify the program C code as it come in exe. so what i've <br />
+&gt;&gt; done it to modify the program B to print out the result return by <br />
+&gt;&gt; program C. through the debugging, i found that it actually did execute <br />
+&gt;&gt; the program C but it stopped for the third time of executing it. all the <br />
+&gt;&gt; value return by program C is able to be print out by program B. but i've <br />
+&gt;&gt; no idea why it stop at the third time calling the program C. it is able <br />
+&gt;&gt; to run smoothly when i execute it through command prompt. one thing miss <br />
+&gt;&gt; out from the execution is that the program C will also print out some <br />
+&gt;&gt; information/comments but it is not captured by the inputStream of the <br />
+&gt;&gt; process. is this the one causing the execution to hang? when execute <br />
+&gt;&gt; through the external tool, all the information/comments that return by <br />
+&gt;&gt; the program C is highlighted in red color. what does it means?<br />
+&gt;&gt; Actually previously there are 2 solution suggested by Guenther Koegel<br />
+&gt;&gt; Solution 1: Use a separate Thread for each channel<br />
+&gt;&gt; and one to monitor sub-process termination (+exit status)<br />
+&gt;&gt; ==&gt; use blocking IO and thread termination<br />
+&gt;&gt; <br />
+&gt;&gt; <br />
+&gt;&gt; Solution 2: Use a single thread<br />
+&gt;&gt; ==&gt; Poll each channel with InputStream.available() and read only<br />
+&gt;&gt; if data is available. Error stream has highest priority...<br />
+&gt;&gt; <br />
+&gt;&gt; the one i'm using is the solution 2. so how is the solution 1 code looks <br />
+&gt;&gt; like?<br />
+&gt;&gt; i not really understand how can i use separate thread for each stream <br />
+&gt;&gt; channel since i only hav one process. so can anybody guide me on this? <br />
+&gt;&gt; sorry i'm still new to eclipse and java programming. please help me. <br />
+&gt;&gt; thanks in advance.<br />
+<br />
+&gt; Multiple Thread approach:<br />
+&gt; declare is and es final (final InputStream is = p.getInputStream()).<br />
+&gt; Replace the infinite loop below with the following:<br />
+<br />
+&gt; Thread isThread = new Thread() {<br />
+&gt;      public void run() {<br />
+&gt;          BufferedReader isReader = new BufferedReader(new <br />
+&gt; InputStreamReader(is));<br />
+&gt;          String isString;<br />
+&gt;          // You don't care that the readLine will block<br />
+&gt;          // because it is running in a different thread.<br />
+&gt;          while ((isString = isReader.readLine()) != null) {<br />
+&gt;              // This may need to be executed on the Display<br />
+&gt;              // Thread.  If so, you need to wrap the<br />
+&gt;              // ocons.println call in a Display.asyncExec() call.<br />
+&gt;              ocons.println(isString);<br />
+&gt;          }<br />
+&gt; };<br />
+&gt; isThread.start();<br />
+<br />
+&gt; Thread esThread = new Thread() {<br />
+&gt;      public void run() {<br />
+&gt;          byte[] buffer = new byte[100];<br />
+&gt;          while (es.read(buffer) != -1) {<br />
+&gt;          }<br />
+&gt; };<br />
+&gt; esThread.start();<br />
+<br />
+&gt; There may be some exception handling missing from this.  I haven't <br />
+&gt; actually tried the code, so there could be some other syntax errors as well.<br />
+<br />
+&gt;&gt; <br />
+&gt;&gt; ################### Source Code ######################################<br />
+&gt;&gt; <br />
+&gt;&gt; try<br />
+&gt;&gt; {<br />
+&gt;&gt;     ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+&gt;&gt;     IConsoleManager conMan = plugin.getConsoleManager();<br />
+&gt;&gt;     MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+&gt;&gt;     conMan.addConsoles(new IConsole[]{myConsole});<br />
+&gt;&gt;     conMan.showConsoleView(myConsole);<br />
+&gt;&gt;     MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+&gt;&gt;     <br />
+&gt;&gt;     p = DebugPlugin.exec(cmd, path.toFile());<br />
+&gt;&gt;     InputStream is = p.getInputStream();<br />
+&gt;&gt;     InputStream es = p.getErrorStream();<br />
+&gt;&gt;     is.mark(50);<br />
+&gt;&gt; <br />
+&gt;&gt;     int rc;<br />
+&gt;&gt;     while(true)<br />
+&gt;&gt;     {<br />
+&gt;&gt;         if (es.available()&gt;0)<br />
+&gt;&gt;         {<br />
+<br />
+&gt; Most likely, you problem is here.  You never read anything from the <br />
+&gt; ErrorStream of the process.  The processes error stream is a buffer. <br />
+&gt; When it fills up, the process (any any subprocess) will block if it <br />
+&gt; attempts to write to the error stream.  Once the error stream has data <br />
+&gt; in it, you will never read from the input stream because you have that <br />
+&gt; processing in the else of es.available().<br />
+<br />
+&gt;  From your description, it sounds like program C is writing its data to <br />
+&gt; the error stream.  That is why it shows up in red when run as an <br />
+&gt; external application.  Within this if block, you need to read data from <br />
+&gt; the error stream.  Something like this should work.<br />
+<br />
+&gt;                byte[] buffer = new byte[es.available()];<br />
+&gt;                es.read(buffer);<br />
+<br />
+&gt;&gt;             //os.write(es.available());<br />
+&gt;&gt;             //System.out.println(&quot;die&quot;);<br />
+&gt;&gt;         }<br />
+&gt;&gt;         else if (is.available()&gt;0)<br />
+&gt;&gt;         {<br />
+<br />
+&gt; This block of code will also cause you problems.  The <br />
+&gt; BufferedReader.readLine method will block until a complete line (with <br />
+&gt; terminating line end) is available.  Your while loop below will never <br />
+&gt; exit.  The readLine method only returns null if at end of file.  This <br />
+&gt; will only occur if the process exits and closes the input stream you are <br />
+&gt; reading.  Once you enter the loop, you will block on the readLine method <br />
+&gt;   when all of the available data has been read.  When the second process <br />
+&gt; blocks on the error stream mentioned above, there will never be any <br />
+&gt; additional data writen to the input stream you are blocked on.<br />
+<br />
+&gt; Instead of the BufferedReader, I would read the data into a byte array <br />
+&gt; like shown above.<br />
+&gt;&gt;             BufferedReader br = new BufferedReader(new <br />
+&gt;&gt; InputStreamReader(is));<br />
+&gt;&gt;             String s;<br />
+&gt;&gt;             while((s = br.readLine()) != null)<br />
+&gt;&gt;             {<br />
+&gt;&gt;                 ocons.println(s);<br />
+&gt;&gt;             }<br />
+&gt;&gt;         }<br />
+&gt;&gt;         else<br />
+&gt;&gt;         {<br />
+&gt;&gt;             System.out.println(&quot;Here&quot;);<br />
+&gt;&gt;             try<br />
+&gt;&gt;             {<br />
+&gt;&gt;                 rc = p.exitValue();<br />
+&gt;&gt;                 System.out.println(&quot;rC : &quot;+rc);<br />
+&gt;&gt;                 break;<br />
+&gt;&gt;             }<br />
+&gt;&gt;             catch(IllegalThreadStateException e)<br />
+&gt;&gt;             {<br />
+&gt;&gt;                 System.out.println(&quot;slp&quot;);<br />
+&gt;&gt;                 Thread.sleep(1000);<br />
+&gt;&gt;                 //is.reset();<br />
+&gt;&gt;             }<br />
+&gt;&gt;         }<br />
+&gt;&gt;     }<br />
+&gt;&gt; }<br />
+&gt;&gt; catch (Exception e)<br />
+&gt;&gt; {<br />
+&gt;&gt;     System.out.println(e.getMessage());<br />
+&gt;&gt;     e.printStackTrace();<br />
+&gt;&gt; }       <br />
+&gt;&gt; <br />
+&gt;&gt;  ############################################################ #####<br />
+&gt;&gt; <br />
+&gt;&gt; David Wegener wrote:<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; joneo wrote:<br />
+&gt;&gt;&gt;&gt; hi,<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; i'm still unable to solve the eclipse hang issue. i just found out <br />
+&gt;&gt;&gt;&gt; that the program that i exec will call another program during the <br />
+&gt;&gt;&gt;&gt; execution. so i wonder will is be detected by the process inputStream <br />
+&gt;&gt;&gt;&gt; which i create earlier to run the 1st program? ok let me explain the <br />
+&gt;&gt;&gt;&gt; execution flow.<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; i execute the program A through the ProcessBuilder. Internally <br />
+&gt;&gt;&gt;&gt; program A will call another program B. i use the inputStream from the <br />
+&gt;&gt;&gt;&gt; ProcessBuilder to capture all the execution process and display it in <br />
+&gt;&gt;&gt;&gt; the console. there is one part before calling the program B i saw a <br />
+&gt;&gt;&gt;&gt; command line call &quot;echo off&quot;. when i debug into the eclipse program, <br />
+&gt;&gt;&gt;&gt; i found it actually stop printing when reaching that line and causing <br />
+&gt;&gt;&gt;&gt; the eclipse hang there. i follow the code given where i put an <br />
+&gt;&gt;&gt;&gt; infinite loop ( while(true){ } ) to capture the <br />
+&gt;&gt;&gt;&gt; inputStream/errorStream/outputStream. somehow is just won't continue <br />
+&gt;&gt;&gt;&gt; when reaching that part. does this mean that it failed to detect the <br />
+&gt;&gt;&gt;&gt; inputStream from program B? but when i run it through the external <br />
+&gt;&gt;&gt;&gt; tool configuration, it is able to go through and run the program <br />
+&gt;&gt;&gt;&gt; smoothly and print all the execution process at the console view. but <br />
+&gt;&gt;&gt;&gt; the words is printed in red color in the console. how can i fix this <br />
+&gt;&gt;&gt;&gt; issue. can someone help me?<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; It sounds like you are stuck on a blocking call.  What is in your <br />
+&gt;&gt;&gt; infinite while loop?  You indicate that you are capturing the input, <br />
+&gt;&gt;&gt; error, and output streams.  I don't understand how you can capture all <br />
+&gt;&gt;&gt; of these.  The Process InputStream (retrieved by calling <br />
+&gt;&gt;&gt; process.getOutputStream()) is used to write data to the processes <br />
+&gt;&gt;&gt; input stream, you can't capture this in a while loop.<br />
+&gt;&gt; <br />
+&gt;&gt;&gt; You can capture data from the streams returned by the <br />
+&gt;&gt;&gt; process.getInputStream() and the process.getErrorStream() methods by <br />
+&gt;&gt;&gt; calling one of the read() methods.  Note that if there isn't any data <br />
+&gt;&gt;&gt; available on the InputStream when you issue the read() call, the call <br />
+&gt;&gt;&gt; will block until data is available.  You can call the available() <br />
+&gt;&gt;&gt; method to see if anything is available to be read in.<br />
+&gt;&gt; <br />
+&gt;&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311008&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311008&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311008&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_15"></a><a name="msg_311013"></a><a href="index.php?t=msg&amp;th=101320&amp;goto=311013&amp;#msg_311013" class="MsgSubText">Re: eclipse hang when exec program + console tips</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=311013&amp;#msg_311013">message #311013</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=311008&amp;#msg_311008">message #311008</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 25 December 2006 03:35</span> <a href="javascript://" onclick="chng_focus('#msg_num_14');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_16');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud">Eclipse User<a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=" border="0" title="Friend of Eclipse" alt="Friend"></a></td>
+<td class="msgud"></td>
+<td class="msgot"></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText"><b>Originally posted by:</b> wegener.cboenospam.com<br />
+<br />
+joneo wrote:<br />
+&gt; hi David Wegener,<br />
+&gt; <br />
+&gt; thanks for the help. is working now. i guess you are right. i've added <br />
+&gt; in to capture the error stream. and its running smoothly now. i've <br />
+&gt; include my source code as well in case others would need it as <br />
+&gt; reference. but i got one question. how can i print the execution process <br />
+&gt; instantly by not waiting till the process end then only print out the <br />
+&gt; whole things? is it required to use different thread for that?<br />
+&gt; <br />
+<br />
+Personally, I would use separate threads for each stream.  You can use <br />
+blocking IO when you have a dedicated thread and don't need to worry <br />
+about putting a sleep into your loop.<br />
+<br />
+As to the issue of waiting till the end to print out the data, you could <br />
+call ocons.println() after you have read data in.  Instead of appending <br />
+all of it to the end of a single StringBuffer, create a String from the <br />
+byte array read in each time.  Something like this:<br />
+es.read(bes);<br />
+String besBuffer = new String(bes);<br />
+ocons.println(besBuffer);<br />
+<br />
+Another change to consider would be to remove the else from the <br />
+is.available() check.  It won't cause a big difference, but the way the <br />
+code is right now, the InputStream will only be processed if the <br />
+ErrorStream has no data on it.<br />
+<br />
+&gt; ################### Source Code ######################################<br />
+&gt; <br />
+&gt; try<br />
+&gt; {<br />
+&gt; ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+&gt; IConsoleManager conMan = plugin.getConsoleManager();<br />
+&gt; MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+&gt; conMan.addConsoles(new IConsole[]{myConsole});<br />
+&gt; conMan.showConsoleView(myConsole);<br />
+&gt; MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+&gt; <br />
+&gt; p = DebugPlugin.exec(cmd, path.toFile());<br />
+&gt; InputStream is = p.getInputStream();<br />
+&gt; InputStream es = p.getErrorStream();<br />
+&gt; <br />
+&gt; int rc;<br />
+&gt; StringBuffer sb = new StringBuffer();<br />
+&gt; while(true)<br />
+&gt; {<br />
+&gt; if (es.available()&gt;0)<br />
+&gt; {<br />
+&gt; byte [] bes = new byte[es.available()];<br />
+&gt; es.read(bes);<br />
+&gt; for (int i = 0; i&lt;bes.length; i++)<br />
+&gt; {<br />
+&gt; sb.append((char)bes[i]);<br />
+&gt; }<br />
+&gt; }<br />
+&gt; else if (is.available()&gt;0)<br />
+&gt; {<br />
+&gt; byte [] bis = new byte[is.available()];<br />
+&gt; is.read(bis);<br />
+&gt; for (int i = 0; i&lt;bis.length; i++)<br />
+&gt; {<br />
+&gt; sb.append((char)bis[i]);<br />
+&gt; }<br />
+&gt; }<br />
+&gt; else<br />
+&gt; {<br />
+&gt; try<br />
+&gt; {<br />
+&gt; rc = p.exitValue();<br />
+&gt; break;<br />
+&gt; }<br />
+&gt; catch(IllegalThreadStateException e)<br />
+&gt; {<br />
+&gt; Thread.sleep(10);<br />
+&gt; }<br />
+&gt; }<br />
+&gt; }<br />
+&gt; ocons.println(sb.toString());<br />
+&gt; }<br />
+&gt; catch (Exception e)<br />
+&gt; {<br />
+&gt; System.out.println(e.getMessage());<br />
+&gt; e.printStackTrace();<br />
+&gt; }<br />
+&gt;  ############################################################ #####<br />
+&gt; <br />
+&gt; <br />
+&gt; David Wegener wrote:<br />
+&gt; <br />
+&gt;&gt; See comments in code below<br />
+&gt; <br />
+&gt;&gt; joneo wrote:<br />
+&gt;&gt;&gt; Guys thanks for the replies. i really appreciate it. i've been <br />
+&gt;&gt;&gt; waiting for somebody to come rescue me for long time ago. below are <br />
+&gt;&gt;&gt; the source code on what i've done so far to capture the process <br />
+&gt;&gt;&gt; execution output. temporary i focus on capturing the output from the <br />
+&gt;&gt;&gt; process first. well i've tried run the same execution through the <br />
+&gt;&gt;&gt; external tools configuration. it run smoothly without having this <br />
+&gt;&gt;&gt; kind of problem. i debug the code and found that it is using the <br />
+&gt;&gt;&gt; ProcessConsole function which required the configuration setup. so <br />
+&gt;&gt;&gt; i'm not able to use it's method. can anybody explain to me how the <br />
+&gt;&gt;&gt; debug console process flow is? coz i still not clear on the magic <br />
+&gt;&gt;&gt; behind through debugging the code. please....<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; This is what i've just discover lately and i hope this is useful to <br />
+&gt;&gt;&gt; you guys. FYI, my program A is written in C++. Program A will call <br />
+&gt;&gt;&gt; program B which is written in Perl. One thing i just discovered is <br />
+&gt;&gt;&gt; that program B will call another program C (i've no idea what <br />
+&gt;&gt;&gt; language it is written in but it is an .exe program which will check <br />
+&gt;&gt;&gt; on the file checksum). i've no access to modify the program C code as <br />
+&gt;&gt;&gt; it come in exe. so what i've done it to modify the program B to print <br />
+&gt;&gt;&gt; out the result return by program C. through the debugging, i found <br />
+&gt;&gt;&gt; that it actually did execute the program C but it stopped for the <br />
+&gt;&gt;&gt; third time of executing it. all the value return by program C is able <br />
+&gt;&gt;&gt; to be print out by program B. but i've no idea why it stop at the <br />
+&gt;&gt;&gt; third time calling the program C. it is able to run smoothly when i <br />
+&gt;&gt;&gt; execute it through command prompt. one thing miss out from the <br />
+&gt;&gt;&gt; execution is that the program C will also print out some <br />
+&gt;&gt;&gt; information/comments but it is not captured by the inputStream of the <br />
+&gt;&gt;&gt; process. is this the one causing the execution to hang? when execute <br />
+&gt;&gt;&gt; through the external tool, all the information/comments that return <br />
+&gt;&gt;&gt; by the program C is highlighted in red color. what does it means?<br />
+&gt;&gt;&gt; Actually previously there are 2 solution suggested by Guenther Koegel<br />
+&gt;&gt;&gt; Solution 1: Use a separate Thread for each channel<br />
+&gt;&gt;&gt; and one to monitor sub-process termination (+exit status)<br />
+&gt;&gt;&gt; ==&gt; use blocking IO and thread termination<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Solution 2: Use a single thread<br />
+&gt;&gt;&gt; ==&gt; Poll each channel with InputStream.available() and read only<br />
+&gt;&gt;&gt; if data is available. Error stream has highest priority...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; the one i'm using is the solution 2. so how is the solution 1 code <br />
+&gt;&gt;&gt; looks like?<br />
+&gt;&gt;&gt; i not really understand how can i use separate thread for each stream <br />
+&gt;&gt;&gt; channel since i only hav one process. so can anybody guide me on <br />
+&gt;&gt;&gt; this? sorry i'm still new to eclipse and java programming. please <br />
+&gt;&gt;&gt; help me. thanks in advance.<br />
+&gt; <br />
+&gt;&gt; Multiple Thread approach:<br />
+&gt;&gt; declare is and es final (final InputStream is = p.getInputStream()).<br />
+&gt;&gt; Replace the infinite loop below with the following:<br />
+&gt; <br />
+&gt;&gt; Thread isThread = new Thread() {<br />
+&gt;&gt;      public void run() {<br />
+&gt;&gt;          BufferedReader isReader = new BufferedReader(new <br />
+&gt;&gt; InputStreamReader(is));<br />
+&gt;&gt;          String isString;<br />
+&gt;&gt;          // You don't care that the readLine will block<br />
+&gt;&gt;          // because it is running in a different thread.<br />
+&gt;&gt;          while ((isString = isReader.readLine()) != null) {<br />
+&gt;&gt;              // This may need to be executed on the Display<br />
+&gt;&gt;              // Thread.  If so, you need to wrap the<br />
+&gt;&gt;              // ocons.println call in a Display.asyncExec() call.<br />
+&gt;&gt;              ocons.println(isString);<br />
+&gt;&gt;          }<br />
+&gt;&gt; };<br />
+&gt;&gt; isThread.start();<br />
+&gt; <br />
+&gt;&gt; Thread esThread = new Thread() {<br />
+&gt;&gt;      public void run() {<br />
+&gt;&gt;          byte[] buffer = new byte[100];<br />
+&gt;&gt;          while (es.read(buffer) != -1) {<br />
+&gt;&gt;          }<br />
+&gt;&gt; };<br />
+&gt;&gt; esThread.start();<br />
+&gt; <br />
+&gt;&gt; There may be some exception handling missing from this.  I haven't <br />
+&gt;&gt; actually tried the code, so there could be some other syntax errors as <br />
+&gt;&gt; well.<br />
+&gt; <br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; ################### Source Code ######################################<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; try<br />
+&gt;&gt;&gt; {<br />
+&gt;&gt;&gt;     ConsolePlugin plugin = ConsolePlugin.getDefault();<br />
+&gt;&gt;&gt;     IConsoleManager conMan = plugin.getConsoleManager();<br />
+&gt;&gt;&gt;     MessageConsole myConsole = new MessageConsole(&quot;AA&quot;, null);<br />
+&gt;&gt;&gt;     conMan.addConsoles(new IConsole[]{myConsole});<br />
+&gt;&gt;&gt;     conMan.showConsoleView(myConsole);<br />
+&gt;&gt;&gt;     MessageConsoleStream ocons = myConsole.newMessageStream();<br />
+&gt;&gt;&gt;         p = DebugPlugin.exec(cmd, path.toFile());<br />
+&gt;&gt;&gt;     InputStream is = p.getInputStream();<br />
+&gt;&gt;&gt;     InputStream es = p.getErrorStream();<br />
+&gt;&gt;&gt;     is.mark(50);<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;     int rc;<br />
+&gt;&gt;&gt;     while(true)<br />
+&gt;&gt;&gt;     {<br />
+&gt;&gt;&gt;         if (es.available()&gt;0)<br />
+&gt;&gt;&gt;         {<br />
+&gt; <br />
+&gt;&gt; Most likely, you problem is here.  You never read anything from the <br />
+&gt;&gt; ErrorStream of the process.  The processes error stream is a buffer. <br />
+&gt;&gt; When it fills up, the process (any any subprocess) will block if it <br />
+&gt;&gt; attempts to write to the error stream.  Once the error stream has data <br />
+&gt;&gt; in it, you will never read from the input stream because you have that <br />
+&gt;&gt; processing in the else of es.available().<br />
+&gt; <br />
+&gt;&gt;  From your description, it sounds like program C is writing its data <br />
+&gt;&gt; to the error stream.  That is why it shows up in red when run as an <br />
+&gt;&gt; external application.  Within this if block, you need to read data <br />
+&gt;&gt; from the error stream.  Something like this should work.<br />
+&gt; <br />
+&gt;&gt;                byte[] buffer = new byte[es.available()];<br />
+&gt;&gt;                es.read(buffer);<br />
+&gt; <br />
+&gt;&gt;&gt;             //os.write(es.available());<br />
+&gt;&gt;&gt;             //System.out.println(&quot;die&quot;);<br />
+&gt;&gt;&gt;         }<br />
+&gt;&gt;&gt;         else if (is.available()&gt;0)<br />
+&gt;&gt;&gt;         {<br />
+&gt; <br />
+&gt;&gt; This block of code will also cause you problems.  The <br />
+&gt;&gt; BufferedReader.readLine method will block until a complete line (with <br />
+&gt;&gt; terminating line end) is available.  Your while loop below will never <br />
+&gt;&gt; exit.  The readLine method only returns null if at end of file.  This <br />
+&gt;&gt; will only occur if the process exits and closes the input stream you <br />
+&gt;&gt; are reading.  Once you enter the loop, you will block on the readLine <br />
+&gt;&gt; method   when all of the available data has been read.  When the <br />
+&gt;&gt; second process blocks on the error stream mentioned above, there will <br />
+&gt;&gt; never be any additional data writen to the input stream you are <br />
+&gt;&gt; blocked on.<br />
+&gt; <br />
+&gt;&gt; Instead of the BufferedReader, I would read the data into a byte array <br />
+&gt;&gt; like shown above.<br />
+&gt;&gt;&gt;             BufferedReader br = new BufferedReader(new <br />
+&gt;&gt;&gt; InputStreamReader(is));<br />
+&gt;&gt;&gt;             String s;<br />
+&gt;&gt;&gt;             while((s = br.readLine()) != null)<br />
+&gt;&gt;&gt;             {<br />
+&gt;&gt;&gt;                 ocons.println(s);<br />
+&gt;&gt;&gt;             }<br />
+&gt;&gt;&gt;         }<br />
+&gt;&gt;&gt;         else<br />
+&gt;&gt;&gt;         {<br />
+&gt;&gt;&gt;             System.out.println(&quot;Here&quot;);<br />
+&gt;&gt;&gt;             try<br />
+&gt;&gt;&gt;             {<br />
+&gt;&gt;&gt;                 rc = p.exitValue();<br />
+&gt;&gt;&gt;                 System.out.println(&quot;rC : &quot;+rc);<br />
+&gt;&gt;&gt;                 break;<br />
+&gt;&gt;&gt;             }<br />
+&gt;&gt;&gt;             catch(IllegalThreadStateException e)<br />
+&gt;&gt;&gt;             {<br />
+&gt;&gt;&gt;                 System.out.println(&quot;slp&quot;);<br />
+&gt;&gt;&gt;                 Thread.sleep(1000);<br />
+&gt;&gt;&gt;                 //is.reset();<br />
+&gt;&gt;&gt;             }<br />
+&gt;&gt;&gt;         }<br />
+&gt;&gt;&gt;     }<br />
+&gt;&gt;&gt; }<br />
+&gt;&gt;&gt; catch (Exception e)<br />
+&gt;&gt;&gt; {<br />
+&gt;&gt;&gt;     System.out.println(e.getMessage());<br />
+&gt;&gt;&gt;     e.printStackTrace();<br />
+&gt;&gt;&gt; }      <br />
+&gt;&gt;&gt;  ############################################################ #####<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; David Wegener wrote:<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; joneo wrote:<br />
+&gt;&gt;&gt;&gt;&gt; hi,<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; i'm still unable to solve the eclipse hang issue. i just found out <br />
+&gt;&gt;&gt;&gt;&gt; that the program that i exec will call another program during the <br />
+&gt;&gt;&gt;&gt;&gt; execution. so i wonder will is be detected by the process <br />
+&gt;&gt;&gt;&gt;&gt; inputStream which i create earlier to run the 1st program? ok let <br />
+&gt;&gt;&gt;&gt;&gt; me explain the execution flow.<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; i execute the program A through the ProcessBuilder. Internally <br />
+&gt;&gt;&gt;&gt;&gt; program A will call another program B. i use the inputStream from <br />
+&gt;&gt;&gt;&gt;&gt; the ProcessBuilder to capture all the execution process and display <br />
+&gt;&gt;&gt;&gt;&gt; it in the console. there is one part before calling the program B i <br />
+&gt;&gt;&gt;&gt;&gt; saw a command line call &quot;echo off&quot;. when i debug into the eclipse <br />
+&gt;&gt;&gt;&gt;&gt; program, i found it actually stop printing when reaching that line <br />
+&gt;&gt;&gt;&gt;&gt; and causing the eclipse hang there. i follow the code given where i <br />
+&gt;&gt;&gt;&gt;&gt; put an infinite loop ( while(true){ } ) to capture the <br />
+&gt;&gt;&gt;&gt;&gt; inputStream/errorStream/outputStream. somehow is just won't <br />
+&gt;&gt;&gt;&gt;&gt; continue when reaching that part. does this mean that it failed to <br />
+&gt;&gt;&gt;&gt;&gt; detect the inputStream from program B? but when i run it through <br />
+&gt;&gt;&gt;&gt;&gt; the external tool configuration, it is able to go through and run <br />
+&gt;&gt;&gt;&gt;&gt; the program smoothly and print all the execution process at the <br />
+&gt;&gt;&gt;&gt;&gt; console view. but the words is printed in red color in the console. <br />
+&gt;&gt;&gt;&gt;&gt; how can i fix this issue. can someone help me?<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; It sounds like you are stuck on a blocking call.  What is in your <br />
+&gt;&gt;&gt;&gt; infinite while loop?  You indicate that you are capturing the input, <br />
+&gt;&gt;&gt;&gt; error, and output streams.  I don't understand how you can capture <br />
+&gt;&gt;&gt;&gt; all of these.  The Process InputStream (retrieved by calling <br />
+&gt;&gt;&gt;&gt; process.getOutputStream()) is used to write data to the processes <br />
+&gt;&gt;&gt;&gt; input stream, you can't capture this in a while loop.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; You can capture data from the streams returned by the <br />
+&gt;&gt;&gt;&gt; process.getInputStream() and the process.getErrorStream() methods by <br />
+&gt;&gt;&gt;&gt; calling one of the read() methods.  Note that if there isn't any <br />
+&gt;&gt;&gt;&gt; data available on the InputStream when you issue the read() call, <br />
+&gt;&gt;&gt;&gt; the call will block until data is available.  You can call the <br />
+&gt;&gt;&gt;&gt; available() method to see if anything is available to be read in.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt; <br />
+&gt;</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=311013&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"></td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=311013&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=311013&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_16"></a><a name="msg_694916"></a><img src="images/message_icons/icon9.gif" alt="icon9.gif" />&nbsp;&nbsp;<a href="index.php?t=msg&amp;th=101320&amp;goto=694916&amp;#msg_694916" class="MsgSubText">Re: eclipse hang when exec program + console tips</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=101320&amp;goto=694916&amp;#msg_694916">message #694916</a> is a reply to <a href="index.php?t=msg&amp;th=101320&amp;goto=311013&amp;#msg_311013">message #311013</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Sun, 10 July 2011 08:28</span> <a href="javascript://" onclick="chng_focus('#msg_num_15');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Hari Krishnan is currently offline" title="Hari Krishnan is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=111570&amp;">Hari Krishnan</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=hkrish4%40cct.lsu.edu" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 3<br /><b>Registered:</b> July 2011 </td>
+<td class="msgud"><div class="ctags">Junior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=111570&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=111570&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">I want help to do the same as this But my program has to get input from user ie interactive process exec in console. My program prints if the the job is just the console writing job. But I want it to take inputs from console and resume execution and process hangs when it has system call in the program that is executed. Urgent Help me Please!</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=694916&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=111570&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=694916&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=694916&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: eclipse hang when exec program + console tips" />
+	<input type="hidden" name="reply_to" value="694916" />
+	<input type="hidden" name="th_id" value="101320" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/101320/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/694905/#msg_694905">jobs are not executing on a pluging inside RCP</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/694917/#msg_694917">run a process in eclipse plugin console</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 101320, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=101320&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 10:22:51 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02597 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

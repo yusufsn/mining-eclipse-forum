@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; PDE build problems with enum</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=106738&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; PDE build problems with enum | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; PDE build problems with enum | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; PDE build problems with enum | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>PDE build problems with enum</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/106738/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/106738/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/106738/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/106738/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/106738/326347/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_326347"></a><a href="index.php?t=msg&amp;th=106738&amp;goto=326347&amp;#msg_326347" class="MsgSubText">PDE build problems with enum</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=106738&amp;goto=326347&amp;#msg_326347">message #326347</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 17 March 2008 08:17</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Florian Hackenberger is currently offline" title="Florian Hackenberger is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=45158&amp;">Florian Hackenberger</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=f.hackenberger%40chello.at" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 123<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=45158&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=45158&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">--nextPart24128817.3K8mAqcnLh<br />
+Content-Type: text/plain; charset=utf-8<br />
+Content-Transfer-Encoding: 8Bit<br />
+<br />
+Hi there!<br />
+<br />
+I'm trying to build several features using a headless PDE build environment.<br />
+Unfortunately I have a problem with enums. I get the following error<br />
+message when running the org.eclipse.ant.core.antRunner application on my<br />
+builder environment:<br />
+@dot:<br />
+    [mkdir] Created<br />
+dir:  /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/temp.folder/@dot.bin<br />
+    [javac] Compiling 2 source files<br />
+to  /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/temp.folder/@dot.bin<br />
+    [javac]<br />
+[parsing     /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/src/org/acoveo/callcenter/masterdat a/MasterDataObject.java -<br />
+#1/2]<br />
+    [javac]<br />
+[parsing     /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/src/org/acoveo/callcenter/masterdat a/RingStrategy.java -<br />
+#2/2]<br />
+    [javac] [reading    org/eclipse/emf/ecore/EObject.class]<br />
+    [javac] [reading    org/eclipse/emf/common/notify/Notifier.class]<br />
+    [javac] [2 units compiled]<br />
+    [javac] ----------<br />
+    [javac] 1. ERROR<br />
+in  /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/src/org/acoveo/callcenter/masterdat a/RingStrategy.java<br />
+(at line 1)<br />
+    [javac]     /**<br />
+    [javac]     ^<br />
+    [javac] The type java.lang.Enum cannot be resolved. It is indirectly<br />
+referenced from required .class files<br />
+    [javac] ----------<br />
+    [javac] 2. ERROR<br />
+in  /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/src/org/acoveo/callcenter/masterdat a/RingStrategy.java<br />
+(at line 1)<br />
+    [javac]     /**<br />
+    [javac]     ^<br />
+    [javac] The type Enum is not generic; it cannot be parameterized with<br />
+arguments &lt;RingStrategy&gt;<br />
+    [javac] ----------<br />
+    [javac] 2 problems (2 errors)<br />
+    [javac] Compilation failed. Compiler errors are available<br />
+in  /tmp/java_compiler_enum_test/buildDirectory/plugins/org.acov eo.callcenter.masterData/temp.folder/@dot.bin.log<br />
+        <br />
+The build is invoked as follows:<br />
+java -jar  /tmp/eclipse-builder/baseLocation/eclipse/plugins/org.eclips e.equinox.launcher_1.0.1.R33x_v20070828.jar -verbose -application<br />
+org.eclipse.ant.core.antRunner -buildfile  /tmp/eclipse-builder/baseLocation/eclipse/plugins/org.eclips e.pde.build_3.3.2.R331_v20071019/scripts/build.xml -Dbuilder=/tmp/java_compiler_enum_test/buildConfiguration<br />
+&amp;&gt; antRunner.log<br />
+<br />
+I have set<br />
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6<br />
+in my plugin manifest as well as:<br />
+ JavaSE-1.6=/usr/lib/jvm/java-6-sun/lib/rt.jar:/usr/lib/jvm/j ava-6-sun/lib/jsse.jar<br />
+javacSource=1.6<br />
+javacTarget=1.6<br />
+in my build.properties file. The plugin compiles just fine within eclipse.<br />
+Other java 5 feature (like generics) work fine with my headless PDE build.<br />
+In order to reprocude my testcase (the real plugin contains a lot more) you<br />
+need the following plugins for eclipse:<br />
+<a href="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modeling/emf/emf/downloads/drops/2.3.2/R200802051830/emf-sdo-xsd-SDK-2.3.2.zip&amp;mirror_id=17" target="_blank"> http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modelin g/emf/emf/downloads/drops/2.3.2/R200802051830/emf-sdo-xsd-SD K-2.3.2.zip&amp;mirror_id=17</a><br />
+<a href="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modeling/emft/teneo/downloads/drops/0.8.0/S200803051429/emft-teneo-SDK-incubation-S200803051429.zip&amp;mirror_id=17" target="_blank"> http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modelin g/emft/teneo/downloads/drops/0.8.0/S200803051429/emft-teneo- SDK-incubation-S200803051429.zip&amp;mirror_id=17</a><br />
+<a href="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modeling/emf/validation/downloads/drops/1.1.1/R200708161055/emf-validation-SDK-1.1.1.zip&amp;mirror_id=17" target="_blank"> http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modelin g/emf/validation/downloads/drops/1.1.1/R200708161055/emf-val idation-SDK-1.1.1.zip&amp;mirror_id=17</a><br />
+<a href="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modeling/mdt/ocl/downloads/drops/1.1.2/R200711281212/mdt-ocl-SDK-1.1.2.zip&amp;mirror_id=17" target="_blank"> http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modelin g/mdt/ocl/downloads/drops/1.1.2/R200711281212/mdt-ocl-SDK-1. 1.2.zip&amp;mirror_id=17</a><br />
+<a href="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modeling/mdt/uml2/downloads/drops/2.1.1/R200708301304/mdt-uml2-SDK-2.1.1.zip&amp;mirror_id=17" target="_blank"> http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/modelin g/mdt/uml2/downloads/drops/2.1.1/R200708301304/mdt-uml2-SDK- 2.1.1.zip&amp;mirror_id=17</a><br />
+<br />
+Any ideas why it the source does not compile using a headless build as<br />
+opposed to building from within eclipse?<br />
+<br />
+Cheers,<br />
+        Florian<br />
+<br />
+-- <br />
+Florian Hackenberger<br />
+<br />
+--nextPart24128817.3K8mAqcnLh<br />
+Content-Type: application/x-gzip; name=&quot;java_compiler_enum_test.tar.gz&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-Disposition: attachment; filename=&quot;java_compiler_enum_test.tar.gz&quot;<br />
+<br />
+ H4sIAKEk0UcAA+29aVvcyJIo3F9dvyJffN5p7AHVAlVg2vQ0xvgMfb0wYPc8 c3t8uaIkCtkqqUZS<br />
+ Yejz+Pz2G5GLlFJpK6gNHJo5bUqKzIzMjDUzMvKLeW2e9/3hyHHt4Nz2xsPz yA6j5k8zfFrw7HS7<br />
+ +G97p9vS/1XPT+3WTm+702l3O1s/tTqtdnv7J9adJRJFzziMzICxny6vzP5X 27uwg4Ed5MBVfX+g<br />
+ z5eC+Te96HTseXZguP7gnm3gBPe2t/Pnv9fubrXaav47bYTrdHrwirVm0sOK 5wef/4OR2b+y2YEX<br />
+ sWs7CB3fY21jx2gxSRMWgzev7b49hJ6z9hbrwJQ1Xo0d17qEz3usGQ1HTbvv OqPQ3rzA93bQvDBD<br />
+ +63fNyOoT31sjtzxwPHCph8MDPnOGFm2wQudbxlbRsc43dpqn19DGzvtVvtF M+wHzigKmxzEuBm6<br />
+ jZEJSHoDdqEwWDAC7JsTXbFPp8dsn/EBWHD/TwL/i92PGLbALCdgoR2xyF/M PDT+BLHgOhd7WNTk<br />
+ lGNEvu+GBrz/zA79sWsxz4+Y65sWs+xLx3Ow6ZBdBv6QBXboj4O+zaB4UxRv 8uIobZqiauykwY4j<br />
+ oD9V2YXNLv2xZxmND0CigWPZzBl4fgC0eekHbBT4IzuIbtma7PVag/2pXn5m bwEVJBg+PkXSjpc8<br />
+ 9L1LZzAOxGiJIZf1ODb2/dp0XPPCtT+zN4jP3tR19kHY+MOPJoiQKOTTWdGj VIE1wXYw4/8ztr2+<br />
+ zWEj/m09fMb+79B0vJ+ZE7I/8a/PjUPAybUjW/BKUkxBbLCRH0a8zg12aUf9 qw1sum+H4QYzwxBY<br />
+ 3rXxlS1h+q5tQqmBDWrBjPATiERzAH98bjSwxr0lkydjSKB903U/M/wvznsy QH+qnnxmjicHZQkS<br />
+ hETYUmmkrgypB/faCaArfnBbr8BJLE7mJKQqkMCq+0KcVCIcfnVGr2DwKwHl BCDsp9O31QMBcH5Y<br />
+ Cdb3XReGFkbljV9rRobmKDy8svtf/XH00RxUwkfOEEbVHI7qdrBO5/p8eqp7 9ztMxNnRZtvo1erX<br />
+ qT3y61HYx9tR9Yzh1L6DamvNVSUQJ6ozrtnrdcb3q6kPW/5WjSDIr8iG16/t ke1ZoN5uOQnUwgOI<br />
+ pA6d/OWAwK4xpWbQv3Ku7ZMAzJ6bSmj4yxr3q8eBD+4bMDw+eEdB4FezARpZ 7hilg2HZ1+98q3pS<br />
+ OOEcW/Xg6ks8cByPbiLbQ6ei1nzjCNZD4q15Ybv1xu61fTEeHHuX1fyDXPEG zaBayCqdVC1nzKAW<br />
+ /SgxWnMyeOf+sIMLvwaLBmPvRNhqQEDzNGRRiYGZde3441BzAJh/WWzVTmcD V0Bz49Tp1zSZlUUo<br />
+ zObYPiw1nRN7uJb5LCztMtNZt1qPPBBnsSWwMJvMMIyHMFINVeMeDBoM2/Ar mI+f2Rkw7qie+RRL<br />
+ L/Aq++YYDFAnYqYb2KZ1y+wbJwRyXroTw/vGPep8J+bMjsajXCfmXixc4Jfc p858V+NeWC53co6H<br />
+ Iz9Ao/Rugw7TeeTaQ9uTw8OXRVZh5rKI3XfeMvWliDot4+7T8Vpii3NLLLYE 71SJLQ4FsinpBXtt<br />
+ u/bABNFhKIll8FWwvn9t+wYyat/GjhlDM4R/XpuR+cY2o3FgG8DC4xtjEH01 bnZ7KWGIf8q28M83<br />
+ UjbCn3+P5V8fDVqkYRc9LJSMEf6BPfA9RC2FZ4ymXhBtfb6Qc6JkKVQCL9/A mKeLi8YP9MWfBBOo<br />
+ 98oO3vqDsHBochG574B5/mv70hy7UawdsCtKgYzGF64TcpVia4hDNxKQwJZD i6QF/zUHSe85ZFrH<br />
+ 8CnZSxPtjRPNhmZXW71ohEEahjQMaZgqDaMxjFAyWbGrc1Sp3ikp+NBVka56 fgRtowZyGr2Tnv69<br />
+ lJv+ycN/QQgBr3jWNH5OE1e6sCAKsdhNVguAjYZGZHsN7kiBS618oxj+Z1Xg Z6zHmJdmxDr7vgfC<br />
+ 9DN77wt/DKtWG4chMz3cE2Qe1Al4RvYNjKrlI4znR1fw72pr15jJSLeSbiXd Wum9KXaR7lvMPeX+<br />
+ W6LJFqI1yWtbKT0aT/+KRyNMUATphBWMB9B4A+ltjXTIHXVIpReVZoasL1Ug Ret6VHWE8PL8KtIE<br />
+ 89AExftqc18RIFomWp7X6gDO+l7hJn6Zupxqkz4J/2pMkFrVSgFCxysFGhPO dKVgPgsQBdgubid+<br />
+ tY1WvntP8bMUP0vxsxQ/S/GzFD9L8bMUP0vxsz9q/Cw3B4V7KyzDUhf2MvEX lUNZFAVa79DZg4ic<br />
+ XfIYNXiNVR7bG4FkuctGTpBauRfjTH4Q+UHkB5EfRH4Q+UHkB5EfRH7Qj+oH KYtQmPmxfVhq6WvW<br />
+ ev3TcRM2/0PzhlZipBqqxuWHCFWd9ft7ma9BwUEUMLqSwT5LPO7395SA0Tmo 6tBfbgzDAzxsMYtY<br />
+ ix8tvEKb/h/z3J82naRqSNWQqqlSNRoeQtXoHFSqalJi9wdRNRTJF6sarTfL dz9K9znyxp2Uwwpu<br />
+ NtAhhYUcUsjjhwnZn3BKXSWgy7QHog0onPthHk0gCiYKnr0ZE/dm+fZMRW4b MVlnHHwp0RvpbYVl<br />
+ hnFMYrKceI6cEVlpW6vuznzhjnKxw7r4oa6/XyN4RugK3IxLos0kN5XqirwS KdGlpKAUKfG+Tvxb<br />
+ F6/ibxEpEMYbOzEo3xnKFHzleGbgIDQXkvFXEGSI216yJSSQ45JMzqQ/jkbj 6NPIgq+/A7OusSsz<br />
+ lDcT2B4SpwYsd+/DN34wNKNSUBjpPugkD7OY/MfYdJ1Lxw5KS4RAagDVB9r5 Q1zW8doZOFE5Rqpj<br />
+ lizy1vYG0VVpkZFrRoDdUAszmgT/U1Efn28lU8/8IUw5kvUmUuomyFhLcQDU A9Vc21o9QNshdNsy<br />
+ Cqp7NfYsl18YERP7TWgZtoVzll/kyQGmgrFBagBjAUH6XnyzSWhjKJBt7eVW eN4B5mkZyDe7rU6r<br />
+ 297datVHyx5ewt8gCICvnJnhlqqVI9i5P4IzHb10tRzF9v1R7F+Z3sCeA5Ki 4hlN9ezxu98UAyXP<br />
+ kivuT2/gyAx9zxjPliHiWmdLbfPiC632GdDdzHFUaGUnunAXbAlmygM7RrzS XpDuKtNqLm31PZzV<br />
+ 2WWmIcuEleg8VJmMbOmBJZSMbJnJyJLAkmXrhdLdPj4upBBWcMmJtvcWsr3H GUDmauK8UJ6PSYiR<br />
+ h7Lf8ePI90e9gUc0SjRaP2cYTv+KWx0Ud0q2x0rM9MqEFlE0KUWTrrwdQvRK 9ErRzyuhuMhEIROF<br />
+ op8pdvThKIEVMFqIgomCf7DoZz3wkWKfKfaZYp9rLbZLjtEjn1OcVCPuOR1y PKeo52xwdXkUdBL3<br />
+ rCMnUx/8afev/M9T3TJ5KcSzmJoacryCzufVah0ROb2Pd3eEqrN5zr3hO3gR M+nv8glgCtNzFj2e<br />
+ anNPExy1JQy3vAyF4AYL7Ev4F+yZwPcjbscMAn88Otf+qwSD4XIR07+C+gMb avrLGRmWE0aBc8Fz<br />
+ AG6Ito0vQKUbbMzPQqim1Df5FkDiai8czwDCRuNRwEC9oahdtCjehkqoyWLx 7xhzbvadg9l3zs0+<br />
+ rCAGwl5LzSB+JN3IiDku3/60bBzMz+zQH7sWP4vAL9WdP8/VhDtvGy34PxhH vLdXYGs8JMxx1pF4<br />
+ cLYfaBeAOh8w9mHQz2K/LHFbtcQaMyup3UesdivXZWIy0NVfWp2lxHxWA6Uo qYbCvGPV81Sqy1Wi<br />
+ 0oK48+LcYiwkopQVohRpWlWtBciFu8gejozLeinYVRkLyAtcVpEeuaHPxJ74 KaeiauWtJuXqywtl<br />
+ hDt3N7IuIjPTY9M3eC/9dYf+LXaCZ5NUvuYNBUnK8uQEtufmnLiedYr3KfOa T5UpfKqk7dNk/p/m<br />
+ 6okLfoby9ylq10pM1cYrkJyHrhmGIxCpZeucc+OQqZYXkps+NljtpYaCQpNq JKXUdEX0m+VHecoq<br />
+ VpWTmg1VjxiMCe21waSfo2tHnstV4bmndNSJNl0A+RF0kbwNZJLL5rFUUHs6 czy3peBRBTD/NYpZ<br />
+ o1oyqriDx8NFLNX6fDDVTKD89ufdahMZkDMe8OayhyBGZtmI3PEU+L2EdaOR dh6kPas8gL07Hnif<br />
+ iRd27/GYS9uPKuvAw6qWrlpfRvyp3AumSwbpkkG6ZJAuGaRLBumSQbpkkC4Z pEsG738U42FeMigN<br />
+ wngFj1uHVSt2Msp54t68R3zh+gqMU0PWuOIh4UmsPB1so0RwD+eg2hKvFzxJ C5eYf6ouF4wPnDyU<br />
+ I0L3PPL8AA8OzfNywROlD37EjKPaDJKeIT1Deoaya1B2DcquQdk1VkI5UHYN yq6xStrgMbsYlF2D<br />
+ KJgo+DFm10if3Kf8GpRfg/Jr1NyoycmwkeGmGse0spkzyrJszC2rRtHdgmnk ZnRaadbJL8QOG4+h<br />
+ p6O4j/co7kpnwEhoUJcGGmXWkAQJ9HwTYqxWEgwtA0hlLoxkhJYniigvAAkj ygvwgE57U14AohTK<br />
+ C3CvvACzsbApOQAlB6DkAJQcYLbJAbKe1+Rh/7peWFnJWeYKkPpmUunVSRkw gzQBuhelR6l/8vBf<br />
+ PGvOD75jP/AHiqSYMPDlwnVTqcuFGJFWIq20WK2E9XjVZ2OEGK116AcB/xCX 3s/+uNLK6ERFNwdB<br />
+ 9ZGweelPoOjzC9Bs/USzVc3OdNB5unNldPoS7IZyBY4CvEh1c+E+pdJO6d9q dT0vRZ22O+69CDEP<br />
+ 0+mHGPmUuVTn1KOhJmPtLtZV1YFUjjvWUO8IpgHjMXajuusM06xJCFQySxI4 hSLW/8/hVxCUn9lh<br />
+ YMPoW2gHzMcAKEytw/7kUv0zgxqaooZmUkNT1GBhDe/iyj5coOViYEFmWhbg DRM0fXku7Jnl26H3<br />
+ c8TsG8wJPR1Kp8DgZxHuwA5up0UnVbYSlUM+EyhPOkwwAzcSQ7TdlzNfn7h1 /Pvrj0y12rCA7Eb3<br />
+ 39PvAx0bwdjDrAKcT6HIBXQ+ugVGGeD64u057vW3Wy2Db/W3tto9jqQI10R9 hFPgROkRvQN+5yK2<br />
+ QGFZhrU9vDTAQIIB/TLyb85bxq4h0NttbbW67e3OixVC0XUuAh4VcFc8J2mT I8VA74xlgLcO8vOm<br />
+ 5+N5op8zb1M2V+ZjcxwGTUC0+eV6yMl7s7cZjj3+KkDuD/bKQL6EIVcn2SYL m1sUF90zuEjnDh70<br />
+ krBBd4vnvPvznyh8VB0I33QQMc90myPQvnaA6j1sYuha/7b5fK8EXjYEQP86 AZR8+7fnz5vPP9+z<br />
+ Y344cESHMIrnRkTxtHY7u7xPqeYRtGlfw3BnEeNfLgNzaH/zg6+Apxf67gT6 GShe03AQVICBcZML<br />
+ EdrBtdO3myjWXdXTUkD00UohbO/aCXxvWNRDBYfNuc5f1U2KAYfhuBbeZykw z3sBgOVAY48vJZUC<br />
+ jQO3qk1gKHNgD00PMyrkgowjx1UfMlOiv1VtQoMWWD9D0xo6Xi6EDKMqAYDi Tog4F8OEYGNHLpCO<br />
+ m/sZep56zzsB6r7/lfdykuUUN5mWOYIxKYWJ2XMqYMA4CrOgHDm+YJJf1cR3 4fyh8VEJeuX7X6sb<br />
+ dH3TmhyTzESXYZdAKcYqg4mHgw9STVgwqCO/77tTw4vRAjYOJgRtzbLIjGjv TV08lvR1Swa26yBH<br />
+ F86tJgrNsde/qpw1ybmTIHGbVZQXAw59a1yAlt71Qty1XsbCrQQKAJxLpwoK Grx2uJhIlZiJOgQv<br />
+ 3PH8GzSAh77HFaPS89udXpWeT3RzCRBaX4vQ7Nxk+eJfhJPqfaf1oqorWLAU SwkwO1Sn9j2UORaD<br />
+ pEtWzZUsVWGJKShOgvVAw5FTMb/F36xbzxw6wOQuaMPyCRDNLG/8aXCnEyna SGat7VaHqHX6AdW8<br />
+ qgx1djuVA6q7ZKUDpQPaN/0r0xuUD0q65hwzF77PVnKC7R2BsRPdjuwJNq0U 9LJwaZcSmHmLG3Mc<br />
+ XWUnU3LHTGnHHI14Dvhqr1eWaEKJLKGoT4ljwGEmpxzeu07sos7Mbzdk/Uj+ baMTj1iv1b3fiOGC<br />
+ zA2v3bWj846xHRtBvXa7vbO1e6fqp1wzs5FMoHGkBrFS1ml127tytSU9R8PL pi09i4IPznDkFn8V<br />
+ OBR/19yBKojyhnSvevLrzdBtgkS1Q/CVS9pKg5U3mIatbh6FSA2I6kYFmOKM alCJ2pyJStr1talK<br />
+ wOehL7/IpKklEPiP6VklEJ4fOZe31QBFgy6h7jiCJSJa0nSY8oN6re3ZyeN0 O2llME89YHoRbzsj<br />
+ OZXhMLu+XZsBd++FiZL1JWfXjn0DdgVfPMvOVm+z1Wq3Ztwc3wa7DSN7CGq0 rbc2t4bkQfSb3V6q<br />
+ ye323Zq8izYybobOtBoJipRJP6dSlDoLEo2ih6Hl8x626vcQihTjjx/Le4gQ ixT+X8r7KIFkrxYy<br />
+ 5sKpmHbY812Rie/lgy+BFjP+FRu1xeCG7QGefdvKHw8O2ETAvI5qX/sm+KoV MLYLfnEFzBAM+slt<br />
+ k3wgMwz9vpO7V5RfQIWR1IB2vIkNrQxUmeGqgV2brmPd1T9ZGBXQ5D+Oyc+b 97LJLUTf9MAy5uhM<br />
+ LD7lA1XNnQ6Loeh1YdGLKQTksQ/xflsBUKH7Kj+rMOBiEEUTFTSswEIZBTUF ZJEqEeDV1BZiBbbl<br />
+ D4tBitxP8XWRaqo8WEdYCeGm6w+gjkFCveaIixn5vSm/qy4VfJUDu5B+aWQ7 LR+muWPoW3YJOeQB<br />
+ lxNQXomiBYviEilpVqtc/GP6AtN0KCk1TaeSUosU00lb3NdqS19rt91rb293 82kkhd8/S75qi0K1<br />
+ wOA936ye3BcuKuG2W7WRUGu0NcGL5k6DHZrB13xRrwMVcY8Gk7OTUACZdKIM qgbuQpEtxOuxLSfi<br />
+ Pk87x+eZNwaq7TxH/s6LFyDWDecC/tcfn28ZvZhtXuSsiszhkuBszKW1rFjL LCLX4rhT5vVvc8EH<br />
+ 6zuU1RmGgRcXZdEBrbuskTEm2k79+Hhls58Z+OSB2YdqQmYGeL0Ri+C9fWP3 xxE/RmrCqzjkF/6y<br />
+ U5XgmQk89IFXFmFBuf6cjmx/o8LYL2wVSW6lg4fxmRelNrktNPWxgxXCb+IM Qgq3P9Ux1tUbQ7bJ<br />
+ nrabnc8riO/kuQ7AtTOBa2CLqybhyV/TOtJPmtQvnN5reY//ONCLvFo6bOw5 wHqKc9KfN+Mn9bpt<br />
+ sKPT0w+neKB6lQZ53YyY63g2az9L4fuk+fx5+sX/mRBW6K4x/G24JnhBR9AH 1uc2KwoWGfRnGew4<br />
+ wnNtjicu8HZvWWzZWOLIQ4B76XiQSh7K4cv+dUa181hHlY+lI47AyUSav+CJ kGR4gWnNoY0HHv+C<br />
+ geMH2ROt8FJH6ddaI4kH2EC9DEO23mE2Hn4O07jrR04uTSR8gyldKwugNmJx 4oO5TUrJ/fX3uyL9<br />
+ Lte2p3J3LKxNugr+8V4Ff5fxfRCXqzdefTp++5q9OTh+e/S6sdjW9zrdPS5e QW64/jfsPpdZzO/3<br />
+ xwHqnm9XmHBEGNo8FcoVyF8U4nuLRnVn956o3odU9tqtxbWeuRFjr91Z8Uma FAR7L+6L89wF517n<br />
+ xcqjOF+qu4+63Wtvz5Uf74dbG8SatMKkVfYLC21b+f6adcb8cTQaRzxZgWVH ABsajSdgqPLm+NaE<br />
+ Efk+vMXwKJmq6N95cLdhWpbioo8+z31xdNO3R/h7PQ2JXd3rboPdW1h1ZIZf LfsyNA7ghxg0ex3/<br />
+ 5mW327t1yh7CwAgujKvQXvGa2q1uSU2fvK+e/03lZo8rybzmFXV2JUrh2DPA d3HRv1R3cVjv7OjK<br />
+ tw76mM/dD7YNx7v2v8YVMZERZrK8vMYCyCVdwfFw5Ko6SmEEarKLiRem6hcl VE3yl5idFzsl42I5<br />
+ eFK7f2W8ln98ipBS1Pik39YY548wYwZQBpDdcJ3/4IW2tsumOTOz+qxudcuw l5CyPWwuTJfeLcNV<br />
+ krJq98wPYH6lrFd0Lvu81XlRvyJRRaaGzouyERCnKgx5ZcERr8cP0hWG69nP koOSepV6wyrVLoYI<br />
+ rcM3R+JrRSMFUGI8O9OOQnYg27u10T2Wb0BWnI49YD88RrA++ZZX3OtszaXe 7RfdSWZ+D0x6bRcy<br />
+ cmtdADABMXX59cLvYhJerKx40Qeej3d6jDNj2213ahXl58AnCr94MVlYnfiI J90cjRTZH4xG/27i<br />
+ cV+OysRLQZ69nEpTJ1iSmsWRWq32t/LELsIeJIdA1nMgpCDtzaAxMThFbexU NZGp+Qxrk7OVeSVo<br />
+ r5fDZvepsK0wJP6agr8UnatD4sY70/Fk6TfqbPg6fykqae3WrQRcKKcPjKaV 3t6ujUKQKojHh+qW<br />
+ HMJ/UkXRYjg0xyEY3Be3i7meiZxycsrJKV9Jx5ec8pVxysmVJld6bq60dITP YOZcm19qWOSn5oFI<br />
+ TKd0iGs0VgIp2mzN1DGeml/RiDYMg2112RB6N2E4kTVC1ghZI2SNPD5rhLYI yK4hu+ax2zXbu/e2<br />
+ a8iyIMuCLAuyLGidg+wBsgceuD3Q6+TbA6STSSeTTiadTDqZdDLp5MXq5J27 7D2Qflu+DiH9tjL6<br />
+ jVazSVOSpnzsmnL3LqvZpIZIDZGbRcqDlMePrTzarYK1TxLNP4JoJg+BhDwJ +Ucv5Nv3W0xbJUEa<br />
+ 9/l3wL1vyKrWxS/e7xcvykgpU16NmlZ+t1M2bSTnSM6RnFtROdd5IeTc5uYm ew+CDGRdbFhh8jpK<br />
+ xkQnLSj2ghYFVxG3H8zzJDuK7Ciyo1bPjqKVIuL8B8z5lDztbrKCkqc90uRO OMyUPI2Sp1HyNEqe<br />
+ VrNkreRptDJFK1O0MkUrU49vZYo8XfJ0H4CnS2tc99orpBwgZFmQZUGWBe15 kT1A9gDZA5QDhHQy<br />
+ 6WTSyaSTSSeTTl4NnUw5QEi/kX6j1WzSlKQpSVNSDhBSQw9WDZHyIOVBymM1 lQflAPmhRTN5CCTk<br />
+ Scg/eiFPOUAoBwjJOZJzj13O1csBMkWYHx1foICGVUCRVtpWywohd47MHDJz yMxZmRQdxK/Er8Sv<br />
+ D4dfSVMT5z8AzqeUOneTFZRS55Gm/MBhppQ6lFKHUupQSp2aJWedUodWhWlV mFaFaVWY4i/JQ1y+<br />
+ h0hrQ/fasqaj56STSSeTTiadTDqZdPJq6GQ6ek76jfQbRSKRpiRNSZqSjp6T GnqwaoiUBykPUh6r<br />
+ qTzo6PkPLZrJQyAhT0L+0Qt5OnpOR89JzpGce+xybuZHzynMj7ZcaK1rFe2A FXWoyDwg84DMg9Uz<br />
+ D2gBhDifOJ84n/iV+JX49SHyK2lq4vwHwPmUrOFusoKSNTzSw+Q4zJSsgZI1 ULIGStZQs2StZA20<br />
+ k0I7KbSTQjsp5KWRl0brM4sNtKDDmaTfSL9R6DVpStKUpCnpcCapoQerhkh5 kPIg5bGayoMOZ/7Q<br />
+ opk8BBLyJOQfvZCnw5l0OJPkHMm5xy7n6h3OpG192vYgp+bxOjWkoklFk4pe PRVN/Er8Svz68PmV<br />
+ Fg2J84nzf0TOJ34lfiV+fTj8SpqaOP8BcD4daL6brKADzY/0wCUOMx1opgPN dKCZDjTXLHn/2+dp<br />
+ F3H5O3W0i7gyu4jkO5Hv9AB8J1o1uVfIEB2eIjW00mqIlAcpD1Ieq6k86PDU Dy2ayUMgIU9C/tEL<br />
+ eTo8RYenSM6RnHvscm4GN9vRFsLyjXByEMhBIMVJipMUJwVKE78SvxK/Er8S vxK/Pip+JcuaOJ84<br />
+ /0fkfOJX4lfi14fDr6SpifMfAOfTEcS7yQo6gvhIj0jhMNMRRDqCSEcQ6Qhi zZIrcgSRNudpc77G<br />
+ 5jy5E+RO0ELC6i0k0MGKH14005oRCXkS8o9eyNPBCjpYQXKO5Nxjl3OrcrCC FkZWS2msqPVNuoR0<br />
+ CemS1dMl5C0T5xPnE+cTvxK/Er8SvxK/Er8Sv5JlTZxPnE+cT5qa+JX49Ufl V9LUxPkPgPPplNHd<br />
+ ZAWdMnqkpyBwmOmUEZ0yolNGdMqoZslZnjKiSJUHHalCVj9Z/Q/A6id/n+LE KU6c5BzJOZJzC4sT<br />
+ J9OWTFsS+STySeSvqMgnfiV+JX59+PxKmpo4nzj/R+R84lfiV+JX4lfiV+JX 4leyrInzifOJ80lT<br />
+ E78Sv/5Y/Eqamjj/AXA+Hb+4m6yg4xePNDwch5mOX9DxCzp+QccvapZc9vEL iswlw5cMX3J5f6zI<br />
+ XJJ6JPVI6pHUo4U+4nzifOJ82pIjfiV+JX4lTU2cT5xPnE/8SvxK/Er8SvxK /Er8SpY1cT5xPnE+<br />
+ aWriV+LXH5dfSVMT5z8Azqew9LvJCgpLf6RhszjMFJZOYekUlk5h6TVL5oal Nz76kekyJKw9ts1C<br />
+ u+97Vtj4iZ77PDjANcJc79VGC56dbhf/be90W/q/6vmp3drpbXc67e3e1k+t zla7tfUT686oj6XP<br />
+ GIUmYz9dXpn9r7Z3YYOlEuTAVX1/oE/N+b90QPWciFjnP+wgBF0WGq7jjW/O B9HX85vdnjEKfDBb<br />
+ I8cOs23gBPe2twvnv93rqPkHAoD539put1s/sdYiBuAHn/+nbwKHvYMRaO2w dgdU8F63yw6PPrJO<br />
+ q7XbqIpqP28bLaO1z/9bCSzBlt1jevSnJv+rYw53aqO+/G9v7XR7IP+3uzsd kv+LeKac/8pjLnlt<br />
+ TKH/pfzfanXaNP+LeGY9/1ifPNsUGIZhBoOwQv93dlo7Wf3fAwFA+n8Rz9OD 1wcnH49Onx4cHh6d<br />
+ nT2Vjtkmn387aIILaKtLFJryY4oa8hz/8y1jy2i3WsY1WBE7re5WCxy54M9/ AnxcB8I31aJGcwTO<br />
+ rx3YHnjJTfSc+7fN53sl8LIhAPrXCaDk2789f958/rkxsz764cARfTNOt7Zu zkX3dju7vHspTBC0<br />
+ aV8Df2Rx5F8ulWMOKHuh7070JAPFaxoOggow1x/kQoR2cO307aYFLOqqnpYC 2hfj8qps79oJfG9Y<br />
+ 1EMFh825zl/VTYoBh+G4Fv5FKXBgw6ABYDnQ2PPMi4KxVUDjwK1qEySgObCH pgf/zW9xHDmu+pCZ<br />
+ Ev2tahNXLsBXGprW0PFyIUYgbKC1EgAo7oSIczEMXw50gXTc3M/Q89R73oko QDEX5HKfYiy5rFcK<br />
+ E3PqVMCAcRRmQTlyyKMFVU18vxjjKu6lw2e+HPTK979WN+j6pjU5JpmJLsMu gVKMVQYTDwcfpJqw<br />
+ 4H5Hft93p4YXowVsHEzI3JplkRlxp3Pq4rHQr1sysF0HObpwbjVRKFcUK8Ak 506CxG1WUV4MOPSt<br />
+ cQFaetcLcdd6GQu3EigAcC6dKiho8NrhYiJVYtaaUa3jgiU59D2uI5X23+70 qrR/orFLgC58f0LT<br />
+ zFnfc5vmi38RTir9ndaLql5hwVKEJcBcsFZbMGjaQ5ELx3WiWyOwB04IjA79 6WgG2la7p5A6j0HS<br />
+ JatmUJaqsNoUFKfReqDhyKmY9eJv1q1nDp2+2FAvnwvRzEpMBY3zncWPNqhZ I73VIRq+19hqLlqG<br />
+ ZrudyrHV/bvSMdMB7Zv+lekNyscnXXOOoQzfV0fK/mb5EdHg3QYbvKYIzNTo dmRPjGylMpaFS3FP<br />
+ YBZILOY4usryk5RV8+JkczTiGzfVqxiyRBNKZMlMfUocPQ4zyYBmEv4ypyUZ QzaFcqltdOJx7LW6<br />
+ MxtHXNe84Q25dnTeMbZj+7bXxtCG3fu2dM4/nqv2SudxeAl/A0kBHkg5iAfo t1a3vStX2tKTOLxs<br />
+ 2tKVLPjgDEdu8VeBQ/F3zf+rgihvSF9Gmfx6M3SbIIfscGSWtZUGK28wDVvd PMqeGhDVjQowxTrV<br />
+ oBK1xdGXdORqE5iAz+uJ/GIG/SvnOnf0JAT+Y3pWCYTnR87lbTVA0fhLqPsP ZomQl5QepnzgXmt7<br />
+ LhI93WRasyxIqagYzYzsVTbhXHp8bQZ8GUgYotmFhrk0ad+AIcnXW7Mz29ts tdqt+bWM60XhbRjZ<br />
+ Q1Dabb3hRbQpgnyMm91eqvXt9r1bv4vCM26GzrRKD4qUCVinUlo7i5e+orOh 5fPOtup3FooUdwU/<br />
+ lncWIZakar6Ud1cCyQ4ueiaEHzrtZOR7rxPfy6dEAi18VsATsn3jy8i/OW8Z u3G3t6Db250XwpGd<br />
+ QJkXamKhvA5pX/t4XqQCxnbBc62AGYJ3Mbknlw9khqHfd3I3IvMLyIjGXIMj A+14E7ulGagyI1kD<br />
+ uzZdx5qBszTb2S4GN2wPCLRvW/mMQATxwxEE0cGjo4M8Eiib58KemB54aByd iVXEfKCqadRhR2YQ<br />
+ 1oVFx7oQsO8CRcR7/gVAhSsq8vMN/JsXUpKAKPKoIGcFFkZ45nhQQnQTkEWW hQCvJrwQK7Atf1gM<br />
+ UrQiIr4uyWpxnYsAXETwD8tNF3FsVS4LhBg9NdD4teCrHNTV6pNEclMimTDn Q+qixqDTSpy0HBj6<br />
+ ll1C+HnA5aySV6JotbC4REqE1yoX/5i+wDQdSkpN06mk1JJ0U9IsX5toy7WJ 3Xavvb3dzSeXFKr/<br />
+ LPmqLc7WAoP3PEpoMiCnqITbbtVGQm2m1AQvmkYNdmgGX/P1mw5UxEgaTM4G bAFk0okyqBq4C+29<br />
+ 6EUA23IivgTQzlkCWCAyCo28NbBZrAaCNjCcC/hff3y+ZfRivnqRXnFcduQ6 PbN4Zn3+493Rx4PN<br />
+ 4/dv9INA05z/7bR6/Pxnr0XnfxbxGE2j+dtb3xu8dbyvc2pDzXHBv632djdF C612u9vr/sTezgmf<br />
+ 1KPmP/D9qAyu6vsDfebG/+8O3h+/OTr7aLx7s+w+0lP8LGL+K87/t5Pzf+2d TqsD8r/ba2/R+b9F<br />
+ PO9Mz7mECd+UWR32WNtoNV7xcx2b6mP8raO+vDcxC4uYd4YTrz6c3Q4vfNfp C4AqcvmFhTwVYQSV<br />
+ 70fB2FbV6Ngk+BziwtyJGV3tMUO9O8VAtMC2RHIyKHOUHEzbY78DeZ8dbbaN XuPoZuQH0eaJOFlV<br />
+ jhuek2vImjdFQ3uFaY42GizXYfgFD16IWIy9/cC2eftFwLizXfgttPy6lSUL 8XVLJH5VbonGkfQd<br />
+ 3pp/3fJ0TXuMz9SyKZeeWTyrYf/1Ju2/Htl/i3gWof//uexO0lP4rIL9txXn f2pvbXWl/Uf5Hxby<br />
+ 3Mv++/8FWeCPpdl/f9ie5QeIC550texAx+atlnxgjwls5244ShurDATPsuAu reNFdaBxL6cOHC6d<br />
+ k9kqS5DdWueZtfw3QjvCtKd6qrDa67+t1pbM/7eztU3rv4t4VsL+39ki+39J z/z4XxfYw1v31uM3<br />
+ OITG2OFHiSeyhNKzjGcR819h/7c6W92M/O/tdLbJ/l/E8/Tj1Vjkf+2xdnev u7O39SLJ/6r4V4vx<br />
+ MGSqrP12YyRvcwjskR86SCfGV8ez9i/Gg78c1zXzAMaBu38VRaPwv/eazW/f vsXU5A+b/YGzeeF4<br />
+ zbj8sgfnB3hmzf+8nJYLGtd+Kvm/21P+/3Zne4fnf9zuEv8v4mk8ZS/7/ug2 cAZX0a/4q6n/hBd/<br />
+ O7b+1mhc8DsF+u7YskO2z4yN/26w9BOv/Ex+EtSjUUXjixmI46pAdoYfgNuO lTZEQLJhwI8w6Dcb<br />
+ /jgajSP+GwUDCYSZP7Pmf5y2bBu1/b8OJoBuY/7fXpvyPy/kmcf8Y+Sm3sY0 8y/jv7Z2ejT/i3jm<br />
+ Nf8CSJDB9PPf7XWJ/xfyrMT6Tzdn/Web1n8W8cyZ/xOg+10hRM+cnkXM//Ty v9fr0v0PC3lWQv73<br />
+ JuN/dlok/xfxLE7+J/vUpApW5yH5T/J/2fK/09oh+39Jz1Lk/6njDc5kkgp+ xeuyR+HHfRYl/4v3<br />
+ f/C0/haX/1udbrsl5X+P7v9cyNN8/rzBnqf2gPBnM/UbX/FtIPa82ZBXE1VG I/7SaDhDDMUTV1xj<br />
+ bKJxEATmbfjL5IdD38W7rzGzRM7Xt04YJdVlIwFF9hIBeQQEbINg8QOAV337 /zY32YUN9Ls5Du1g<br />
+ 0/L7bHOT9/OABTbm9QTceSgh8y9ZdGUz14FOmG6oftuyWgT5+aU9/PXlxa8o xJiSYi+bF7++bMKH<br />
+ nzewXtOzGOLjRLdsyC/wDtmlHzC8cgaLfXOiK6x4aMQI2p41gd5voV09zsa7 +E8Zovp0YEe6iF1/<br />
+ xivjyRz4XwPbw97YlpjQ8YXr9HkfmV6M8ew/GA4bsmRc2T8aT3Bgn0BFH2Fo 4uHwx54V+BeOl4yF<br />
+ GkfmX/A4AF6oaDqeFI7EEzUUT08/fHr/+vTDq+P3538cvP10JD4l3eE/+Xai +NFsPEmKrLc22FoQ<br />
+ o7mW/vVso1HQsWBoD0EGzrNbp++O3n04/a/6nZIF1tvYCYngmv53cXdghoGM 5tmb4/d/P3j7tn5n<br />
+ BPx6B/EX2K1pfxb3BLjMH86zIwfvX394V78fHHx9C3HnqK0lfxV24q0N3Ata Frhsjj15e3Rw9vH0<br />
+ 6PDo/cfa3dHKrG9DT9wE07XMz8LevbG/gTGBYiucY+/eHP3n0dnHQ6Chs9q9 08qsd6E7lwmma5mf<br />
+ z34pIsAykXdtumO7Rt9G4t9joWiGtumhggC9M4VgZU7o/RyxPsxJsMGrg7oC G5QbdOCWhVf+2LUA<br />
+ Awaiwca6TWbZYT9wRlyjIaxhSFybo2lFsXjJtQvDZPr7ulitMRVS/+Ddf/AP v2meOV7EssKe7bNW<br />
+ 4VQUC+nZTUSVIljKNEhNkDMJShXcZwpSigkmoF04AYVqZXbjX6G5ljL8Qnfl jL7UXvcZfF2Pwth3<br />
+ Cse+SBHObujLVe1SRp5r25yBFwr3PuOuqX0Y9q2iYS9X3TMb+zoWwjImQLMP JmdBtw7uMRUTdgvM<br />
+ x3bRfJQbGzObjzo2zTLmQ7NoJudDt2fuMR8TlhbMR1efjwOPmejj8z65Lh/D Coc5dq79ILyXLZjq<br />
+ EXYicK7hZ7oXuoP752fGO3F2fnB6evBfbL/x5Ilnf8vCgMP7RHMjN/hPqRjF DyGoxd9cePA/NeLl<br />
+ v7XBw9/fU+PG5JADhVibvgdEglmBV2IYc2gBF2Re6sP0qxxJoAdtKccYe0CE ziW/rAXLrIsFIMMM<br />
+ +S999J+lzOxTOxoHXlir44r11KIKC0d2Hy+6taZm/ruOSmrZZGBH6/ADsZXt P+M0hAtA68hFDrdk<br />
+ 4Z+XKfozXNsbRFe/sH/9V+eZpDq93sAOx24EZfVCfzqff0FI55KtCwAj8kXr 68/wxjfTDdcVGrLW<br />
+ JwEfXVkhL/69If4nv3hj14X332c/IyiOFjgRr27xOLiaDmx8sXMBKHAE4qng KKzAPGCq2IEdLJ4z<br />
+ cNB5o2IQQsCtf8XWtVdP+mZoT3h/e0yOSfLhlwQ45ackoPK1Bqjb1AmceKuB aSZgAsVfJkATxkkM<br />
+ qX1JwCd0Zwyuffmlcv5nrBwT3c5n4Jd5t6Rx4qLaklygN/cBFWx05YSM5/pn fdNjIiXDGI03+MPk<br />
+ Z93mgVtqZT4e+A19ZDZYnv5AfA0ODHJHzpZ8i4XgpRhV+U4x/34yAHMhJMHu 2BFg7z8QrXWOL1Pk<br />
+ rVCdX+NytGJhm2peDsoiWn8rBjqDQP7w63I8ZaZk95z8YIN9u3JASAK5OlEI kpW3l965mimp/vbh<br />
+ 2g4Cx7KzfUxMC06ROR180vjOmqkNfjq0tcrPSsT/tHPi/9sU/7OIZynxP+9i +A9iC4higJb1LD/+<br />
+ p9Xd7rbi/L/dXkvE/1D+t4U8C4v/Cf8Ho3w8TywN/TLx7ew/3h7d9O3RxNcb 44vlGyeYdQKqBrP8<br />
+ nelB+8EvRfFAIvnYkRAt9woDEiuocklXOdvvkqTHTLSReNyl4TwNubwsl60v fdf1v6FVdWmbYEfZ<br />
+ ITMDcNHHI+yVbe1x+LHLCzD20nV+/cdvLmjpuhFBiXx9Ki1jhl3APzi23182 oc7Z1H5s8bqPrUzN<br />
+ L5uyA3wZW4zBPaKask3rkU3MvMCUev1ofw3zvK0VRzrxa3Iuzb7NsvUxfm2b FTJJPXqwk26wpwx1<br />
+ RRhiYOPFFzMCU/liHN1r0yGuP541reIF7zJIaz+//3n4GdruRCh9M+E/PEu+ zIYQzoXjp2185Hs2<br />
+ WU9RXxQ4s6O82Z0x001HGMWzMTIDcyhRRTxx42L6aYkHIn+4rn3HYumpk4t3 RYv1uZyBYmFOfCEl<br />
+ zopyxSR2GZ44ttZdfx78ABXr3MAcS4pFGAeR91SJydyJR6QYl+tz55GM6lgs f5RPkByAct6QU5jD<br />
+ F3fEXEyYrYyhcH+tclx142mNwXuwtC6dQWJv4ZB/vB3ZNepKCq2xxLCftL+m qHKycAHZiTG99fof<br />
+ /QPVCWwH7ytbTxDL6+EGm2ylFP9nQAWB/y1kacuTr19NGAaPdhFr1v5fZA9H Bpi2lnbif4rzf502<br />
+ +olb3c42nf9byLMK63/tbnty/a9D63+LeObJ/3jRsoGJ41x/sOx+0pP/LGL+ K9b/2lsT8r9H938t<br />
+ 6HnKtpo7zdYua3f22jt73R47eYf5XxtPmUygz69CYIeSRFjL2NltnZ9ubd1s sC28DHcDvsm1Qnb8<br />
+ Cgr7wQizx7Y28L87BjtwXcY/hxjpYgfXtmU0NuOn0TbY0enph1PmeKwZDUfN 1TiTzNbNiIFbY7P2<br />
+ M2nT/58GLtzhlfdi3dI1vQE/cogBBJ4foVcJXfRd7CI7jviOrWdxjF0MGpJJ dC12GfjD2BNjhohC<br />
+ uIT+hvrIdB7iyPDxgI7jeHD73un/wpxIGyLumtlQvfMXdJ4HJ5nBYCxOGqbD ClOjwUaBf+Haw5Ct<br />
+ d5gdBH4QPls2/zz0ZyXsP7r/a2nPIvQ/5ftZ3WdR9l99/39L2H+U/3Uhz8zv f+CmzMiMrpI2Kuz/<br />
+ Fgb7JPk/urj+02rR/Q8LeV7+283QZepOh7W20VpjYKL6Flhh+2ufPr7Z3F37 t18bL+Np/bXxJPkB<br />
+ 0x/cMn7pwxrYkmsMX4o/m4WAfVxZFoD61v0XKwKDeuz1r6Bp4/fTo/PDD+8/ Hhy/PzptZuH4Dq5n<br />
+ uoZlX4wHeKWMKAm0eBaZnmUG1h/vcHG6mdzjNj1GI0vdmCYN9RPBBSU1iYT1 qjI8AA2wL5va6C17<br />
+ wjPPvO9/wDaq+L/d247jf9o9zP/e62yT/7+QZw73P9AtDg/ombn+l3f+6G1U rv+1dzL6f3t7h/J/<br />
+ LeSpq//ltL5OIiVQB+LZil+raOJlk4OhyvSHuMjzK8oY8Re8lDWH+HdT/8FJ 8Gxk9+GH/HUIxUC9<br />
+ 4wutcd0y4PoaiZrD20HcOBSIF5nEz2bq98tmtoU6TaKJoG7JfbWwFs/A0hma 925PvpBDDE3xKEQO<br />
+ Kv4uHl3xHZvmcAVFENcTeUVwGTze+2o4AJzcN8bJYKIV9WeIRlUeSS6bnR7c Mx/7D2SK1ka5/Aep<br />
+ 39rJ+P/bPP8vyf/5P1PKf5lOoooM1phlX5pjNwIfiBME3ve1xjCMx3KC/TVj 7deGEP3oJtzKWvHz<br />
+ NwDjkVT7a3/7x7fwu/C1cgB9HdAvATSD/pUGij+LgT1XA/XcAkB+s/axFYNW DkdxLfKi87gqft85<br />
+ wkMBDBGL993UvZqGCBTL1oZ83H9jOu4H7wh3RuIKL003tHMR4EVeowN97F36 SWe8YmjA9sKH6qor<br />
+ d/3BEcZSpzqHgQC50EoAHQSDGLgYizPuX2hDtlUM+xFUoB1psB3pvfue5fBY MlVqfw1I8/zC96PY<br />
+ W9doge/3XflD+3vTMJr8Ino7XOOKzA/ZpTl0XKhhaMqFj2Zcfw5iNdtxnQvZ LwDhAZz4R6Ykx4Bv<br />
+ HNoR47z1t39M1P99TdgD0oGTaDxHruQtAL6yCmGEyWWeLMGmUQ7sywKcCgdY kPwrAD7M6XqyVCPw<br />
+ femE2KmkeHYtJz3IxQ3+nks0vTk0MkFtd2okV1DkdUKQi3xbJqvykJOFxduy wkXzlSExIbMiXp0s<br />
+ 73hOhKpghGcqgFTiVSExKnmDKQyNj/ZwpLeEOgTfveEbC9+VOaLIOjO6GXBF 4voYT3Q1v12hr77L<br />
+ GvInH9WbzPYh9j20CpJav1eaTudC9M+uS+WoZfqWKatt4+SU0Xd58svLGz8t MCUdz4x0JZBp+mVT<br />
+ kMwk9WjkwpzL/TXlHARjD48BrBX3WamTlIKe8GN+f/1RadcDyxxFoi9lGIna xyPLjGwuPBPaVqQe<br />
+ +yL7a9w/46HmOBqbjrdXGiDPD5RhXhrTY6IJFjrQjuinZbs2vJESXht/NYHD r/Ct5Lvp8fRfTHQo<br />
+ ZZflAwxwaTvg8XsjM4gUs4m4eqnIkuk18ilGR6SpqFa2xH8AAjhqEeqfhGN0 wqnLOWJCYhMz03ZN<br />
+ 7mNSDw6lTw8qHQ1+iXnFJBQTDu6EThDL2IOmwuSjRjqHgY3zDz2qQTN8m7WK SuLN2CpyyQLGxgd/<br />
+ nzY8xFdbJAmXex5gHcX/L1luU67FNHFy3vp9Pq3qY8q1VDwqdl3GXuQM7XMe ZdZqGdcYTtbqbrUS<br />
+ u2VuCPjhwBENGxjqdi7a3u3sLqBt3Gzy/BuZ155joTq/3ektAAGxyuNfhJMj sNN6sSgE5PRzYQ5F<br />
+ Lng2fVBnAyeMgltAraNRxVa711T0EoOkS64o2gsiJg2BLFG3Ogsk6lEcBBlm xqLbWQQedyMtLqIX<br />
+ gBjYc+AzRxhHOYHFkhnPHIOfl5mxhVKOORpxJb0EiYzawMDIZUeQbdvoxIPQ a3XnhIFIfoDNglI/<br />
+ 7xjbsRrotdvtna0Z9/ycfzxXrZdOicqyAFghSSBWIEZa3fburLXzlFhJnTl3 tEq4xxbb32FKcfda<br />
+ 2wtHIM3AS+FdsPQ5UhmeWaCovzYDnn1WaJsl2FH2DWYWwWXQLEX0Nlut9sLo kjs2t+A0DEGKtnU0<br />
+ Fo+B4Tre+Ma42e2lcNluzxiXu4g042borJxYE5iFls8xa60QZkLgfllJ3MSo 9a9Mb2CvHHJg54FH<br />
+ jzvf5y1jN0ZtC1Db7ryYscU5W9yKwQ3bu8LMqdYqD20J+kvHOg/h5WMF8voi AEUKWnRFabUcQSGk<br />
+ wk3XHwwwuHj5A8rPwvFqcjFeKobXputYvAKundtSO+/iRZ3bM3Z27iTRbcuJ uDxvr5A8j5FajN8B<br />
+ JG04F/C//hjMyl48Sy90ey7eyhWxBHJbRGSC5z4CvLJsEVCAS/HXZp8vxpcu C7NL03F9j5+/jHcR<br />
+ tciD72sYToJhAvFXGTbwHVe5L8aD+H0cfABf5N70gRedivWH/TXPX2OpTUax FzixJwmlRXeS77/r<br />
+ +6Lxlkbqq9r4fPJETI7aNILX/HArgmtxCVCN+hVvScYbTd/VDMeoqu3xzKo5 k3Bh0E/OSjQBhyfN<br />
+ SSzkLspv2sYbDpvatDIMA6BCHa8p9rnyu4wikv1cMPV/+4ce1fH95zu3/JL3 ox8TJh4gZ54NPmto<br />
+ BvxyBeHBKsrEiHQW+VOQpUh15QMhfgucKI5UEd1OhUvw8efvn7y0b1LxEc+b z3mwoxyunO8yF6Zx<br />
+ FQ2fq0HVQimeiGD6yQ2XnK3ZZJNZ72seoNC3d+1v0fiVIl93X6l4BwyG2fjL GRVugqnvU40VFEht<br />
+ HuaOVtwy7xperaNGh327AmU8HOEGe/gVQcS+a01qyUTTZKglM5SAQen46GFy ZZvKkp/EvQWYMtSz<br />
+ GC8L/AOutYV7huKu4ak2nuX+IaDvuLhcooUeSGorG+LEAJzYRY4/VXVdsny2 94Vopaa1cvLzkdO/<br />
+ FuM3sRGenSAMTijaCp+k5wLI2lvUeWLivnXeXZgU00MBl1SIyZXpl4pRye1G fNapojdKI8r42lN7<br />
+ 5Jp9O2DKmLl3//TAXUkbVYwGBJ/HZZX0X8Cgy6P+elJ/TrQkNcgEMdUSJWBG rdA4LniEKm2SfJYr<br />
+ MEJLGbB4IjA7rFehaRFkyvAt7bo+ZLMNoY1RR+OUsz4P67Fyg3WqFKuEnkLb ZUrcM7Jq1nVO4Dl9<br />
+ VBW4WDAAV7mcpCSvChZMz+2pKCmugBKNyUlJdiw8INzoBF057O0Z37g44XJ7 HqmY1jTTRvk/JyqY<br />
+ OkFLdhmXBdzYT8Jh08twP3uEmDreJQ5JlViCuTAEohUsIcLSTCRuvC8rMh2e kFnRvFzbuLv9ufgo<br />
+ x7TxucxIyIJWFWpzaVOM9x0lMvd46krkpKUJr+2eQqQo5DPl8AnTr8Lfm1Yc xUcQH/C5w5piTF1R<br />
+ cadUTvXz/7Q7O1vbP7U62zudDuX/WcQz7fxXMeYbAZiikynyP7W3ex1x/r9L 87+IZ17zLwvwk8BV<br />
+ +R8623L+WxgntcPzf23T/U8Leeqe/5XzKZO+4M5GTUpYk0Vc88J299feZb+z DFxmRQPULF5PpN/Q<br />
+ MQ6gnqsoGu01m9++fTPsG3M4cnm8alODg6Kixj+PEDPVDnudvezjM29BLyob jRPhlDYZQ2UbTNLi<br />
+ FjWpZdppiEuYYBRDu7Q5CZNt7K0sWtSULCYbEiZXksGnznyuJeCW/81zfdPa DJ2/wHpqaZ/43bmu<br />
+ m/MlntgWn9jkw9jDbRTNCAPDSpLbAzasHsizEvlfKf//0p556f+8PHD0rN6z iPmvyv/X2trK2H87<br />
+ rQ7lf1nIk8nrp5ntpHp/hGde/K/nAazi/167k/X/2pT/czHPAvL/SZJYWBpA zDon21xwijyt5YmE<br />
+ dyuaum6++l/kgSvn/3a329nO5n/fwvVf4v/5P/PJ/6bWdLJp4PTUKdlkcJOZ gzibZRK8KAOlIkFN<br />
+ HlhuohoFeK9MNTAEhkpJlBu/5kUM/ic2vGLOWBN7TCL4u/4+cRLMHMkIZrk1 mO5YKu3dzW6SZyAN<br />
+ puXbG0RfC4C0XHv85J62lZgal5xhUYKjNOIoU05SyWVCRLVjlbDJ/hUMcGBn 97I3dHQ2tCnbyLRX<br />
+ HjgSV45RBtJyTprM3clNIVUnRKs6DFTkFlL77qmYT9mN6j13yaRGDaQnN5+j dDKxiX12bZv5XpGf<br />
+ M8Aqvbk/BWIFkXKzwYpXPjVK0+eekuSANML8y9pUUZyJahad17qRE5VQIKJR GGuyOUfEf8/dwi8B<br />
+ TIWTlMBVRoQwx4MXTnTguuk4N30oNDEah8Hq36fuaLr4t4rqUxohF0LLfvq8 TrKuHOVZHbohCawg<br />
+ aVdeZ6e2PlMxjjWJ4Z7x36m5K6Yt/HzP/mRpsT7vTXQkhwSqg4rSXVFmTw61 pINLZzIC84rn1pa9<br />
+ akZ0O1YczC0LvwH4ExnXPYvO6lvoa4yFtnv5R3pvVLV8jKS4xsRU8B9VDe3x PbgNXs1GAV3hhgf2<br />
+ KeTplc95NubzVP7kIvstLsmNxXOwK8/RAK1VZBD449G59t98pVPQRHWYo4Up npyLsTD07xPsKGMb<br />
+ RXivmuL7WmGL11wzV0NVWq5aDVUpskk1lf4+YZUraC4wciRVNiJxBnoNBxhp bSJEMXcYpz+bNiPd<br />
+ hixRZn/PnR6nsx4zMbH30l8pC6Ou+624VWAgBbW67mwFyTA+BjMNBd45WPaO BJh3HGYJ1FfLhs8n<br />
+ SN6DmVPjqhIV9Ha1iWqq0z3Tauo7HfKZsceUexhn1lprXo0o8plX/bmnoOat mQTJTbGe8xAOL029<br />
+ 67OAU0z3nSg17iVTVX7+dTZO+KqaMPWIt+Qc66PXxwUj9EAPA9WVBDBqrrz+ Vq5ChLWj+6rvf+1k<br />
+ 9n/b2y26/3Ehz9M3gcPewQi0dli7s9fe2et22eHRR4Y5rBr1juHt8/9WAkuw ZfeYHv2pe4xZJjqq<br />
+ q1xQkMeXAFbGf221Mvzf7W71iP8X8dwt/uNEkAP3g8DYvHQG6BVNHxUyNEXm qbR1od5mAif+9o8+<br />
+ TJY/FInbQi2vG6ZCGl649clT5B8eRF8NuTCdEz8h6zzjhvd7eBdbCdMyQ6q1 ZI9hMn5iCTbEapz/<br />
+ 6Eye/9ii8x+LeGrK//txWOY+WHpW51nE/Ffo/512Zysb/9nrbpP+X8RzN/1/ IMnhPio/J17RubZT<br />
+ irZm7ZsyHdKx9X0zLXfi5H51AhprhEbWCrKcvIc2OAl8TG7qB0boDJI1++Lr cyW/3eKVj8CF2bsw<br />
+ Y8b8jst5uTWotbbMLm6m4u9NTHLrulAbTPgbfXW9oL44zjWuUm8pvVZSVEcS FFpQSQxQNOhAKW/G<br />
+ rnuSuZFUhf/KYXqLZ87xl0Zc+b0DGSBy6aYuH8bctK9s6A7f+AcLVwZbfhqB 6Rl+lTcxp2xX/rUo<br />
+ kgDjpy4Df8jrGQBCHnNlgueSBJx/+4dYqsOOyAxLvCPn9o0TYjiSMo/zwQqW 2gCXY3mJZnqNLMze<br />
+ MRtq18tmYLV29LmcbL3OOqvEiK+AV/U5Nxwtv8hEiFnBME1z9WPJSOvdQ/o5 8qxCyimiL4ZSAl/J<br />
+ 2SogtDMBlaE2fCtoLbMroMsh3oLIw50RTjAQ4jh+5hu+7LRa3zFlb25h8Rq+ w9uq2TBdxww5EBQx<br />
+ +C8o+NW+Bf8usOMP6gUm+MZ/R2aYlIrfTD/uBd5m8X3EB0J+nGBS75vED0zd Qmz/zxjEOYOq21zQ<br />
+ 6kWgA/ihg2FaUeAM09u1NS4mzkcg24oufIs6JEVrfoWx3J1rl0pRmOiTrgs4 JzoBVqN1SRUwA6Ay<br />
+ eUFyLBQz2iI3YiCngny4jPLMg9EUTyJ5i09/TH/uoyiCK3PHfOVOR0ahf08v SlSgfYedwenwLwhC<br />
+ S5kJORhnVdynUR0Nlz8U1apuqlyrqaiMuB8Bxg3g2sKkEZQyZXPtNOYAn3GJ 6Jpjrw/Deowv4IPA<br />
+ OXkvVZzPgf0Qbz3IT6E+wS7ThKZxCSCGDupVEbiq6lw7carLnS8BK5U6OUcu TpXPVF25oFKzL2Qo<br />
+ pIzIN3anjYUe8U5rm5ZTDka6usnxSJs8ubJvqUuX9MzgmWb/VxLM1BvAVfs/ nVZ2/6fd7dD+z0Ke<br />
+ ++3/SoqouQGcEji0G7wSz734P3X4olgaTM//2x3a/13MQ/z/Yz/z2v/RA0Cq 4z+y8V/dnW2K/1rI<br />
+ c8/9nwNwtw9/uACQ+++Gr0wEyGrEf1D+z2U9c4r/o/CPB/IsYv4r9H+3tT2R /6u7Tfm/FvJQ/AfF<br />
+ f1D8B8V/UPwHxX9Q/AfFf1D8x8zjP1Zmr582dOnJPqX+n1jZGwfcQrnT1X/8 4UH+9e7/67Y68L6z<br />
+ tYP7P3T/2/yfKeYfzLcjecHrdCs6Ff7/Vqel1v/b273tNsx/b2eL/P+FPBnH Xptj9hrUxcAEKwut<br />
+ gQYTZtX+LB5uhskKT8dorQpnKE5pzcBkQWclvlD4wkZzGIkyYnmPXqHIy6jK Go7FvjnRFbcEndgm<br />
+ jPwRc+1rO25Db8JQVYoajy/1yizfDpnnR4y7IsxBtLNOeRzSpZXTawQDXHir b6X7l1tkAzH12K0/<br />
+ ZkMgU7R4rh3L5vgn3RY1Kj+SXdwycGLQchBZCpXpJQ1J4TEXP9pAHlgWzgN6 jr8K6xmTG9pm/6rG<br />
+ 6OVVOFPayab9VmSrUy2b3EEa2J4dOP3JLaRUOnU2abRGtyM7ayevsfx86Y41 7RIWr4nFO0JMM8TY<br />
+ 3FhPDgLMJlM7WpxmBJulLvPGSF2nP3ZBVPZ1pRCmJvjjFTjQjA8x9PWW9VWe LPEqsq2kIeGxhmwd<br />
+ h8xCNsqhmNhK1Xbhvj8DBCM2NG9BRISAOpDpKLB5Aq6RL9gEXVLuP+fTtK38 6pig0SqPaRlr4m9T<br />
+ XZ2btJkXk2R55P57pFlmypmctZQflIhE8i5W85nC/kttvk9jAZbbf2Dz7/Tk /U/tVq8HfgLeAt4l<br />
+ +28RT8b+E/cGhCO771w6fSkmRXLDJLxP283x/NfiT3GHy6wF2N0MxKTs3U2Y pI5Z9ie7k5GYLZjM<br />
+ OrvLg6nHMk6XEKPOcOQHycGKTDXfhVlSaCEVXuMwaUKxzMrqnKZ4lvWl89TZ 0Suwsg9BvoHW91K5<br />
+ +/tXdv8rT0H4im+RjT3XxuVlPMfxKs7ij3WFQV9bscNvn07f8vSEYZS3JWcY TTxytYkGvkiUKtbf<br />
+ xp46YqI2q76n0teLFKmytXqVll1Uk+peZndJkY5EIllLjXs/Wf08Zv4QsWQ+ t+dGYgdG7JD1/QC7<br />
+ zgIbbDoHh0AXCdLo4uwiDFQoHvLKoK6P5gDsTBxoGD5rXrycJbR35ohnpM8l MfgYpkmMv8lbHc/0<br />
+ JBYK/3508FpRUv86ZPC/U7mWjEVgTHy5d2MO7PgtQJRQ6pCjFZkDBa81/L0+ hSV9ydu/jHubUF0u<br />
+ GuWtAZLJCOMWoXgh28UBKetkMzUcfXG/H6+DiS/Q4YI+z5ZuClIVK8rwfPGi SkTXTEgrwRXZTJHb<br />
+ 8y1m0CzY3dDGNr3RLu1IkRa0MMNn/T5oqEz2YEKe1kctK3MFItkbQwrWdPJv EHn+vPk8SYyde4cI<br />
+ R3cRQvUsskfcq7d8MGpAOtq4JDQeLUIQgid+hm1N3KI2746al+C+yn7i+oDq eIQrF3IxjE+plEwL<br />
+ GQw/jOLRyLmLY9I6WYjSzaGPSzvqX6WHKTatF0M1bxCDJVHNsnsPZLKc7svZ l8tz6RGQC3QLMZ9g<br />
+ /v8ulwiXRALLHwIgAn0McnKMC1NhWSJCJqNPhgf90eTCozxPfFG0I4OQlkQ6 KzswQFHLGpkMzcRr<br />
+ zwsiCBWfvCSKWFK/Yb6X1vHMhKvzAosSAKK5ZU/3QnuN3L3Ubid60gHnGyzY hfWbr1IX2NQZl3Gh<br />
+ 4wL/xc0TbWTAXxy7i7EiseWFUwL8dzS+cJ3wajmdlo0vpN9yp0PtHd/xWcCg 6JsyPP70ymdDsAL4<br />
+ uuB/qWgSsclzy0zVIcxlxBzv2v8qrBm8XYjvSmT4iPZuH9Ezxf6vsG3rXvqi PeX7v532znY7if9s<br />
+ 7+D+b7tH+T8W8jyd7dN4yg790W3gDK4itt5/hmlEtjbwvz12/OodfAxGvoyn wU1lH7V1aEAxzCTA<br />
+ i4WoP+zgGnduPqIQAoob4BIxwqOSMftIr6Z3i2JqCO5y4JhuCFWYYIAOTQsg 4l2IsWdJSwXAhqGK<br />
+ xzkSW3nsBNVHn711+rYHP6/bRgvq+Xbl9K/iZoDShTDUrw7e4NjAy6QpM4Ki V1E02ms2v337ZqgA<br />
+ fz8YNHE/1W3aI3fzut0yrqKhC7B8rDxRpR+Ee/Abn+wwbTK8Vwu6yA5OjkWz w5HwKTlAY+ZTWDCx<br />
+ J7hQb8M4hvLA0QVOwJX/jSMF2iPAQCdm39j9cWRr7jCU/Xg7cvCyt3GIxT3b xn1591amyxP3MPqu<br />
+ 63/jZnQsYuSY6JGSMB6yKVyxC3l0JE48b4r7XAPT8UC/4Uv8A6xD25L1+H7U d8EpwySCjMer8brF<br />
+ DY6AuxSEcR3rkcD7lgURnlx6JuoRcWFg4HDEXQwDBcL6hx9usG/wP35FdjZO DmoXo8Fg4qGaD5cA<br />
+ MQ5CDFy7VXQpIzdDxnvYNz3wq/huReBYli2CO0Ft/4z9hDqgyBDjG7Co3NMC bDybrdvGwNhgm6/1<br />
+ kdu39pqSKBvpSWYnpx9efzr82Dw5OPxfB38/fv93dvjh/cfTD29ZmghgZqxx P9qXB40wjlVuizDH<br />
+ auKoNiO/aUiwBvhF0kUJ9nGjBZo9s4V5zI/wyF7L4zfwtwlWiOO60oJMzkrK CmN60s5zimNC+w0k<br />
+ Mg6JP7WqYACB6HiAYSYSUdRhNFLnjfaTEeL1xXG1XJJIyQDVStSFweuPo9E4 aU8e3gEB1sie49nP<br />
+ Hm+K25mWiLhohMJ8q4xLIvbzv/wMFIT7adg/VePPG8lbPKkFsiOE8m8wEObG RFGywaTokXS9D1y4<br />
+ 1dkQ/73Z7bF/YTwWcGPoR84lvgH4V7cqCogPRIzG8w34v8ZTxSL78IL/fyN5 Iypjg+jrBuOVpdtl<br />
+ 8h/R8n83nj7RC4xGffYv8DJbSw4ovD3vbac/iC5oBULfNQMnjL+AbAj62W+8 Ov2L6SR1cYz426uR<br />
+ 1sTJwfnp8dmh/DQ0+34IH/tmcIHqAwo10qN48vpI3h0b8hBVxRXrghmeMdy0 AqEf3PKpTUhaDaza<br />
+ cUd5exaHgMOUiLlB5xTKciLtm2PUftAivOWCWLTMG5bUnLnynutX6JjZlyHB KrZ35JoR/AblWonW<br />
+ IPDHo5RRGSq58JFrgADUeUYqGPoYmXjjLlKZvGQXWJvj50X/2xkZohZO9yg6 Rb9ELzSMVDgv9kHw<br />
+ M36TwSIKB67uLy9tPBCIwsTDhhPBE77hYDkEuymRySdc9VVQMDxZIi4uLok5 BcAmiTpdQT5xF8Bo<br />
+ RJ6GyBJ7+msu0adBcog/hmg8kUoByRNFyCVX6d9MTwgWSY0o+WzQC6Z1K6jP U7YDnpde93wWOpGN<br />
+ K++JiAdtLUp/4pC/o5LfZzzpQiPdKNb4u+eO4m0gNKv6vmVz6yC88scg5S/w CP+n07c5ysUMOa48<br />
+ ilxeDx3YwBfIv1AiVDwh0EFOkDhio/sCo6df4G9DNbr/Mm5+HLi/yq9fOvgF /6tSdqgvqKdc+GYy<br />
+ 8Zd6rxr6cHmJlsEB2li2xbmOa29sOh4x9tJPgTV/BatWGKj2pAJVAREx5kKI 4+FV/tf3J0+ePB17<br />
+ aJhwLvJxOUEtHCJf4lvJ7EmtWJcMBONn9hP7RmdebS+lUUI/Pj/nzs27xlP8 E2lAjXdy9hyGDf/5<br />
+ Vb6Lz6G/VH/FZoACSY6jJzD485sfWL8CRgfBYCx2fRAHGz0XX90YLi1kdBoa 8BPzTuyXFUH/VCsi<br />
+ U1VgEe4++EIMc4mIQ4P0xwdQl+BcRQuKYTJwhQvqnGMOm0ycIlIyNyFWlffz LaZg2Fd8lLYkX306<br />
+ fvuavT94V2hECmcCJbWlgmsAE+hrIowzW/CmClBATlOuhjB/JWhkfgV64UGB RiMduLM/xYXXDeGp<br />
+ cMNU2VmfpPEIBmt6c1jyMlO+DSgbTds66JBybXrJjjfY+w32boOdbTDDkAhi O/vH2OLx65Q1WaPN<br />
+ hkx3s//RlovhWA+PdIq3HWvW1UiCpPZlzBNi9t1IcurwUXGG0BRYi1PXH6mS +63WjlT0sUGi5Keq<br />
+ FPMNOJcOyAhOxZNexjd1IE7xt3SObM0IxWkeoygBIh5ZtqG3yaU2NwxQmo9G rmNzPptoCUW25fRF<br />
+ REB25WtDQ3RfiLIbZBToRt8+FD//Q0Hsv0xQm+gnyoojj68fNHGBwVRnsBJF JIYiHF+iX6MqiLHk<br />
+ ugiNOSOu02Cix4lMlYXRblJjg6sbAfeXpZTJCGQ14Ezjf3kwSIqBM16pst/S QuDg7KjAg4xN02SD<br />
+ nCs5tSLTj4OhOKv/DnzLuMsOts4FCD5cjUFTVDroQmZk1wDQAsbIqsR7EybD bZSJ8sGFiDzHP+Mf<br />
+ QXVAHEM8XHZ6eIJ0g5Qi6HPTAYMm7ke8SpHYDJHuRQqyDuxrxx+H7i2vWC5R xEOQ7hs3hZFQVQ2B<br />
+ apahhaA5nbwHVrxMhphathuZfFvSaDS4WcGlofRxN+Upg6aOeSO1ZCAjxON1 g6cfwuZ/hk1M3dH0<br />
+ Yi9YflXnRgTrTVTqh/vcXuU/voX7YG/yP9Gm3kc/sPE0kut9Ih5aciDMOLA9 LhSmLUOM1QQE5GgI<br />
+ ekn4wheD4oUgHNCwt8ZBeu4FhOsMnciOdS2QHq4/glYUYfJqASKutylFRSqc oyEMG9t6zSO/ba9/<br />
+ ywOpYx1Z1S9uPNpgiY8zxIPbqkh7Fp5U8UfckBritK87BrhGYIqg5TEEPY1+ PWDjWWg58SOI6Bq5<br />
+ dgRD8KyRVG5AVe+ghhi35FywWEVQ6waKZrnxKmkRTTg8CiSHQB9xtSTBi8O/ yULExW3KTxS2ifwM<br />
+ 1Lz+C9L0HhjrZsInTiiV5x4KoM0JJlKJklBg84UVIQidUDaV1Rt7LF6duvR9 QxbV32ErpmaS8Pqk<br />
+ BYXDonLr8HIxOYTji7hIHp6mwgA9kw2BbsA6RpuF0a2rMA03NLS5D4OAgTng R0pvcLU4mSUw/NQh<br />
+ DSF8JfeBn7H/EnwFccRJcqTlf/Nc37S4d/SrAn0lzYeXx/yEqhI8MV/wfb70 cZf9+PwLnn2JJYia<br />
+ 1M3keIzKxMedYgyHbmTVw7uDE/bm+G2BilD2IaehPh9IMEUdZMzDP87wsALn btR53BpIBW9mTpEI<br />
+ vlInSFAtHKfdA144VVIU1I6dNOMJBQf2yvQGSkHHJz7UBqpaZsiekxQThocV xISp4xr7eyO+0RHs<br />
+ mZ7v3Q5BJfwmVQ54U8OYOhGZhjq+sK/e4otG5szGPh4SQXkjzkYkzYnjDfvX ulWXmhV2enTy4ez4<br />
+ 44fT/yqalqJZSewiNlJbBM5fakbikXSEvAs0olckjrayEl0pKc6VOpez/gUy IpqKMD1g4UgXopga<br />
+ Yu8hXjOdWLSU6k+oUFEDCCyYD5QjcjJx8PiSvei7tFy5uxHJJSvB53z9PWf5 VaMk0EReJKzGddf5<br />
+ ml6Yjin3WazB0YMQ5i12iDcNrzTDRPQWJxY4g889+Bh/vN+/7mBW1XarDeAx CCcNJEQeaizttgxn<br />
+ /n7wxwFM/7sT4M5T9uHk4/GH92cshwwmpTG31Ar2UTJOki13U7ikAm4M2O+v /1fz99OjxtPUDs0+<br />
+ Zpi7No0rf8hTZF00Rbm9yfe2yDYX5n/+Eor0dzlf+gUfgNODEPk39yvY981w 7I2+9sN2uxjE8kKv<br />
+ pAaxUmOZkVnaCuB4LlN/BAiItB+f0IVR0zR13tCLpAzyqBwyFKc6DVJxngwI 4QuqSHuv+PvNU/t/<br />
+ xrg0esSXIKCZI+/aCXyP6yb2KV7fQapFk0w7lGcnkNJTQdkbjkd4fLXx9PD1 4WbbaDXf+NAS7wH+<br />
+ 3E/UsphuBdhOA7b3wRo9+7vTfOd4znA85GUnXrX3m+MwEHN9PeTrAJu9TRjV xlMYugqAzhlCdCoh<br />
+ tiohtishuoUQyFkcpFcEovNGGYjig8bTE/DhfM90sW45lplXnf1kgtQnsAWc UI5z9psslnxqTxRr<br />
+ 53xLEEDXUIYkaeu+6T0BtYIDJD8Q8l4ZOl8sbv0hbTfg49ENOLM8pTEeysK6 /1Oa2kCWmLwH6F8d<br />
+ 4LJAEQzg16WfXqYVy4Y4hP3XCHIMEMJqZvkVXpqOq0dFcpwxM0mgYQ7y3FfV voECH7wjfKP8aCZX<br />
+ A/wgXg4AFXDhQ6Pc7s8MhKjnDwGR1HETBSZmZxwnGVz0UkooIGLJWX9fWtXX ZoKtUL44qgYuiIu3<br />
+ B8GAT5cKiEuvbahlRrWlzQUz91UNXYfKyRKzKGrme//Km+PiwvL52IZy07iG RMKBQ3A+LmeibZjV<br />
+ 7ApOQ/u+D5xVuzsXt5HojDT64iiVxfXqY2xtZntlNDQA0a2qEL2753/7Z+0Y o4r8b71WZ0vFf3Xa<br />
+ 7R6P/+rsUPzXIh7K/0b53woG8uHnf8NWVzcJHO4amgP7TJjDRYngVhT56MoJ rBMTSrxV6/IPrAdf<br />
+ Rv5N6dgLQltR7KsyCK426SfYH1m4NlI2AZQJkTIh3n+Wp0mFOCkZJnIh5nDW lMkQdcK+a6bGFPPM<br />
+ NV/jKueSnA63XK27QvgVK1ZKyEkPPfTQQw899NBDDz300EMPPfTQQ8/Uz/8D 4RUw7wAABQA=<br />
+<br />
+--nextPart24128817.3K8mAqcnLh--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=326347&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=45158&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=326347&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=326347&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_1386139"></a><a href="index.php?t=msg&amp;th=106738&amp;goto=1386139&amp;#msg_1386139" class="MsgSubText">Re: PDE build problems with enum</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=106738&amp;goto=1386139&amp;#msg_1386139">message #1386139</a> is a reply to <a href="index.php?t=msg&amp;th=106738&amp;goto=326347&amp;#msg_326347">message #326347</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 13 June 2014 15:06</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Al B is currently offline" title="Al B is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=11841&amp;">Al B</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=Alfredo.Bencomo%40nasa.gov" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 130<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=11841&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=11841&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi Florian,<br />
+<br />
+Did you ever find the root cause for these errors?<br />
+<br />
+I'm having the exact problem (it builds fine within eclipse, but it fails with headless mode).  We also can build the product with Buckminster, but we actually required to use Bamboo.<br />
+<br />
+We are using Eclipse Kepler 4.3.2 and Java JDK 1.7.0_60:<br />
+<br />
+[javac] 1. ERROR in /home/bamboo-remote-agent/xml-data/build-dir/ADVOCATE-ADVOCATE-JOB1/gov.nasa.arc.advocate.egsn/src/xxegsn/util/XxegsnSwitch.java (at line 0)<br />
+[javac]         /**<br />
+[javac]         ^<br />
+[javac] The type java.lang.Class cannot be resolved. It is indirectly referenced from required .class files<br />
+[javac] ----------<br />
+[javac] 2. ERROR in /home/bamboo-remote-agent/xml-data/build-dir/ADVOCATE-ADVOCATE-JOB1/gov.nasa.arc.advocate.egsn/src/xxegsn/util/XxegsnSwitch.java (at line 25)<br />
+[javac]         public class XxegsnSwitch&lt;T&gt; extends Switch&lt;T&gt; {<br />
+[javac]                      ^^^^^^^^^^^^<br />
+[javac] The hierarchy of the type XxegsnSwitch is inconsistent<br />
+[javac] ----------<br />
+[javac] 2 problems (2 errors)</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=1386139&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=11841&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=1386139&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=1386139&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: PDE build problems with enum" />
+	<input type="hidden" name="reply_to" value="1386139" />
+	<input type="hidden" name="th_id" value="106738" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/106738/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/334999/#msg_334999">TextMergeViewer with custom diff-generator, or reuse its visual parts</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/1386252/#msg_1386252">API Guard - what is it???</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 106738, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=106738&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 11:29:14 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.01851 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>

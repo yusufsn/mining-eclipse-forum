@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eclipse Community Forums: Eclipse Platform &raquo; [HELP] Eclipse plug-in testing automation for JUnit4</title>
+      <meta charset="utf-8">
+      <base href="https://www.eclipse.org/forums/" />
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/lib.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" title="Eclipse Community Forums Search" href="https://www.eclipse.org/forums/open_search.php" />
+      
+<link rel="alternate" type="application/rss+xml" title="Syndicate this forum (XML)" href="https://www.eclipse.org/forums/feed.php?mode=m&amp;th=105900&amp;basic=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Eclipse, Forums, Discussion, Support, Help, Questions, Question" />
+      <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
+      <meta property="og:title" content="Eclipse Community Forums: Eclipse Platform &raquo; [HELP] Eclipse plug-in testing automation for JUnit4 | The Eclipse Foundation"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <meta itemprop="name" content="Eclipse Community Forums: Eclipse Platform &raquo; [HELP] Eclipse plug-in testing automation for JUnit4 | The Eclipse Foundation"/>
+      <meta itemprop="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta itemprop="image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <meta name="twitter:site" content="@EclipseFdn"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Eclipse Community Forums: Eclipse Platform &raquo; [HELP] Eclipse plug-in testing automation for JUnit4 | The Eclipse Foundation"/>
+      <meta name="twitter:url" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/html_template/index.php?theme=default&layout=default-fluid"/>
+      <meta name="twitter:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 350 open source projects, including runtimes, tools and frameworks."/>
+      <meta name="twitter:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-400x400.png"/>
+      <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
+      <link href="//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/forums.min.css?v=1.0"  type="text/css" media="screen">
+      <!-- <link rel="stylesheet" href="theme/Solstice/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />  -->
+   </head>
+   <body class="" id="body_solstice">
+      <body id="body_solstice">
+         <a class="sr-only" href="#content">Skip to main content</a>
+         <header class="header-wrapper" id="header-wrapper">
+            <div class="clearfix toolbar-container-wrapper">
+               <div class="container-fluid">
+                  <div class="text-right toolbar-row row hidden-print">
+                     <div class="col-md-24 row-toolbar-col">
+                     <!--
+                        <ul class="list-inline">
+                           <li><a href="https://accounts.eclipse.org/user/register"><i class="fa fa-user fa-fw"></i> Create account</a></li>
+                           <li><a href="https://accounts.eclipse.org/user/login/?takemeback=https%3A%2F%2Fwww.eclipse.org%2Feclipse.org-common%2Fthemes%2Fsolstice%2Fhtml_template%2Findex.php"><i class="fa fa-sign-in fa-fw"></i> Log in</a></li>
+                        </ul>
+                     -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row" id="header-row">
+                  <div class="col-sm-5 col-md-6 col-lg-4" id="header-left">
+                     <div class="wrapper-logo-default"><a href="https://www.eclipse.org/"><img class="logo-eclipse-default hidden-xs" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                  </div>
+                  <div class="col-sm-4 col-md-5 col-lg-4 text-right hidden-print hidden-xs pull-right margin-top-10" id="header-right">
+                     <div id="btn-call-for-action"><a href="https://www.eclipse.org/downloads/" class="btn btn-huge btn-primary"><i class="fa fa-download"></i> Downloads</a></div>
+                  </div>
+                  <div class="col-sm-15 col-md-13 col-lg-16 reset margin-top-10" id="main-menu-wrapper">
+                     <div class="navbar yamm" id="main-menu">
+                        <div class="navbar-collapse collapse reset float-right" id="navbar-main-menu">
+                           <ul class="nav navbar-nav">
+                              <li><a href="https://www.eclipse.org/membership/" target="_self">Members</a></li>
+                              <li><a href="https://www.eclipse.org/org/workinggroups/" target="_self">Working Groups</a></li>
+                              <li><a href="https://www.eclipse.org/projects/" target="_self">Projects</a></li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                    <li><a href="http://events.eclipse.org">Events</a></li>
+                                    <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                    <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                    <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                    <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Participate <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                    <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                    <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                    <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                 </ul>
+                              </li>
+                              <li class="dropdown visible-xs">
+                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Eclipse IDE <b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                    <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                    <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                    <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                    <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                    <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                 </ul>
+                              </li>
+                              <!-- More -->
+                              <li class="dropdown eclipse-more hidden-xs">
+                                 <a data-toggle="dropdown" class="dropdown-toggle" role="button">More<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li>
+                                       <!-- Content container to add padding -->
+                                       <div class="yamm-content">
+                                          <div class="row">
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Community</strong></p>
+                                                </li>
+                                                <li><a href="http://marketplace.eclipse.org">Marketplace</a></li>
+                                                <li><a href="http://events.eclipse.org">Events</a></li>
+                                                <li><a href="http://www.planeteclipse.org/">Planet Eclipse</a></li>
+                                                <li><a href="https://www.eclipse.org/community/eclipse_newsletter/">Newsletter</a></li>
+                                                <li><a href="https://www.youtube.com/user/EclipseFdn">Videos</a></li>
+                                                <li><a href="https://blogs.eclipse.org">Blogs</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Participate</strong></p>
+                                                </li>
+                                                <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                                                <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                                                <li><a href="https://wiki.eclipse.org/">Wiki</a></li>
+                                                <li><a href="https://wiki.eclipse.org/IRC">IRC</a></li>
+                                             </ul>
+                                             <ul class="col-sm-8 list-unstyled">
+                                                <li>
+                                                   <p><strong>Eclipse IDE</strong></p>
+                                                </li>
+                                                <li><a href="https://www.eclipse.org/downloads">Download</a></li>
+                                                <li><a href="https://help.eclipse.org">Documentation</a></li>
+                                                <li><a href="https://www.eclipse.org/getting_started">Getting Started / Support</a></li>
+                                                <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                                                <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                                                <li><a href="https://www.eclipse.org/forums/index.php/f/89/">Newcomer Forum</a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="navbar-header">
+                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main-menu">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           </button>
+                           <div class="wrapper-logo-mobile"><a class="navbar-brand visible-xs" href="https://www.eclipse.org/"><img class="logo-eclipse-default-mobile img-responsive" alt="logo" width="160" src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"/></a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section class="default-breadcrumbs hidden-print breadcrumbs-default-margin" id="breadcrumb">
+            <div class="container-fluid">
+               <h3 class="sr-only">Breadcrumbs</h3>
+               <div class="row">
+                  <div class="col-sm-24">
+                     <ol class="breadcrumb">
+                        <li><a href="https://www.eclipse.org/">Home</a></li>
+                        <li><a href="https://www.eclipse.org/projects/">Projects</a></li>
+                        <li class="active">Forums</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- /#breadcrumb -->
+         <main>
+            <div class="container-fluid" id="novaContent">
+               <br /><br />
+               <!-- Start of content area -->
+               <div class="table-responsive">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="5" class="table">
+                     <tr>
+                        <td class="ForumBackground">
+                           <div class="header">
+                              <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+                              <table width="100%">
+                                 <tr>
+                                    <td class="header"><a href="index.php" title="Home"><span class="headtitle">Eclipse Community Forums</span></a></td>
+                                    <td>
+                                       <form id="headsearch" method="get" action="index.php"><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />                                          <span class="headsearch">Forum Search:<br />
+                                          <input type="hidden" name="t" value="search" />
+                                          <input type="text" name="srch" accesskey="f" value="" />
+                                          <input type="submit" name="btn_submit" value="Search" class="headbutton" />
+                                          </span>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+                           </div>
+                           <br />
+<div class="UserControlPanel"> 
+      <a class="UserControlPanel nw" href="index.php/s/" title="Search"><img src="theme/Solstice/images/top_search.png" alt="" /> Search</a>&nbsp;&nbsp;  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="index.php/h/" title="Help"><img src="theme/Solstice/images/top_help.png" alt="" /> Help</a>
+  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/uc/" title="Access the user control panel"><img src="theme/Solstice/images/top_profile.png" alt="" /> Control Panel</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/l/1/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Logout"><img src="theme/Solstice/images/top_logout.png" alt="" /> Logout [ Keitaro Nakasai ]</a>  &nbsp;&nbsp;<a class="UserControlPanel nw" href="index.php/i/" title="Home"><img src="theme/Solstice/images/top_home.png" alt="" /> Home</a>
+  </div>
+<a name="page_top"> </a>
+<a href="index.php/i/">Home</a>&nbsp;&raquo; <a href="index.php/i/1/">Eclipse Projects</a>&nbsp;&raquo; <a href="index.php/f/11/">Eclipse Platform</a>&nbsp;&raquo; <b>[HELP] Eclipse plug-in testing automation for JUnit4</b> 
+<span id="threadRating"></span>
+<table cellspacing="0" cellpadding="0" border="0" class="wa">
+<tr>
+<td class="GenText al"><span class="GenText fb">Show:</span> <a href="index.php/sel/date/today/frm_id/11/th/105900/" title="Show all messages that were posted today">Today&#39;s Messages</a>&nbsp;<b>::</b> <a href="index.php/sel/unread/1/frm_id/11/" title="Show all unread messages">Unread Messages</a>&nbsp; <b>::</b> <a href="index.php/pl/">Show Polls</a> <b>::</b> <a href="index.php/ma/">Message Navigator</a><br /><img src="blank.gif" alt="" height="2" />
+
+| <a href="index.php/mn/msg/105900/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Receive notification about new messages inside this topic">Subscribe to topic</a>&nbsp;| <a href="index.php/bm/msg/105900/1/on/0/?SQ=9b5595f2b50813300781f4cde4e2380f" title="Add this topic to your list of bookmarks">Bookmark topic</a>&nbsp;</td>
+<td class="vb ar"><a href="index.php/mv/tree/105900/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a>&nbsp;<a href="index.php/r/th_id/105900/323598/0/0/"><img src="theme/Solstice/images/post_reply.gif" alt="Submit Reply" /></a></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_1"></a><a name="msg_323598"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323598&amp;#msg_323598" class="MsgSubText">[HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323598&amp;#msg_323598">message #323598</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 03 January 2008 12:24</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Roland Tepp is currently offline" title="Roland Tepp is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=13874&amp;">Roland Tepp</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=roland%40videobet.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 336<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hello,<br />
+<br />
+I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+continuous build automation and followed to the letter all instructions <br />
+from the article on PDE Automation [1] and testframework.html<br />
+<br />
+I got to the point where I can build the testing feature but when <br />
+launching the tests, the testing application just does not start...<br />
+<br />
+I suspect the reason is that I might be missing some dependencies, but <br />
+no matter how much I look everything seems to be where it is supposed to <br />
+be...<br />
+<br />
+[1] <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+-- <br />
+   Roland Tepp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323598&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=13874&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323598&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323598&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_2"></a><a name="msg_323601"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323601&amp;#msg_323601" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323601&amp;#msg_323601">message #323601</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323598&amp;#msg_323598">message #323598</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 03 January 2008 15:27</span> <a href="javascript://" onclick="chng_focus('#msg_num_1');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Roland Tepp is currently offline" title="Roland Tepp is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=13874&amp;">Roland Tepp</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=roland%40videobet.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 336<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">This is a multi-part message in MIME format.<br />
+--------------000902090205090904060709<br />
+Content-Type: text/plain; charset=UTF-8; format=flowed<br />
+Content-Transfer-Encoding: 7bit<br />
+<br />
+The build log is attached in this message - maybe someone can take a <br />
+look and see what might be wrong...<br />
+<br />
+Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt; Hello,<br />
+&gt; <br />
+&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt; continuous build automation and followed to the letter all instructions <br />
+&gt; from the article on PDE Automation [1] and testframework.html<br />
+&gt; <br />
+&gt; I got to the point where I can build the testing feature but when <br />
+&gt; launching the tests, the testing application just does not start...<br />
+&gt; <br />
+&gt; I suspect the reason is that I might be missing some dependencies, but <br />
+&gt; no matter how much I look everything seems to be where it is supposed to <br />
+&gt; be...<br />
+&gt; <br />
+&gt; [1] <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+<br />
+-- <br />
+   Roland Tepp<br />
+<br />
+--------------000902090205090904060709<br />
+Content-Type: text/plain;<br />
+ name=&quot;log.txt&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-Disposition: inline;<br />
+ filename=&quot;log.txt&quot;<br />
+<br />
+ ICAgICBbamF2YV0gICAgICBbamF2YV0gIVNFU1NJT04gMjAwOC0wMS0wMyAx NzoxOTowMC44<br />
+ MjIgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t LS0tLS0NCiAg<br />
+ ICAgW2phdmFdICAgICAgW2phdmFdIGVjbGlwc2UuYnVpbGRJZD11bmtub3du DQogICAgIFtq<br />
+ YXZhXSAgICAgIFtqYXZhXSBqYXZhLnZlcnNpb249MS41LjBfMTANCiAgICAg W2phdmFdICAg<br />
+ ICAgW2phdmFdIGphdmEudmVuZG9yPVN1biBNaWNyb3N5c3RlbXMgSW5jLg0K ICAgICBbamF2<br />
+ YV0gICAgICBbamF2YV0gQm9vdExvYWRlciBjb25zdGFudHM6IE9TPXdpbjMy LCBBUkNIPXg4<br />
+ NiwgV1M9d2luMzIsIE5MPWV0X0VFDQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSBGcmFtZXdv<br />
+ cmsgYXJndW1lbnRzOiAgLWFwcGxpY2F0aW9uIG9yZy5lY2xpcHNlLnRlc3Qu Y29yZXRlc3Rh<br />
+ cHBsaWNhdGlvbiBmb3JtYXR0ZXI9b3JnLmFwYWNoZS50b29scy5hbnQudGFz a2RlZnMub3B0<br />
+ aW9uYWwuanVuaXQuWE1MSlVuaXRSZXN1bHRGb3JtYXR0ZXIsY29tLnZpZGVv YmV0LnN0YW5k<br />
+ YWxvbmUuQWxsVGVzdHMueG1sIC10ZXN0UGx1Z2luTmFtZSB0ZXN0LnZpZGVv YmV0LnN0YW5k<br />
+ YWxvbmUgLWNsYXNzTmFtZSBjb20udmlkZW9iZXQuc3RhbmRhbG9uZS5BbGxU ZXN0cw0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gQ29tbWFuZC1saW5lIGFyZ3VtZW50czog IC1hcHBsaWNh<br />
+ dGlvbiBvcmcuZWNsaXBzZS50ZXN0LmNvcmV0ZXN0YXBwbGljYXRpb24gLWRl diBiaW4gLWRh<br />
+ dGEgQzpcVkJcYnVpbGRcY2hlY2tvdXRcdmJqYXZhXHN0YW5kYWxvbmUtdGVz dGluZ1x0ZXN0<br />
+ LWVjbGlwc2VcZWNsaXBzZVx1aV9zZXNzaW9uX3NuaWZmX2ZvbGRlciBmb3Jt YXR0ZXI9b3Jn<br />
+ LmFwYWNoZS50b29scy5hbnQudGFza2RlZnMub3B0aW9uYWwuanVuaXQuWE1M SlVuaXRSZXN1<br />
+ bHRGb3JtYXR0ZXIsY29tLnZpZGVvYmV0LnN0YW5kYWxvbmUuQWxsVGVzdHMu eG1sIC10ZXN0<br />
+ UGx1Z2luTmFtZSB0ZXN0LnZpZGVvYmV0LnN0YW5kYWxvbmUgLWNsYXNzTmFt ZSBjb20udmlk<br />
+ ZW9iZXQuc3RhbmRhbG9uZS5BbGxUZXN0cyAtb3Mgd2luMzIgLXdzIHdpbjMy IC1hcmNoIHg4<br />
+ NiAtY29uc29sZWxvZw0KDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhRU5U Ulkgb3JnLmVj<br />
+ bGlwc2Uub3NnaSAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi43NzUNCiAgICAg W2phdmFdICAg<br />
+ ICAgW2phdmFdICFNRVNTQUdFIE9uZSBvciBtb3JlIGJ1bmRsZXMgYXJlIG5v dCByZXNvbHZl<br />
+ ZCBiZWNhdXNlIHRoZSBmb2xsb3dpbmcgcm9vdCBjb25zdHJhaW50cyBhcmUg bm90IHJlc29s<br />
+ dmVkOg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3Jn LmVjbGlwc2Uu<br />
+ b3NnaSAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi43OTANCiAgICAgW2phdmFd ICAgICAgW2ph<br />
+ dmFdICFNRVNTQUdFIEJ1bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBz ZS51aV8zLjIu<br />
+ MS5NMjAwNjExMDguamFyIHdhcyBub3QgcmVzb2x2ZWQuDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS51aSAyIDAgMjAwOC0wMS0w MyAxNzoxOTow<br />
+ Mi43OTANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Np bmcgcmVxdWly<br />
+ ZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLndvcmtiZW5jaF9bMy4yLjEsNC4w LjApLg0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3JnLmVjbGlwc2Uu b3NnaSAyIDAg<br />
+ MjAwOC0wMS0wMyAxNzoxOTowMi43OTANCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFNRVNT<br />
+ QUdFIEJ1bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBzZS5qZHQuanVu aXRfMy4yLjEu<br />
+ cjMyMV92MjAwNjA4MTAvIHdhcyBub3QgcmVzb2x2ZWQuDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIw MDgtMDEtMDMg<br />
+ MTc6MTk6MDIuNzkwDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FH RSBNaXNzaW5n<br />
+ IHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5jb3JlLnZhcmlhYmxlc19b My4xLjAsNC4w<br />
+ LjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3Jn LmVjbGlwc2Uu<br />
+ amR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjc5MA0KICAgICBb amF2YV0gICAg<br />
+ ICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3Jn LmVjbGlwc2Uu<br />
+ dWkudmlld3NfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFTVUJF<br />
+ TlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAx NzoxOTowMi43<br />
+ OTANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Npbmcg cmVxdWlyZWQg<br />
+ YnVuZGxlIG9yZy5lY2xpcHNlLmpmYWNlLnRleHRfWzMuMi4wLDQuMC4wKS4N CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5q dW5pdCAyIDAg<br />
+ MjAwOC0wMS0wMyAxNzoxOTowMi43OTANCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFNRVNT<br />
+ QUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLmVk aXRvcnNfWzMu<br />
+ Mi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRS WSAyIG9yZy5l<br />
+ Y2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi43OTAN CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVu ZGxlIG9yZy5l<br />
+ Y2xpcHNlLmx0ay5jb3JlLnJlZmFjdG9yaW5nX1szLjIuMCw0LjAuMCkuDQog ICAgIFtqYXZh<br />
+ XSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVu aXQgMiAwIDIw<br />
+ MDgtMDEtMDMgMTc6MTk6MDIuNzkwDQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhTUVTU0FH<br />
+ RSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5qZHQuZGVi dWcudWlfWzMu<br />
+ Mi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRS WSAyIG9yZy5l<br />
+ Y2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi43OTAN CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVu ZGxlIG9yZy5l<br />
+ Y2xpcHNlLmRlYnVnLmNvcmVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFd ICAgICAgW2ph<br />
+ dmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAw OC0wMS0wMyAx<br />
+ NzoxOTowMi43OTANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdF IE1pc3Npbmcg<br />
+ cmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmpkdC5sYXVuY2hpbmdfWzMu Mi4wLDQuMC4w<br />
+ KS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5l Y2xpcHNlLmpk<br />
+ dC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi43OTANCiAgICAgW2ph dmFdICAgICAg<br />
+ W2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5l Y2xpcHNlLmRl<br />
+ YnVnLnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhU1VCRU5U<br />
+ UlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6 MTk6MDIuODA2<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJl cXVpcmVkIGJ1<br />
+ bmRsZSBvcmcuZWNsaXBzZS5jb3JlLmV4cHJlc3Npb25zX1szLjIuMCw0LjAu MCkuDQogICAg<br />
+ IFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5q ZHQuanVuaXQg<br />
+ MiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODA2DQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ TUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5j b21wYXJlX1sz<br />
+ LjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5U UlkgMiBvcmcu<br />
+ ZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODA2 DQogICAgIFtq<br />
+ YXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1 bmRsZSBvcmcu<br />
+ ZWNsaXBzZS5jb3JlLnJ1bnRpbWUuY29tcGF0aWJpbGl0eV9bMy4xLjAsNC4w LjApLg0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2Uu amR0Lmp1bml0<br />
+ IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgwNg0KICAgICBbamF2YV0gICAg ICBbamF2YV0g<br />
+ IU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2Uu amR0LnVpX1sz<br />
+ LjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5U UlkgMiBvcmcu<br />
+ ZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODA2 DQogICAgIFtq<br />
+ YXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1 bmRsZSBvcmcu<br />
+ ZWNsaXBzZS51aS5pZGVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAg ICAgW2phdmFd<br />
+ ICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0w MS0wMyAxNzox<br />
+ OTowMi44MDYNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1p c3NpbmcgcmVx<br />
+ dWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLndvcmtiZW5jaC50ZXh0ZWRp dG9yX1szLjIu<br />
+ MCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkg MiBvcmcuZWNs<br />
+ aXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODA2DQog ICAgIFtqYXZh<br />
+ XSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRs ZSBvcmcuZWNs<br />
+ aXBzZS5jb3JlLnJlc291cmNlc19bMy4yLjAsNC4wLjApLg0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0Lmp1bml0IDIgMCAy MDA4LTAxLTAz<br />
+ IDE3OjE5OjAyLjgwNg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NB R0UgTWlzc2lu<br />
+ ZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2UuamR0LmNvcmVfWzMuMi4w LDQuMC4wKS4N<br />
+ Cg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIUVOVFJZIG9yZy5lY2xpcHNl Lm9zZ2kgMiAw<br />
+ IDIwMDgtMDEtMDMgMTc6MTk6MDIuODIyDQogICAgIFtqYXZhXSAgICAgIFtq YXZhXSAhTUVT<br />
+ U0FHRSBUaGUgZm9sbG93aW5nIGlzIGEgY29tcGxldGUgbGlzdCBvZiBidW5k bGVzIHdoaWNo<br />
+ IGFyZSBub3QgcmVzb2x2ZWQsIHNlZSB0aGUgcHJpb3IgbG9nIGVudHJ5IGZv ciB0aGUgcm9v<br />
+ dCBjYXVzZSBpZiBpdCBleGlzdHM6DQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhU1VCRU5U<br />
+ UlkgMSBvcmcuZWNsaXBzZS5vc2dpIDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAy LjgyMg0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgQnVuZGxlIHVwZGF0ZUBw bHVnaW5zL29y<br />
+ Zy5lY2xpcHNlLmpkdC5qdW5pdF8zLjIuMS5yMzIxX3YyMDA2MDgxMC8gWzM3 XSB3YXMgbm90<br />
+ IHJlc29sdmVkLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZ IDIgb3JnLmVj<br />
+ bGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgyMg0K ICAgICBbamF2<br />
+ YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5k bGUgb3JnLmVj<br />
+ bGlwc2UudWkuaWRlX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ U1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEt MDMgMTc6MTk6<br />
+ MDIuODIyDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNz aW5nIHJlcXVp<br />
+ cmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS51aS52aWV3c19bMy4yLjAsNC4wLjAp Lg0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0 Lmp1bml0IDIg<br />
+ MCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgyMg0KICAgICBbamF2YV0gICAgICBb amF2YV0gIU1F<br />
+ U1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2UuamZh Y2UudGV4dF9b<br />
+ My4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVO VFJZIDIgb3Jn<br />
+ LmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgy Mg0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBi dW5kbGUgb3Jn<br />
+ LmVjbGlwc2UudWkud29ya2JlbmNoLnRleHRlZGl0b3JfWzMuMi4wLDQuMC4w KS4NCiAgICAg<br />
+ W2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpk dC5qdW5pdCAy<br />
+ IDAgMjAwOC0wMS0wMyAxNzoxOTowMi44MzcNCiAgICAgW2phdmFdICAgICAg W2phdmFdICFN<br />
+ RVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVp LmVkaXRvcnNf<br />
+ WzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJF TlRSWSAyIG9y<br />
+ Zy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44 MzcNCiAgICAg<br />
+ W2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQg YnVuZGxlIG9y<br />
+ Zy5lY2xpcHNlLnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ U1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEt MDMgMTc6MTk6<br />
+ MDIuODM3DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNz aW5nIHJlcXVp<br />
+ cmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5jb3JlLmV4cHJlc3Npb25zX1szLjIu MCw0LjAuMCku<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNs aXBzZS5qZHQu<br />
+ anVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODM3DQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNs aXBzZS5jb3Jl<br />
+ LnJlc291cmNlc19bMy4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBb amF2YV0gIVNV<br />
+ QkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAz IDE3OjE5OjAy<br />
+ LjgzNw0KICAgICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2lu ZyByZXF1aXJl<br />
+ ZCBidW5kbGUgb3JnLmVjbGlwc2UuY29yZS5ydW50aW1lLmNvbXBhdGliaWxp dHlfWzMuMS4w<br />
+ LDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAy IG9yZy5lY2xp<br />
+ cHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44MzcNCiAg ICAgW2phdmFd<br />
+ ICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxl IG9yZy5lY2xp<br />
+ cHNlLmRlYnVnLmNvcmVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAg ICAgW2phdmFd<br />
+ ICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0w MS0wMyAxNzox<br />
+ OTowMi44MzcNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1p c3NpbmcgcmVx<br />
+ dWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmRlYnVnLnVpX1szLjIuMCw0LjAu MCkuDQogICAg<br />
+ IFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5q ZHQuanVuaXQg<br />
+ MiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODM3DQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ TUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5q ZHQuY29yZV9b<br />
+ My4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVO VFJZIDIgb3Jn<br />
+ LmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgz Nw0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBi dW5kbGUgb3Jn<br />
+ LmVjbGlwc2UuamR0LnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAg ICAgIFtqYXZh<br />
+ XSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgt MDEtMDMgMTc6<br />
+ MTk6MDIuODM3DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBN aXNzaW5nIHJl<br />
+ cXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5qZHQubGF1bmNoaW5nX1szLjIu MCw0LjAuMCku<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNs aXBzZS5qZHQu<br />
+ anVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODM3DQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNs aXBzZS5qZHQu<br />
+ ZGVidWcudWlfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFTVUJF<br />
+ TlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAx NzoxOTowMi44<br />
+ MzcNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Npbmcg cmVxdWlyZWQg<br />
+ YnVuZGxlIG9yZy5lY2xpcHNlLmNvbXBhcmVfWzMuMi4wLDQuMC4wKS4NCiAg ICAgW2phdmFd<br />
+ ICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5p dCAyIDAgMjAw<br />
+ OC0wMS0wMyAxNzoxOTowMi44MzcNCiAgICAgW2phdmFdICAgICAgW2phdmFd ICFNRVNTQUdF<br />
+ IE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmx0ay5jb3Jl LnJlZmFjdG9y<br />
+ aW5nX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAh U1VCRU5UUlkg<br />
+ MiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6 MDIuODM3DQog<br />
+ ICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVp cmVkIGJ1bmRs<br />
+ ZSBvcmcuZWNsaXBzZS5jb3JlLnZhcmlhYmxlc19bMy4xLjAsNC4wLjApLg0K ICAgICBbamF2<br />
+ YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3JnLmVjbGlwc2Uub3NnaSAy IDAgMjAwOC0w<br />
+ MS0wMyAxNzoxOTowMi44MzcNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFN RVNTQUdFIEJ1<br />
+ bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBzZS50ZXN0LyBbNDZdIHdh cyBub3QgcmVz<br />
+ b2x2ZWQuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBv cmcuZWNsaXBz<br />
+ ZS50ZXN0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgzNw0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVj bGlwc2UudWlf<br />
+ MC4wLjAuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMSBv cmcuZWNsaXBz<br />
+ ZS5vc2dpIDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjgzNw0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIU1FU1NBR0UgQnVuZGxlIHVwZGF0ZUBwbHVnaW5zL29yZy5lY2xp cHNlLnVpXzMu<br />
+ Mi4xLk0yMDA2MTEwOC5qYXIgWzQ5XSB3YXMgbm90IHJlc29sdmVkLg0KICAg ICBbamF2YV0g<br />
+ ICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UudWkgMiAwIDIw MDgtMDEtMDMg<br />
+ MTc6MTk6MDIuODM3DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FH RSBNaXNzaW5n<br />
+ IHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS51aS53b3JrYmVuY2hfWzMu Mi4xLDQuMC4w<br />
+ KS4NCg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIUVOVFJZIG9yZy5lY2xp cHNlLm9zZ2kg<br />
+ NCAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODUzDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ TUVTU0FHRSBBcHBsaWNhdGlvbiBlcnJvcg0KICAgICBbamF2YV0gICAgICBb amF2YV0gIVNU<br />
+ QUNLIDENCiAgICAgW2phdmFdICAgICAgW2phdmFdIGphdmEubGFuZy5SdW50 aW1lRXhjZXB0<br />
+ aW9uOiBBcHBsaWNhdGlvbiAib3JnLmVjbGlwc2UudGVzdC5jb3JldGVzdGFw cGxpY2F0aW9u<br />
+ IiBjb3VsZCBub3QgYmUgZm91bmQgaW4gdGhlIHJlZ2lzdHJ5LiBUaGUgYXBw bGljYXRpb25z<br />
+ IGF2YWlsYWJsZSBhcmU6IGNvbS52aWRlb2JldC5zdGFuZGFsb25lLmFwcGxp Y2F0aW9uLmFw<br />
+ cGljYXRpb24sIGNvbS52aWRlb2JldC5zdGFuZGFsb25lLnNlcnZpY2VzLlN0 YW5kYWxvbmVB<br />
+ cHAxLCBjb20udmlkZW9iZXQuc3RhbmRhbG9uZS51aS5qZmFjZSwgb3JnLmVj bGlwc2UucGRl<br />
+ Lmp1bml0LnJ1bnRpbWUudWl0ZXN0YXBwbGljYXRpb24sIG9yZy5lY2xpcHNl LnBkZS5qdW5p<br />
+ dC5ydW50aW1lLmNvcmV0ZXN0YXBwbGljYXRpb24sIG9yZy5lY2xpcHNlLnVw ZGF0ZS5jb3Jl<br />
+ LnN0YW5kYWxvbmVVcGRhdGUsIG9yZy5lY2xpcHNlLnVwZGF0ZS5jb3JlLnNp dGVPcHRpbWl6<br />
+ ZXIuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAJYXQgb3JnLmVjbGlwc2Uu Y29yZS5pbnRl<br />
+ cm5hbC5ydW50aW1lLlBsYXRmb3JtQWN0aXZhdG9yJDEucnVuKFBsYXRmb3Jt QWN0aXZhdG9y<br />
+ LmphdmE6NjgpDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAJYXQgb3JnLmVj bGlwc2UuY29y<br />
+ ZS5ydW50aW1lLmludGVybmFsLmFkYXB0b3IuRWNsaXBzZUFwcExhdW5jaGVy LnJ1bkFwcGxp<br />
+ Y2F0aW9uKEVjbGlwc2VBcHBMYXVuY2hlci5qYXZhOjkyKQ0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gCWF0IG9yZy5lY2xpcHNlLmNvcmUucnVudGltZS5pbnRlcm5hbC5h ZGFwdG9yLkVj<br />
+ bGlwc2VBcHBMYXVuY2hlci5zdGFydChFY2xpcHNlQXBwTGF1bmNoZXIuamF2 YTo2OCkNCiAg<br />
+ ICAgW2phdmFdICAgICAgW2phdmFdIAlhdCBvcmcuZWNsaXBzZS5jb3JlLnJ1 bnRpbWUuYWRh<br />
+ cHRvci5FY2xpcHNlU3RhcnRlci5ydW4oRWNsaXBzZVN0YXJ0ZXIuamF2YTo0 MDApDQogICAg<br />
+ IFtqYXZhXSAgICAgIFtqYXZhXSAJYXQgb3JnLmVjbGlwc2UuY29yZS5ydW50 aW1lLmFkYXB0<br />
+ b3IuRWNsaXBzZVN0YXJ0ZXIucnVuKEVjbGlwc2VTdGFydGVyLmphdmE6MTc3 KQ0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gCWF0IHN1bi5yZWZsZWN0Lk5hdGl2ZU1ldGhv ZEFjY2Vzc29y<br />
+ SW1wbC5pbnZva2UwKE5hdGl2ZSBNZXRob2QpDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAJ<br />
+ YXQgc3VuLnJlZmxlY3QuTmF0aXZlTWV0aG9kQWNjZXNzb3JJbXBsLmludm9r ZShOYXRpdmVN<br />
+ ZXRob2RBY2Nlc3NvckltcGwuamF2YTozOSkNCiAgICAgW2phdmFdICAgICAg W2phdmFdIAlh<br />
+ dCBzdW4ucmVmbGVjdC5EZWxlZ2F0aW5nTWV0aG9kQWNjZXNzb3JJbXBsLmlu dm9rZShEZWxl<br />
+ Z2F0aW5nTWV0aG9kQWNjZXNzb3JJbXBsLmphdmE6MjUpDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAJYXQgamF2YS5sYW5nLnJlZmxlY3QuTWV0aG9kLmludm9rZShNZXRo b2QuamF2YTo1<br />
+ ODUpDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAJYXQgb3JnLmVjbGlwc2Uu Y29yZS5sYXVu<br />
+ Y2hlci5NYWluLmludm9rZUZyYW1ld29yayhNYWluLmphdmE6MzM2KQ0KICAg ICBbamF2YV0g<br />
+ ICAgICBbamF2YV0gCWF0IG9yZy5lY2xpcHNlLmNvcmUubGF1bmNoZXIuTWFp bi5iYXNpY1J1<br />
+ bihNYWluLmphdmE6MjgwKQ0KICAgICBbamF2YV0gICAgICBbamF2YV0gCWF0 IG9yZy5lY2xp<br />
+ cHNlLmNvcmUubGF1bmNoZXIuTWFpbi5ydW4oTWFpbi5qYXZhOjk3NykNCiAg ICAgW2phdmFd<br />
+ ICAgICAgW2phdmFdIAlhdCBvcmcuZWNsaXBzZS5jb3JlLmxhdW5jaGVyLk1h aW4ubWFpbihN<br />
+ YWluLmphdmE6OTUyKQ0KDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhRU5U Ulkgb3JnLmVj<br />
+ bGlwc2Uub3NnaSAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44NTMNCiAgICAg W2phdmFdICAg<br />
+ ICAgW2phdmFdICFNRVNTQUdFIE9uZSBvciBtb3JlIGJ1bmRsZXMgYXJlIG5v dCByZXNvbHZl<br />
+ ZCBiZWNhdXNlIHRoZSBmb2xsb3dpbmcgcm9vdCBjb25zdHJhaW50cyBhcmUg bm90IHJlc29s<br />
+ dmVkOg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3Jn LmVjbGlwc2Uu<br />
+ b3NnaSAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44NTMNCiAgICAgW2phdmFd ICAgICAgW2ph<br />
+ dmFdICFNRVNTQUdFIEJ1bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBz ZS51aV8zLjIu<br />
+ MS5NMjAwNjExMDguamFyIHdhcyBub3QgcmVzb2x2ZWQuDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS51aSAyIDAgMjAwOC0wMS0w MyAxNzoxOTow<br />
+ Mi44NjgNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Np bmcgcmVxdWly<br />
+ ZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLndvcmtiZW5jaF9bMy4yLjEsNC4w LjApLg0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3JnLmVjbGlwc2Uu b3NnaSAyIDAg<br />
+ MjAwOC0wMS0wMyAxNzoxOTowMi44NjgNCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFNRVNT<br />
+ QUdFIEJ1bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBzZS5qZHQuanVu aXRfMy4yLjEu<br />
+ cjMyMV92MjAwNjA4MTAvIHdhcyBub3QgcmVzb2x2ZWQuDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIw MDgtMDEtMDMg<br />
+ MTc6MTk6MDIuODY4DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FH RSBNaXNzaW5n<br />
+ IHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5jb3JlLnZhcmlhYmxlc19b My4xLjAsNC4w<br />
+ LjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3Jn LmVjbGlwc2Uu<br />
+ amR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjg2OA0KICAgICBb amF2YV0gICAg<br />
+ ICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3Jn LmVjbGlwc2Uu<br />
+ dWkudmlld3NfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFTVUJF<br />
+ TlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAx NzoxOTowMi44<br />
+ NjgNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Npbmcg cmVxdWlyZWQg<br />
+ YnVuZGxlIG9yZy5lY2xpcHNlLmpmYWNlLnRleHRfWzMuMi4wLDQuMC4wKS4N CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5q dW5pdCAyIDAg<br />
+ MjAwOC0wMS0wMyAxNzoxOTowMi44NjgNCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFNRVNT<br />
+ QUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLmVk aXRvcnNfWzMu<br />
+ Mi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRS WSAyIG9yZy5l<br />
+ Y2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44NjgN CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVu ZGxlIG9yZy5l<br />
+ Y2xpcHNlLmx0ay5jb3JlLnJlZmFjdG9yaW5nX1szLjIuMCw0LjAuMCkuDQog ICAgIFtqYXZh<br />
+ XSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVu aXQgMiAwIDIw<br />
+ MDgtMDEtMDMgMTc6MTk6MDIuODY4DQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhTUVTU0FH<br />
+ RSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5qZHQuZGVi dWcudWlfWzMu<br />
+ Mi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRS WSAyIG9yZy5l<br />
+ Y2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44NjgN CiAgICAgW2ph<br />
+ dmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVu ZGxlIG9yZy5l<br />
+ Y2xpcHNlLmRlYnVnLmNvcmVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFd ICAgICAgW2ph<br />
+ dmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAw OC0wMS0wMyAx<br />
+ NzoxOTowMi44NjgNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdF IE1pc3Npbmcg<br />
+ cmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmpkdC5sYXVuY2hpbmdfWzMu Mi4wLDQuMC4w<br />
+ KS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5l Y2xpcHNlLmpk<br />
+ dC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44NjgNCiAgICAgW2ph dmFdICAgICAg<br />
+ W2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5l Y2xpcHNlLmRl<br />
+ YnVnLnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhU1VCRU5U<br />
+ UlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6 MTk6MDIuODY4<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJl cXVpcmVkIGJ1<br />
+ bmRsZSBvcmcuZWNsaXBzZS5jb3JlLmV4cHJlc3Npb25zX1szLjIuMCw0LjAu MCkuDQogICAg<br />
+ IFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5q ZHQuanVuaXQg<br />
+ MiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODY4DQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ TUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5j b21wYXJlX1sz<br />
+ LjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5U UlkgMiBvcmcu<br />
+ ZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODY4 DQogICAgIFtq<br />
+ YXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1 bmRsZSBvcmcu<br />
+ ZWNsaXBzZS5jb3JlLnJ1bnRpbWUuY29tcGF0aWJpbGl0eV9bMy4xLjAsNC4w LjApLg0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2Uu amR0Lmp1bml0<br />
+ IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjg2OA0KICAgICBbamF2YV0gICAg ICBbamF2YV0g<br />
+ IU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2Uu amR0LnVpX1sz<br />
+ LjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5U UlkgMiBvcmcu<br />
+ ZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODY4 DQogICAgIFtq<br />
+ YXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1 bmRsZSBvcmcu<br />
+ ZWNsaXBzZS51aS5pZGVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAg ICAgW2phdmFd<br />
+ ICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0w MS0wMyAxNzox<br />
+ OTowMi44NjgNCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1p c3NpbmcgcmVx<br />
+ dWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVpLndvcmtiZW5jaC50ZXh0ZWRp dG9yX1szLjIu<br />
+ MCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkg MiBvcmcuZWNs<br />
+ aXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODY4DQog ICAgIFtqYXZh<br />
+ XSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRs ZSBvcmcuZWNs<br />
+ aXBzZS5jb3JlLnJlc291cmNlc19bMy4yLjAsNC4wLjApLg0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0Lmp1bml0IDIgMCAy MDA4LTAxLTAz<br />
+ IDE3OjE5OjAyLjg2OA0KICAgICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NB R0UgTWlzc2lu<br />
+ ZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2UuamR0LmNvcmVfWzMuMi4w LDQuMC4wKS4N<br />
+ Cg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIUVOVFJZIG9yZy5lY2xpcHNl Lm9zZ2kgMiAw<br />
+ IDIwMDgtMDEtMDMgMTc6MTk6MDIuODY4DQogICAgIFtqYXZhXSAgICAgIFtq YXZhXSAhTUVT<br />
+ U0FHRSBUaGUgZm9sbG93aW5nIGlzIGEgY29tcGxldGUgbGlzdCBvZiBidW5k bGVzIHdoaWNo<br />
+ IGFyZSBub3QgcmVzb2x2ZWQsIHNlZSB0aGUgcHJpb3IgbG9nIGVudHJ5IGZv ciB0aGUgcm9v<br />
+ dCBjYXVzZSBpZiBpdCBleGlzdHM6DQogICAgIFtqYXZhXSAgICAgIFtqYXZh XSAhU1VCRU5U<br />
+ UlkgMSBvcmcuZWNsaXBzZS5vc2dpIDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAy Ljg4NA0KICAg<br />
+ ICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgQnVuZGxlIHVwZGF0ZUBw bHVnaW5zL29y<br />
+ Zy5lY2xpcHNlLmpkdC5qdW5pdF8zLjIuMS5yMzIxX3YyMDA2MDgxMC8gWzM3 XSB3YXMgbm90<br />
+ IHJlc29sdmVkLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZ IDIgb3JnLmVj<br />
+ bGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjg4NA0K ICAgICBbamF2<br />
+ YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5k bGUgb3JnLmVj<br />
+ bGlwc2UudWkuaWRlX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ U1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEt MDMgMTc6MTk6<br />
+ MDIuODg0DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNz aW5nIHJlcXVp<br />
+ cmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS51aS52aWV3c19bMy4yLjAsNC4wLjAp Lg0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0 Lmp1bml0IDIg<br />
+ MCAyMDA4LTAxLTAzIDE3OjE5OjAyLjg4NA0KICAgICBbamF2YV0gICAgICBb amF2YV0gIU1F<br />
+ U1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVjbGlwc2UuamZh Y2UudGV4dF9b<br />
+ My4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVO VFJZIDIgb3Jn<br />
+ LmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjg4 NA0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBi dW5kbGUgb3Jn<br />
+ LmVjbGlwc2UudWkud29ya2JlbmNoLnRleHRlZGl0b3JfWzMuMi4wLDQuMC4w KS4NCiAgICAg<br />
+ W2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpk dC5qdW5pdCAy<br />
+ IDAgMjAwOC0wMS0wMyAxNzoxOTowMi44ODQNCiAgICAgW2phdmFdICAgICAg W2phdmFdICFN<br />
+ RVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLnVp LmVkaXRvcnNf<br />
+ WzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJF TlRSWSAyIG9y<br />
+ Zy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44 ODQNCiAgICAg<br />
+ W2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQg YnVuZGxlIG9y<br />
+ Zy5lY2xpcHNlLnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ U1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEt MDMgMTc6MTk6<br />
+ MDIuODg0DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNz aW5nIHJlcXVp<br />
+ cmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5jb3JlLmV4cHJlc3Npb25zX1szLjIu MCw0LjAuMCku<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNs aXBzZS5qZHQu<br />
+ anVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuODg0DQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNs aXBzZS5jb3Jl<br />
+ LnJlc291cmNlc19bMy4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBb amF2YV0gIVNV<br />
+ QkVOVFJZIDIgb3JnLmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAz IDE3OjE5OjAy<br />
+ Ljg4NA0KICAgICBbamF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2lu ZyByZXF1aXJl<br />
+ ZCBidW5kbGUgb3JnLmVjbGlwc2UuY29yZS5ydW50aW1lLmNvbXBhdGliaWxp dHlfWzMuMS4w<br />
+ LDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2phdmFdICFTVUJFTlRSWSAy IG9yZy5lY2xp<br />
+ cHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAxNzoxOTowMi44ODQNCiAg ICAgW2phdmFd<br />
+ ICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxl IG9yZy5lY2xp<br />
+ cHNlLmRlYnVnLmNvcmVfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAg ICAgW2phdmFd<br />
+ ICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0w MS0wMyAxNzox<br />
+ OTowMi45MDANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1p c3NpbmcgcmVx<br />
+ dWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmRlYnVnLnVpX1szLjIuMCw0LjAu MCkuDQogICAg<br />
+ IFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5q ZHQuanVuaXQg<br />
+ MiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuOTAwDQogICAgIFtqYXZhXSAgICAg IFtqYXZhXSAh<br />
+ TUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5q ZHQuY29yZV9b<br />
+ My4yLjAsNC4wLjApLg0KICAgICBbamF2YV0gICAgICBbamF2YV0gIVNVQkVO VFJZIDIgb3Jn<br />
+ LmVjbGlwc2UuamR0Lmp1bml0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjkw MA0KICAgICBb<br />
+ amF2YV0gICAgICBbamF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBi dW5kbGUgb3Jn<br />
+ LmVjbGlwc2UuamR0LnVpX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAg ICAgIFtqYXZh<br />
+ XSAhU1VCRU5UUlkgMiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgt MDEtMDMgMTc6<br />
+ MTk6MDIuOTAwDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBN aXNzaW5nIHJl<br />
+ cXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS5qZHQubGF1bmNoaW5nX1szLjIu MCw0LjAuMCku<br />
+ DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBvcmcuZWNs aXBzZS5qZHQu<br />
+ anVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6MDIuOTAwDQogICAgIFtqYXZh XSAgICAgIFtq<br />
+ YXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNs aXBzZS5qZHQu<br />
+ ZGVidWcudWlfWzMuMi4wLDQuMC4wKS4NCiAgICAgW2phdmFdICAgICAgW2ph dmFdICFTVUJF<br />
+ TlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5pdCAyIDAgMjAwOC0wMS0wMyAx NzoxOTowMi45<br />
+ MDANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFNRVNTQUdFIE1pc3Npbmcg cmVxdWlyZWQg<br />
+ YnVuZGxlIG9yZy5lY2xpcHNlLmNvbXBhcmVfWzMuMi4wLDQuMC4wKS4NCiAg ICAgW2phdmFd<br />
+ ICAgICAgW2phdmFdICFTVUJFTlRSWSAyIG9yZy5lY2xpcHNlLmpkdC5qdW5p dCAyIDAgMjAw<br />
+ OC0wMS0wMyAxNzoxOTowMi45MDANCiAgICAgW2phdmFdICAgICAgW2phdmFd ICFNRVNTQUdF<br />
+ IE1pc3NpbmcgcmVxdWlyZWQgYnVuZGxlIG9yZy5lY2xpcHNlLmx0ay5jb3Jl LnJlZmFjdG9y<br />
+ aW5nX1szLjIuMCw0LjAuMCkuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAh U1VCRU5UUlkg<br />
+ MiBvcmcuZWNsaXBzZS5qZHQuanVuaXQgMiAwIDIwMDgtMDEtMDMgMTc6MTk6 MDIuOTAwDQog<br />
+ ICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FHRSBNaXNzaW5nIHJlcXVp cmVkIGJ1bmRs<br />
+ ZSBvcmcuZWNsaXBzZS5jb3JlLnZhcmlhYmxlc19bMy4xLjAsNC4wLjApLg0K ICAgICBbamF2<br />
+ YV0gICAgICBbamF2YV0gIVNVQkVOVFJZIDEgb3JnLmVjbGlwc2Uub3NnaSAy IDAgMjAwOC0w<br />
+ MS0wMyAxNzoxOTowMi45MDANCiAgICAgW2phdmFdICAgICAgW2phdmFdICFN RVNTQUdFIEJ1<br />
+ bmRsZSB1cGRhdGVAcGx1Z2lucy9vcmcuZWNsaXBzZS50ZXN0LyBbNDZdIHdh cyBub3QgcmVz<br />
+ b2x2ZWQuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMiBv cmcuZWNsaXBz<br />
+ ZS50ZXN0IDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjkxNQ0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIU1FU1NBR0UgTWlzc2luZyByZXF1aXJlZCBidW5kbGUgb3JnLmVj bGlwc2UudWlf<br />
+ MC4wLjAuDQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhU1VCRU5UUlkgMSBv cmcuZWNsaXBz<br />
+ ZS5vc2dpIDIgMCAyMDA4LTAxLTAzIDE3OjE5OjAyLjkxNQ0KICAgICBbamF2 YV0gICAgICBb<br />
+ amF2YV0gIU1FU1NBR0UgQnVuZGxlIHVwZGF0ZUBwbHVnaW5zL29yZy5lY2xp cHNlLnVpXzMu<br />
+ Mi4xLk0yMDA2MTEwOC5qYXIgWzQ5XSB3YXMgbm90IHJlc29sdmVkLg0KICAg ICBbamF2YV0g<br />
+ ICAgICBbamF2YV0gIVNVQkVOVFJZIDIgb3JnLmVjbGlwc2UudWkgMiAwIDIw MDgtMDEtMDMg<br />
+ MTc6MTk6MDIuOTE1DQogICAgIFtqYXZhXSAgICAgIFtqYXZhXSAhTUVTU0FH RSBNaXNzaW5n<br />
+ IHJlcXVpcmVkIGJ1bmRsZSBvcmcuZWNsaXBzZS51aS53b3JrYmVuY2hfWzMu Mi4xLDQuMC4w<br />
+KS4NCg==<br />
+--------------000902090205090904060709--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323601&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=13874&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323601&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323601&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_3"></a><a name="msg_323606"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323606&amp;#msg_323606" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323606&amp;#msg_323606">message #323606</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323601&amp;#msg_323601">message #323601</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Thu, 03 January 2008 19:06</span> <a href="javascript://" onclick="chng_focus('#msg_num_2');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Francis Upton IV is currently offline" title="Francis Upton IV is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=12825&amp;">Francis Upton IV</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=francisu%40ieee.org" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 472<br /><b>Registered:</b> July 2009 <br /><b>Location: </b>Oakland, CA</td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=12825&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=12825&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">One of these bundles is missing from the configuration where it is <br />
+trying to execute.  Probably the org.eclipse.jdt.junit bundle.  Make <br />
+sure all of these bundles are present and things should work (or at <br />
+least you will get a different error).  The errors after this one in the <br />
+log are not important, the cause is the missing bundle.<br />
+<br />
+!ENTRY org.eclipse.osgi 2 0 2008-01-03 17:19:02.775<br />
+      [java]      [java] !MESSAGE One or more bundles are not resolved <br />
+because the following root constraints are not resolved:<br />
+      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+17:19:02.790<br />
+      [java]      [java] !MESSAGE Bundle <br />
+<a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.ui_3.2.1.M20061108.jar was not resolved.<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.ui 2 0 2008-01-03 <br />
+17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ui.workbench_[3.2.1,4.0.0).<br />
+      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+17:19:02.790<br />
+      [java]      [java] !MESSAGE Bundle <br />
+<a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.jdt.junit_3.2.1.r321_v20060810/ was not <br />
+resolved.<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.core.variables_[3.1.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ui.views_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.jface.text_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ui.editors_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ltk.core.refactoring_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.jdt.debug.ui_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.debug.core_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.jdt.launching_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.790<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.debug.ui_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.core.expressions_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.compare_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.core.runtime.compatibility_[3.1.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.jdt.ui_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ui.ide_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.ui.workbench.texteditor_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.core.resources_[3.2.0,4.0.0).<br />
+      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+2008-01-03 17:19:02.806<br />
+      [java]      [java] !MESSAGE Missing required bundle <br />
+org.eclipse.jdt.core_[3.2.0,4.0.0).<br />
+<br />
+<br />
+<br />
+Roland Tepp wrote:<br />
+&gt; The build log is attached in this message - maybe someone can take a <br />
+&gt; look and see what might be wrong...<br />
+&gt; <br />
+&gt; Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt;&gt; Hello,<br />
+&gt;&gt;<br />
+&gt;&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt;&gt; continuous build automation and followed to the letter all <br />
+&gt;&gt; instructions from the article on PDE Automation [1] and <br />
+&gt;&gt; testframework.html<br />
+&gt;&gt;<br />
+&gt;&gt; I got to the point where I can build the testing feature but when <br />
+&gt;&gt; launching the tests, the testing application just does not start...<br />
+&gt;&gt;<br />
+&gt;&gt; I suspect the reason is that I might be missing some dependencies, but <br />
+&gt;&gt; no matter how much I look everything seems to be where it is supposed <br />
+&gt;&gt; to be...<br />
+&gt;&gt;<br />
+&gt;&gt; [1] <br />
+&gt;&gt; <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+&gt;</span>
+
+<br /><br /><div class="signature" />Platform UI Committer for Common Navigator<br />
+<br />
+<a href="http://wiki.eclipse.org/index.php/Common_Navigator_Framework" target="_blank"> http://wiki.eclipse.org/index.php/Common_Navigator_Framework</a><br />
+<a href="http://help.eclipse.org/galileo/topic/org.eclipse.platform.doc.isv/guide/cnf.htm" target="_blank"> http://help.eclipse.org/galileo/topic/org.eclipse.platform.d oc.isv/guide/cnf.htm</a></div>
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323606&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=12825&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323606&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323606&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_4"></a><a name="msg_323622"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323622&amp;#msg_323622" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323622&amp;#msg_323622">message #323622</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323606&amp;#msg_323606">message #323606</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 04 January 2008 07:23</span> <a href="javascript://" onclick="chng_focus('#msg_num_3');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Roland Tepp is currently offline" title="Roland Tepp is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=13874&amp;">Roland Tepp</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=roland%40videobet.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 336<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">This is a multi-part message in MIME format.<br />
+--------------070707090103070801070502<br />
+Content-Type: text/plain; charset=UTF-8; format=flowed<br />
+Content-Transfer-Encoding: 7bit<br />
+<br />
+I have attached the list of plug-ins I have in my <br />
+test-eclipse/eclipse/plugins folder. The org.eclipse.jdt.junit bundle is <br />
+there. Along with runtime plug-ins for both junit and junit4.<br />
+<br />
+What makes me wander is why is the platform requiring following <br />
+plug-ins: org.eclipse.ui , o.e.ui.workbench, o.e.ui.views, <br />
+o.e.iu.editors, o.e.jface.text and such when my application is not using <br />
+these plug-ins and I am trying to run a headless build...?<br />
+<br />
+Francis Upton kirjutas mulle  midagi seesugust:<br />
+&gt; One of these bundles is missing from the configuration where it is <br />
+&gt; trying to execute.  Probably the org.eclipse.jdt.junit bundle.  Make <br />
+&gt; sure all of these bundles are present and things should work (or at <br />
+&gt; least you will get a different error).  The errors after this one in the <br />
+&gt; log are not important, the cause is the missing bundle.<br />
+&gt; <br />
+&gt; !ENTRY org.eclipse.osgi 2 0 2008-01-03 17:19:02.775<br />
+&gt;      [java]      [java] !MESSAGE One or more bundles are not resolved <br />
+&gt; because the following root constraints are not resolved:<br />
+&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.ui_3.2.1.M20061108.jar was not resolved.<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.ui 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.workbench_[3.2.1,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.jdt.junit_3.2.1.r321_v20060810/ was not <br />
+&gt; resolved.<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.variables_[3.1.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.views_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jface.text_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.editors_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ltk.core.refactoring_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.debug.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.debug.core_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.launching_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.debug.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.expressions_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.compare_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.runtime.compatibility_[3.1.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.ide_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.workbench.texteditor_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.resources_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.core_[3.2.0,4.0.0).<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; Roland Tepp wrote:<br />
+&gt;&gt; The build log is attached in this message - maybe someone can take a <br />
+&gt;&gt; look and see what might be wrong...<br />
+&gt;&gt;<br />
+&gt;&gt; Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt;&gt;&gt; Hello,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt;&gt;&gt; continuous build automation and followed to the letter all <br />
+&gt;&gt;&gt; instructions from the article on PDE Automation [1] and <br />
+&gt;&gt;&gt; testframework.html<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I got to the point where I can build the testing feature but when <br />
+&gt;&gt;&gt; launching the tests, the testing application just does not start...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I suspect the reason is that I might be missing some dependencies, <br />
+&gt;&gt;&gt; but no matter how much I look everything seems to be where it is <br />
+&gt;&gt;&gt; supposed to be...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; [1] <br />
+&gt;&gt;&gt; <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+&gt;&gt;<br />
+<br />
+-- <br />
+   Roland Tepp<br />
+<br />
+--------------070707090103070801070502<br />
+Content-Type: text/plain;<br />
+ name=&quot;plugins.txt&quot;<br />
+Content-Transfer-Encoding: base64<br />
+Content-Disposition: inline;<br />
+ filename=&quot;plugins.txt&quot;<br />
+<br />
+ b3JnLmFwYWNoZS5hbnRfMS42LjUNCm9yZy5lY2xpcHNlLmNvcmUucnVudGlt ZS5jb21wYXRp<br />
+ YmlsaXR5LnJlZ2lzdHJ5XzMuMi4xLlIzMnhfdjIwMDYwOTA3DQpvcmcuZWNs aXBzZS5qZHQu<br />
+ anVuaXQucnVudGltZV8zLjIuMS5yMzIxX3YyMDA2MDcyMQ0Kb3JnLmVjbGlw c2UuamR0Lmp1<br />
+ bml0XzMuMi4xLnIzMjFfdjIwMDYwODEwDQpvcmcuZWNsaXBzZS50ZXN0DQpv cmcuZWNsaXBz<br />
+ ZS50ZXN0LnBlcmZvcm1hbmNlLndpbjMyXzMuMS4wDQpvcmcuZWNsaXBzZS50 ZXN0LnBlcmZv<br />
+ cm1hbmNlXzMuMS4wDQpvcmcuanVuaXQ0XzQuMS4wLjENCm9yZy5qdW5pdF8z LjguMQ0Kb3Jn<br />
+ LmFwYWNoZS5jb21tb25zLmxhbmdfMi4wLjAuamFyDQpvcmcuZWNsaXBzZS5j b3JlLmNvbW1h<br />
+ bmRzXzMuMi4wLkkyMDA2MDYwNS0xNDAwLmphcg0Kb3JnLmVjbGlwc2UuY29y ZS5jb250ZW50<br />
+ dHlwZV8zLjIuMC52MjAwNjA2MDMuamFyDQpvcmcuZWNsaXBzZS5jb3JlLmRh dGFiaW5kaW5n<br />
+ LmJlYW5zXzEuMy4wLnZiMjAwODAxMDMxNzE1Lmphcg0Kb3JnLmVjbGlwc2Uu Y29yZS5kYXRh<br />
+ YmluZGluZ18xLjMuMC52YjIwMDgwMTAzMTcxNS5qYXINCm9yZy5lY2xpcHNl LmNvcmUuam9i<br />
+ c18zLjIuMC52MjAwNjA2MDMuamFyDQpvcmcuZWNsaXBzZS5jb3JlLnJ1bnRp bWVfMy4yLjAu<br />
+ djIwMDYwNjAzLmphcg0Kb3JnLmVjbGlwc2UuZXF1aW5veC5jb21tb25fMy4y LjAudjIwMDYw<br />
+ NjAzLmphcg0Kb3JnLmVjbGlwc2UuZXF1aW5veC5wcmVmZXJlbmNlc18zLjIu MS5SMzJ4X3Yy<br />
+ MDA2MDcxNy5qYXINCm9yZy5lY2xpcHNlLmVxdWlub3gucmVnaXN0cnlfMy4y LjEuUjMyeF92<br />
+ MjAwNjA4MTQuamFyDQpvcmcuZWNsaXBzZS5qZHQuanVuaXQ0LnJ1bnRpbWVf MS4wLjEucjMy<br />
+ MV92MjAwNjA5MDUuamFyDQpvcmcuZWNsaXBzZS5qZmFjZS5kYXRhYmluZGlu Z18xLjMuMC52<br />
+ YjIwMDgwMTAzMTcxNS5qYXINCm9yZy5lY2xpcHNlLmpmYWNlXzMuMi4yLk0y MDA2MTIxNC0x<br />
+ MjAwLmphcg0Kb3JnLmVjbGlwc2UubmVidWxhLmNvbXBvc2l0ZXRhYmxlXzAu OC4yLkJFVEEu<br />
+ amFyDQpvcmcuZWNsaXBzZS5uZWJ1bGEucHNoZWxmXzAuMS4wLmFscGhhLmph cg0Kb3JnLmVj<br />
+ bGlwc2Uub3NnaV8zLjIuMi5SMzJ4X3YyMDA3MDExOC5qYXINCm9yZy5lY2xp cHNlLnBkZS5q<br />
+ dW5pdC5ydW50aW1lXzMuMi4wLnYyMDA2MDYwNS5qYXINCm9yZy5lY2xpcHNl LnN3dC53aW4z<br />
+ Mi53aW4zMi54ODZfMy4yLjIudjMyMzYuamFyDQpvcmcuZWNsaXBzZS5zd3Rf My4yLjIudjMy<br />
+ MzZiLmphcg0Kb3JnLmVjbGlwc2UudWlfMy4yLjEuTTIwMDYxMTA4Lmphcg0K b3JnLmVjbGlw<br />
+ c2UudXBkYXRlLmNvbmZpZ3VyYXRvcl8zLjIuMi5SMzJ4X3YyMDA3MDExMS5q YXINCm9yZy5l<br />
+ Y2xpcHNlLnVwZGF0ZS5jb3JlXzMuMi4zLlIzMnhfdjIwMDcwMTE4Lmphcg0K<br />
+--------------070707090103070801070502--</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323622&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=13874&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323622&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323622&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_5"></a><a name="msg_323628"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323628&amp;#msg_323628" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323628&amp;#msg_323628">message #323628</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323606&amp;#msg_323606">message #323606</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 04 January 2008 15:26</span> <a href="javascript://" onclick="chng_focus('#msg_num_4');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Roland Tepp is currently offline" title="Roland Tepp is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=13874&amp;">Roland Tepp</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=roland%40videobet.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 336<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Okay,<br />
+<br />
+  I got to the point where I have all necessary plug-ins, but I still <br />
+get a particularily nasty classpath exception (stacktrace below).<br />
+<br />
+It seems that it is failing to load a class definition for junit's own <br />
+TestListener when defining a report formatter...<br />
+<br />
+I *do* have org.junit4 as well as org.eclipse.jdt.junit4.runtime <br />
+plug-ins  installed and (actually junit and junit4 versions of both).<br />
+<br />
+!ENTRY org.eclipse.osgi 4 0 2008-01-04 16:25:32.656<br />
+!MESSAGE Application error<br />
+!STACK 1<br />
+java.lang.NoClassDefFoundError: junit/framework/TestListener<br />
+	at java.lang.ClassLoader.defineClass1(Native Method)<br />
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:386)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83)<br />
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+	at  java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319 )<br />
+	at java.lang.ClassLoader.defineClass1(Native Method)<br />
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430)<br />
+	at <br />
+ org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.SingleSourcePackage .loadClass(SingleSourcePackage.java:37)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:383)<br />
+	at <br />
+ org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347)<br />
+	at <br />
+ org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83)<br />
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+	at <br />
+ org.eclipse.test.EclipseTestRunner.createFormatter(EclipseTe stRunner.java:441)<br />
+	at <br />
+ org.eclipse.test.EclipseTestRunner.createAndStoreFormatter(E clipseTestRunner.java:421)<br />
+	at  org.eclipse.test.EclipseTestRunner.run(EclipseTestRunner.jav a:174)<br />
+	at <br />
+ org.eclipse.test.CoreTestApplication.runTests(CoreTestApplic ation.java:35)<br />
+	at  org.eclipse.test.CoreTestApplication.run(CoreTestApplication .java:31)<br />
+	at <br />
+ org.eclipse.core.internal.runtime.PlatformActivator$1.run(Pl atformActivator.java:78)<br />
+	at <br />
+ org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .runApplication(EclipseAppLauncher.java:92)<br />
+	at <br />
+ org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .start(EclipseAppLauncher.java:68)<br />
+	at <br />
+ org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:400)<br />
+	at <br />
+ org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:177)<br />
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+	at <br />
+ sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAcce ssorImpl.java:39)<br />
+	at <br />
+ sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMe thodAccessorImpl.java:25)<br />
+	at java.lang.reflect.Method.invoke(Method.java:585)<br />
+	at  org.eclipse.core.launcher.Main.invokeFramework(Main.java:336 )<br />
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)<br />
+	at org.eclipse.core.launcher.Main.run(Main.java:977)<br />
+	at org.eclipse.core.launcher.Main.main(Main.java:952)<br />
+Java Result: 13<br />
+<br />
+<br />
+Francis Upton kirjutas mulle  midagi seesugust:<br />
+&gt; One of these bundles is missing from the configuration where it is <br />
+&gt; trying to execute.  Probably the org.eclipse.jdt.junit bundle.  Make <br />
+&gt; sure all of these bundles are present and things should work (or at <br />
+&gt; least you will get a different error).  The errors after this one in the <br />
+&gt; log are not important, the cause is the missing bundle.<br />
+&gt; <br />
+&gt; !ENTRY org.eclipse.osgi 2 0 2008-01-03 17:19:02.775<br />
+&gt;      [java]      [java] !MESSAGE One or more bundles are not resolved <br />
+&gt; because the following root constraints are not resolved:<br />
+&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.ui_3.2.1.M20061108.jar was not resolved.<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.ui 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.workbench_[3.2.1,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.jdt.junit_3.2.1.r321_v20060810/ was not <br />
+&gt; resolved.<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.variables_[3.1.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.views_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jface.text_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.editors_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ltk.core.refactoring_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.debug.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.debug.core_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.launching_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.790<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.debug.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.expressions_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.compare_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.runtime.compatibility_[3.1.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.ui_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.ide_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.ui.workbench.texteditor_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.core.resources_[3.2.0,4.0.0).<br />
+&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 2008-01-03 <br />
+&gt; 17:19:02.806<br />
+&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt; org.eclipse.jdt.core_[3.2.0,4.0.0).<br />
+&gt; <br />
+&gt; <br />
+&gt; <br />
+&gt; Roland Tepp wrote:<br />
+&gt;&gt; The build log is attached in this message - maybe someone can take a <br />
+&gt;&gt; look and see what might be wrong...<br />
+&gt;&gt;<br />
+&gt;&gt; Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt;&gt;&gt; Hello,<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt;&gt;&gt; continuous build automation and followed to the letter all <br />
+&gt;&gt;&gt; instructions from the article on PDE Automation [1] and <br />
+&gt;&gt;&gt; testframework.html<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I got to the point where I can build the testing feature but when <br />
+&gt;&gt;&gt; launching the tests, the testing application just does not start...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; I suspect the reason is that I might be missing some dependencies, <br />
+&gt;&gt;&gt; but no matter how much I look everything seems to be where it is <br />
+&gt;&gt;&gt; supposed to be...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; [1] <br />
+&gt;&gt;&gt; <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+&gt;&gt;<br />
+<br />
+-- <br />
+   Roland Tepp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323628&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=13874&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323628&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323628&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_6"></a><a name="msg_323646"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323646&amp;#msg_323646" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323646&amp;#msg_323646">message #323646</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323628&amp;#msg_323628">message #323628</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Fri, 04 January 2008 18:03</span> <a href="javascript://" onclick="chng_focus('#msg_num_5');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a><a href="javascript://" onclick="chng_focus('#msg_num_7');"><img alt="Go to next message" title="Go to next message" src="theme/Solstice/images/down.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Francis Upton IV is currently offline" title="Francis Upton IV is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=12825&amp;">Francis Upton IV</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=francisu%40ieee.org" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 472<br /><b>Registered:</b> July 2009 <br /><b>Location: </b>Oakland, CA</td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=12825&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=12825&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">The fact that you have both junit and junit4 might be your problem.  It <br />
+could be that due to the way your dependencies are setup one part of you <br />
+app wants junit3 and the other junit4.  This is why you are getting the <br />
+exception.  I would choose one or the other, make sure all of the plugin <br />
+dependencies in the manifests of your app plugins reflect this choice, <br />
+do a clean build and restart everything.<br />
+<br />
+Roland Tepp wrote:<br />
+&gt; Okay,<br />
+&gt; <br />
+&gt;  I got to the point where I have all necessary plug-ins, but I still get <br />
+&gt; a particularily nasty classpath exception (stacktrace below).<br />
+&gt; <br />
+&gt; It seems that it is failing to load a class definition for junit's own <br />
+&gt; TestListener when defining a report formatter...<br />
+&gt; <br />
+&gt; I *do* have org.junit4 as well as org.eclipse.jdt.junit4.runtime <br />
+&gt; plug-ins  installed and (actually junit and junit4 versions of both).<br />
+&gt; <br />
+&gt; !ENTRY org.eclipse.osgi 4 0 2008-01-04 16:25:32.656<br />
+&gt; !MESSAGE Application error<br />
+&gt; !STACK 1<br />
+&gt; java.lang.NoClassDefFoundError: junit/framework/TestListener<br />
+&gt;     at java.lang.ClassLoader.defineClass1(Native Method)<br />
+&gt;     at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:386) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83) <br />
+&gt; <br />
+&gt;     at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+&gt;     at  java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319 )<br />
+&gt;     at java.lang.ClassLoader.defineClass1(Native Method)<br />
+&gt;     at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.SingleSourcePackage .loadClass(SingleSourcePackage.java:37) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:383) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83) <br />
+&gt; <br />
+&gt;     at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+&gt;     at <br />
+&gt;  org.eclipse.test.EclipseTestRunner.createFormatter(EclipseTe stRunner.java:441) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.test.EclipseTestRunner.createAndStoreFormatter(E clipseTestRunner.java:421) <br />
+&gt; <br />
+&gt;     at  org.eclipse.test.EclipseTestRunner.run(EclipseTestRunner.jav a:174)<br />
+&gt;     at <br />
+&gt;  org.eclipse.test.CoreTestApplication.runTests(CoreTestApplic ation.java:35)<br />
+&gt;     at <br />
+&gt;  org.eclipse.test.CoreTestApplication.run(CoreTestApplication .java:31)<br />
+&gt;     at <br />
+&gt;  org.eclipse.core.internal.runtime.PlatformActivator$1.run(Pl atformActivator.java:78) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .runApplication(EclipseAppLauncher.java:92) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .start(EclipseAppLauncher.java:68) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:400) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:177) <br />
+&gt; <br />
+&gt;     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+&gt;     at <br />
+&gt;  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAcce ssorImpl.java:39) <br />
+&gt; <br />
+&gt;     at <br />
+&gt;  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMe thodAccessorImpl.java:25) <br />
+&gt; <br />
+&gt;     at java.lang.reflect.Method.invoke(Method.java:585)<br />
+&gt;     at  org.eclipse.core.launcher.Main.invokeFramework(Main.java:336 )<br />
+&gt;     at org.eclipse.core.launcher.Main.basicRun(Main.java:280)<br />
+&gt;     at org.eclipse.core.launcher.Main.run(Main.java:977)<br />
+&gt;     at org.eclipse.core.launcher.Main.main(Main.java:952)<br />
+&gt; Java Result: 13<br />
+&gt; <br />
+&gt; <br />
+&gt; Francis Upton kirjutas mulle  midagi seesugust:<br />
+&gt;&gt; One of these bundles is missing from the configuration where it is <br />
+&gt;&gt; trying to execute.  Probably the org.eclipse.jdt.junit bundle.  Make <br />
+&gt;&gt; sure all of these bundles are present and things should work (or at <br />
+&gt;&gt; least you will get a different error).  The errors after this one in <br />
+&gt;&gt; the log are not important, the cause is the missing bundle.<br />
+&gt;&gt;<br />
+&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2008-01-03 17:19:02.775<br />
+&gt;&gt;      [java]      [java] !MESSAGE One or more bundles are not resolved <br />
+&gt;&gt; because the following root constraints are not resolved:<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt;&gt; 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt;&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.ui_3.2.1.M20061108.jar was not resolved.<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.ui 2 0 2008-01-03 <br />
+&gt;&gt; 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ui.workbench_[3.2.1,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt;&gt; 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt;&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.jdt.junit_3.2.1.r321_v20060810/ was not <br />
+&gt;&gt; resolved.<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.core.variables_[3.1.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ui.views_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.jface.text_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ui.editors_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ltk.core.refactoring_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.jdt.debug.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.debug.core_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.jdt.launching_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.debug.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.core.expressions_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.compare_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.core.runtime.compatibility_[3.1.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.jdt.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ui.ide_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.ui.workbench.texteditor_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.core.resources_[3.2.0,4.0.0).<br />
+&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt; org.eclipse.jdt.core_[3.2.0,4.0.0).<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Roland Tepp wrote:<br />
+&gt;&gt;&gt; The build log is attached in this message - maybe someone can take a <br />
+&gt;&gt;&gt; look and see what might be wrong...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt;&gt;&gt;&gt; Hello,<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt;&gt;&gt;&gt; continuous build automation and followed to the letter all <br />
+&gt;&gt;&gt;&gt; instructions from the article on PDE Automation [1] and <br />
+&gt;&gt;&gt;&gt; testframework.html<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I got to the point where I can build the testing feature but when <br />
+&gt;&gt;&gt;&gt; launching the tests, the testing application just does not start...<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; I suspect the reason is that I might be missing some dependencies, <br />
+&gt;&gt;&gt;&gt; but no matter how much I look everything seems to be where it is <br />
+&gt;&gt;&gt;&gt; supposed to be...<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; [1] <br />
+&gt;&gt;&gt;&gt; <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+&gt;&gt;&gt;<br />
+&gt;</span>
+
+<br /><br /><div class="signature" />Platform UI Committer for Common Navigator<br />
+<br />
+<a href="http://wiki.eclipse.org/index.php/Common_Navigator_Framework" target="_blank"> http://wiki.eclipse.org/index.php/Common_Navigator_Framework</a><br />
+<a href="http://help.eclipse.org/galileo/topic/org.eclipse.platform.doc.isv/guide/cnf.htm" target="_blank"> http://help.eclipse.org/galileo/topic/org.eclipse.platform.d oc.isv/guide/cnf.htm</a></div>
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323646&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=12825&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323646&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323646&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_7"></a><a name="msg_323722"></a><a href="index.php?t=msg&amp;th=105900&amp;goto=323722&amp;#msg_323722" class="MsgSubText">Re: [HELP] Eclipse plug-in testing automation for JUnit4</a> <span class="SmallText">[<a href="index.php?t=msg&amp;th=105900&amp;goto=323722&amp;#msg_323722">message #323722</a> is a reply to <a href="index.php?t=msg&amp;th=105900&amp;goto=323646&amp;#msg_323646">message #323646</a>]</span></td>
+<td class="MsgR1 vt ar"><span class="DateText">Mon, 07 January 2008 12:11</span> <a href="javascript://" onclick="chng_focus('#msg_num_6');"><img alt="Go to previous message" title="Go to previous message" src="theme/Solstice/images/up.png" width="16" height="11" /></a></td>
+</tr>
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2">
+
+<td class="msgud"><img src="theme/Solstice/images/offline.png" alt="Roland Tepp is currently offline" title="Roland Tepp is currently offline" />&nbsp;<a href="index.php?t=usrinfo&amp;id=13874&amp;">Roland Tepp</a><a href="/donate"><img src="/donate/web-api/friends_decorator.php?email=roland%40videobet.com" border="0" title="Friend of Eclipse" alt="Friend"></a><br /><b>Messages:</b> 336<br /><b>Registered:</b> July 2009 </td>
+<td class="msgud"><div class="ctags">Senior Member</div></td>
+<td class="msgot"><a href="index.php?t=buddy_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">add to buddy list</a><br /><a href="index.php?t=ignore_list&amp;add=13874&amp;&amp;SQ=9b5595f2b50813300781f4cde4e2380f">ignore all messages by this user</a><br /></td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" class="MsgR3">
+<span class="MsgBodyText">Hi,<br />
+<br />
+I was thinking the same thing, but as it turns out the dependancies <br />
+force me to have both junit and junit4 to be present:<br />
+<br />
+org.eclipse.jdt.junit4.runtime requires<br />
+org.eclipse.jdt.junit.runtime which in turn requires<br />
+org.junit (3.x)<br />
+<br />
+so, in order to have junit4 available, I also need junit3 in my plugins <br />
+area.<br />
+<br />
+Francis Upton kirjutas mulle  midagi seesugust:<br />
+&gt; The fact that you have both junit and junit4 might be your problem.  It <br />
+&gt; could be that due to the way your dependencies are setup one part of you <br />
+&gt; app wants junit3 and the other junit4.  This is why you are getting the <br />
+&gt; exception.  I would choose one or the other, make sure all of the plugin <br />
+&gt; dependencies in the manifests of your app plugins reflect this choice, <br />
+&gt; do a clean build and restart everything.<br />
+&gt; <br />
+&gt; Roland Tepp wrote:<br />
+&gt;&gt; Okay,<br />
+&gt;&gt;<br />
+&gt;&gt;  I got to the point where I have all necessary plug-ins, but I still <br />
+&gt;&gt; get a particularily nasty classpath exception (stacktrace below).<br />
+&gt;&gt;<br />
+&gt;&gt; It seems that it is failing to load a class definition for junit's own <br />
+&gt;&gt; TestListener when defining a report formatter...<br />
+&gt;&gt;<br />
+&gt;&gt; I *do* have org.junit4 as well as org.eclipse.jdt.junit4.runtime <br />
+&gt;&gt; plug-ins  installed and (actually junit and junit4 versions of both).<br />
+&gt;&gt;<br />
+&gt;&gt; !ENTRY org.eclipse.osgi 4 0 2008-01-04 16:25:32.656<br />
+&gt;&gt; !MESSAGE Application error<br />
+&gt;&gt; !STACK 1<br />
+&gt;&gt; java.lang.NoClassDefFoundError: junit/framework/TestListener<br />
+&gt;&gt;     at java.lang.ClassLoader.defineClass1(Native Method)<br />
+&gt;&gt;     at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:386) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83) <br />
+&gt;&gt;<br />
+&gt;&gt;     at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+&gt;&gt;     at  java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319 )<br />
+&gt;&gt;     at java.lang.ClassLoader.defineClass1(Native Method)<br />
+&gt;&gt;     at java.lang.ClassLoader.defineClass(ClassLoader.java:620)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.def ineClass(DefaultClassLoader.java:161) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.defineC lass(ClasspathManager.java:501) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findCla ssImpl(ClasspathManager.java:471) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClassImpl(ClasspathManager.java:430) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLoc alClass(ClasspathManager.java:413) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.fin dLocalClass(DefaultClassLoader.java:189) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findLo calClass(BundleLoader.java:334) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.SingleSourcePackage .loadClass(SingleSourcePackage.java:37) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:383) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.framework.internal.core.BundleLoader.findCl ass(BundleLoader.java:347) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loa dClass(DefaultClassLoader.java:83) <br />
+&gt;&gt;<br />
+&gt;&gt;     at java.lang.ClassLoader.loadClass(ClassLoader.java:251)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.test.EclipseTestRunner.createFormatter(EclipseTe stRunner.java:441) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.test.EclipseTestRunner.createAndStoreFormatter(E clipseTestRunner.java:421) <br />
+&gt;&gt;<br />
+&gt;&gt;     at  org.eclipse.test.EclipseTestRunner.run(EclipseTestRunner.jav a:174)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.test.CoreTestApplication.runTests(CoreTestApplic ation.java:35) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.test.CoreTestApplication.run(CoreTestApplication .java:31)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.core.internal.runtime.PlatformActivator$1.run(Pl atformActivator.java:78) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .runApplication(EclipseAppLauncher.java:92) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher .start(EclipseAppLauncher.java:68) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:400) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseS tarter.java:177) <br />
+&gt;&gt;<br />
+&gt;&gt;     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+&gt;&gt;     at <br />
+&gt;&gt;  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAcce ssorImpl.java:39) <br />
+&gt;&gt;<br />
+&gt;&gt;     at <br />
+&gt;&gt;  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMe thodAccessorImpl.java:25) <br />
+&gt;&gt;<br />
+&gt;&gt;     at java.lang.reflect.Method.invoke(Method.java:585)<br />
+&gt;&gt;     at  org.eclipse.core.launcher.Main.invokeFramework(Main.java:336 )<br />
+&gt;&gt;     at org.eclipse.core.launcher.Main.basicRun(Main.java:280)<br />
+&gt;&gt;     at org.eclipse.core.launcher.Main.run(Main.java:977)<br />
+&gt;&gt;     at org.eclipse.core.launcher.Main.main(Main.java:952)<br />
+&gt;&gt; Java Result: 13<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt; Francis Upton kirjutas mulle  midagi seesugust:<br />
+&gt;&gt;&gt; One of these bundles is missing from the configuration where it is <br />
+&gt;&gt;&gt; trying to execute.  Probably the org.eclipse.jdt.junit bundle.  Make <br />
+&gt;&gt;&gt; sure all of these bundles are present and things should work (or at <br />
+&gt;&gt;&gt; least you will get a different error).  The errors after this one in <br />
+&gt;&gt;&gt; the log are not important, the cause is the missing bundle.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; !ENTRY org.eclipse.osgi 2 0 2008-01-03 17:19:02.775<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE One or more bundles are not resolved <br />
+&gt;&gt;&gt; because the following root constraints are not resolved:<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt;&gt;&gt; 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt;&gt;&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.ui_3.2.1.M20061108.jar was not resolved.<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.ui 2 0 2008-01-03 <br />
+&gt;&gt;&gt; 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ui.workbench_[3.2.1,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 1 org.eclipse.osgi 2 0 2008-01-03 <br />
+&gt;&gt;&gt; 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Bundle <br />
+&gt;&gt;&gt; <a href="mailto:update&#64;plugins" target="_blank">update&#64;plugins</a>/org.eclipse.jdt.junit_3.2.1.r321_v20060810/ was not <br />
+&gt;&gt;&gt; resolved.<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.core.variables_[3.1.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ui.views_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.jface.text_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ui.editors_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ltk.core.refactoring_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.jdt.debug.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.debug.core_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.jdt.launching_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.790<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.debug.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.core.expressions_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.compare_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.core.runtime.compatibility_[3.1.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.jdt.ui_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ui.ide_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.ui.workbench.texteditor_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.core.resources_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;      [java]      [java] !SUBENTRY 2 org.eclipse.jdt.junit 2 0 <br />
+&gt;&gt;&gt; 2008-01-03 17:19:02.806<br />
+&gt;&gt;&gt;      [java]      [java] !MESSAGE Missing required bundle <br />
+&gt;&gt;&gt; org.eclipse.jdt.core_[3.2.0,4.0.0).<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt; Roland Tepp wrote:<br />
+&gt;&gt;&gt;&gt; The build log is attached in this message - maybe someone can take a <br />
+&gt;&gt;&gt;&gt; look and see what might be wrong...<br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt; Roland Tepp kirjutas mulle  midagi seesugust:<br />
+&gt;&gt;&gt;&gt;&gt; Hello,<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I am trying hard to integrate my (JUnit4) plug-in tests into the <br />
+&gt;&gt;&gt;&gt;&gt; continuous build automation and followed to the letter all <br />
+&gt;&gt;&gt;&gt;&gt; instructions from the article on PDE Automation [1] and <br />
+&gt;&gt;&gt;&gt;&gt; testframework.html<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I got to the point where I can build the testing feature but when <br />
+&gt;&gt;&gt;&gt;&gt; launching the tests, the testing application just does not start...<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; I suspect the reason is that I might be missing some dependencies, <br />
+&gt;&gt;&gt;&gt;&gt; but no matter how much I look everything seems to be where it is <br />
+&gt;&gt;&gt;&gt;&gt; supposed to be...<br />
+&gt;&gt;&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&gt;&gt; [1] <br />
+&gt;&gt;&gt;&gt;&gt; <a href="http://www.eclipse.org/articles/Article-PDE-Automation/automation.html" target="_blank"> http://www.eclipse.org/articles/Article-PDE-Automation/autom ation.html</a><br />
+&gt;&gt;&gt;&gt;<br />
+&gt;&gt;<br />
+<br />
+-- <br />
+   Roland Tepp</span>
+
+
+<div class="SmallText"><p class="fr"><a href="index.php?t=report&amp;msg_id=323722&amp;" rel="nofollow">Report message to a moderator</a></p></div>
+</td></tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
+<td class="al nw"><a href="index.php?t=usrinfo&amp;id=13874&amp;"><img alt="" src="theme/Solstice/images/msg_about.gif" /></a>&nbsp;</td>
+<td class="GenText wa ac">&nbsp;</td>
+<td class="nw ar"><a href="index.php?t=post&amp;reply_to=323722&amp;"><img alt="" src="theme/Solstice/images/msg_reply.gif" /></a>&nbsp;<a href="index.php?t=post&amp;reply_to=323722&amp;quote=true&amp;"><img alt="" src="theme/Solstice/images/msg_quote.gif" /></a></td>
+</tr></table></td></tr>
+</table></td></tr></table>
+<form action="index.php?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms['post_form'].btn_submit.disabled = true;">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr><td class="MsgR1 fb MsgSubText"> Quick Reply</td></tr>
+<tr><td class="MsgR3" >
+	<table><tr class="RowStyleA"><td class="GenText nw">Formatting Tools:</td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a title="Bold" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, '[b]', '[/b]');"><img alt="" src="theme/Solstice/images/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Italics" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, '[i]', '[/i]');"><img alt="" src="theme/Solstice/images/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Underline" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, '[u]', '[/u]');"><img alt="" src="theme/Solstice/images/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Left" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=left]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Center" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=center]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Align Right" href="javascript: insertTag(document.post_form.msg_body, '[ALIGN=right]', '[/ALIGN]');"><img alt="" src="theme/Solstice/images/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert a Link" accesskey="w" href="javascript: url_insert();"><img alt="" src="theme/Solstice/images/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an E-mail address" accesskey="e" href="javascript: email_insert();"><img alt="" src="theme/Solstice/images/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Insert an image" accesskey="m" href="javascript: image_insert();"><img alt="" src="theme/Solstice/images/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add numbered list" accesskey="l" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/OL:1/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add bulleted list" href="javascript: window_open('https://www.eclipse.org/forums/index.php/mk/UL:square/', 'listmaker', 350, 350);"><img alt="" src="theme/Solstice/images/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Quote" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, '[quote]', '[/quote]');"><img alt="" src="theme/Solstice/images/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="Add Code" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, '[code]', '[/code]');"><img alt="" src="theme/Solstice/images/b_code.gif" /></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, '[size='+document.post_form.fnt_size.options[this.selectedIndex].value+']', '[/size]'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected="selected">Size</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, '[color='+document.post_form.fnt_color.options[this.selectedIndex].value+']', '[/color]'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">Color</option>
+<option value="skyblue" style="color:skyblue">Sky Blue</option>
+<option value="royalblue" style="color:royalblue">Royal Blue</option>
+<option value="blue" style="color:blue">Blue</option>
+<option value="darkblue" style="color:darkblue">Dark Blue</option>
+<option value="orange" style="color:orange">Orange</option>
+<option value="orangered" style="color:orangered">Orange Red</option>
+<option value="crimson" style="color:crimson">Crimson</option>
+<option value="red" style="color:red">Red</option>
+<option value="firebrick" style="color:firebrick">Firebrick</option>
+<option value="darkred" style="color:darkred">Dark Red</option>
+<option value="green" style="color:green">Green</option>
+<option value="limegreen" style="color:limegreen">Lime Green</option>
+<option value="seagreen" style="color:seagreen">Sea Green</option>
+<option value="deeppink" style="color:deeppink">Deep Pink</option>
+<option value="tomato" style="color:tomato">Tomato</option>
+<option value="coral" style="color:coral">Coral</option>
+<option value="purple" style="color:purple">Purple</option>
+<option value="indigo" style="color:indigo">Indigo</option>
+<option value="burlywood" style="color:burlywood">Burly Wood</option>
+<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
+<option value="sienna" style="color:sienna">Sienna</option>
+<option value="chocolate" style="color:chocolate">Chocolate</option>
+<option value="teal" style="color:teal">Teal</option>
+<option value="silver" style="color:silver">Silver</option>
+</select>
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, '[font='+document.post_form.fnt_face.options[this.selectedIndex].value+']', '[/font]'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">Font</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr></table>
+	<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+	<input type="hidden" name="submitted" value="" />
+	<input type="hidden" name="msg_subject" value="Re: [HELP] Eclipse plug-in testing automation for JUnit4" />
+	<input type="hidden" name="reply_to" value="323722" />
+	<input type="hidden" name="th_id" value="105900" />
+	<input type="hidden" name="frm_id" value="11" />
+	<input type="hidden" name="prev_loaded" value="1" />
+	<input type="hidden" name="msg_show_sig" value="Y" />
+	<input type="hidden" name="msg_poster_notif" value="" />
+</td></tr>
+<tr><td class="MsgToolBar" >
+	<input type="submit" accesskey="r" class="button" value="Preview Quick Reply" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="Post Quick Reply" onclick="javascript: document.post_form.submitted.value=1;" />
+</td></tr></table></td></tr></table>
+</form>
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+<td class="vt">&nbsp;</td>
+<td class="GenText ar vb nw"><a href="index.php/mv/tree/105900/"><img title="Switch to threaded view of this topic" alt="Switch to threaded view of this topic" src="theme/Solstice/images/tree_view.gif" /></a>&nbsp;<a href="index.php/r/frm_id/11/"><img alt="Create a new topic" src="theme/Solstice/images/new_thread.gif" /></a></td>
+</tr>
+</table>
+
+
+<table border="0" cellspacing="1" cellpadding="1" align="right">
+<tr><td class="ar GenText">Previous Topic:</td><td class="GenText al"><a href="index.php/m/323716/#msg_323716">Using Reflect API in JDT</a></td></tr>
+<tr><td class="GenText ar">Next Topic:</td><td class="GenText al"><a href="index.php/m/323731/#msg_323731">Creating a new project type and it's wizard in new --&gt;project --&gt; &lt;project_type&gt;</a></td></tr>
+</table>
+<form id="RateFrm" action="post">
+<select class="SmallText" onchange="if (this.value) topicVote(this.value, 105900, '', '9b5595f2b50813300781f4cde4e2380f');">
+<option>Rate Topic</option>
+<option value="1">1 Worst</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 Best</option>
+</select>
+</form>
+<span class="SmallText fb">Goto Forum:</span>
+<form action="index.php" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="thread" /><input type="hidden" name="SQ" value="9b5595f2b50813300781f4cde4e2380f" />
+<select class="SmallText" name="frm_id">
+<option disabled="disabled">- Newcomers</option><option value="89">&nbsp;&nbsp;Newcomers</option><option disabled="disabled">- Language IDEs</option><option value="77">&nbsp;&nbsp;AJDT</option><option value="305">&nbsp;&nbsp;Andmore</option><option value="80">&nbsp;&nbsp;C / C++ IDE (CDT)</option><option value="293">&nbsp;&nbsp;Che</option><option value="13">&nbsp;&nbsp;Java Development Tools (JDT)</option><option value="157">&nbsp;&nbsp;Objectteams</option><option value="227">&nbsp;&nbsp;Orion</option><option value="85">&nbsp;&nbsp;PHP Development Tools (PDT)</option><option value="251">&nbsp;&nbsp;Eclipse Web Tools Platform Project (WTP)</option><option value="88">&nbsp;&nbsp;ServerTools (WTP)</option><option disabled="disabled">- Modeling</option><option value="17">&nbsp;&nbsp;AMP</option><option value="182">&nbsp;&nbsp;Amalgam</option><option value="241">&nbsp;&nbsp;ATL</option><option value="43">&nbsp;&nbsp;BPEL Designer</option><option value="164">&nbsp;&nbsp;Compare</option><option value="165">&nbsp;&nbsp;Ecore Tools</option><option value="108">&nbsp;&nbsp;EMF</option><option value="19">&nbsp;&nbsp;EMF &quot;Technology&quot; (Ecore Tools, EMFatic, etc) </option><option value="22">&nbsp;&nbsp;Epsilon</option><option value="199">&nbsp;&nbsp;eTrice</option><option value="125">&nbsp;&nbsp;Extended Editing Framework (READ ONLY)</option><option value="248">&nbsp;&nbsp;Eclipse Generation Factories (EGF)</option><option value="16">&nbsp;&nbsp;GMF (Graphical Modeling Framework)</option><option value="187">&nbsp;&nbsp;Graphiti</option><option value="24">&nbsp;&nbsp;M2T (model-to-text transformation)</option><option value="110">&nbsp;&nbsp;MDT (Model Development Tools)</option><option value="107">&nbsp;&nbsp;Modeling (top-level project)</option><option value="26">&nbsp;&nbsp;OCL</option><option value="121">&nbsp;&nbsp;Papyrus</option><option value="27">&nbsp;&nbsp;TMF (Xtext)</option><option value="117">&nbsp;&nbsp;UML2</option><option value="118">&nbsp;&nbsp;UML2 Tools</option><option value="119">&nbsp;&nbsp;XSD</option><option value="21">&nbsp;&nbsp;MoDisco</option><option value="152">&nbsp;&nbsp;Presentation Modeling Framework (PMF)</option><option value="171">&nbsp;&nbsp;Sphinx</option><option value="147">&nbsp;&nbsp;VIATRA</option><option value="242">&nbsp;&nbsp;Model-to-Model Transformation</option><option value="244">&nbsp;&nbsp;QVT-OML</option><option value="243">&nbsp;&nbsp;QVT-Relations</option><option value="246">&nbsp;&nbsp;EMF Diff/Merge</option><option value="263">&nbsp;&nbsp;EMF Parsley</option><option value="321">&nbsp;&nbsp;Eclipse Layout Kernel</option><option disabled="disabled">- Eclipse Projects</option><option value="308">&nbsp;&nbsp;4DIAC - Framework for Distributed Industrial Automation and Control</option><option value="136">&nbsp;&nbsp;ACTF</option><option value="292">&nbsp;&nbsp;Advanced Scripting Environment (EASE)</option><option value="319">&nbsp;&nbsp;APP4MC</option><option value="42">&nbsp;&nbsp;Babel</option><option value="2">&nbsp;&nbsp;BIRT</option><option value="226">&nbsp;&nbsp;BPMN 2.0 Modeler</option><option value="112">&nbsp;&nbsp;Buckminster</option><option value="79">&nbsp;&nbsp;Buckminster dev</option><option value="309">&nbsp;&nbsp;Buildship</option><option value="284">&nbsp;&nbsp;Californium (Cf) CoAP Framework</option><option value="343">&nbsp;&nbsp;Capra</option><option value="313">&nbsp;&nbsp;ChemClipse</option><option value="301">&nbsp;&nbsp;Cloud Application Management Framework</option><option value="211">&nbsp;&nbsp;Code Recommenders</option><option value="249">&nbsp;&nbsp;Code Recommenders Incubator</option><option value="91">&nbsp;&nbsp;Commercial</option><option value="275">&nbsp;&nbsp;Common Build Infrastructure</option><option value="268">&nbsp;&nbsp;Concierge</option><option value="113">&nbsp;&nbsp;Dali</option><option value="254">&nbsp;&nbsp;Damos</option><option value="46">&nbsp;&nbsp;Dash</option><option value="311">&nbsp;&nbsp;Dirigible</option><option value="6">&nbsp;&nbsp;DSDP - Mobile Tools for Java (MTJ)</option><option value="8">&nbsp;&nbsp;DSDP - Real-Time Software Components (RTSC)</option><option value="9">&nbsp;&nbsp;DSDP - Target Management</option><option value="3">&nbsp;&nbsp;DTP</option><option value="47">&nbsp;&nbsp;Dynamic Languages Toolkit (DLTK)</option><option value="259">&nbsp;&nbsp;e(fx)clipse</option><option value="267">&nbsp;&nbsp;EATOP</option><option value="12">&nbsp;&nbsp;Eclipse 4</option><option value="330">&nbsp;&nbsp;Eclipse Advanced Visualization</option><option value="359">&nbsp;&nbsp;Eclipse Agail</option><option value="401">&nbsp;&nbsp;Eclipse Apogy</option><option value="383">&nbsp;&nbsp;Eclipse Basyx</option><option value="385">&nbsp;&nbsp;Eclipse Bridge.IoT</option><option value="261">&nbsp;&nbsp;Eclipse Bundle Recipes</option><option value="376">&nbsp;&nbsp;Eclipse Ceylon</option><option value="388">&nbsp;&nbsp;Eclipse CogniCrypt</option><option value="329">&nbsp;&nbsp;Eclipse Collections</option><option value="99">&nbsp;&nbsp;Eclipse Communications Framework (ECF)</option><option value="403">&nbsp;&nbsp;Eclipse Corrosion</option><option value="389">&nbsp;&nbsp;Eclipse Crossmeter</option><option value="390">&nbsp;&nbsp;Eclipse Cyclone DDS</option><option value="387">&nbsp;&nbsp;Eclipse Deeplearning4j</option><option value="364">&nbsp;&nbsp;Eclipse Ditto</option><option value="382">&nbsp;&nbsp;Eclipse Duttile</option><option value="342">&nbsp;&nbsp;Eclipse EclEmma</option><option value="384">&nbsp;&nbsp;Eclipse Enterprise for Java</option><option value="426">&nbsp;&nbsp;Eclipse fog05</option><option value="332">&nbsp;&nbsp;Eclipse Formal Modeling </option><option value="397">&nbsp;&nbsp;Eclipse Grizzly</option><option value="442">&nbsp;&nbsp;Eclipse Hawk</option><option value="416">&nbsp;&nbsp;Eclipse HIP</option><option value="437">&nbsp;&nbsp;Eclipse Implementation of JAXB</option><option value="353">&nbsp;&nbsp;Eclipse ioFog</option><option value="432">&nbsp;&nbsp;Eclipse Jakarta EE Platform</option><option value="427">&nbsp;&nbsp;Eclipse Jakarta EE TCK</option><option value="335">&nbsp;&nbsp;Eclipse January</option><option value="351">&nbsp;&nbsp;Eclipse JDT LS</option><option value="392">&nbsp;&nbsp;Eclipse Jersey</option><option value="362">&nbsp;&nbsp;Eclipse JNoSQL</option><option value="340">&nbsp;&nbsp;Eclipse Kapua</option><option value="446">&nbsp;&nbsp;Eclipse Keyple</option><option value="447">&nbsp;&nbsp;Eclipse Krazo</option><option value="386">&nbsp;&nbsp;Eclipse Kuksa</option><option value="355">&nbsp;&nbsp;Eclipse LSP4E</option><option value="345">&nbsp;&nbsp;Eclipse LSP4J</option><option value="438">&nbsp;&nbsp;Eclipse Metro</option><option value="363">&nbsp;&nbsp;Eclipse Microprofile</option><option value="336">&nbsp;&nbsp;Eclipse Milo</option><option value="394">&nbsp;&nbsp;Eclipse Mojarra</option><option value="365">&nbsp;&nbsp;Eclipse N4JS</option><option value="338">&nbsp;&nbsp;Eclipse Open Standard Business Platform</option><option value="381">&nbsp;&nbsp;Eclipse OpenJ9</option><option value="439">&nbsp;&nbsp;Eclipse openK User Modules</option><option value="399">&nbsp;&nbsp;Eclipse OpenMQ</option><option value="440">&nbsp;&nbsp;Eclipse ORB</option><option value="339">&nbsp;&nbsp;Eclipse Papyrus for xtUML</option><option value="449">&nbsp;&nbsp;Eclipse Passage</option><option value="378">&nbsp;&nbsp;Eclipse Picasso</option><option value="11" selected="selected">&nbsp;&nbsp;Eclipse Platform</option><option value="407">&nbsp;&nbsp;Eclipse Project for Common Annotations</option><option value="408">&nbsp;&nbsp;Eclipse Project for Concurrency Utilities</option><option value="425">&nbsp;&nbsp;Eclipse Project for EJB</option><option value="410">&nbsp;&nbsp;Eclipse Project for Enterprise Security</option><option value="409">&nbsp;&nbsp;Eclipse Project for Expression Language</option><option value="429">&nbsp;&nbsp;Eclipse Project for Interceptors</option><option value="417">&nbsp;&nbsp;Eclipse Project for JACC</option><option value="433">&nbsp;&nbsp;Eclipse Project for JAF</option><option value="424">&nbsp;&nbsp;Eclipse Project for JASPIC</option><option value="411">&nbsp;&nbsp;Eclipse Project for JavaMail</option><option value="391">&nbsp;&nbsp;Eclipse Project for JAX-RS</option><option value="435">&nbsp;&nbsp;Eclipse Project for JAX-WS</option><option value="434">&nbsp;&nbsp;Eclipse Project for JAXB</option><option value="428">&nbsp;&nbsp;Eclipse Project for JCA</option><option value="398">&nbsp;&nbsp;Eclipse Project for JMS</option><option value="441">&nbsp;&nbsp;Eclipse Project for JPA</option><option value="393">&nbsp;&nbsp;Eclipse Project for JSON Processing</option><option value="412">&nbsp;&nbsp;Eclipse Project for JSON-B</option><option value="420">&nbsp;&nbsp;Eclipse Project for JSP</option><option value="413">&nbsp;&nbsp;Eclipse Project for JSTL</option><option value="414">&nbsp;&nbsp;Eclipse Project for JTA</option><option value="421">&nbsp;&nbsp;Eclipse Project for Servlet</option><option value="423">&nbsp;&nbsp;Eclipse Project for Stable Jakarta EE APIs</option><option value="396">&nbsp;&nbsp;Eclipse Project for WebSocket</option><option value="366">&nbsp;&nbsp;Eclipse RedDeer</option><option value="327">&nbsp;&nbsp;Eclipse Rich Beans</option><option value="28">&nbsp;&nbsp;Eclipse RT (runtime)</option><option value="266">&nbsp;&nbsp;Eclipse SCADA</option><option value="350">&nbsp;&nbsp;Eclipse Scanning</option><option value="367">&nbsp;&nbsp;Eclipse sensiNact</option><option value="354">&nbsp;&nbsp;Eclipse sim@openPASS</option><option value="271">&nbsp;&nbsp;Eclipse SmartHome</option><option value="443">&nbsp;&nbsp;Eclipse Sprotty</option><option value="352">&nbsp;&nbsp;Eclipse SW360</option><option value="436">&nbsp;&nbsp;Eclipse SW360antenna</option><option value="445">&nbsp;&nbsp;Eclipse SWTChart</option><option value="368">&nbsp;&nbsp;Eclipse SystemFOCUS</option><option value="430">&nbsp;&nbsp;Eclipse Tahu</option><option value="370">&nbsp;&nbsp;Eclipse TEA</option><option value="360">&nbsp;&nbsp;Eclipse TeXlipse</option><option value="418">&nbsp;&nbsp;Eclipse Theia</option><option value="402">&nbsp;&nbsp;Eclipse ThingWeb</option><option value="297">&nbsp;&nbsp;Eclipse Titan</option><option value="361">&nbsp;&nbsp;Eclipse TM4E</option><option value="395">&nbsp;&nbsp;Eclipse Tyrus</option><option value="278">&nbsp;&nbsp;Eclipse UML Generators</option><option value="258">&nbsp;&nbsp;Eclipse UML Profiles Repository</option><option value="349">&nbsp;&nbsp;Eclipse USS SDK</option><option value="431">&nbsp;&nbsp;Eclipse VOLTTRON</option><option value="70">&nbsp;&nbsp;Eclipse Website</option><option value="337">&nbsp;&nbsp;Eclipse Whiskers</option><option value="444">&nbsp;&nbsp;Eclipse Wild Web Developer</option><option value="375">&nbsp;&nbsp;Eclipse XACC</option><option value="379">&nbsp;&nbsp;Eclipse Xpect</option><option value="380">&nbsp;&nbsp;Eclipse Xsemantics</option><option value="356">&nbsp;&nbsp;Eclipse Yasson</option><option value="111">&nbsp;&nbsp;EclipseLink</option><option value="306">&nbsp;&nbsp;eGerrit</option><option value="48">&nbsp;&nbsp;EGit / JGit</option><option value="373">&nbsp;&nbsp;eLogbook@openk</option><option value="49">&nbsp;&nbsp;EPF</option><option value="69">&nbsp;&nbsp;EPP</option><option value="31">&nbsp;&nbsp;Equinox</option><option value="33">&nbsp;&nbsp;eRCP</option><option value="282">&nbsp;&nbsp;Flux</option><option value="322">&nbsp;&nbsp;Franca</option><option value="264">&nbsp;&nbsp;Fundamental Modeling Concepts</option><option value="81">&nbsp;&nbsp;GEF</option><option value="52">&nbsp;&nbsp;GEF3D</option><option value="153">&nbsp;&nbsp;Gemini</option><option value="369">&nbsp;&nbsp;GEMOC Studio</option><option value="286">&nbsp;&nbsp;Gendoc</option><option value="419">&nbsp;&nbsp;GlassFish</option><option value="422">&nbsp;&nbsp;GlassFish Tools</option><option value="315">&nbsp;&nbsp;Golo</option><option value="277">&nbsp;&nbsp;Handly</option><option value="328">&nbsp;&nbsp;hawkBit</option><option value="331">&nbsp;&nbsp;Hono</option><option value="229">&nbsp;&nbsp;Hudson</option><option value="347">&nbsp;&nbsp;Ignite</option><option value="346">&nbsp;&nbsp;Ignite|IoT</option><option value="372">&nbsp;&nbsp;IoT-Testware</option><option value="198">&nbsp;&nbsp;Java Workflow Tooling</option><option value="59">&nbsp;&nbsp;Java WorkFlow Tooling (JWT)</option><option value="148">&nbsp;&nbsp;JavaServer Faces</option><option value="357">&nbsp;&nbsp;JDT LS</option><option value="15">&nbsp;&nbsp;JFace</option><option value="208">&nbsp;&nbsp;Jubula</option><option value="371">&nbsp;&nbsp;Keti</option><option value="273">&nbsp;&nbsp;Kura</option><option value="212">&nbsp;&nbsp;Libra</option><option value="250">&nbsp;&nbsp;Linux Tools</option><option value="60">&nbsp;&nbsp;Linux Tools Project</option><option value="404">&nbsp;&nbsp;LSPHub</option><option value="221">&nbsp;&nbsp;Lua Development Tools</option><option value="228">&nbsp;&nbsp;Lyo</option><option value="161">&nbsp;&nbsp;Mangrove</option><option value="176">&nbsp;&nbsp;Marketplace Client Project</option><option value="245">&nbsp;&nbsp;Maven Integration for Web Tools Platform</option><option value="276">&nbsp;&nbsp;Mbeddr</option><option value="317">&nbsp;&nbsp;MDM|BL</option><option value="186">&nbsp;&nbsp;Memory Analyzer</option><option value="405">&nbsp;&nbsp;Mita</option><option value="323">&nbsp;&nbsp;Model Driven Health Tools</option><option value="236">&nbsp;&nbsp;Model Focusing Tools</option><option value="270">&nbsp;&nbsp;Mosquitto</option><option value="83">&nbsp;&nbsp;Mylyn</option><option value="206">&nbsp;&nbsp;Mylyn Builds</option><option value="448">&nbsp;&nbsp;Mylyn Context</option><option value="219">&nbsp;&nbsp;Mylyn Intent</option><option value="205">&nbsp;&nbsp;Mylyn Versions</option><option value="240">&nbsp;&nbsp;NatTable</option><option value="64">&nbsp;&nbsp;Nebula</option><option value="279">&nbsp;&nbsp;Ogee</option><option value="280">&nbsp;&nbsp;OM2M</option><option value="333">&nbsp;&nbsp;OMR</option><option value="287">&nbsp;&nbsp;Oomph</option><option value="312">&nbsp;&nbsp;openK platform</option><option value="84">&nbsp;&nbsp;Orbit</option><option value="68">&nbsp;&nbsp;OSEE</option><option value="195">&nbsp;&nbsp;P2</option><option value="318">&nbsp;&nbsp;Package Drone</option><option value="247">&nbsp;&nbsp;Paho</option><option value="307">&nbsp;&nbsp;Paho Incubator</option><option value="314">&nbsp;&nbsp;Papyrus for Real Time</option><option value="116">&nbsp;&nbsp;Platform - User Assistance (UA)</option><option value="14">&nbsp;&nbsp;Plugin Development Environment (PDE)</option><option value="272">&nbsp;&nbsp;Ponte</option><option value="406">&nbsp;&nbsp;RasterFrames</option><option value="281">&nbsp;&nbsp;RCP Testing Tool</option><option value="316">&nbsp;&nbsp;RDF4J</option><option value="34">&nbsp;&nbsp;Remote Application Platform (RAP)</option><option value="166">&nbsp;&nbsp;Remus Information Management</option><option value="230">&nbsp;&nbsp;Requirements Modeling Framework </option><option value="106">&nbsp;&nbsp;Rich Client Platform (RCP)</option><option value="35">&nbsp;&nbsp;Riena</option><option value="310">&nbsp;&nbsp;RISE V2G</option><option value="213">&nbsp;&nbsp;Runtime Packaging</option><option value="131">&nbsp;&nbsp;Runtimes</option><option value="192">&nbsp;&nbsp;Sapphire</option><option value="358">&nbsp;&nbsp;Scanning</option><option value="174">&nbsp;&nbsp;scout</option><option value="36">&nbsp;&nbsp;SeMantic Information Logistics Architecture (SMILA)</option><option value="163">&nbsp;&nbsp;Service Oriented Architecture</option><option value="96">&nbsp;&nbsp;Simultaneous release</option><option value="262">&nbsp;&nbsp;Sirius</option><option value="232">&nbsp;&nbsp;Sisu</option><option value="215">&nbsp;&nbsp;Skalli</option><option value="415">&nbsp;&nbsp;Soteria</option><option value="72">&nbsp;&nbsp;Spatiotemporal Epidemiological Modeler (STEM)</option><option value="100">&nbsp;&nbsp;Standard Widget Toolkit (SWT)</option><option value="73">&nbsp;&nbsp;Subversive</option><option value="74">&nbsp;&nbsp;SWTBot</option><option value="260">&nbsp;&nbsp;Target Communication Framework</option><option value="210">&nbsp;&nbsp;Target Management</option><option value="39">&nbsp;&nbsp;Technology Project and PMC</option><option value="291">&nbsp;&nbsp;The Eclipse Integrated Computational Environment</option><option value="288">&nbsp;&nbsp;Thym</option><option value="75">&nbsp;&nbsp;Tigerstripe</option><option value="324">&nbsp;&nbsp;tinydtls</option><option value="320">&nbsp;&nbsp;Tools for Cloud Foundry</option><option value="299">&nbsp;&nbsp;Trace Compass</option><option value="325">&nbsp;&nbsp;Triquetrum</option><option value="146">&nbsp;&nbsp;Turkish Users</option><option value="348">&nbsp;&nbsp;Unide</option><option value="197">&nbsp;&nbsp;UOMo</option><option value="265">&nbsp;&nbsp;Vert.x</option><option value="235">&nbsp;&nbsp;Vex</option><option value="159">&nbsp;&nbsp;Virgo</option><option value="303">&nbsp;&nbsp;Vorto</option><option value="285">&nbsp;&nbsp;Wakaama</option><option value="114">&nbsp;&nbsp;Webtools incubator</option><option value="214">&nbsp;&nbsp;WindowBuilder</option><option value="18">&nbsp;&nbsp;XML Schema Definition (XSD)</option><option value="257">&nbsp;&nbsp;XWT</option><option disabled="disabled">- General (non-technical)</option><option value="92">&nbsp;&nbsp;Eclipse Foundation</option><option value="202">&nbsp;&nbsp;Project Proposals</option><option value="94">&nbsp;&nbsp;Jobs and employment</option><option value="158">&nbsp;&nbsp;Polish users</option><option value="97">&nbsp;&nbsp;Test</option><option disabled="disabled">- Eclipse Working Groups</option><option value="256">&nbsp;&nbsp;Automotive IWG</option><option value="295">&nbsp;&nbsp;Science WG</option><option disabled="disabled">- Proposals</option><option value="200">&nbsp;&nbsp;OSGi Enterprise Tools</option><option value="290">&nbsp;&nbsp;Eclipse Advanced Scripting Environment (EASE)</option><option value="300">&nbsp;&nbsp;DAWNSci</option><option value="374">&nbsp;&nbsp;Eclipse Sumo</option><option disabled="disabled">- Archived</option><option value="191">&nbsp;&nbsp;Potomac</option><option value="149">&nbsp;&nbsp;B3</option><option value="326">&nbsp;&nbsp;Tiaki</option><option value="127">&nbsp;&nbsp;MOFScript</option><option value="177">&nbsp;&nbsp;secRT</option><option value="274">&nbsp;&nbsp;Chinese users</option><option value="120">&nbsp;&nbsp;AMW</option><option value="78">&nbsp;&nbsp;ATF</option><option value="90">&nbsp;&nbsp;Board committer reps </option><option value="5">&nbsp;&nbsp;Blinki</option><option value="144">&nbsp;&nbsp;COBOL</option><option value="98">&nbsp;&nbsp;Pulsar</option><option value="40">&nbsp;&nbsp;Albireo</option><option value="223">&nbsp;&nbsp;Apricot</option><option value="184">&nbsp;&nbsp;Service Oriented Architecture</option><option value="109">&nbsp;&nbsp;GMT (Generative Modeling Technologies)</option><option value="57">&nbsp;&nbsp;IDE4EDU</option><option value="105">&nbsp;&nbsp;AM3</option><option value="102">&nbsp;&nbsp;openArchitectureWare</option><option value="37">&nbsp;&nbsp;BPMN Modeler</option><option value="209">&nbsp;&nbsp;EMF Store</option><option value="207">&nbsp;&nbsp;EMF Client</option><option value="41">&nbsp;&nbsp;Apogee</option><option value="140">&nbsp;&nbsp;C-Sharp</option><option value="44">&nbsp;&nbsp;Corona</option><option value="82">&nbsp;&nbsp;Hibachi</option><option value="53">&nbsp;&nbsp;Glimmer</option><option value="63">&nbsp;&nbsp;Maynstall</option><option value="123">&nbsp;&nbsp;DSDP - Device Debugging</option><option value="7">&nbsp;&nbsp;DSDP - Native Application Builder (NAB)</option><option value="170">&nbsp;&nbsp;eBPM</option><option value="67">&nbsp;&nbsp;ORMF</option><option value="169">&nbsp;&nbsp;eBAM</option><option value="10">&nbsp;&nbsp;DSDP - Tools for Mobile Linux (TML)</option><option value="377">&nbsp;&nbsp;Eclipse aCute</option><option value="71">&nbsp;&nbsp;Spaces</option><option value="179">&nbsp;&nbsp;ScalaModules</option><option value="86">&nbsp;&nbsp;Visual Editor (VE)</option><option value="135">&nbsp;&nbsp;Textual Concrete Syntax (TCS)</option><option value="32">&nbsp;&nbsp;P2 dev</option><option value="181">&nbsp;&nbsp;Cloud Deployment Toolkit</option><option value="62">&nbsp;&nbsp;Memory Analyzer (MAT)</option><option value="4">&nbsp;&nbsp;DSDP</option><option value="45">&nbsp;&nbsp;COSMOS</option><option value="172">&nbsp;&nbsp;Esl</option><option value="65">&nbsp;&nbsp;OFMP</option><option value="50">&nbsp;&nbsp;Faceted Project Framework</option><option value="145">&nbsp;&nbsp;UMLX</option><option value="56">&nbsp;&nbsp;IAM (Eclipse Integration for Apache Maven)</option><option value="23">&nbsp;&nbsp;M2M (model-to-model transformation)</option><option value="66">&nbsp;&nbsp;OHF</option><option value="183">&nbsp;&nbsp;Tycho</option><option value="175">&nbsp;&nbsp;Sketch</option><option value="58">&nbsp;&nbsp;IMP</option><option value="51">&nbsp;&nbsp;g-Eclipse</option><option value="150">&nbsp;&nbsp;Eclipse Examples</option><option value="255">&nbsp;&nbsp;EMF-IncQuery</option><option value="225">&nbsp;&nbsp;Eclipse Process Manager (Stardust)</option><option value="133">&nbsp;&nbsp;Swordfish</option><option value="61">&nbsp;&nbsp;Maven Integration (M2E)</option><option value="296">&nbsp;&nbsp;Koneki</option><option value="253">&nbsp;&nbsp;Mihini</option><option value="87">&nbsp;&nbsp;Test and Performance Tools Platform (TPTP)</option><option value="76">&nbsp;&nbsp;Voicetools</option><option value="162">&nbsp;&nbsp;Sequoyah</option><option value="239">&nbsp;&nbsp;Xtend</option><option value="141">&nbsp;&nbsp;Eclipse Monkey Project</option><option value="220">&nbsp;&nbsp;Runtime Analysis Tools</option><option value="185">&nbsp;&nbsp;Service Oriented Architecture</option><option value="126">&nbsp;&nbsp;GEMS</option><option value="129">&nbsp;&nbsp;WTP - PAVE</option><option value="103">&nbsp;&nbsp;Service Oriented Architecture Tools Platform (STP)</option><option value="25">&nbsp;&nbsp;MST</option><option value="128">&nbsp;&nbsp;OMCW</option><option value="132">&nbsp;&nbsp;Silverlight Development Toolkit (SLDT)</option><option value="167">&nbsp;&nbsp;Woolsey</option><option value="269">&nbsp;&nbsp;Winery</option><option value="55">&nbsp;&nbsp;Higgins</option><option value="190">&nbsp;&nbsp;EGL Development Tools</option><option value="38">&nbsp;&nbsp;Service Component Architecture (SCA) Tools</option><option value="237">&nbsp;&nbsp;Wazaabi</option><option value="298">&nbsp;&nbsp;MDM WEB</option><option value="283">&nbsp;&nbsp;Krikkit</option><option value="54">&nbsp;&nbsp;Gyrex</option><option value="341">&nbsp;&nbsp;StatET</option><option value="334">&nbsp;&nbsp;Edje</option>
+</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="Go" /></form>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">Back to Top</a> [=-</div>
+<div class="ar SmallText">[ <a href="index.php/h/boardusage/#syndicate">Syndicate this forum (XML)</a> ] [ <a href="feed.php?mode=m&amp;th=105900&amp;basic=1"><img src="theme/Solstice/images/rss.gif" title="Syndicate this forum (XML)" alt="RSS" /></a> ] </div>
+<br /><div class="ac"><span class="curtime"><b>Current Time:</b> Tue Dec 18 11:19:00 GMT 2018</span></div>
+<br /><div class="SmallText al">Powered by <a href="http://fudforum.org" target="_blank">FUDForum</a>. Page generated in 0.02137 seconds</div><script type="text/javascript">
+/* <![CDATA[ */
+min_max_posts('theme/Solstice/images', '.png', 'Minimize Message', 'Maximize Message');
+format_code('Code:', 'Select all', 'Show/ hide');
+/* ]]> */
+</script>
+</td>
+                        <!-- <td class="ForumBackground" valign="top"></td> -->
+                     </tr>
+                  </table>
+               </div>
+               <div class="ForumBackground ac foot">
+                  <b>.::</b> <a href="mailto:webmaster@eclipse.org">Contact</a> <b>::</b> <a href="index.php?t=index&amp;">Home</a> <b>::.</b>
+                  <p>
+                     <span class="SmallText">Powered by: FUDforum 3.0.2.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a></span>
+                  </p>
+               </div>
+         </main>
+         </div>
+         <p id="back-to-top">
+            <a class="visible-xs" href="#top">Back to the top</a>
+         </p>
+         <!-- Sign Up to our Newsletter -->
+         <div class="featured-footer featured-footer-newsletter background-secondary">
+            <div class="container">
+               <p><i data-feather="mail" stroke-width="1"></i></p>
+               <h2>Sign up to our Newsletter</h2>
+               <p>A fresh new issue delivered monthly</p>
+               <form action="https://www.eclipse.org/donate/process.php" method="post" target="_blank">
+                  <div class="form-group">
+                     <input type="hidden" name="type" value="newsletter">
+                     <input type="email" value="" name="email" class="textfield-underline form-control" id="mce-EMAIL" placeholder="Email">
+                  </div>
+                  <input type="submit" value="Subscribe" name="subscribe" class="button btn btn-warning">
+               </form>
+            </div>
+         </div>
+         <footer id="solstice-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <section class="col-sm-6 hidden-print" id="footer-eclipse-foundation">
+                     <h2 class="section-title">Eclipse Foundation</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/org/">About Us</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+                        <li><a href="https://www.eclipse.org/donate">Donate</a></li>
+                        <li><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+                        <li><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+                        <li><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-legal">
+                     <h2 class="section-title">Legal</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+                        <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+                        <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+                        <li><a href="https://www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+                        <li><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-useful-links">
+                     <h2 class="section-title">Useful Links</h2>
+                     <ul class="nav">
+                        <li><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+                        <li><a href="//help.eclipse.org/">Documentation</a></li>
+                        <li><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+                        <li><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+                        <li><a href="https://www.eclipse.org/forums/">Forums</a></li>
+                        <li><a href="//marketplace.eclipse.org">Marketplace</a></li>
+                     </ul>
+                  </section>
+                  <section class="col-sm-6 hidden-print" id="footer-other">
+                     <h2 class="section-title">Other</h2>
+                     <ul class="nav">
+                        <li><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+                        <li><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+                        <li><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+                        <li><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+                        <li><a href="https://status.eclipse.org">Service Status</a></li>
+                     </ul>
+                  </section>
+                  <div class="col-sm-24 margin-top-20">
+                     <div class="row">
+                        <div id="copyright" class="col-md-16">
+                           <p id="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-8 social-media">
+                           <ul class="list-inline">
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://twitter.com/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-twitter fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://plus.google.com/+Eclipse">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-google-plus fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.facebook.com/eclipse.org">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-facebook fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.youtube.com/user/EclipseFdn">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-youtube fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="social-media-link fa-stack fa-lg" href="https://www.linkedin.com/company/eclipse-foundation">
+                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                 <i class="fa fa-linkedin fa-stack-1x"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" class="scrollup">Back to the top</a>
+               </div>
+            </div>
+         </footer>
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js"></script>
+   </body>
+</html>
